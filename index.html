@@ -288,6 +288,18 @@ body{padding-top:0}
 @media (max-width:350px){.page:not(#home) .hd nav a.bk{padding:14px 4px}}
 /* 2.11: the menu on the home page sits exactly where it sits on the inner pages (it was 8 px lower on laptops, 4 px higher on tablets) */
 @media (min-width:721px){#home .sheet{padding-top:28px}}
+/* 2.12: loading — wherever something takes time, it shows.
+   Waiting for free times: the line is bold, in the accent colour, with three small dots lighting up one after another.
+   Sending (booking, question): the button says «در حال ثبت…» and a thin accent line runs under its label. */
+button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
+button[data-busy]::after{content:"";position:absolute;bottom:0;left:0;height:3px;width:34%;background:var(--ochre);animation:ldLine 1.1s ease-in-out infinite alternate}
+@keyframes ldLine{from{left:0}to{left:66%}}
+.bbox .none.ld,.none.ld,.post.emb blockquote.instagram-media::before{font-family:"EpsB";color:var(--ochre)}
+.none.ld::after,.post.emb blockquote.instagram-media::after{content:"";display:inline-block;width:3px;height:3px;margin-right:7px;vertical-align:middle;background:var(--ochre);box-shadow:-6px 0 transparent,-12px 0 transparent;animation:ldDots 1.2s steps(1) infinite}
+@keyframes ldDots{0%{box-shadow:-6px 0 transparent,-12px 0 transparent}33%{box-shadow:-6px 0 var(--ochre),-12px 0 transparent}66%{box-shadow:-6px 0 var(--ochre),-12px 0 var(--ochre)}}
+.post.emb blockquote.instagram-media{font-size:0}
+.post.emb blockquote.instagram-media::before{content:"در حال بارگیری";font-size:13.5px}
+@media (prefers-reduced-motion:reduce){button[data-busy]::after{animation:none;width:100%}.none.ld::after{animation:none;box-shadow:-6px 0 var(--ochre),-12px 0 var(--ochre)}}
 /* ---- windows: the same structure as version 1.0 ---- */
 .nb .pl .cbox h2{font-size:18px}.qm{position:fixed;inset:0;z-index:50;background:rgba(23,47,150,.16);display:flex;align-items:center;justify-content:center;padding:16px;animation:op .2s ease}
 .qm[hidden]{display:none}
@@ -648,7 +660,7 @@ function off(z){try{const p=new Intl.DateTimeFormat('en-US',{timeZone:z,timeZone
 
 let G={};const dS=document.getElementById('bday'),tS=document.getElementById('btime');
 function render(){const now=Date.now()+LEAD_MS;G={};slotList().filter(d=>d>now).sort((a,b)=>a-b).forEach(d=>{const k=dF.format(d);(G[k]=G[k]||[]).push(d)});
- const ks=Object.keys(G);const nn=document.getElementById('bnone');nn.textContent=((SCRIPT_URL||(GCAL.id&&GCAL.key))&&!GC)?'در حال بارگیریِ زمان‌ها…':GCerr?'زمان‌ها بارگیری نشد؛ لطفاً از تلگرام یا ایمیل پیام دهید.':'فعلاً زمانِ خالی‌ای برای انتخاب نیست.';nn.hidden=!!ks.length;box.hidden=!ks.length;
+ const ks=Object.keys(G);const nn=document.getElementById('bnone');const ldg=!!((SCRIPT_URL||(GCAL.id&&GCAL.key))&&!GC);nn.classList.toggle('ld',ldg);nn.textContent=ldg?'در حال بارگیریِ زمان‌ها':GCerr?'زمان‌ها بارگیری نشد؛ لطفاً از تلگرام یا ایمیل پیام دهید.':'فعلاً زمانِ خالی‌ای برای انتخاب نیست.';nn.hidden=!!ks.length;box.hidden=!ks.length;
  dS.innerHTML='<option value="" selected disabled>روز جلسه</option>'+ks.map(k=>`<option>${k}</option>`).join('');
  tS.innerHTML='<option value="" selected disabled>ساعت جلسه</option>';tS.disabled=true;hid.value='';iso.value='';tS.classList.remove('has');tOv.innerHTML='';tS.style.paddingRight='';tS.style.textAlign='';tS.style.textAlignLast='';}
 dS.addEventListener('change',()=>{const L=G[dS.value]||[];tS.innerHTML='<option value="" selected disabled>ساعت جلسه</option>'+L.map(d=>`<option value="${d.toISOString()}">${tF.format(d)}</option>`).join('');tS.disabled=!L.length;hid.value='';iso.value='';tS.classList.remove('has');tOv.innerHTML='';tS.style.paddingRight='';tS.style.textAlign='';tS.style.textAlignLast='';err.hidden=true;});
@@ -740,5 +752,11 @@ const em=document.getElementById('bem');em&&em.addEventListener('input',()=>{con
   const vh=(window.visualViewport&&visualViewport.height)||innerHeight;const b=c.getBoundingClientRect().bottom;
   if(b>vh-12)window.scrollTo({top:scrollY+b-vh+28,behavior:'smooth'});};
  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(()=>setTimeout(go,350));})();
+</script>
+<script>
+/* 2.12: a submit button that is busy says so (see the loading CSS) */
+(function(){const set=b=>{if(b.disabled){if(!b.dataset.label)b.dataset.label=b.textContent;b.textContent='در حال ثبت…';b.setAttribute('data-busy','');b.setAttribute('aria-busy','true');}
+ else if(b.hasAttribute('data-busy')){b.removeAttribute('data-busy');b.removeAttribute('aria-busy');b.textContent=b.dataset.label;}};
+ document.querySelectorAll('#bf button[type=submit],#qf button[type=submit]').forEach(b=>new MutationObserver(()=>set(b)).observe(b,{attributes:true,attributeFilter:['disabled']}));})();
 </script>
 </body></html>

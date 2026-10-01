@@ -286,6 +286,8 @@ body{padding-top:0}
  .page:not(#home) .hd nav a.bk[aria-current="page"]::after{display:none}
 }
 @media (max-width:350px){.page:not(#home) .hd nav a.bk{padding:14px 4px}}
+/* 2.11: the menu on the home page sits exactly where it sits on the inner pages (it was 8 px lower on laptops, 4 px higher on tablets) */
+@media (min-width:721px){#home .sheet{padding-top:28px}}
 /* ---- windows: the same structure as version 1.0 ---- */
 .nb .pl .cbox h2{font-size:18px}.qm{position:fixed;inset:0;z-index:50;background:rgba(23,47,150,.16);display:flex;align-items:center;justify-content:center;padding:16px;animation:op .2s ease}
 .qm[hidden]{display:none}

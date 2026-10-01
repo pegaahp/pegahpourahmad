@@ -637,11 +637,14 @@ const FREE_WORDS=["free","فری","خالی"];
 const SCRIPT_URL="https://script.google.com/macros/s/AKfycbwnD0VtCaNT4zQyTtXyxfswhReCAKc6MyWBjhZYvqRfE-AIbM2_9eOU9B8NgdHoyqmP/exec";
 const LEAD_MS=24*3600e3;   /* زمانی که کمتر از ۲۴ ساعت به آن مانده نشان داده و پذیرفته نمی‌شود */
 let GC=null,GCerr=false,GCload=false;
-function gcLoad(cb){if(SCRIPT_URL){if(GC||GCload)return cb();GCload=true;GCerr=false;const get=n=>fetchT(SCRIPT_URL+'?a=slots'+(n?'&r='+n:''),{},15000).then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{if(!j||!j.ok)throw 0;return j});/* 2.9: اگر بارِ اول جواب نیامد، یک بارِ دیگر */get(0).catch(()=>get(1)).then(j=>{GC=(j.slots||[]).map(x=>new Date(x)).filter(d=>!isNaN(d));}).catch(()=>{GCerr=true;GC=[];}).finally(()=>{GCload=false;cb();});return;}
- if(!GCAL.id||!GCAL.key)return cb();if(GC||GCload)return cb();GCload=true;
+const GCq=[];   /* 2.14: whoever is waiting for the free times is told when they arrive */
+function gcLoad(cb){if(SCRIPT_URL){if(GC)return cb();if(GCload){GCq.push(cb);return cb();}GCload=true;GCerr=false;const get=n=>fetchT(SCRIPT_URL+'?a=slots'+(n?'&r='+n:''),{},15000).then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{if(!j||!j.ok)throw 0;return j});/* 2.9: اگر بارِ اول جواب نیامد، یک بارِ دیگر */get(0).catch(()=>get(1)).then(j=>{GC=(j.slots||[]).map(x=>new Date(x)).filter(d=>!isNaN(d));}).catch(()=>{GCerr=true;GC=[];}).finally(()=>{GCload=false;cb();GCq.splice(0).forEach(f=>f());});return;}
+ if(!GCAL.id||!GCAL.key)return cb();if(GC)return cb();if(GCload){GCq.push(cb);return cb();}GCload=true;
  const u='https://www.googleapis.com/calendar/v3/calendars/'+encodeURIComponent(GCAL.id)+'/events?singleEvents=true&orderBy=startTime&maxResults=250&timeMin='+encodeURIComponent(new Date(Date.now()+LEAD_MS).toISOString())+'&timeMax='+encodeURIComponent(new Date(Date.now()+45*864e5).toISOString())+'&key='+encodeURIComponent(GCAL.key);
  fetchT(u,{},12000).then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{GC=(j.items||[]).filter(e=>e.status!=='cancelled'&&e.start&&e.start.dateTime&&FREE_WORDS.includes(String(e.summary||'').trim().toLowerCase())).map(e=>new Date(e.start.dateTime));})
- .catch(()=>{GCerr=true;GC=[];}).finally(()=>{GCload=false;cb();});}
+ .catch(()=>{GCerr=true;GC=[];}).finally(()=>{GCload=false;cb();GCq.splice(0).forEach(f=>f());});}
+/* 2.14: free times start loading as soon as the booking page opens, so they are usually ready when the form opens */
+(function(){const pre=()=>{if((location.hash||'').slice(1)==='booking')gcLoad(()=>{});};addEventListener('hashchange',pre);pre();})();
 function slotList(){if(SCRIPT_URL||(GCAL.id&&GCAL.key))return GC||[];const out=[],now=Date.now(),seen={};const ymd=new Intl.DateTimeFormat('en-CA',{timeZone:HOME_TZ,year:'numeric',month:'2-digit',day:'2-digit'});
  for(let i=0;i<14;i++){const day=ymd.format(new Date(now+i*864e5));if(seen[day])continue;seen[day]=1;const wd=new Date(day+'T12:00:00Z').getUTCDay();const H=WEEKLY[wd];if(!H)continue;
   if(out.some(x=>x.wd===wd))continue;const L=H.map(h=>wall(day+' '+h)).filter(d=>d>now+LEAD_MS);if(L.length)out.push({wd,L});}

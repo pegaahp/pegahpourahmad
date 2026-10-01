@@ -499,7 +499,7 @@ body{padding-top:0}
 <div class="qm" id="bm" hidden><div class="qbox bbox" role="dialog" aria-modal="true" aria-labelledby="bmt">
  <button type="button" class="qx" aria-label="بستن">×</button>
  <h3 id="bmt">رزرو مستقیم</h3>
- <form id="bf" action="https://formsubmit.co/pegah.pourahmad@gmail.com" method="POST" novalidate>
+ <form id="bf" action="https://formsubmit.co/3e7b95d01e6ad2f4d0d4995be29aa5b4" method="POST" novalidate>
   <p class="bi">برای رزرو جلسه، اطلاعات زیر را وارد کنید و یکی از زمان‌های موجود را انتخاب کنید.</p>
   <input type="hidden" name="_subject" value="رزرو تازه از سایت"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
   <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
@@ -534,7 +534,7 @@ body{padding-top:0}
 <div class="qm" id="qm" hidden><div class="qbox" role="dialog" aria-modal="true" aria-labelledby="qmt">
  <button type="button" class="qx" aria-label="بستن">×</button>
  <h3 id="qmt">ثبتِ سؤال</h3>
- <form id="qf" action="https://formsubmit.co/pegah.pourahmad@gmail.com" method="POST">
+ <form id="qf" action="https://formsubmit.co/3e7b95d01e6ad2f4d0d4995be29aa5b4" method="POST">
   <input type="hidden" name="_subject" value="سؤالِ تازه از سایت"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
   <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
   <input name="نام" placeholder="نام و نام خانوادگی" aria-label="نام و نام خانوادگی" autocomplete="name" minlength="3" maxlength="60" data-k="txt" required>
@@ -624,7 +624,7 @@ const FREE_WORDS=["free","فری","خالی"];
 const SCRIPT_URL="https://script.google.com/macros/s/AKfycbwnD0VtCaNT4zQyTtXyxfswhReCAKc6MyWBjhZYvqRfE-AIbM2_9eOU9B8NgdHoyqmP/exec";
 const LEAD_MS=24*3600e3;   /* زمانی که کمتر از ۲۴ ساعت به آن مانده نشان داده و پذیرفته نمی‌شود */
 let GC=null,GCerr=false,GCload=false;
-function gcLoad(cb){if(SCRIPT_URL){if(GC||GCload)return cb();GCload=true;GCerr=false;fetchT(SCRIPT_URL+'?a=slots',{},15000).then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{if(!j||!j.ok)throw 0;GC=(j.slots||[]).map(x=>new Date(x)).filter(d=>!isNaN(d));}).catch(()=>{GCerr=true;GC=[];}).finally(()=>{GCload=false;cb();});return;}
+function gcLoad(cb){if(SCRIPT_URL){if(GC||GCload)return cb();GCload=true;GCerr=false;const get=n=>fetchT(SCRIPT_URL+'?a=slots'+(n?'&r='+n:''),{},15000).then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{if(!j||!j.ok)throw 0;return j});/* 2.9: اگر بارِ اول جواب نیامد، یک بارِ دیگر */get(0).catch(()=>get(1)).then(j=>{GC=(j.slots||[]).map(x=>new Date(x)).filter(d=>!isNaN(d));}).catch(()=>{GCerr=true;GC=[];}).finally(()=>{GCload=false;cb();});return;}
  if(!GCAL.id||!GCAL.key)return cb();if(GC||GCload)return cb();GCload=true;
  const u='https://www.googleapis.com/calendar/v3/calendars/'+encodeURIComponent(GCAL.id)+'/events?singleEvents=true&orderBy=startTime&maxResults=250&timeMin='+encodeURIComponent(new Date(Date.now()+LEAD_MS).toISOString())+'&timeMax='+encodeURIComponent(new Date(Date.now()+45*864e5).toISOString())+'&key='+encodeURIComponent(GCAL.key);
  fetchT(u,{},12000).then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{GC=(j.items||[]).filter(e=>e.status!=='cancelled'&&e.start&&e.start.dateTime&&FREE_WORDS.includes(String(e.summary||'').trim().toLowerCase())).map(e=>new Date(e.start.dateTime));})

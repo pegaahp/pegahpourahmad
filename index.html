@@ -435,6 +435,9 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 .bbox .nt summary{font-family:"EpsB"}
 .bbox .bi,.okbox p,.qok,.bbox .qok{color:var(--blue)}
 
+/* 2.16: «رزرو وقت» — خط‌ها نزدیک‌تر؛ در تبلت متن تا همان لبهٔ چپِ خط و دکمه‌های پایین می‌رود (سقفِ ۶۰۰px برداشته شد) */
+.bl{line-height:1.7}.bl li::before{top:calc(.85em - 4px)}
+@media (max-width:1100px){.pc.nb{max-width:none}}
 </style>
 </head>
 <body>

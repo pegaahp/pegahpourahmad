@@ -438,6 +438,17 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 /* 2.16: «رزرو وقت» — خط‌ها نزدیک‌تر؛ در تبلت متن تا همان لبهٔ چپِ خط و دکمه‌های پایین می‌رود (سقفِ ۶۰۰px برداشته شد) */
 .bl{line-height:1.7}.bl li::before{top:calc(.85em - 4px)}
 @media (max-width:1100px){.pc.nb{max-width:none}}
+/* 2.18: «رزرو وقت» — «چارچوب کار» و «رزرو وقت» با زدن روی عنوان باز و بسته می‌شوند */
+.tgb{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:.45em}
+.tgb::after{content:"";flex:none;width:.5em;height:.5em;background:linear-gradient(currentColor,currentColor) center/100% 2px no-repeat,linear-gradient(currentColor,currentColor) center/2px 100% no-repeat}
+.tgb[aria-expanded="true"]::after{background-size:100% 2px,2px 0}
+.tgb:focus-visible{outline:2px solid var(--ochre);outline-offset:4px}
+#booking:not(.fwo) .fwb{display:none!important}
+#booking:not(.bko) .ics{display:none!important}
+@media (min-width:1101px){#booking:not(.fwo) .cbox{margin-top:0}}
+/* 2.18: متنِ سایت انتخاب و کپی نمی‌شود؛ فیلدهای فرم مثل قبل کار می‌کنند */
+body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+input,textarea,select{-webkit-user-select:text;user-select:text;-webkit-touch-callout:default}
 </style>
 </head>
 <body>
@@ -487,8 +498,8 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
  <h1 class="pt sr">رزرو وقت</h1>
  <main class="pc cols nb">
   <div class="cr">
-   <h2 class="h2">چارچوب کار</h2>
-   <ul class="bl">
+   <h2 class="h2"><button type="button" class="tgb" data-c="fwo" aria-expanded="false">چارچوب کار</button></h2>
+   <ul class="bl fwb">
     <li>در حال حاضر به‌صورت <b>آنلاین</b> و با <b>بزرگسالان</b>، در قالب <b>روان‌درمانی فردی</b> کار می‌کنم. رویکرد من <b>تحلیلی</b> و با تمرکز بر <b>روابط ابژه‌ای</b> است.</li>
     <li>جلسات در زمان مشخص و <b>حداقل یک بار در هفته</b> برگزار می‌شوند. هر جلسه <b>۵۰ دقیقه</b> است.</li>
     <li>آنچه در جلسات مطرح می‌شود در چارچوب رابطهٔ درمانی <b>محرمانه</b> می‌ماند.</li>
@@ -499,11 +510,11 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
   </div>
   <div class="cl">
    <div class="sep" aria-hidden="true"></div>
-   <ul class="bl">
+   <ul class="bl fwb">
     <li><b>جلسهٔ اول</b> فرصتی است تا دربارهٔ آنچه شما را به درمان آورده صحبت کنیم و با شیوهٔ کار یکدیگر آشنا شویم. در پایان جلسه، دربارهٔ امکان و چارچوب ادامهٔ درمان گفت‌وگو خواهیم کرد.</li>
     <li>رزرو جلسه باید توسط <b>خود فردی</b> انجام شود که قصد شروع درمان را دارد.</li>
    </ul>
-   <section class="cbox" aria-labelledby="bk"><h2 class="h2" id="bk">رزرو وقت</h2>
+   <section class="cbox" aria-labelledby="bk"><h2 class="h2" id="bk"><button type="button" class="tgb" data-c="bko" aria-expanded="false">رزرو وقت</button></h2>
     <div class="ics">
      <a href="https://t.me/pprhmd" target="_blank" rel="noopener">تلگرام</a>
      <a href="mailto:pegah.pourahmad@gmail.com?subject=%D8%B1%D8%B2%D8%B1%D9%88%20%D9%88%D9%82%D8%AA%20%D8%AC%D8%AF%DB%8C%D8%AF">ایمیل</a>
@@ -764,4 +775,5 @@ const em=document.getElementById('bem');em&&em.addEventListener('input',()=>{con
  else if(b.hasAttribute('data-busy')){b.removeAttribute('data-busy');b.removeAttribute('aria-busy');b.textContent=b.dataset.label;}};
  document.querySelectorAll('#bf button[type=submit],#qf button[type=submit]').forEach(b=>new MutationObserver(()=>set(b)).observe(b,{attributes:true,attributeFilter:['disabled']}));})();
 </script>
+<script>(function(){var p=document.getElementById("booking");if(p)p.querySelectorAll(".tgb").forEach(function(b){b.addEventListener("click",function(){b.setAttribute("aria-expanded",p.classList.toggle(b.getAttribute("data-c")))})});["copy","cut"].forEach(function(t){document.addEventListener(t,function(e){var a=document.activeElement;if(!(a&&a.matches&&a.matches("input,textarea")))e.preventDefault()})})})()</script>
 </body></html>

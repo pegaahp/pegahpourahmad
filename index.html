@@ -537,6 +537,62 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 .read .dq{text-align:justify;text-align-last:right}
 .read .tm{margin:auto 0 0;text-align:left}
 @media (min-width:1101px){.read .rh.rhi .fg{height:100%}.read .rh.rhi{align-items:start}.read .rh.rhi .fg{position:relative;align-self:stretch;height:auto}.read .rh.rhi .fg .im1{position:absolute;top:0;left:0;right:0;bottom:22px;width:100%;height:auto;aspect-ratio:auto;min-height:0}.read .rh.rhi .fg figcaption{position:absolute;left:0;bottom:0}.read .rh.rhi .tm{margin-top:4px}.read .rh.rhi h1{font-size:52px;line-height:1.25}.read .rh.rhi .dq{font-size:22px;line-height:1.85}.read .rh.rhi .sb2{font-size:22px}}
+/* 2.36: جستار در قالبِ دفتر */
+#readbox.bkm{margin-right:var(--hr);margin-left:var(--hl);max-width:none}
+.book{display:flex;flex-direction:column;align-items:center;gap:18px;margin:4px 0 20px}
+.spread{position:relative;display:flex;flex-direction:row;justify-content:center;perspective:2600px;touch-action:pan-y;transition:transform .18s ease,opacity .18s ease}
+.pg2{width:var(--pw);height:var(--ph);flex:none;background:#fff;position:relative;display:flex;flex-direction:column;padding:38px 38px 46px;box-sizing:border-box;overflow:hidden;color:var(--blue)}
+.pg2.rgt{box-shadow:inset 22px 0 24px -22px rgba(28,57,187,.22),0 22px 44px -26px rgba(28,57,187,.4)}
+.pg2.lft{box-shadow:inset -22px 0 24px -22px rgba(28,57,187,.22),0 22px 44px -26px rgba(28,57,187,.4)}
+.pg2.one{box-shadow:0 22px 44px -26px rgba(28,57,187,.4)}
+.pg2.meas{position:absolute;visibility:hidden;left:0;top:0;pointer-events:none}
+.pg2 .rhd{flex:none;height:16px;margin-bottom:18px;padding-bottom:6px;border-bottom:1px solid var(--hair);font-family:"Lei";font-size:13px;line-height:16px;color:var(--ochre);text-align:right}
+.pg2.lft .rhd{text-align:left;font-family:"Eps";font-size:11px;color:var(--blue);opacity:.75}
+.pg2 .fig2{flex:none}
+.pg2 .flow{flex:1;min-height:0;overflow:hidden}
+.read .pg2 .flow p{margin:0 0 12px;font-size:15.5px;line-height:1.95;text-align:justify;text-align-last:right}
+.read .pg2 .flow p.brk{text-align-last:justify}
+.read .pg2 .flow .qb{margin:0 0 12px}
+.read .pg2 .flow .qb .en{font-size:15px;line-height:1.65;text-align:left;text-align-last:left}
+.read .pg2 .flow .qb .fa{font-size:15.5px;line-height:1.95}
+.pg2 .pno{position:absolute;bottom:17px;font-family:"Eps";font-size:12px;color:var(--ochre)}
+.pg2.rgt .pno{right:38px}.pg2.lft .pno{left:38px}.pg2.one .pno{left:50%;transform:translateX(-50%)}
+.pim{position:relative;margin:0 0 20px}
+.pim .blk{position:absolute;top:14px;right:-14px;width:58%;height:calc(100% - 22px);background:var(--ochre)}
+.pim img{position:relative;display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
+.pim figcaption{position:relative;margin-top:6px;font-family:"Eps";font-size:10px;line-height:1.4;opacity:.45;text-align:left}
+.pg2.ttl{padding-top:0}
+.tp{display:flex;flex-direction:column;height:100%}
+.tp .kk2{font-family:"Lei";font-size:56px;line-height:1;color:var(--ochre);margin-top:22%;margin-bottom:-.28em;position:relative;z-index:1}
+.tp .bt{font-family:"EpsB";font-weight:normal;font-size:60px;line-height:1.15;margin:0;color:var(--blue);text-wrap:balance}
+.tp .tr2{display:block;width:44px;height:3px;background:var(--ochre);margin:28px 0 18px}
+.tp .dq2{margin:0;font-size:17px;line-height:1.9;text-align:justify;text-align-last:right}
+.tp .tm2{margin:auto 0 0;font-family:"Eps";font-size:12px;opacity:.7}
+.pg2.end{display:flex;align-items:center;justify-content:center}
+.pg2 .dc2{width:22px;height:22px;background-image:radial-gradient(circle,var(--blue) 1.6px,transparent 2px);background-size:7px 7px;opacity:.5}
+.read .rh3{font-family:"EpsB";font-weight:normal;font-size:20px;margin:0 0 16px}
+.read .pg2 .flow p.rfi{direction:ltr;text-align:left;text-align-last:left;font-family:"CarlitoW","Calibri",sans-serif;font-size:13px;line-height:1.55;margin:0 0 10px;transition:background .6s}
+.read .rfi a{color:inherit;text-decoration:none;border-bottom:1px solid var(--hair)}
+.read .rfi a:hover{border-bottom-color:var(--blue)}
+.read .rfi .rn{color:var(--ochre)}
+.read .rfi.hit{background:#EEF0F8}
+.bnav{display:flex;align-items:center;gap:22px}
+.bn{width:44px;height:44px;padding:0;border:1px solid var(--blue);background:transparent;color:var(--blue);display:grid;place-items:center;cursor:pointer}
+.bn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6}
+.bn:hover:not(:disabled){background:var(--blue);color:#fff}
+.bn:disabled{opacity:.25;cursor:default}
+.pgi{font-family:"Eps";font-size:13px;min-width:120px;text-align:center}
+.leaf{position:absolute;top:0;width:var(--pw);height:var(--ph);transform-style:preserve-3d;transition:transform .8s cubic-bezier(.45,.05,.25,1);z-index:5}
+.leaf.nxl{left:calc(50% - var(--pw));transform-origin:100% 50%}
+.leaf.pvl{left:50%;transform-origin:0 50%}
+.leaf.nxl.go{transform:rotateY(-180deg)}.leaf.pvl.go{transform:rotateY(180deg)}
+.leaf .fc,.leaf .bc{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.leaf .bc{transform:rotateY(180deg)}
+.leaf .pg2{width:100%;height:100%}
+.spread.sl-o.dn,.spread.sl-i.dp{transform:translateX(36px);opacity:0}
+.spread.sl-o.dp,.spread.sl-i.dn{transform:translateX(-36px);opacity:0}
+.spread.sl-i{transition:none}
+@media (max-width:720px){.pg2{padding:30px 24px 40px}.pg2.one .pno{bottom:14px}.read .pg2 .flow p{font-size:15px}.tp .kk2{font-size:44px}.tp .bt{font-size:44px}.tp .dq2{font-size:16px}.pim .blk{right:-10px;top:10px}}
 /* 2.18: متنِ سایت انتخاب و کپی نمی‌شود؛ فیلدهای فرم مثل قبل کار می‌کنند */
 body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 input,textarea,select{-webkit-user-select:text;user-select:text;-webkit-touch-callout:default}
@@ -898,9 +954,70 @@ function renderWr(){
  addEventListener('resize',layout);apply();}
 renderWr();
 if(POSTS.concat(PUBLISHED).some(q=>q.kind==='embed')){const sc=document.createElement('script');sc.async=true;sc.src='https://www.instagram.com/embed.js';document.body.appendChild(sc);}
+/* 2.36: an essay opens as a notebook — page by page, turned with buttons, arrow keys or a swipe */
+const BK={q:null,blocks:[],refs:[],pages:[],at:0,mode:2,busy:false};
+function renderBook(q,body,mins){const rb=document.getElementById('readbox');rb.classList.add('bkm');
+ BK.q=q;BK.mins=mins;BK.at=0;BK.busy=false;
+ BK.blocks=body.map((h,i)=>({h:h.replace(/<a class="rf"[^>]*>.*?<\/a>/g,m=>m.replace(/ /g,'\u00a0')),i}));
+ BK.refs=q.refs?[{h:'<h3 class="rh3">منابع</h3>',i:9999}].concat(q.refs.map((r,i)=>({h:`<p class="rfi" id="ref-${i+1}"><span class="rn">${i+1}.</span> ${r.u?`<a href="${r.u}" target="_blank" rel="noopener">${r.t}</a>`:r.t}</p>`,i:9999}))):[];
+ rb.innerHTML=`<div class="book"><div class="spread"></div><div class="bnav"><button type="button" class="bn pv" aria-label="صفحهٔ قبل"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button><span class="pgi" aria-live="polite"></span><button type="button" class="bn nx" aria-label="صفحهٔ بعد"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button></div></div>`;
+ rb.querySelector('.nx').onclick=()=>turn(1);rb.querySelector('.pv').onclick=()=>turn(-1);
+ const sp=rb.querySelector('.spread');let x0=null,y0=0;
+ sp.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
+ sp.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy))turn(dx>0?1:-1);});
+ /* the fonts must be in use before pages are measured, or a fallback font sets the breaks */
+ setTimeout(()=>{const f=document.fonts;(f?Promise.all(['15.5px "Eps"','15.5px "EpsB"','15.5px "Lei"','13px "CarlitoW"','italic 15px "CarlitoW"'].map(x=>f.load(x,'آبپ ab').catch(()=>0))).then(()=>f.ready):Promise.resolve()).then(()=>paginate(null))},0);}
+function bkSize(){const rb=document.getElementById('readbox'),W=rb.clientWidth,top=rb.getBoundingClientRect().top+scrollY;
+ BK.mode=matchMedia('(min-width:721px)').matches?2:1;const H=Math.max(460,Math.floor(innerHeight-top-84));
+ let pw=BK.mode===2?Math.floor(W/2):W,ph=H;const lo=BK.mode===2?.64:.5,hi=.76;
+ if(pw/ph<lo)ph=Math.floor(pw/lo);if(pw/ph>hi)pw=Math.floor(ph*hi);return [pw,ph];}
+function paginate(keep){const sp=document.querySelector('#readbox .spread');if(!sp)return;
+ const [pw,ph]=bkSize();sp.style.setProperty('--pw',pw+'px');sp.style.setProperty('--ph',ph+'px');
+ const q=BK.q,pages=[{cls:'ttl',i:0,html:`<div class="tp"><span class="kk2">${q.label||'جستار'}</span><h1 class="bt">${q.title}</h1><span class="tr2"></span>${q.q?`<p class="dq2">${q.q}</p>`:''}<p class="tm2">حدود ${FA(BK.mins)} دقیقه مطالعه</p></div>`}];
+ const m=document.createElement('div');m.className='pg2 lft meas';m.innerHTML='<div class="rhd">.</div><div class="fig2"></div><div class="flow"></div>';sp.appendChild(m);
+ const fl=m.querySelector('.flow'),fg=m.querySelector('.fig2'),fits=()=>fl.scrollHeight<=fl.clientHeight+1;
+ const take=(queue)=>{fl.innerHTML='';const idx=queue.length?queue[0].i:0;
+  while(queue.length){const b=queue[0];fl.insertAdjacentHTML('beforeend',b.h);const el=fl.lastElementChild;if(fits()){queue.shift();continue;}el.remove();
+   if(el.tagName==='P'&&!el.classList.contains('rfi')){const o=b.h.indexOf('>')+1,inner=b.h.slice(o,-4),cont=/class="[^"]*cont/.test(b.h.slice(0,o)),toks=inner.split(' ');
+    const part=k=>`<p class="brk${cont?' cont':''}">${toks.slice(0,k).join(' ')}</p>`;let lo=0,hi=toks.length;
+    while(lo<hi){const mid=Math.ceil((lo+hi)/2);fl.insertAdjacentHTML('beforeend',part(mid));const ok=fits();fl.lastElementChild.remove();if(ok)lo=mid;else hi=mid-1;}
+    if(lo>0){fl.insertAdjacentHTML('beforeend',part(lo));queue[0]={h:`<p class="cont">${toks.slice(lo).join(' ')}</p>`,i:b.i};}}
+   else if(!fl.children.length){fl.insertAdjacentHTML('beforeend',b.h);queue.shift();}
+   break;}
+  return {html:fl.innerHTML,i:idx};};
+ const queue=BK.blocks.slice();
+ if(q.img){const fig=`<figure class="pim"><span class="blk"></span><img src="${q.img}" alt="">${q.imgnote?`<figcaption>${q.imgnote}</figcaption>`:''}</figure>`;fg.innerHTML=fig;const p=take(queue);p.fig=fig;p.i=0;pages.push(p);fg.innerHTML='';}
+ while(queue.length)pages.push(take(queue));
+ if(BK.refs.length){if(BK.mode===2&&pages.length%2===1)pages.push({cls:'end',html:'',i:9999});const rq=BK.refs.slice();while(rq.length){const p=take(rq);p.i=9999;pages.push(p);}}
+ if(BK.mode===2&&pages.length%2===1)pages.push({cls:'end',html:'',i:9999});
+ m.remove();BK.pages=pages;
+ let at=0;if(keep!=null){at=pages.findIndex(p=>p.i>=keep);if(at<0)at=0;}BK.at=at-(at%BK.mode);show();}
+function pageHTML(p){const P=BK.pages[p],side=BK.mode===2?(p%2?'lft':'rgt'):'one';if(!P)return `<div class="pg2 ${side} end"></div>`;
+ if(P.cls==='ttl')return `<div class="pg2 ${side} ttl">${P.html}</div>`;
+ if(P.cls==='end')return `<div class="pg2 ${side} end"><span class="dc2" aria-hidden="true"></span></div>`;
+ const head=P.fig?'':(BK.mode===2&&p%2?BK.q.title:(BK.q.label||'جستار'));
+ return `<div class="pg2 ${side}"><div class="rhd">${head}</div>${P.fig?`<div class="fig2">${P.fig}</div>`:''}<div class="flow">${P.html}</div><div class="pno">${FA(p+1)}</div></div>`;}
+function show(){const sp=document.querySelector('#readbox .spread');if(!sp)return;const n=BK.mode,a=BK.at,tot=BK.pages.length;
+ sp.innerHTML=n===2?pageHTML(a)+pageHTML(a+1):pageHTML(a);
+ document.querySelector('#readbox .pgi').textContent=n===2?`${FA(a+1)}–${FA(Math.min(a+2,tot))} از ${FA(tot)}`:`${FA(a+1)} از ${FA(tot)}`;
+ document.querySelector('#readbox .pv').disabled=a===0;document.querySelector('#readbox .nx').disabled=a+n>=tot;
+ sp.querySelectorAll('.rf').forEach(x=>x.onclick=()=>goRef(x.dataset.r));}
+function turn(d){if(BK.busy)return;const n=BK.mode,tot=BK.pages.length,to=BK.at+d*n,sp=document.querySelector('#readbox .spread');if(!sp||to<0||to>=tot)return;
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches){BK.at=to;show();return;}
+ BK.busy=true;const done=()=>{if(!BK.busy)return;BK.at=to;show();sp.classList.remove('sl-o','sl-i','dn','dp');BK.busy=false;};
+ if(n===1){sp.classList.add('sl-o',d>0?'dn':'dp');setTimeout(()=>{BK.at=to;show();sp.classList.remove('sl-o');sp.classList.add('sl-i');requestAnimationFrame(()=>requestAnimationFrame(()=>sp.classList.remove('sl-i',d>0?'dn':'dp')));setTimeout(()=>{BK.busy=false},320);},180);return;}
+ const a=BK.at,leaf=document.createElement('div');
+ if(d>0){sp.innerHTML=pageHTML(a)+pageHTML(to+1);leaf.className='leaf nxl';leaf.innerHTML=`<div class="fc">${pageHTML(a+1)}</div><div class="bc">${pageHTML(to)}</div>`;}
+ else{sp.innerHTML=pageHTML(to)+pageHTML(a+1);leaf.className='leaf pvl';leaf.innerHTML=`<div class="fc">${pageHTML(a)}</div><div class="bc">${pageHTML(to+1)}</div>`;}
+ sp.appendChild(leaf);requestAnimationFrame(()=>requestAnimationFrame(()=>leaf.classList.add('go')));
+ leaf.addEventListener('transitionend',done,{once:true});setTimeout(done,1100);}
+function goRef(r){const p=BK.pages.findIndex(P=>P.html.includes(`id="ref-${r}"`));if(p<0)return;BK.at=p-(p%BK.mode);show();const li=document.getElementById('ref-'+r);if(li){li.classList.remove('hit');void li.offsetWidth;li.classList.add('hit');}}
+addEventListener('keydown',e=>{if(!document.querySelector('#read.on #readbox .book')||e.altKey||e.ctrlKey||e.metaKey)return;if(e.key==='ArrowLeft'){turn(1);e.preventDefault();}else if(e.key==='ArrowRight'){turn(-1);e.preventDefault();}});
+{let rt=0;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(document.querySelector('#read.on #readbox .book')){const P=BK.pages[BK.at];paginate(P?P.i:null);}},200);});}
 function openRead(id){const q=ESSAYS.concat(POSTS).find(p=>p.id===id);if(!q)return false;
  const isE=ESSAYS.includes(q),txt=q.body.join(' ').replace(/<[^>]+>/g,' '),mins=Math.max(1,Math.round(txt.split(/\s+/).filter(Boolean).length/180));
  const body=[];for(let i=0;i<q.body.length;i++){const p=q.body[i];if(p.startsWith('<p class="eq"')&&i+1<q.body.length){const n=q.body[++i];body.push(`<figure class="qb">${p.replace('class="eq"','class="en"').replace(/[“”]/g,'')}${n.startsWith('<p>')?'<p class="fa">'+n.slice(3):'<p class="fa">'+n+'</p>'}</figure>`);}else body.push(p.startsWith('<')?p:`<p>${p}</p>`);}
+ if(isE){renderBook(q,body,mins);return true;}document.getElementById('readbox').classList.remove('bkm');
  document.getElementById('readbox').innerHTML=`<header class="rh${q.img&&isE?' rhi':''}"><div class="rt"><h1>${q.title}${q.label?`<span class="kk">${q.label}</span>`:''}</h1>${isE?`${q.sub?`<p class="sb2">${q.sub}</p>`:''}${q.q?`<p class="dq">${q.q}</p>`:''}<p class="tm">حدود ${FA(mins)} دقیقه مطالعه</p>`:`${q.sub?`<span class="sub">${q.sub}</span>`:''}${q.q?`<p class="dq">${q.q}</p>`:''}`}${q.cite?`<p class="ct" dir="ltr">${q.cite}</p>`:''}</div>${q.img&&isE?`<figure class="fg"><img class="im1" src="${q.img}" alt="">${q.imgnote?`<figcaption>${q.imgnote}</figcaption>`:''}</figure>`:''}</header>${body.join('')}${q.refs?`<details class="refs"><summary>منابع</summary><ol dir="ltr">${q.refs.map((r,i)=>`<li id="ref-${i+1}">${r.u?`<a href="${r.u}" target="_blank" rel="noopener">${r.t}</a>`:r.t}</li>`).join('')}</ol></details>`:''}`;fitHead();document.fonts&&document.fonts.ready.then(fitHead);document.querySelectorAll('#readbox .rf').forEach(x=>x.addEventListener('click',()=>{const d=document.querySelector('#readbox .refs');if(!d)return;d.open=true;const li=document.getElementById('ref-'+x.dataset.r);if(li){li.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});li.classList.remove('hit');void li.offsetWidth;li.classList.add('hit');}}));return true;}
 
 const SHOW_WRITINGS=ITEMS.length>0;   /* «نوشته‌ها» با اولین پست خودش ظاهر می‌شود */

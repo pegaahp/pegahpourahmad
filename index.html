@@ -438,13 +438,14 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 /* 2.16: «رزرو وقت» — خط‌ها نزدیک‌تر؛ در تبلت متن تا همان لبهٔ چپِ خط و دکمه‌های پایین می‌رود (سقفِ ۶۰۰px برداشته شد) */
 .bl{line-height:1.7}.bl li::before{top:calc(.85em - 4px)}
 @media (max-width:1100px){.pc.nb{max-width:none}}
+/* 2.20: خانه — دکمهٔ «رزرو وقت» همیشه، زیرِ «پرسش‌های رایج» */
+.cta .bk{display:inline-block}
+.cta{flex-direction:column-reverse;align-items:flex-end}
 /* 2.18: متنِ سایت انتخاب و کپی نمی‌شود؛ فیلدهای فرم مثل قبل کار می‌کنند */
 body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 input,textarea,select{-webkit-user-select:text;user-select:text;-webkit-touch-callout:default}
 
 /* ===== پیش‌نمایش ۵: «نوشته‌ها» — فهرستِ مجله، مینیمال ===== */
-#writings .pt{margin:56px 40px 28px;font-size:88px;line-height:1}
-#writings .pc.wr{margin:0 40px 72px}
 .wbar{display:flex;justify-content:space-between;align-items:center;gap:16px;border-top:2px solid var(--blue);border-bottom:1px solid var(--blue);padding:8px 0;position:relative}
 .wf2{display:flex;gap:4px;flex-wrap:wrap}
 .wf2 button{all:unset;cursor:pointer;font-family:"EpsB";font-size:15px;padding:8px 14px;display:inline-flex;gap:8px;align-items:center}
@@ -467,7 +468,7 @@ input,textarea,select{-webkit-user-select:text;user-select:text;-webkit-touch-ca
 .wtl button:hover,.wtl button[aria-pressed="true"]{background:var(--blue);color:var(--paper)}
 .wtl button:hover span,.wtl button[aria-pressed="true"] span{color:var(--paper)}
 .wtl .clr{font-family:"Eps";font-size:13px;opacity:.8}
-.wg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:row dense;overflow:hidden;border-bottom:1px solid var(--blue)}
+.wg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-flow:row dense;overflow:hidden;border-bottom:1px solid var(--blue)}
 .wg .t{padding:20px 18px 24px;display:flex;flex-direction:column;gap:10px;min-width:0;box-shadow:-1px 0 0 var(--blue),0 1px 0 var(--blue);color:inherit;text-decoration:none}
 .wg .t[hidden]{display:none!important}
 .wg .t.w{grid-column:span 2}
@@ -501,13 +502,9 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 .read .wk{display:block;margin-bottom:10px;font-family:"Lei";font-size:17px;color:var(--ochre)}
 .read .ct{font-family:"CarlitoW","Calibri",sans-serif;font-size:15px;text-align:left;margin:0 0 24px}
 @media (max-width:1100px){
- #writings .pt{margin:40px 32px 24px;font-size:64px}
- #writings .pc.wr{margin:0 32px 56px;max-width:none}
  .wg{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:720px){
- #writings .pt{margin:28px 20px 18px;font-size:48px}
- #writings .pc.wr{margin:0 20px 40px}
  .wbar{align-items:center}
  .wf2{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
  .wf2 button{font-size:13.5px;padding:7px 8px;gap:5px;white-space:nowrap}
@@ -565,7 +562,7 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 </div></div></section>
 
 <section class="page" id="booking" data-title="رزرو وقت"><div class="frame"><div class="sheet"><header class="hd" role="banner"><nav aria-label="صفحه‌ها"><a href="#home">خانه</a><a href="#about">دربارهٔ من</a><a href="#writings" data-w hidden>نوشته‌ها</a><a href="#published" data-o>منتشر شده</a><a href="#booking" aria-current="page" class="bk">رزرو وقت</a></nav><span class="dc" aria-hidden="true"></span></header>
- <h1 class="pt sr">رزرو وقت</h1>
+ <h1 class="pt">رزرو وقت</h1>
  <main class="pc cols nb">
   <div class="cr">
    <h2 class="h2">چارچوب کار</h2>
@@ -699,7 +696,7 @@ function renderWr(){
  const T=[...document.querySelectorAll('.wg .t')];T.forEach((t,i)=>t.dataset.i=i);
  let F='all',K=null,V=null;
  /* layout: whatever is showing is laid out again so every row closes. The newest essay with a picture and every fifth picture take two columns; the last row stretches to fill */
- const layout=()=>{const C=matchMedia('(max-width:720px)').matches?1:matchMedia('(max-width:1100px)').matches?2:4;
+ const layout=()=>{const C=matchMedia('(max-width:720px)').matches?1:matchMedia('(max-width:1100px)').matches?2:3;
   const ts=T.filter(t=>!t.hidden);let r=0,rs=0;const sz=[];let firstEssay=true;
   ts.forEach((t,i)=>{const q=ITEMS[+t.dataset.i],img=!!q.img;let w=1;
    if(C>1&&img&&((q.type==='essay'&&firstEssay)||i%5===4))w=2; if(q.type==='essay')firstEssay=false;

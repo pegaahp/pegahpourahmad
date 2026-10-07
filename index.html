@@ -488,8 +488,8 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 .t .ps .pd{font-family:"Eps";font-size:13px;color:var(--blue);opacity:.8;margin-right:10px}
 .t .lk{display:flex;gap:16px;flex-wrap:wrap;margin-top:auto}
 .t .lk a{font-family:"EpsB";font-size:13px;padding:6px 0 5px;border-bottom:1px solid var(--blue);line-height:1}
-.t .lk a svg{width:16px;height:16px;display:block}
-.t .lk a:has(svg){border:0;padding:4px 0}
+.t .lk a svg{width:14px;height:14px;flex:none}
+.t .lk a:has(svg){display:inline-flex;align-items:center;gap:6px}
 .t.f .tx{max-width:640px}
 .t .ttl{display:flex;gap:8px;align-items:flex-start}
 .t .ttl svg{width:17px;height:17px;flex:none;margin-top:5px}
@@ -657,7 +657,7 @@ const PUBLISHED=[{"label": "ترجمه", "title": "زنانگی به‌مثاب�
 const FA=n=>String(n).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
 const IG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>';
 /* «منتشر شده»: label — line — title, English citation, site and Instagram icons */
-function renderPub(){document.getElementById('pub').innerHTML=PUBLISHED.map((q,i)=>`<article class="pi"><div class="pa"><div class="pm"><span>${FA(String(i+1).padStart(2,'0'))}</span><span class="lb">${q.label}</span></div><h2>${q.title}</h2></div><div class="pb"><p class="ps">${q.pub||''}</p><p class="ct" dir="ltr">${q.cite}</p>${(q.web||q.ig)?`<div class="lk">${q.web?`<a href="${q.web}" target="_blank" rel="noopener">دیدن در سایت</a>`:''}${q.ig?`<a href="${q.ig}" target="_blank" rel="noopener">دیدن در اینستاگرام</a>`:''}</div>`:''}</div></article>`).join('');}
+function renderPub(){document.getElementById('pub').innerHTML=PUBLISHED.map((q,i)=>`<article class="pi"><div class="pa"><div class="pm"><span>${FA(String(i+1).padStart(2,'0'))}</span><span class="lb">${q.label}</span></div><h2>${q.title}</h2></div><div class="pb"><p class="ps">${q.pub||''}</p><p class="ct" dir="ltr">${q.cite}</p>${(q.web||q.ig)?`<div class="lk">${q.web?`<a href="${q.web}" target="_blank" rel="noopener">دیدن در سایت</a>`:''}${q.ig?`<a href="${q.ig}" target="_blank" rel="noopener">${IG}دیدن در اینستاگرام</a>`:''}</div>`:''}</div></article>`).join('');}
 function renderList(el,LIST){document.getElementById(el).innerHTML=LIST.map((q,i)=>{if(q.kind==='embed')return `<article class="post emb"><div class="top"><div class="meta"><a class="ig" href="${q.url}" target="_blank" rel="noopener" aria-label="دیدنِ این پست در اینستاگرام">${IG}</a><span class="n">${FA(String(i+1).padStart(2,'0'))}</span></div></div><blockquote class="instagram-media" data-instgrm-permalink="${q.url}" data-instgrm-version="14"><a href="${q.url}" target="_blank" rel="noopener">دیدنِ این پست در اینستاگرام</a></blockquote></article>`;const ig=q.kind!=='writing';const href=ig?q.url:'#read-'+q.id;const ext=ig?' target="_blank" rel="noopener"':'';
  const mark=q.kind==='link'?`<a class="kind" href="${q.url}" target="_blank" rel="noopener">${q.label||'پیوند'} ↗</a>`:ig?`<a class="ig" href="${q.url}" target="_blank" rel="noopener" aria-label="دیدنِ «${q.title}» در اینستاگرام">${IG}</a>`:'<span class="kind">نوشته</span>';
  const img=q.image?`<img src="${q.image}" alt="تصویرِ جلدِ «${q.title}»" loading="lazy">`:'';
@@ -671,7 +671,7 @@ const ITEMS0=ESSAYS.map(q=>Object.assign({type:'essay'},q)).concat(POSTS.map(p=>
 /* the date of each piece: the date given, or else read from its Instagram link (the post's own date). Used for order; shown only for published pieces */
 function igDate(u){const m=/instagram\.com\/(?:p|reel)\/([\w-]+)/.exec(u||'');if(!m)return 0;const A='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';let n=0n;for(const c of m[1])n=n*64n+BigInt(A.indexOf(c));return Number(n>>23n)+1314220021721;}
 const TS=q=>q.date?Date.parse(q.date):igDate(q.ig||q.url);
-const FAMON=t=>{try{return new Intl.DateTimeFormat('fa-IR-u-ca-persian-nu-arabext',{year:'numeric',month:'long'}).format(new Date(t)).replace(/ ه‍?\.ش\.?/,'');}catch(e){return ''}};
+const FAMON=t=>{try{const d=new Date(t),f=o=>new Intl.DateTimeFormat('fa-IR-u-ca-persian-nu-arabext',o).format(d);return f({month:'long'})+' '+f({year:'numeric'}).replace(/[^۰-۹]/g,'');}catch(e){return ''}};
 const PUBS=PUBLISHED.map(p=>Object.assign({type:'pub',lead:p.note},p,PUBX[p.title]||{}));
 /* Instagram is switched off for now: set SHOW_IG to true to bring the posts back */
 const SHOW_IG=false;
@@ -684,7 +684,7 @@ function renderWr(){
  const TYPES=[['all','همه',ITEMS.length],['pub','منتشرشده‌ها',cnt(q=>q.type==='pub')],['essay','جستارها',cnt(q=>q.type==='essay')],['post','اینستاگرام',cnt(q=>q.type==='post')]].filter(t=>t[2]>0);
  const TOP=uniq('topics'),WHO=uniq('who');
  const tile=q=>{
-  if(q.type==='pub'){const d=q.ts?FAMON(q.ts):'';return `<article class="t" data-type="pub"><div class="tx"><span class="lb">${q.label}</span><h3>${q.title}</h3><p class="ps">${q.pub||''}${d?`<span class="pd">${d}</span>`:''}</p>${q.lead?`<p class="ld nt">${q.lead}</p>`:''}<p class="ct" dir="ltr">${q.cite}</p></div><div class="lk">${q.web?`<a href="${q.web}" target="_blank" rel="noopener">دیدن در سایت</a>`:''}${q.ig?`<a href="${q.ig}" target="_blank" rel="noopener">دیدن در اینستاگرام</a>`:''}</div></article>`;}
+  if(q.type==='pub'){const d=q.ts?FAMON(q.ts):'';return `<article class="t" data-type="pub"><div class="tx"><span class="lb">${q.label}</span><h3>${q.title}</h3><p class="ps">${q.pub||''}${d?`<span class="pd">${d}</span>`:''}</p>${q.lead?`<p class="ld nt">${q.lead}</p>`:''}<p class="ct" dir="ltr">${q.cite}</p></div><div class="lk">${q.web?`<a href="${q.web}" target="_blank" rel="noopener">دیدن در سایت</a>`:''}${q.ig?`<a href="${q.ig}" target="_blank" rel="noopener">${IG}دیدن در اینستاگرام</a>`:''}</div></article>`;}
   const im=q.img?`<span class="im"><img src="${q.img}" alt=""></span>`:'';
   if(q.type==='post')return `<a class="t" data-type="post" href="${q.url}" target="_blank" rel="noopener">${im}<span class="tx"><span class="ttl">${IG}<h3>${q.title}</h3></span><span class="ld">${q.lead}</span></span></a>`;
   return `<a class="t" data-type="essay" href="#read-${q.id}">${im}<span class="tx"><span class="lb">${q.label}</span><h3>${q.title}</h3>${q.cite?`<span class="ct" dir="ltr">${q.cite}</span>`:''}<span class="ld">${q.lead}</span></span></a>`;};

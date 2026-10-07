@@ -456,6 +456,9 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 @media (min-width:721px) and (max-width:1100px){.cta{align-self:flex-start;width:max-content}}
 /* what the eye sees: the calligraphic tagline draws above its box, and «پوراحمد» descends below its own */
 @media (min-width:1101px){.inf .tag{margin-top:18px}.inf{margin-bottom:calc(clamp(64px,6.95vw,100px) * -0.08)}}
+/* 2.25: «رزرو وقت» — سطرها و بندها فشرده‌تر */
+.bl{line-height:1.55;gap:14px}.bl li::before{top:calc(.775em - 4px)}
+@media (max-width:720px){.bl{gap:12px}}
 /* 2.18: متنِ سایت انتخاب و کپی نمی‌شود؛ فیلدهای فرم مثل قبل کار می‌کنند */
 body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 input,textarea,select{-webkit-user-select:text;user-select:text;-webkit-touch-callout:default}

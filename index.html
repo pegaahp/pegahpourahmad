@@ -528,6 +528,15 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 .read .qb .rf{color:var(--blue)}
 @media (max-width:1100px){.read .rh.rhi{flex-direction:column-reverse}.read .rh h1{font-size:34px}}
 @media (max-width:720px){.read .rh h1{font-size:28px}.read .qb .en{font-size:15px}.read .qb .fa{font-size:16px}}
+/* 2.33: سرصفحه — بلوکِ متن دوطرفه، عکس هم‌قدِ آن؛ ارجاعِ نقل‌قول هم‌رنگِ متن */
+.read .qb .rf{color:inherit}
+.read .rh.rhi{align-items:stretch;column-gap:36px}
+.read .rt{gap:16px}
+.read .rh h1{text-align:justify;text-align-last:right}
+.read .sb2{margin:0;font-size:20px;display:block}
+.read .dq{text-align:justify;text-align-last:right}
+.read .tm{margin:auto 0 0;text-align:left}
+@media (min-width:1101px){.read .rh.rhi .fg{height:100%}.read .rh.rhi .fg .im1{flex:1;min-height:340px;aspect-ratio:auto;height:0}.read .rh.rhi h1{font-size:58px;line-height:1.25}.read .rh.rhi .dq{font-size:22px;line-height:1.85}.read .rh.rhi .sb2{font-size:22px}}
 /* 2.18: متنِ سایت انتخاب و کپی نمی‌شود؛ فیلدهای فرم مثل قبل کار می‌کنند */
 body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 input,textarea,select{-webkit-user-select:text;user-select:text;-webkit-touch-callout:default}
@@ -862,7 +871,7 @@ function renderWr(){
   if(q.type==='pub'){const d=q.ts?FAMON(q.ts):'';return `<article class="t" data-type="pub"><div class="tx"><span class="lb">${q.label}</span><h3>${q.title}</h3><p class="ps">${q.pub||''}${d?`<span class="pd">${d}</span>`:''}</p>${q.lead?`<p class="ld nt">${q.lead}</p>`:''}<p class="ct" dir="ltr">${q.cite}</p></div><div class="lk">${q.web?`<a href="${q.web}" target="_blank" rel="noopener">دیدن در سایت</a>`:''}${q.ig?`<a href="${q.ig}" target="_blank" rel="noopener">${IG}دیدن در اینستاگرام</a>`:''}</div></article>`;}
   const im=q.img?`<span class="im"><img src="${q.img}" alt=""></span>`:'';
   if(q.type==='post')return `<a class="t" data-type="post" href="${q.url}" target="_blank" rel="noopener">${im}<span class="tx"><span class="ttl">${IG}<h3>${q.title}</h3></span><span class="ld">${q.lead}</span></span></a>`;
-  return `<a class="t" data-type="essay" href="#read-${q.id}">${im}<span class="tx"><span class="lb">${q.label}</span><h3>${q.title}</h3>${q.sub?`<span class="sb">${q.sub}</span>`:''}${q.cite?`<span class="ct" dir="ltr">${q.cite}</span>`:''}<span class="ld">${q.lead}</span><span class="go">خواندن</span></span></a>`;};
+  return `<a class="t" data-type="essay" href="#read-${q.id}">${im}<span class="tx"><span class="lb">${q.label}</span><h3>${q.title}</h3>${q.sub?`<span class="sb">${q.sub}</span>`:''}${q.cite?`<span class="ct" dir="ltr">${q.cite}</span>`:''}<span class="ld">${q.q||q.lead}</span><span class="go">خواندن</span></span></a>`;};
  const grp=(name,key,list)=>list.length?`<h2>${name}</h2>${list.map(v=>`<button type="button" data-k="${key}" data-v="${v[0]}" aria-pressed="false">${v[0]}<span>${FA(v[1])}</span></button>`).join('')}`:'';
  const hasT=TOP.length+WHO.length>0,hasK=TYPES.length>2,hasBar=hasK||hasT;
  document.getElementById('ed').innerHTML=`${hasBar?`<div class="wbar"><div class="wf2" role="group" aria-label="نوع">${hasK?TYPES.map((t,k)=>`<button type="button" data-f="${t[0]}" aria-pressed="${k===0}">${t[1]}<span>${FA(t[2])}</span></button>`).join(''):''}</div>
@@ -893,7 +902,7 @@ if(POSTS.concat(PUBLISHED).some(q=>q.kind==='embed')){const sc=document.createEl
 function openRead(id){const q=ESSAYS.concat(POSTS).find(p=>p.id===id);if(!q)return false;
  const isE=ESSAYS.includes(q),txt=q.body.join(' ').replace(/<[^>]+>/g,' '),mins=Math.max(1,Math.round(txt.split(/\s+/).filter(Boolean).length/180));
  const body=[];for(let i=0;i<q.body.length;i++){const p=q.body[i];if(p.startsWith('<p class="eq"')&&i+1<q.body.length){const n=q.body[++i];body.push(`<figure class="qb">${p.replace('class="eq"','class="en"').replace(/[“”]/g,'')}${n.startsWith('<p>')?'<p class="fa">'+n.slice(3):'<p class="fa">'+n+'</p>'}</figure>`);}else body.push(p.startsWith('<')?p:`<p>${p}</p>`);}
- document.getElementById('readbox').innerHTML=`<header class="rh${q.img&&isE?' rhi':''}"><div class="rt"><h1>${q.title}${q.label?`<span class="kk">${q.label}</span>`:''}</h1>${isE?`<p class="rm">${q.sub?`<span class="sb2">${q.sub}</span>`:''}<span class="tm">حدود ${FA(mins)} دقیقه مطالعه</span></p>`:(q.sub?`<span class="sub">${q.sub}</span>`:'')}${q.q?`<p class="dq">${q.q}</p>`:''}${q.cite?`<p class="ct" dir="ltr">${q.cite}</p>`:''}</div>${q.img&&isE?`<figure class="fg"><img class="im1" src="${q.img}" alt="">${q.imgnote?`<figcaption>${q.imgnote}</figcaption>`:''}</figure>`:''}</header>${body.join('')}${q.refs?`<details class="refs"><summary>منابع</summary><ol dir="ltr">${q.refs.map((r,i)=>`<li id="ref-${i+1}">${r.u?`<a href="${r.u}" target="_blank" rel="noopener">${r.t}</a>`:r.t}</li>`).join('')}</ol></details>`:''}`;document.querySelectorAll('#readbox .rf').forEach(x=>x.addEventListener('click',()=>{const d=document.querySelector('#readbox .refs');if(!d)return;d.open=true;const li=document.getElementById('ref-'+x.dataset.r);if(li){li.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});li.classList.remove('hit');void li.offsetWidth;li.classList.add('hit');}}));return true;}
+ document.getElementById('readbox').innerHTML=`<header class="rh${q.img&&isE?' rhi':''}"><div class="rt"><h1>${q.title}${q.label?`<span class="kk">${q.label}</span>`:''}</h1>${isE?`${q.sub?`<p class="sb2">${q.sub}</p>`:''}${q.q?`<p class="dq">${q.q}</p>`:''}<p class="tm">حدود ${FA(mins)} دقیقه مطالعه</p>`:`${q.sub?`<span class="sub">${q.sub}</span>`:''}${q.q?`<p class="dq">${q.q}</p>`:''}`}${q.cite?`<p class="ct" dir="ltr">${q.cite}</p>`:''}</div>${q.img&&isE?`<figure class="fg"><img class="im1" src="${q.img}" alt="">${q.imgnote?`<figcaption>${q.imgnote}</figcaption>`:''}</figure>`:''}</header>${body.join('')}${q.refs?`<details class="refs"><summary>منابع</summary><ol dir="ltr">${q.refs.map((r,i)=>`<li id="ref-${i+1}">${r.u?`<a href="${r.u}" target="_blank" rel="noopener">${r.t}</a>`:r.t}</li>`).join('')}</ol></details>`:''}`;document.querySelectorAll('#readbox .rf').forEach(x=>x.addEventListener('click',()=>{const d=document.querySelector('#readbox .refs');if(!d)return;d.open=true;const li=document.getElementById('ref-'+x.dataset.r);if(li){li.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});li.classList.remove('hit');void li.offsetWidth;li.classList.add('hit');}}));return true;}
 
 const SHOW_WRITINGS=ITEMS.length>0;   /* «نوشته‌ها» با اولین پست خودش ظاهر می‌شود */
 const SHOW_OTHER=false;   /* «منتشر شده» */

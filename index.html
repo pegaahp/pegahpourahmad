@@ -481,6 +481,37 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 .read .refs li a{color:inherit;text-decoration:none;border-bottom:1px solid var(--hair)}
 .read .refs li a:hover{border-bottom-color:var(--blue)}
 .read .refs li.hit{background:#EEF0F8}
+/* 2.30: «نوشته‌ها» — چیدمان بر اساس محتوا: جستارِ تازه سرِ صفحه، بقیه ردیف‌های برابر، بی‌جای خالی */
+@media (min-width:721px){#writings .wg{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.t .sb{font-family:"Lei";font-size:16px;color:var(--ochre)}
+.t .go{margin-top:auto;align-self:flex-start;font-family:"EpsB";font-size:13px;padding:6px 0 5px;border-bottom:1px solid var(--blue);line-height:1}
+.wg .t.ft{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);column-gap:32px;align-items:stretch;padding:24px 20px 28px}
+.t.ft .im{aspect-ratio:3/2;margin:0;align-self:start}
+.t.ft .tx{gap:12px}
+.t.ft .ld{display:block;-webkit-line-clamp:unset;overflow:visible;line-height:2}
+.wg .t.wd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-auto-flow:row dense;column-gap:32px;row-gap:10px;align-content:start}
+.t.wd .tx{display:contents}
+.t.wd .lb,.t.wd h3,.t.wd .ps,.t.wd .sb,.t.wd .ttl{grid-column:1}
+.t.wd .ld,.t.wd .ct,.t.wd .lk,.t.wd .go{grid-column:2}
+.t.wd .lk,.t.wd .go{margin-top:6px}
+@media (min-width:721px) and (max-width:1100px){.wg .t.ft{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:24px}}
+/* 2.31: صفحهٔ خواندن — سرصفحهٔ مجله‌ای و نقل‌قول‌های دوزبانه */
+.read .rh{margin:40px 0 56px;display:flex;flex-direction:column;gap:28px}
+.read .rh.rhi{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);column-gap:48px;align-items:end}
+.read .rt{display:flex;flex-direction:column;gap:14px}
+.read .rh h1{margin:0;font-size:36px;line-height:1.35;text-wrap:balance}
+.read .kk{display:inline-block;vertical-align:middle;font-family:"Lei";font-size:15px;line-height:1;color:var(--ochre);margin-left:14px;padding-left:14px;border-left:1px solid var(--hair);position:relative;top:-.15em}
+.read .rm{margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.read .sb2{font-family:"Lei";font-size:18px;color:var(--ochre)}
+.read .tm{font-family:"Eps";font-size:13px;opacity:.75}
+.read .dq{margin:6px 0 0;font-family:"Eps";font-size:20px;line-height:1.8;text-align:right;padding-top:16px;border-top:1px solid var(--blue)}
+.read .rh .fg{margin:0}
+.read .qb{margin:36px 0;padding:26px 0 22px;border-top:2px solid var(--blue);border-bottom:1px solid var(--blue);display:grid;row-gap:16px}
+.read .qb .en{direction:ltr;text-align:left;font-family:"CarlitoW","Calibri",sans-serif;font-style:italic;font-size:21px;line-height:1.55;margin:0;padding-left:44px;position:relative;text-align-last:left}
+.read .qb .en::before{content:"\201C";position:absolute;left:0;top:-.12em;font-size:66px;line-height:1;font-style:normal;color:var(--ochre)}
+.read .qb .fa{margin:0;text-align:right;text-align-last:right;font-size:17px;line-height:2;padding-right:44px}
+@media (max-width:1100px){.read .rh.rhi{display:flex;flex-direction:column;gap:24px}.read .rh h1{font-size:34px}}
+@media (max-width:720px){.read .rh{margin:24px 0 40px}.read .rh h1{font-size:28px}.read .dq{font-size:17px}.read .qb .en{font-size:18px;padding-left:34px}.read .qb .en::before{font-size:52px}.read .qb .fa{font-size:15px;padding-right:0}}
 /* 2.18: متنِ سایت انتخاب و کپی نمی‌شود؛ فیلدهای فرم مثل قبل کار می‌کنند */
 body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 input,textarea,select{-webkit-user-select:text;user-select:text;-webkit-touch-callout:default}
@@ -698,6 +729,7 @@ const ESSAYS=[
   "label": "جستار",
   "title": "وقتی معنا کافی نیست",
   "sub": "تأملی در ترجمه، تحول و ناوردایی",
+  "q": "وقتی ترجمه ناگزیر صورت متن را تغییر می‌دهد، چطور می‌شود فهمید چه چیزی باید ثابت بماند؟",
   "lead": "اگر چیزی از اطلاعات جمله حذف نشده، چه چیزی تغییر کرده است؟ و وقتی از وفاداری ترجمه به متن اصلی حرف می‌زنیم، دقیقاً از حفظ چه چیزی حرف می‌زنیم؟",
   "date": "2026-10-07",
   "imgnote": "تصویر تولیدشده با پرامپتِ هوش مصنوعی",
@@ -814,7 +846,7 @@ function renderWr(){
   if(q.type==='pub'){const d=q.ts?FAMON(q.ts):'';return `<article class="t" data-type="pub"><div class="tx"><span class="lb">${q.label}</span><h3>${q.title}</h3><p class="ps">${q.pub||''}${d?`<span class="pd">${d}</span>`:''}</p>${q.lead?`<p class="ld nt">${q.lead}</p>`:''}<p class="ct" dir="ltr">${q.cite}</p></div><div class="lk">${q.web?`<a href="${q.web}" target="_blank" rel="noopener">دیدن در سایت</a>`:''}${q.ig?`<a href="${q.ig}" target="_blank" rel="noopener">${IG}دیدن در اینستاگرام</a>`:''}</div></article>`;}
   const im=q.img?`<span class="im"><img src="${q.img}" alt=""></span>`:'';
   if(q.type==='post')return `<a class="t" data-type="post" href="${q.url}" target="_blank" rel="noopener">${im}<span class="tx"><span class="ttl">${IG}<h3>${q.title}</h3></span><span class="ld">${q.lead}</span></span></a>`;
-  return `<a class="t" data-type="essay" href="#read-${q.id}">${im}<span class="tx"><span class="lb">${q.label}</span><h3>${q.title}</h3>${q.cite?`<span class="ct" dir="ltr">${q.cite}</span>`:''}<span class="ld">${q.lead}</span></span></a>`;};
+  return `<a class="t" data-type="essay" href="#read-${q.id}">${im}<span class="tx"><span class="lb">${q.label}</span><h3>${q.title}</h3>${q.sub?`<span class="sb">${q.sub}</span>`:''}${q.cite?`<span class="ct" dir="ltr">${q.cite}</span>`:''}<span class="ld">${q.lead}</span><span class="go">خواندن</span></span></a>`;};
  const grp=(name,key,list)=>list.length?`<h2>${name}</h2>${list.map(v=>`<button type="button" data-k="${key}" data-v="${v[0]}" aria-pressed="false">${v[0]}<span>${FA(v[1])}</span></button>`).join('')}`:'';
  const hasT=TOP.length+WHO.length>0,hasK=TYPES.length>2,hasBar=hasK||hasT;
  document.getElementById('ed').innerHTML=`${hasBar?`<div class="wbar"><div class="wf2" role="group" aria-label="نوع">${hasK?TYPES.map((t,k)=>`<button type="button" data-f="${t[0]}" aria-pressed="${k===0}">${t[1]}<span>${FA(t[2])}</span></button>`).join(''):''}</div>
@@ -823,13 +855,13 @@ function renderWr(){
  const T=[...document.querySelectorAll('.wg .t')];T.forEach((t,i)=>t.dataset.i=i);
  let F='all',K=null,V=null;
  /* layout: whatever is showing is laid out again so every row closes. The newest essay with a picture and every fifth picture take two columns; the last row stretches to fill */
+ /* layout: the newest essay with a picture leads, across the full width; the rest fill rows evenly on a six-part grid (two to a row take halves, three take thirds); a piece left alone in a row splits into two columns of its own */
  const layout=()=>{const C=matchMedia('(max-width:720px)').matches?1:matchMedia('(max-width:1100px)').matches?2:3;
-  const ts=T.filter(t=>!t.hidden);let r=0,rs=0;const sz=[];let firstEssay=true;
-  ts.forEach((t,i)=>{const q=ITEMS[+t.dataset.i],img=!!q.img;let w=1;
-   if(C>1&&img&&((q.type==='essay'&&firstEssay)||i%5===4))w=2; if(q.type==='essay')firstEssay=false;
-   if(w>C-r)w=1;if(r===0)rs=i;sz.push(w);r=(r+w)%C;});
-  if(r!==0&&C>1){let free=C-r;while(free>0){let moved=false;for(let j=ts.length-1;j>=rs&&free>0;j--){if(sz[j]<C){sz[j]++;free--;moved=true;}}if(!moved)break;}}
-  ts.forEach((t,i)=>{t.classList.remove('w','f');if(C>1&&sz[i]>=C&&C>2)t.classList.add('f');else if(sz[i]>=2)t.classList.add('w');});};
+  const ts=T.filter(t=>!t.hidden);ts.forEach(t=>{t.classList.remove('w','f','ft','wd');t.style.gridColumn='';t.style.order='';});if(C===1)return;
+  let rest=ts;const lead=ts.find(t=>{const q=ITEMS[+t.dataset.i];return q.type==='essay'&&q.img;});
+  if(lead){lead.classList.add('ft');lead.style.gridColumn='1/-1';lead.style.order='-1';rest=ts.filter(t=>t!==lead);}
+  const n=rest.length;if(!n)return;const rows=Math.ceil(n/C),base=Math.floor(n/rows),extra=n%rows;let k=0;
+  for(let r=0;r<rows;r++){const m=base+(r<extra?1:0);for(let j=0;j<m;j++,k++){rest[k].style.gridColumn='span '+(6/m);if(m===1)rest[k].classList.add('wd');}}};
  const apply=()=>{let n=0;T.forEach(t=>{const q=ITEMS[+t.dataset.i];const ok=(F==='all'||q.type===F)&&(!K||(q[K]||[]).includes(V));t.hidden=!ok;n+=ok;});document.querySelector('.wnone').hidden=n>0;layout();};
  document.querySelectorAll('.wf2 button').forEach(b=>b.addEventListener('click',()=>{F=b.dataset.f;document.querySelectorAll('.wf2 button').forEach(x=>x.setAttribute('aria-pressed',x===b));apply();}));
  const tb=document.querySelector('.wtb'),tl=document.getElementById('wtl');
@@ -843,7 +875,9 @@ function renderWr(){
 renderWr();
 if(POSTS.concat(PUBLISHED).some(q=>q.kind==='embed')){const sc=document.createElement('script');sc.async=true;sc.src='https://www.instagram.com/embed.js';document.body.appendChild(sc);}
 function openRead(id){const q=ESSAYS.concat(POSTS).find(p=>p.id===id);if(!q)return false;
- document.getElementById('readbox').innerHTML=`${q.label?`<span class="wk">${q.label}</span>`:''}<h1>${q.title}</h1>${q.sub?`<span class="sub">${q.sub}</span>`:''}${q.cite?`<p class="ct" dir="ltr">${q.cite}</p>`:''}${q.img&&ESSAYS.includes(q)?`<figure class="fg"><img class="im1" src="${q.img}" alt="">${q.imgnote?`<figcaption>${q.imgnote}</figcaption>`:''}</figure>`:''}${q.body.map(p=>p.startsWith('<')?p:`<p>${p}</p>`).join('')}${q.refs?`<details class="refs"><summary>منابع</summary><ol dir="ltr">${q.refs.map((r,i)=>`<li id="ref-${i+1}">${r.u?`<a href="${r.u}" target="_blank" rel="noopener">${r.t}</a>`:r.t}</li>`).join('')}</ol></details>`:''}`;document.querySelectorAll('#readbox .rf').forEach(x=>x.addEventListener('click',()=>{const d=document.querySelector('#readbox .refs');if(!d)return;d.open=true;const li=document.getElementById('ref-'+x.dataset.r);if(li){li.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});li.classList.remove('hit');void li.offsetWidth;li.classList.add('hit');}}));return true;}
+ const isE=ESSAYS.includes(q),txt=q.body.join(' ').replace(/<[^>]+>/g,' '),mins=Math.max(1,Math.round(txt.split(/\s+/).filter(Boolean).length/180));
+ const body=[];for(let i=0;i<q.body.length;i++){const p=q.body[i];if(p.startsWith('<p class="eq"')&&i+1<q.body.length){const n=q.body[++i];body.push(`<figure class="qb">${p.replace('class="eq"','class="en"').replace(/[“”]/g,'')}${n.startsWith('<p>')?'<p class="fa">'+n.slice(3):'<p class="fa">'+n+'</p>'}</figure>`);}else body.push(p.startsWith('<')?p:`<p>${p}</p>`);}
+ document.getElementById('readbox').innerHTML=`<header class="rh${q.img&&isE?' rhi':''}"><div class="rt"><h1>${q.label?`<span class="kk">${q.label}</span>`:''}${q.title}</h1>${isE?`<p class="rm">${q.sub?`<span class="sb2">${q.sub}</span>`:''}<span class="tm">حدود ${FA(mins)} دقیقه مطالعه</span></p>`:(q.sub?`<span class="sub">${q.sub}</span>`:'')}${q.q?`<p class="dq">${q.q}</p>`:''}${q.cite?`<p class="ct" dir="ltr">${q.cite}</p>`:''}</div>${q.img&&isE?`<figure class="fg"><img class="im1" src="${q.img}" alt="">${q.imgnote?`<figcaption>${q.imgnote}</figcaption>`:''}</figure>`:''}</header>${body.join('')}${q.refs?`<details class="refs"><summary>منابع</summary><ol dir="ltr">${q.refs.map((r,i)=>`<li id="ref-${i+1}">${r.u?`<a href="${r.u}" target="_blank" rel="noopener">${r.t}</a>`:r.t}</li>`).join('')}</ol></details>`:''}`;document.querySelectorAll('#readbox .rf').forEach(x=>x.addEventListener('click',()=>{const d=document.querySelector('#readbox .refs');if(!d)return;d.open=true;const li=document.getElementById('ref-'+x.dataset.r);if(li){li.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});li.classList.remove('hit');void li.offsetWidth;li.classList.add('hit');}}));return true;}
 
 const SHOW_WRITINGS=ITEMS.length>0;   /* «نوشته‌ها» با اولین پست خودش ظاهر می‌شود */
 const SHOW_OTHER=false;   /* «منتشر شده» */

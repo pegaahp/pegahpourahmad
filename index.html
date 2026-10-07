@@ -438,6 +438,12 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 /* 2.16: «رزرو وقت» — خط‌ها نزدیک‌تر؛ در تبلت متن تا همان لبهٔ چپِ خط و دکمه‌های پایین می‌رود (سقفِ ۶۰۰px برداشته شد) */
 .bl{line-height:1.7}.bl li::before{top:calc(.85em - 4px)}
 @media (max-width:1100px){.pc.nb{max-width:none}}
+/* 2.23: عنوانِ صفحه‌ها از زیرِ «خانه» شروع می‌شود؛ قابِ «رزرو وقت» از ابتدای «خانه» تا لبهٔ چپِ نشانِ نقطه‌ها */
+:root{--hr:54px;--hl:40px}
+@media (max-width:1100px){:root{--hr:46px;--hl:32px}}
+@media (max-width:720px){:root{--hr:26px;--hl:20px}}
+.page .pt{margin-right:var(--hr)}
+#booking .pc{margin-right:var(--hr);margin-left:var(--hl);max-width:none}
 /* 2.20: خانه — دکمهٔ «رزرو وقت» همیشه، زیرِ «پرسش‌های رایج» */
 .cta .bk{display:inline-block}
 .cta{flex-direction:column-reverse;align-items:flex-end}

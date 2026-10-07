@@ -438,17 +438,87 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 /* 2.16: «رزرو وقت» — خط‌ها نزدیک‌تر؛ در تبلت متن تا همان لبهٔ چپِ خط و دکمه‌های پایین می‌رود (سقفِ ۶۰۰px برداشته شد) */
 .bl{line-height:1.7}.bl li::before{top:calc(.85em - 4px)}
 @media (max-width:1100px){.pc.nb{max-width:none}}
-/* 2.18: «رزرو وقت» — «چارچوب کار» و «رزرو وقت» با زدن روی عنوان باز و بسته می‌شوند */
-.tgb{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:.45em}
-.tgb::after{content:"";flex:none;width:.5em;height:.5em;background:linear-gradient(currentColor,currentColor) center/100% 2px no-repeat,linear-gradient(currentColor,currentColor) center/2px 100% no-repeat}
-.tgb[aria-expanded="true"]::after{background-size:100% 2px,2px 0}
-.tgb:focus-visible{outline:2px solid var(--ochre);outline-offset:4px}
-#booking:not(.fwo) .fwb{display:none!important}
-#booking:not(.bko) .ics{display:none!important}
-@media (min-width:1101px){#booking:not(.fwo) .cbox{margin-top:0}}
 /* 2.18: متنِ سایت انتخاب و کپی نمی‌شود؛ فیلدهای فرم مثل قبل کار می‌کنند */
 body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 input,textarea,select{-webkit-user-select:text;user-select:text;-webkit-touch-callout:default}
+
+/* ===== پیش‌نمایش ۵: «نوشته‌ها» — فهرستِ مجله، مینیمال ===== */
+#writings .pt{margin:56px 40px 28px;font-size:88px;line-height:1}
+#writings .pc.wr{margin:0 40px 72px}
+.wbar{display:flex;justify-content:space-between;align-items:center;gap:16px;border-top:2px solid var(--blue);border-bottom:1px solid var(--blue);padding:8px 0;position:relative}
+.wf2{display:flex;gap:4px;flex-wrap:wrap}
+.wf2 button{all:unset;cursor:pointer;font-family:"EpsB";font-size:15px;padding:8px 14px;display:inline-flex;gap:8px;align-items:center}
+.wf2 button span{font-family:"Eps";font-size:13px;color:var(--ochre)}
+.wf2 button svg{width:18px;height:18px}
+.wf2 button[aria-pressed="true"]{background:var(--blue);color:var(--paper)}
+.wf2 button[aria-pressed="true"] span{color:var(--paper);opacity:.8}
+.wbar button:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
+/* the quiet topic control: a small word at the far end of the row */
+.wtp{position:relative}
+.wtb{all:unset;cursor:pointer;font-family:"Eps";font-size:14px;padding:8px 4px;display:inline-flex;gap:6px;align-items:center;opacity:.75}
+.wtb:hover,.wtb[aria-expanded="true"],.wtb.on{opacity:1}
+.wtb::after{content:"";width:6px;height:6px;border-left:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(-45deg)}
+.wtb.on{font-family:"EpsB"}
+.wtl{position:absolute;left:0;top:calc(100% + 9px);z-index:5;background:var(--paper);border:1px solid var(--blue);min-width:200px;padding:8px 0}
+.wtl[hidden]{display:none}
+.wtl h2{margin:6px 16px 4px;font-family:"Lei";font-weight:normal;font-size:15px;color:var(--ochre)}
+.wtl button{all:unset;cursor:pointer;display:flex;justify-content:space-between;gap:16px;width:calc(100% - 32px);padding:7px 16px;font-family:"EpsB";font-size:14px}
+.wtl button span{font-family:"Eps";color:var(--ochre)}
+.wtl button:hover,.wtl button[aria-pressed="true"]{background:var(--blue);color:var(--paper)}
+.wtl button:hover span,.wtl button[aria-pressed="true"] span{color:var(--paper)}
+.wtl .clr{font-family:"Eps";font-size:13px;opacity:.8}
+.wg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:row dense;overflow:hidden;border-bottom:1px solid var(--blue)}
+.wg .t{padding:20px 18px 24px;display:flex;flex-direction:column;gap:10px;min-width:0;box-shadow:-1px 0 0 var(--blue),0 1px 0 var(--blue);color:inherit;text-decoration:none}
+.wg .t[hidden]{display:none!important}
+.wg .t.w{grid-column:span 2}
+.wg .t.f{grid-column:1/-1}
+a.t:hover h3{text-decoration:underline;text-underline-offset:5px}
+a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
+.t .im{display:block;overflow:hidden;aspect-ratio:4/3;margin-bottom:4px}
+.t .im img{width:100%;height:100%;object-fit:cover;display:block}
+.t .tx{display:flex;flex-direction:column;gap:8px;min-width:0}
+.t .lb{font-family:"Lei";font-size:15px;color:var(--ochre)}
+/* one size for every title and every text: only the layout changes */
+.t h3{margin:0;font-family:"EpsB";font-weight:normal;font-size:18px;line-height:1.55}
+.t .ld{margin:0;font-size:14px;line-height:1.9;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.t .ct{margin:0;font-family:"CarlitoW","Calibri",sans-serif;font-size:13px;line-height:1.5;text-align:left}
+.t .ps{margin:0;font-family:"Lei";font-size:15px;color:var(--ochre)}
+.t .ld.nt{display:block;-webkit-line-clamp:unset;overflow:visible}
+.t .ps .pd{font-family:"Eps";font-size:13px;color:var(--blue);opacity:.8;margin-right:10px}
+.t .lk{display:flex;gap:16px;flex-wrap:wrap;margin-top:auto}
+.t .lk a{font-family:"EpsB";font-size:13px;padding:6px 0 5px;border-bottom:1px solid var(--blue);line-height:1}
+.t .lk a svg{width:16px;height:16px;display:block}
+.t .lk a:has(svg){border:0;padding:4px 0}
+.t.f .tx{max-width:640px}
+.t .ttl{display:flex;gap:8px;align-items:flex-start}
+.t .ttl svg{width:17px;height:17px;flex:none;margin-top:5px}
+/* a wide piece: picture beside the text, same type sizes */
+.t.w:has(.im),.t.f:has(.im){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:20px;align-items:start}
+.t.f:has(.im){grid-template-columns:minmax(0,1fr) minmax(0,3fr)}
+.t.w .im,.t.f .im{margin:0}
+.wg.wg0{border-top:2px solid var(--blue)}
+.wnone{grid-column:1/-1;padding:40px 18px;font-size:16px}
+.read .wk{display:block;margin-bottom:10px;font-family:"Lei";font-size:17px;color:var(--ochre)}
+.read .ct{font-family:"CarlitoW","Calibri",sans-serif;font-size:15px;text-align:left;margin:0 0 24px}
+@media (max-width:1100px){
+ #writings .pt{margin:40px 32px 24px;font-size:64px}
+ #writings .pc.wr{margin:0 32px 56px;max-width:none}
+ .wg{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:720px){
+ #writings .pt{margin:28px 20px 18px;font-size:48px}
+ #writings .pc.wr{margin:0 20px 40px}
+ .wbar{align-items:center}
+ .wf2{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+ .wf2 button{font-size:13.5px;padding:7px 8px;gap:5px;white-space:nowrap}
+ .wtl{min-width:180px}
+ .wg{grid-template-columns:minmax(0,1fr)}
+ .wg .t,.wg .t.w,.wg .t.f{grid-column:auto;box-shadow:0 1px 0 var(--blue);padding:16px 0}
+ /* phone: a compact row, small picture at the side, so more pieces fit on a screen */
+ .wg .t:has(.im){display:grid;grid-template-columns:96px minmax(0,1fr);column-gap:14px;align-items:start}
+ .t .im{aspect-ratio:1;margin:0}
+ .t .ld{-webkit-line-clamp:2}
+}
 </style>
 </head>
 <body>
@@ -478,7 +548,7 @@ input,textarea,select{-webkit-user-select:text;user-select:text;-webkit-touch-ca
 </div></div></section>
 
 <section class="page" id="writings" data-title="نوشته‌ها"><div class="frame"><div class="sheet"><header class="hd" role="banner"><nav aria-label="صفحه‌ها"><a href="#home">خانه</a><a href="#about">دربارهٔ من</a><a href="#writings" aria-current="page" data-w hidden>نوشته‌ها</a><a href="#published" data-o>منتشر شده</a><a href="#booking" class="bk">رزرو وقت</a></nav><span class="dc" aria-hidden="true"></span></header>
- <h1 class="pt sr">نوشته‌ها</h1><main class="pc ed" id="ed" aria-label="نوشته‌ها"></main>
+ <h1 class="pt">نوشته‌ها</h1><main class="pc wr" id="ed" aria-label="نوشته‌ها"></main>
 </div></div></section>
 
 <section class="page" id="published" data-title="منتشر شده"><div class="frame"><div class="sheet"><header class="hd" role="banner"><nav aria-label="صفحه‌ها"><a href="#home">خانه</a><a href="#about">دربارهٔ من</a><a href="#writings" data-w hidden>نوشته‌ها</a><a href="#published" aria-current="page" data-o>منتشر شده</a><a href="#booking" class="bk">رزرو وقت</a></nav><span class="dc" aria-hidden="true"></span></header>
@@ -498,8 +568,8 @@ input,textarea,select{-webkit-user-select:text;user-select:text;-webkit-touch-ca
  <h1 class="pt sr">رزرو وقت</h1>
  <main class="pc cols nb">
   <div class="cr">
-   <h2 class="h2"><button type="button" class="tgb" data-c="fwo" aria-expanded="false">چارچوب کار</button></h2>
-   <ul class="bl fwb">
+   <h2 class="h2">چارچوب کار</h2>
+   <ul class="bl">
     <li>در حال حاضر به‌صورت <b>آنلاین</b> و با <b>بزرگسالان</b>، در قالب <b>روان‌درمانی فردی</b> کار می‌کنم. رویکرد من <b>تحلیلی</b> و با تمرکز بر <b>روابط ابژه‌ای</b> است.</li>
     <li>جلسات در زمان مشخص و <b>حداقل یک بار در هفته</b> برگزار می‌شوند. هر جلسه <b>۵۰ دقیقه</b> است.</li>
     <li>آنچه در جلسات مطرح می‌شود در چارچوب رابطهٔ درمانی <b>محرمانه</b> می‌ماند.</li>
@@ -510,11 +580,11 @@ input,textarea,select{-webkit-user-select:text;user-select:text;-webkit-touch-ca
   </div>
   <div class="cl">
    <div class="sep" aria-hidden="true"></div>
-   <ul class="bl fwb">
+   <ul class="bl">
     <li><b>جلسهٔ اول</b> فرصتی است تا دربارهٔ آنچه شما را به درمان آورده صحبت کنیم و با شیوهٔ کار یکدیگر آشنا شویم. در پایان جلسه، دربارهٔ امکان و چارچوب ادامهٔ درمان گفت‌وگو خواهیم کرد.</li>
     <li>رزرو جلسه باید توسط <b>خود فردی</b> انجام شود که قصد شروع درمان را دارد.</li>
    </ul>
-   <section class="cbox" aria-labelledby="bk"><h2 class="h2" id="bk"><button type="button" class="tgb" data-c="bko" aria-expanded="false">رزرو وقت</button></h2>
+   <section class="cbox" aria-labelledby="bk"><h2 class="h2" id="bk">رزرو وقت</h2>
     <div class="ics">
      <a href="https://t.me/pprhmd" target="_blank" rel="noopener">تلگرام</a>
      <a href="mailto:pegah.pourahmad@gmail.com?subject=%D8%B1%D8%B2%D8%B1%D9%88%20%D9%88%D9%82%D8%AA%20%D8%AC%D8%AF%DB%8C%D8%AF">ایمیل</a>
@@ -584,8 +654,9 @@ if(/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&
 <script>
 
 /* posts: each one is an Instagram post (cover image, title, first line, link). Later this list is filled from Instagram. */
-const POSTS=[];   /* نوشته‌ها: پست‌های خودِ پگاه (جلد، تیتر، جملهٔ اول، پیوند) */
-const PUBLISHED=[{"label": "ترجمه", "title": "زنانگی به‌مثابهٔ نقاب", "cite": "Riviere, J. (1929). <i>Womanliness as a Masquerade</i>.", "web": "https://tadaei.com/womanliness-as-a-masquerade/", "ig": "https://www.instagram.com/p/DdEuS_LDT8D/", "pub": "گروه روانکاوی تداعی"}, {"label": "ترجمه", "title": "کمال‌گرایی: تاوانِ مشکلاتِ دورانِ کودکی", "cite": "Hewitt, P. L., Flett, G. L., &amp; Mikail, S. F. (2017). <i>Perfectionism: A Relational Approach</i>.", "web": "", "ig": "https://www.instagram.com/p/Cb8HQspAGQE/", "pub": "انتشارات اسبار"}];   /* منتشر شده: کارهای منتشرشده در جاهای دیگر */
+const POSTS=[];   /* پست‌های اینستاگرام: title, excerpt, url, image, (topics, who) */
+const ESSAYS=[];   /* جستار و خوانش: id, label («جستار» یا «خوانش»), title (پرسش), lead, img, body[], date, (cite, topics, who) */   /* نوشته‌ها: پست‌های خودِ پگاه (جلد، تیتر، جملهٔ اول، پیوند) */
+const PUBLISHED=[{"label": "ترجمه", "title": "زنانگی به‌مثابهٔ نقاب", "cite": "Riviere, J. (1929). <i>Womanliness as a Masquerade</i>.", "web": "https://tadaei.com/womanliness-as-a-masquerade/", "ig": "https://www.instagram.com/p/DdEuS_LDT8D/", "pub": "گروه روانکاوی تداعی", "note": "جون ریویر (۱۸۸۳–۱۹۶۲) روانکاو بریتانیایی و از مترجمانِ آثارِ فروید به انگلیسی بود. این مقاله در ۱۹۲۹ در «مجلهٔ بین‌المللیِ روانکاوی» منتشر شد و از متن‌های کلاسیکِ روانکاوی دربارهٔ زنانگی است.", "topics": ["مفاهیمِ روانکاوی"], "who": ["ریویر"]}, {"label": "ترجمه", "title": "کمال‌گرایی: تاوانِ مشکلاتِ دورانِ کودکی", "cite": "Hewitt, P. L., Flett, G. L., &amp; Mikail, S. F. (2017). <i>Perfectionism: A Relational Approach</i>.", "web": "", "ig": "https://www.instagram.com/p/Cb8HQspAGQE/", "pub": "انتشارات اسبار", "note": "پل هیویت و گوردون فلت از پژوهشگرانِ سرشناسِ کمال‌گرایی‌اند و «مقیاسِ چندبعدیِ کمال‌گرایی» را ساخته‌اند. این کتاب را انتشاراتِ گیلفورد در ۲۰۱۷ منتشر کرده است.", "topics": ["آسیب‌شناسیِ روانی"], "who": []}];   /* منتشر شده: کارهای منتشرشده در جاهای دیگر */
 const FA=n=>String(n).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
 const IG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>';
 /* «منتشر شده»: label — line — title, English citation, site and Instagram icons */
@@ -597,20 +668,68 @@ function renderList(el,LIST){document.getElementById(el).innerHTML=LIST.map((q,i
  <div class="top"><h2>${q.title}</h2><div class="meta">${mark}<span class="n">${FA(String(i+1).padStart(2,'0'))}</span></div></div>
  <a class="im" href="${href}"${ext}>${img}</a>
  ${q.excerpt?`<p>${q.excerpt}</p>`:''}</article>`}).join('');}
-renderList('ed',POSTS);renderPub();
-if(POSTS.concat(PUBLISHED).some(q=>q.kind==='embed')){const sc=document.createElement('script');sc.async=true;sc.src='https://www.instagram.com/embed.js';document.body.appendChild(sc);}
-function openRead(id){const q=POSTS.find(p=>p.id===id);if(!q)return false;
- document.getElementById('readbox').innerHTML=`<h1>${q.title}</h1>${q.sub?`<span class="sub">${q.sub}</span>`:''}${q.body.map(p=>`<p>${p}</p>`).join('')}`;return true;}
 
-const SHOW_WRITINGS=POSTS.length>0;   /* «نوشته‌ها» با اولین پست خودش ظاهر می‌شود */
-const SHOW_OTHER=PUBLISHED.length>0;   /* «منتشر شده» */
+const PUBX={};
+const ITEMS0=ESSAYS.map(q=>Object.assign({type:'essay'},q)).concat(POSTS.map(p=>({type:'post',id:p.id,title:p.title,lead:p.excerpt||'',url:p.url,img:p.image,date:p.date,topics:p.topics,who:p.who})));
+/* the date of each piece: the date given, or else read from its Instagram link (the post's own date). Used for order; shown only for published pieces */
+function igDate(u){const m=/instagram\.com\/(?:p|reel)\/([\w-]+)/.exec(u||'');if(!m)return 0;const A='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';let n=0n;for(const c of m[1])n=n*64n+BigInt(A.indexOf(c));return Number(n>>23n)+1314220021721;}
+const TS=q=>q.date?Date.parse(q.date):igDate(q.ig||q.url);
+const FAMON=t=>{try{return new Intl.DateTimeFormat('fa-IR-u-ca-persian-nu-arabext',{year:'numeric',month:'long'}).format(new Date(t)).replace(/ ه‍?\.ش\.?/,'');}catch(e){return ''}};
+const PUBS=PUBLISHED.map(p=>Object.assign({type:'pub',lead:p.note},p,PUBX[p.title]||{}));
+/* Instagram is switched off for now: set SHOW_IG to true to bring the posts back */
+const SHOW_IG=false;
+const ITEMS=ITEMS0.filter(q=>SHOW_IG||q.type!=='post').concat(PUBS).map(q=>Object.assign(q,{ts:TS(q)})).sort((a,b)=>b.ts-a.ts);
+
+function renderWr(){
+ const cnt=f=>ITEMS.filter(f).length;
+ /* a topic or a thinker shows up only once it has at least three pieces */
+ const MIN=3,uniq=k=>[...new Set(ITEMS.flatMap(q=>q[k]||[]))].map(v=>[v,cnt(q=>(q[k]||[]).includes(v))]).filter(x=>x[1]>=MIN).sort((a,b)=>b[1]-a[1]);
+ const TYPES=[['all','همه',ITEMS.length],['pub','منتشرشده‌ها',cnt(q=>q.type==='pub')],['essay','جستارها',cnt(q=>q.type==='essay')],['post','اینستاگرام',cnt(q=>q.type==='post')]].filter(t=>t[2]>0);
+ const TOP=uniq('topics'),WHO=uniq('who');
+ const tile=q=>{
+  if(q.type==='pub'){const d=q.ts?FAMON(q.ts):'';return `<article class="t" data-type="pub"><div class="tx"><span class="lb">${q.label}</span><h3>${q.title}</h3><p class="ps">${q.pub||''}${d?`<span class="pd">${d}</span>`:''}</p>${q.lead?`<p class="ld nt">${q.lead}</p>`:''}<p class="ct" dir="ltr">${q.cite}</p></div><div class="lk">${q.web?`<a href="${q.web}" target="_blank" rel="noopener">دیدن در سایت</a>`:''}${q.ig?`<a href="${q.ig}" target="_blank" rel="noopener">دیدن در اینستاگرام</a>`:''}</div></article>`;}
+  const im=q.img?`<span class="im"><img src="${q.img}" alt=""></span>`:'';
+  if(q.type==='post')return `<a class="t" data-type="post" href="${q.url}" target="_blank" rel="noopener">${im}<span class="tx"><span class="ttl">${IG}<h3>${q.title}</h3></span><span class="ld">${q.lead}</span></span></a>`;
+  return `<a class="t" data-type="essay" href="#read-${q.id}">${im}<span class="tx"><span class="lb">${q.label}</span><h3>${q.title}</h3>${q.cite?`<span class="ct" dir="ltr">${q.cite}</span>`:''}<span class="ld">${q.lead}</span></span></a>`;};
+ const grp=(name,key,list)=>list.length?`<h2>${name}</h2>${list.map(v=>`<button type="button" data-k="${key}" data-v="${v[0]}" aria-pressed="false">${v[0]}<span>${FA(v[1])}</span></button>`).join('')}`:'';
+ const hasT=TOP.length+WHO.length>0,hasK=TYPES.length>2,hasBar=hasK||hasT;
+ document.getElementById('ed').innerHTML=`${hasBar?`<div class="wbar"><div class="wf2" role="group" aria-label="نوع">${hasK?TYPES.map((t,k)=>`<button type="button" data-f="${t[0]}" aria-pressed="${k===0}">${t[1]}<span>${FA(t[2])}</span></button>`).join(''):''}</div>
+ ${hasT?`<div class="wtp"><button type="button" class="wtb" aria-expanded="false" aria-controls="wtl">موضوع</button><div class="wtl" id="wtl" hidden>${grp('موضوع','topics',TOP)}${grp('اندیشمند','who',WHO)}<button type="button" class="clr" data-clear>همهٔ موضوع‌ها</button></div></div>`:''}</div>`:''}
+ <div class="wg${hasBar?'':' wg0'}">${ITEMS.map(tile).join('')}<p class="wnone" hidden>در این دسته هنوز چیزی نیست.</p></div>`;
+ const T=[...document.querySelectorAll('.wg .t')];T.forEach((t,i)=>t.dataset.i=i);
+ let F='all',K=null,V=null;
+ /* layout: whatever is showing is laid out again so every row closes. The newest essay with a picture and every fifth picture take two columns; the last row stretches to fill */
+ const layout=()=>{const C=matchMedia('(max-width:720px)').matches?1:matchMedia('(max-width:1100px)').matches?2:4;
+  const ts=T.filter(t=>!t.hidden);let r=0,rs=0;const sz=[];let firstEssay=true;
+  ts.forEach((t,i)=>{const q=ITEMS[+t.dataset.i],img=!!q.img;let w=1;
+   if(C>1&&img&&((q.type==='essay'&&firstEssay)||i%5===4))w=2; if(q.type==='essay')firstEssay=false;
+   if(w>C-r)w=1;if(r===0)rs=i;sz.push(w);r=(r+w)%C;});
+  if(r!==0&&C>1){let free=C-r;while(free>0){let moved=false;for(let j=ts.length-1;j>=rs&&free>0;j--){if(sz[j]<C){sz[j]++;free--;moved=true;}}if(!moved)break;}}
+  ts.forEach((t,i)=>{t.classList.remove('w','f');if(C>1&&sz[i]>=C&&C>2)t.classList.add('f');else if(sz[i]>=2)t.classList.add('w');});};
+ const apply=()=>{let n=0;T.forEach(t=>{const q=ITEMS[+t.dataset.i];const ok=(F==='all'||q.type===F)&&(!K||(q[K]||[]).includes(V));t.hidden=!ok;n+=ok;});document.querySelector('.wnone').hidden=n>0;layout();};
+ document.querySelectorAll('.wf2 button').forEach(b=>b.addEventListener('click',()=>{F=b.dataset.f;document.querySelectorAll('.wf2 button').forEach(x=>x.setAttribute('aria-pressed',x===b));apply();}));
+ const tb=document.querySelector('.wtb'),tl=document.getElementById('wtl');
+ if(tb){tb.addEventListener('click',e=>{e.stopPropagation();const o=tl.hidden;tl.hidden=!o;tb.setAttribute('aria-expanded',o);});
+  document.addEventListener('click',e=>{if(!tl.hidden&&!e.target.closest('.wtp')){tl.hidden=true;tb.setAttribute('aria-expanded','false');}});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!tl.hidden){tl.hidden=true;tb.setAttribute('aria-expanded','false');tb.focus();}});
+  tl.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{const clear=b.hasAttribute('data-clear')||b.getAttribute('aria-pressed')==='true';tl.querySelectorAll('[data-k]').forEach(x=>x.setAttribute('aria-pressed','false'));
+   if(clear){K=V=null;tb.textContent='موضوع';tb.classList.remove('on');}else{b.setAttribute('aria-pressed','true');K=b.dataset.k;V=b.dataset.v;tb.textContent=V;tb.classList.add('on');}
+   tl.hidden=true;tb.setAttribute('aria-expanded','false');apply();}));}
+ addEventListener('resize',layout);apply();}
+renderWr();
+if(POSTS.concat(PUBLISHED).some(q=>q.kind==='embed')){const sc=document.createElement('script');sc.async=true;sc.src='https://www.instagram.com/embed.js';document.body.appendChild(sc);}
+function openRead(id){const q=ESSAYS.concat(POSTS).find(p=>p.id===id);if(!q)return false;
+ document.getElementById('readbox').innerHTML=`${q.label?`<span class="wk">${q.label}</span>`:''}<h1>${q.title}</h1>${q.sub?`<span class="sub">${q.sub}</span>`:''}${q.cite?`<p class="ct" dir="ltr">${q.cite}</p>`:''}${q.body.map(p=>`<p>${p}</p>`).join('')}`;return true;}
+
+const SHOW_WRITINGS=ITEMS.length>0;   /* «نوشته‌ها» با اولین پست خودش ظاهر می‌شود */
+const SHOW_OTHER=false;   /* «منتشر شده» */
 /* the menus are written in the page itself (they show even where scripts do not run); here only «نوشته‌ها» and «منتشر شده» follow the lists */
 document.querySelectorAll('.hd [data-w]').forEach(x=>{if(SHOW_WRITINGS)x.hidden=false;else x.remove();});
 if(!SHOW_OTHER)document.querySelectorAll('.hd [data-o]').forEach(x=>x.remove());
 
 /* common questions: opening one closes the others */
 document.querySelectorAll('.faq details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)document.querySelectorAll('.faq details').forEach(o=>{if(o!==d)o.open=false;});}));
-function route(){let id=(location.hash||'#home').slice(1);if(!SHOW_WRITINGS&&(id==='writings'||id==='read'||id.startsWith('read-')))id='home';if(id==='other')id='published';if(!SHOW_OTHER&&id==='published')id='home';if(id.startsWith('read-')){id=openRead(id.slice(5))?'read':'writings';}const el=document.getElementById(id);const target=el&&el.classList.contains('page')?id:'home';
+function route(){let id=(location.hash||'#home').slice(1);if(!SHOW_WRITINGS&&(id==='writings'||id==='read'||id.startsWith('read-')))id='home';if(id==='other'||id==='published')id='writings';if(id.startsWith('read-')){id=openRead(id.slice(5))?'read':'writings';}const el=document.getElementById(id);const target=el&&el.classList.contains('page')?id:'home';
  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p.id===target));
  const cur=target==='read'?'writings':target;document.querySelectorAll('.hd nav a').forEach(a=>{if(a.getAttribute('href')==='#'+cur)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
  window.scrollTo(0,0);fit();}
@@ -775,5 +894,5 @@ const em=document.getElementById('bem');em&&em.addEventListener('input',()=>{con
  else if(b.hasAttribute('data-busy')){b.removeAttribute('data-busy');b.removeAttribute('aria-busy');b.textContent=b.dataset.label;}};
  document.querySelectorAll('#bf button[type=submit],#qf button[type=submit]').forEach(b=>new MutationObserver(()=>set(b)).observe(b,{attributes:true,attributeFilter:['disabled']}));})();
 </script>
-<script>(function(){var p=document.getElementById("booking");if(p)p.querySelectorAll(".tgb").forEach(function(b){b.addEventListener("click",function(){b.setAttribute("aria-expanded",p.classList.toggle(b.getAttribute("data-c")))})});["copy","cut"].forEach(function(t){document.addEventListener(t,function(e){var a=document.activeElement;if(!(a&&a.matches&&a.matches("input,textarea")))e.preventDefault()})})})()</script>
+<script>(function(){["copy","cut"].forEach(function(t){document.addEventListener(t,function(e){var a=document.activeElement;if(!(a&&a.matches&&a.matches("input,textarea")))e.preventDefault()})})})()</script>
 </body></html>

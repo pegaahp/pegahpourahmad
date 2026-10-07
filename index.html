@@ -447,6 +447,15 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 /* 2.20: خانه — دکمهٔ «رزرو وقت» همیشه، زیرِ «پرسش‌های رایج» */
 .cta .bk{display:inline-block}
 .cta{flex-direction:column-reverse;align-items:flex-end}
+/* 2.24: خانه — بالای تگ‌لاین هم‌ترازِ بالای «پگاه»، پایینِ دو گزینه هم‌ترازِ پایینِ «پوراحمد»؛ دو گزینه هم‌عرض */
+.cta{gap:10px;align-items:stretch}
+.cta a{display:block;text-align:center;font-family:"EpsB";font-size:15px;line-height:1.2;padding:14px 28px}
+.cta .ul{border:1px solid var(--blue);text-decoration:none}
+.cta .ul:hover{background:#EEF0F8}
+@media (min-width:1101px){.hero{align-items:stretch}.inf{justify-content:space-between;gap:24px;padding-bottom:0}.inf .cta{align-self:stretch}}
+@media (min-width:721px) and (max-width:1100px){.cta{align-self:flex-start;width:max-content}}
+/* what the eye sees: the calligraphic tagline draws above its box, and «پوراحمد» descends below its own */
+@media (min-width:1101px){.inf .tag{margin-top:18px}.inf{margin-bottom:calc(clamp(64px,6.95vw,100px) * -0.08)}}
 /* 2.18: متنِ سایت انتخاب و کپی نمی‌شود؛ فیلدهای فرم مثل قبل کار می‌کنند */
 body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 input,textarea,select{-webkit-user-select:text;user-select:text;-webkit-touch-callout:default}
@@ -530,7 +539,7 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
  <main class="hm"><div class="hero">
   <h1 class="nm"><span>پگاه</span> <span>پوراحمد</span></h1>
   <div class="inf">
-   <div class="tag"><p>روان‌درمانگر با رویکرد تحلیلی</p><p>روابط ابژه‌ای</p></div>
+   <div class="tag"><p>روان‌درمانگر با رویکرد تحلیلی</p></div>
    <div class="cta"><a class="btn bk" href="#booking">رزرو وقت</a><a class="ul" href="#faq">پرسش‌های رایج</a></div>
   </div>
  </div></main>

@@ -540,7 +540,7 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 /* 2.37: جستار — عکسِ بزرگ کنارِ متن تا لبهٔ صفحه؛ جملهٔ پرسشی با خطِ دست‌نویس */
 .read .rh2{display:flow-root;margin:40px 0 34px}
 .read .rh2 h1{margin:0;font-size:44px;line-height:1.3;text-align:right}
-.read .rh2 .dq{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--blue);font-family:"Lei";font-size:26px;line-height:1.75;color:var(--ochre);text-align:right;text-align-last:right}
+.read .rh2 .dq{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--blue);font-family:"Eps";font-size:20px;line-height:1.8;text-align:justify;text-align-last:right}
 .read .rh2 .tm{margin:10px 0 0;font-family:"Eps";font-size:13px;opacity:.75}
 .read .fl{float:left;margin:46px 40px 24px 0;display:flex;flex-direction:column;gap:6px}
 .read .fl img{display:block;width:100%;height:auto}
@@ -548,8 +548,7 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 .read .refs{clear:both}
 @media (min-width:1101px){.read .fl.ls{width:72%;margin-left:-28.47%}.read .fl.pt{width:54%;margin-left:-28.47%}}
 @media (min-width:721px) and (max-width:1100px){.read .fl.ls{float:none;width:100%;margin:24px 0}.read .fl.pt{width:48%;margin:30px 28px 16px 0}.read .rh2 h1{font-size:34px}}
-@media (max-width:720px){.read .fl{float:none;width:100%;margin:20px 0 4px}.read .rh2{margin-top:16px}.read .rh2 h1{font-size:28px}.read .rh2 .dq{font-size:21px}}
-.t .ld.lq{font-family:"Lei";font-size:19px;line-height:1.75;color:var(--ochre)}
+@media (max-width:720px){.read .fl{float:none;width:100%;margin:20px 0 4px}.read .rh2{margin-top:16px}.read .rh2 h1{font-size:28px}.read .rh2 .dq{font-size:17px}}
 /* 2.18: متنِ سایت انتخاب و کپی نمی‌شود؛ فیلدهای فرم مثل قبل کار می‌کنند */
 body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 input,textarea,select{-webkit-user-select:text;user-select:text;-webkit-touch-callout:default}
@@ -625,6 +624,30 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
  .t .im{aspect-ratio:1;margin:0}
  .t .ld{-webkit-line-clamp:2}
 }
+/* 2.38: «نوشته‌ها» — عکس‌ها کامل و بی‌برش؛ چیدمان بر اساس جهت عکس. صفحهٔ جستار: زیرعنوان اخرایی */
+#writings .t .im{aspect-ratio:auto;overflow:visible;margin:0 0 4px}
+#writings .t .im img{width:100%;height:auto;object-fit:fill;display:block}
+#writings .wg .t.ft{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);column-gap:32px;align-items:start;padding:24px 20px 28px}
+#writings .wg .t.ft.v{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+#writings .wg .t.ft .im{margin:0}
+#writings .wg .t.ft .tx{align-self:stretch;gap:12px}
+#writings .wg .t.fv{display:flex;flex-direction:column;gap:18px;padding:24px 20px 28px}
+#writings .wg .t.fv .tx{order:1;gap:12px}
+#writings .wg .t.fv .im{order:2;margin:0}
+#writings .wg .t.ft .ld,#writings .wg .t.fv .ld{display:block;-webkit-line-clamp:unset;overflow:visible}
+#writings .wg .t.wd:has(.im){display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);column-gap:32px;align-items:start}
+#writings .wg .t.wd.v:has(.im){grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+#writings .wg .t.wd:has(.im) .tx{display:flex;align-self:stretch}
+#writings .wg .t.wd:has(.im) .im{margin:0}
+#writings .t .th,#writings .t .tb{display:flex;flex-direction:column;gap:8px}
+#writings .wg .t.wd:not(:has(.im)){display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:32px;align-items:start}
+#writings .wg .t.wd:not(:has(.im)) .tx{display:contents}
+#writings .wg .t.wd .th{grid-column:1;grid-row:1 / span 2}
+#writings .wg .t.wd .tb{grid-column:2;grid-row:1}
+#writings .wg .t.wd .lk{grid-column:2;grid-row:2;margin-top:6px}
+.read .rh2 .sb3{margin:8px 0 0;font-family:"Lei";font-size:22px;line-height:1.5;color:var(--ochre)}
+@media (min-width:721px) and (max-width:1100px){#writings .wg .t.ft,#writings .wg .t.wd:has(.im){column-gap:22px}}
+@media (max-width:720px){#writings .wg .t:has(.im){display:flex;flex-direction:column;gap:12px}#writings .wg .t .im{aspect-ratio:auto;margin:0}#writings .wg .t .ld{-webkit-line-clamp:3}.read .rh2 .sb3{font-size:19px}}
 </style>
 </head>
 <body>
@@ -765,7 +788,8 @@ const ESSAYS=[
  {
   "id": "e1",
   "label": "جستار",
-  "title": "وقتی معنا کافی نیست",
+  "title": "مترجم با متن چه کار می‌کند؟",
+  "sub": "دربارهٔ ترجمه",
   "q": "وقتی ترجمه ناگزیر صورت متن را تغییر می‌دهد، چطور می‌شود فهمید چه چیزی باید ثابت بماند؟",
   "lead": "اگر چیزی از اطلاعات جمله حذف نشده، چه چیزی تغییر کرده است؟ و وقتی از وفاداری ترجمه به متن اصلی حرف می‌زنیم، دقیقاً از حفظ چه چیزی حرف می‌زنیم؟",
   "date": "2026-10-07",
@@ -774,7 +798,7 @@ const ESSAYS=[
   "body": [
    "گاهی در ترجمهٔ متون با جمله‌هایی روبه‌رو می‌شوم که فهمیدنشان به انگلیسی دشوار نیست، اما برگرداندنشان به فارسی، بدون آنکه چیزی از معنایشان تغییر کند، برایم دشوار است. می‌توانم جمله‌ای را کوتاه کنم، جای اجزایش را تغییر دهم یا آن را به دو جمله بشکنم و به فارسی‌ای برسم که روشن، طبیعی و از نظر معنای صریح درست است. بااین‌حال، گاهی احساس می‌کنم حاصل دیگر کاملاً همان متن نیست. اگر چیزی از اطلاعات جمله حذف نشده، چه چیزی تغییر کرده است؟ و وقتی از وفاداری ترجمه به متن اصلی حرف می‌زنیم، دقیقاً از حفظ چه چیزی حرف می‌زنیم؟",
    "در تجربهٔ من، فهمیدن معنای جمله همیشه برای ترجمهٔ آن کافی نبوده است. گاهی برای انتخاب یک واژه به سراغ ریشه و تاریخچهٔ کاربردش رفته‌ام، یا کوشیده‌ام ببینم در زمان نویسنده و در نوشته‌ها و ادبیات هم‌عصر او چگونه به کار می‌رفته است. گاهی واژه‌ای معادل دقیقی در فارسی نداشته، اما توانسته‌ام معنایش را از طریق رابطه‌ای که با سایر اجزای جمله برقرار می‌کند منتقل کنم. گاهی هم دشواری نه در واژه‌ها، بلکه در ساختمان جمله بوده است: مرجع یک ضمیر، معلوم یا مجهول‌بودن فعل، جای تأکید یا ابهامی که در متن اصلی برطرف نشده است.",
-   "در ترجمه‌هایم سعی می‌کنم نه ابهامی به متن اضافه کنم که در اصل وجود ندارد و نه ابهامی را که نویسنده باز گذاشته است از میان ببرم. گاهی احساس می‌کنم تغییر معلوم یا مجهول‌بودن جمله، یا روشن‌کردن مرجع ضمیری که در متن اصلی نامعلوم مانده، چیزی بیش از یک تغییر دستوری است. در عین حال، بارها پیش آمده که وفادارماندن به ساختمان جملهٔ انگلیسی، فارسی‌ای ساخته که خودم هم برای فهمیدنش ناچار شده‌ام آن را یک بار دیگر در ذهنم به فارسی برگردانم. همین‌جا معمولاً میان دو انتخاب می‌مانم: چقدر می‌توانم ساختمان جمله را تغییر دهم، بی‌آنکه چیزی را که می‌خواهم حفظ کنم از دست بدهم؟",
+   "در ترجمه سعی می‌کنم نه ابهامی به متن اضافه کنم که در اصل وجود ندارد و نه ابهامی را که نویسنده باز گذاشته است از میان ببرم. گاهی احساس می‌کنم تغییر معلوم یا مجهول‌بودن جمله، یا روشن‌کردن مرجع ضمیری که در متن اصلی نامعلوم مانده، چیزی بیش از یک تغییر دستوری است. در عین حال، بارها پیش آمده که وفادارماندن به ساختمان جملهٔ انگلیسی، فارسی‌ای ساخته که خودم هم برای فهمیدنش ناچار شده‌ام آن را یک بار دیگر در ذهنم به فارسی برگردانم. همین‌جا معمولاً میان دو انتخاب می‌مانم: چقدر می‌توانم ساختمان جمله را تغییر دهم، بی‌آنکه چیزی را که می‌خواهم حفظ کنم از دست بدهم؟",
    "گاهی کار مترجم را شبیه کار بازیگر احساس می‌کنم. وقتی بازیگری جمله‌ای را اجرا می‌کند، فقط کلمات آن را ادا نمی‌کند؛ مکث‌ها، شکست‌ها، تأکیدها و حتی آنچه ناگفته می‌ماند در اجرای او حضور دارند. من هم هنگام ترجمه گاهی سعی می‌کنم جمله را بشنوم: کجا مکث می‌کند، چه چیزی را برجسته می‌کند و چه چیزی را ناتمام می‌گذارد. البته به ذهن نویسنده دسترسی ندارم و نمی‌توانم مطمئن باشم آنچه از متن دریافت کرده‌ام همان چیزی است که او قصد بیانش را داشته است. آنچه در اختیار دارم خود متن، زبان آن و تا جایی که بتوانم بشناسم، زمینهٔ تاریخی و ادبی آن است. از خلال اینها می‌کوشم بفهمم خوانندهٔ متن اصلی با چه چیزی مواجه می‌شود و آیا می‌توانم در فارسی امکان مواجهه‌ای مشابه را فراهم کنم.",
    "هنوز نمی‌دانم آنچه در این فرایند می‌کوشم حفظ کنم دقیقاً چیست. گاهی معنا به نظر می‌رسد، گاهی ساختمان جمله، گاهی آهنگ آن و گاهی نسبتی میان اینها که با تغییر هر کدام ممکن است از دست برود. شاید برای همین است که پرسش از وفاداری ترجمه برایم به پرسش از خودِ متن تبدیل شده است: چه چیزی در یک متن باید باقی بماند تا بتوان گفت با وجود تغییر زبان، هنوز همان متن است؟",
    "پاتریک ماهونی دربارهٔ یکی از مشکلات بنیادی ترجمه می‌نویسد:",
@@ -836,7 +860,7 @@ const ESSAYS=[
    },
    {
     "t": "Rolnik EJ. Before Babel: Reflections on reading and translating Freud. <i>The Psychoanalytic Quarterly<\/i>. 2015;84(2):305–330.",
-    "u": "https://pep-web.org/browse/document/PQ.084.0305A"
+    "u": "https://pep-web.org/browse/document/PAQ.084.0305A"
    },
    {
     "t": "Priel B. Transformation and invariance in creative translations and analytic interpretations: A Bionian reading of Borges and Cervantes. <i>The International Journal of Psychoanalysis<\/i>. 2013;94:1115–1127.",
@@ -851,7 +875,8 @@ const ESSAYS=[
  {
   "id": "e2",
   "label": "جستار",
-  "title": "وقتی پاسخ کافی نیست",
+  "title": "آیا آنچه هوش مصنوعی انجام می‌دهد، یادگیری است؟",
+  "sub": "دربارهٔ تفکر و هوش مصنوعی",
   "q": "اگر هوش مصنوعی پاسخ را بی‌آنکه تجربه‌ای از سر بگذراند تولید کند، آیا دریافت آن هنوز می‌تواند آغاز فکرکردن باشد؟",
   "lead": "آیا هوش مصنوعی فکر می‌کند؟ یا تنها محصولی تولید کرده که به فکر شباهت دارد؟",
   "date": "2026-10-08",
@@ -873,7 +898,7 @@ const ESSAYS=[
    "اگر در نظریهٔ بیون اندیشه و دستگاه تفکر از یکدیگر متمایزند، آیا می‌توان این تمایز را در بررسی هوش مصنوعی نیز به کار گرفت؟ آیا تولید اندیشه‌ای منسجم، وجود دستگاهی برای تفکر را اثبات می‌کند؟ و آیا آنچه بیون دستگاه تفکر می‌نامد با فرایند پردازش اطلاعات در یک مدل زبانی قابل‌مقایسه است؟",
    "<p>بیون در ادامهٔ همان مقاله، رشد تفکر را با ظرفیت تحمل ناکامی مرتبط می‌کند. در مدل پیشنهادی او، هنگامی که انتظار نوزاد برای حضور پستان با نبود آن مواجه می‌شود، ادامهٔ فرایند به توانایی تحمل ناکامی بستگی دارد. اگر این ظرفیت کافی باشد، غیاب می‌تواند به اندیشه تبدیل شود و دستگاهی برای اندیشیدن به آن رشد کند. اگر تحمل ناکامی ممکن نباشد، مسیر دیگری در پیش گرفته می‌شود که بیون آن را با تخلیه و اجتناب از ناکامی توضیح می‌دهد <a class=\"rf\" data-r=\"2\">[2، صص. ۳۰۳–۳۰۴]<\/a>.<\/p>",
    "آیا در این چارچوب، فکرکردن بدون مواجهه با ناکامی ممکن است؟ آیا این توصیف دربارهٔ همهٔ انواع تفکر است یا دربارهٔ رشد ظرفیت تفکر در معنای روانکاوانهٔ آن؟ اگر مدلی بتواند مسئله‌ای را حل کند، بی‌آنکه ناکامی را تجربه کند، آیا می‌توان گفت همان فرایندی را طی کرده است که بیون توصیف می‌کند؟",
-   "<p>در یادگیری از تجربه، بیون برای توضیح تبدیل تجربه به مادهٔ قابل‌استفاده در تفکر، مفهوم تابع آلفا (alpha-function) را به کار می‌گیرد. در این مدل، تأثرات حسی و تجربه‌های عاطفی می‌توانند به عناصر آلفا تبدیل شوند؛ عناصری که در رؤیا و تفکر به کار می‌آیند. هنگامی که تابع آلفا مختل باشد، تجربه‌ها به همین صورت تحول نمی‌یابند و بیون از عناصر بتا سخن می‌گوید <a class=\"rf\" data-r=\"3\">[3، فصل‌های ۲–۳]<\/a>.<\/p>",
+   "<p>در یادگیری از تجربه، بیون برای توضیح تبدیل تجربه به مادهٔ قابل‌استفاده در تفکر، مفهوم تابع آلفا (alpha-function) را به کار می‌گیرد. در این مدل، تأثرات حسی و تجربه‌های عاطفی می‌توانند به عناصر آلفا تبدیل شوند؛ عناصری که در رؤیا و تفکر به کار می‌آیند. هنگامی که تابع آلفا مختل باشد، تجربه‌ها به همین صورت تحول نمی‌یابند و بیون از عناصر بتا سخن می‌گوید <a class=\"rf\" data-r=\"3\">[3، فصل‌های ۱–۳]<\/a>.<\/p>",
    "اما عناصر آلفا و بتا دقیقاً چه هستند؟ آیا باید آنها را بر اساس فرایند پیدایششان تعریف کرد یا بر اساس کاری که انجام می‌دهند؟ و اگر این مفاهیم برای توصیف تحول تجربهٔ عاطفی در روان انسان ساخته شده‌اند، آیا تعمیم آنها به پردازش اطلاعات در هوش مصنوعی ممکن است؟",
    "<p>میشالی و عزرا از همین تمایز برای طرح مفهوم «شبه‌عناصر آلفا» (pseudo-alpha-elements) استفاده می‌کنند. آنها استدلال می‌کنند که هوش مصنوعی می‌تواند محتوایی تولید کند که صورت اندیشهٔ پردازش‌شده را داشته باشد: منسجم، نمادین و قابل‌انتقال باشد، اما فرایند تحول تجربهٔ عاطفی که بیون توصیف می‌کند در تولید آن رخ نداده باشد <a class=\"rf\" data-r=\"1\">[1، صص. ۱، ۶–۷]<\/a>.<\/p>",
    "نویسندگان تأکید می‌کنند که این محصولات از هیچ پدید نیامده‌اند؛ آنها بر بقایای انباشتهٔ فعالیت نمادین و فکری انسان‌ها در داده‌های آموزشی متکی‌اند. بنابراین، مسئلهٔ آنها فقدان هرگونه ارتباط تاریخی با تجربهٔ انسانی نیست، بلکه فقدان تحول عاطفی در خودِ فرایند تولید پاسخ است.",
@@ -906,7 +931,7 @@ const ESSAYS=[
    "آیا در مواجهه با هوش مصنوعی نیز باید میان پاسخ و ظرفیت پرسیدن تفاوت گذاشت؟ آیا داشتن پاسخ می‌تواند مانعی برای ادامهٔ پرسشگری شود؟ یا ممکن است پاسخ تازه، پرسش تازه‌ای ایجاد کند؟",
    "<p>میشالی و عزرا در ادامهٔ مقاله، بحث را از سطح فردی فراتر می‌برند. آنها از «نهادینه‌شدن −K» سخن می‌گویند؛ وضعیتی که در آن تولید پاسخ‌های منسجم و قابل‌استفاده می‌تواند در ساختارهای فرهنگی و حرفه‌ای تثبیت شود، بی‌آنکه الزاماً به تحول تجربه در فرد وابسته باشد <a class=\"rf\" data-r=\"1\">[1، صص. ۴–۵]<\/a>.<\/p>",
    "<p>آنها برای توضیح این مسئله به مفهوم نبوغ (genius) در آثار بیون نیز رجوع می‌کنند. در خوانش نویسندگان، نبوغ صرفاً ویژگی فردی با هوش یا خلاقیت استثنایی نیست؛ به موقعیتی مربوط می‌شود که در آن حقیقتی هنوز در ساختارهای موجود دانش و نهادها قابل‌جای‌دادن نیست. نویسندگان این بحث را به نسبت میان حقیقت، تحمل‌کردن آن و تبدیل‌شدنش به دانشی قابل‌انتقال پیوند می‌دهند <a class=\"rf\" data-r=\"1\">[1، صص. ۳–۴]<\/a>.<\/p>",
-   "<p>در توجه و تفسیر، بیون رابطهٔ میان فرد استثنایی، گروه و نهاد را بررسی می‌کند و میان مواجهه با واقعیت روانی و تثبیت آن در صورت نظریه یا دانش تمایز می‌گذارد <a class=\"rf\" data-r=\"4\">[4، فصل ۶]<\/a>.<\/p>",
+   "<p>در توجه و تفسیر، بیون رابطهٔ میان فرد استثنایی، گروه و نهاد را بررسی می‌کند و میان مواجهه با واقعیت روانی و تثبیت آن در صورت نظریه یا دانش تمایز می‌گذارد <a class=\"rf\" data-r=\"4\">[4، فصل‌های ۶–۷]<\/a>.<\/p>",
    "اگر حقیقتی بتواند به دانشی منسجم تبدیل شود، آیا چیزی از تجربهٔ مواجهه با آن تغییر می‌کند؟ آیا می‌توان صورت‌بندی نهایی یک اندیشه را دریافت کرد، بی‌آنکه فرایند رسیدن به آن را از سر گذراند؟ و اگر چنین باشد، آیا آن صورت‌بندی می‌تواند آغاز فرایند تازه‌ای از تفکر شود؟",
    "<p>میشالی و عزرا معتقدند یکی از خطرهای شبه‌عناصر آلفا این است که از نظر صورت ظاهری می‌توانند از محصولات یادگیری واقعی تشخیص‌ناپذیر باشند. آنها استدلال می‌کنند که اگر ظرفیت تشخیص دانستن از بدل آن خود به تماس عاطفی با تجربه وابسته باشد، دورزدن مکرر این تماس ممکن است همان ظرفیت تشخیص را نیز تضعیف کند <a class=\"rf\" data-r=\"1\">[1، صص. ۶–۷]<\/a>.<\/p>",
    "اما این تمایز را چگونه می‌توان تشخیص داد؟ اگر دو نفر توضیحی یکسان ارائه کنند، اما یکی در نتیجهٔ تجربه‌ای تحول‌یافته به آن رسیده باشد و دیگری آن را از هوش مصنوعی دریافت کرده باشد، از کجا می‌توان تفاوت را فهمید؟ آیا باید به فرایند رسیدن به پاسخ مراجعه کرد؟ به توانایی فرد در استفاده از آن؟ به تغییری که در فهم او ایجاد شده است؟",
@@ -928,11 +953,11 @@ const ESSAYS=[
   "refs": [
    {
     "t": "Mishali M, Ezra R. Learning from Experience? Artificial Intelligence and the Institutionalization of −K. <i>European Journal of Psychoanalysis<\/i>. 2026 Jun 10.",
-    "u": "https://www.journal-psychoanalysis.eu/articles/learning-from-experience-artificial-intelligence-and-the-institutionalization-of-k/"
+    "u": "https://www.journal-psychoanalysis.eu/articles/learning-from-experience-artificial-intelligence-and-the-institutionalization-of-k-2/"
    },
    {
-    "t": "Bion WR. The Psycho-Analytic Study of Thinking. <i>International Journal of Psycho-Analysis<\/i>. 1962;43:306–310. <span dir=\"rtl\">بازنشر در<\/span> <i>The Psychoanalytic Quarterly<\/i>. 2013;82(2):301–310.",
-    "u": "https://pep-web.org/browse/document/IJP.043.0306A"
+    "t": "Bion WR. The Psycho-Analytic Study of Thinking. <i>The Psychoanalytic Quarterly<\/i>. 2013;82(2):301–310. First published in <i>International Journal of Psycho-Analysis<\/i>. 1962;43:306–310. <span dir=\"rtl\">(شمارهٔ صفحه‌ها مطابق بازنشر ۲۰۱۳ است.)<\/span>",
+    "u": "https://pep-web.org/browse/document/PAQ.082.0301A"
    },
    {
     "t": "Bion WR. <i>Learning from Experience<\/i>. London: William Heinemann Medical Books; 1962."
@@ -947,7 +972,7 @@ const ESSAYS=[
   ]
  }
 ];   /* جستار و خوانش: id, label («جستار» یا «خوانش»), title (پرسش), lead, img, body[], date, (cite, topics, who) */   /* نوشته‌ها: پست‌های خودِ پگاه (جلد، تیتر، جملهٔ اول، پیوند) */
-const PUBLISHED=[{"label": "ترجمه", "title": "زنانگی به‌مثابهٔ نقاب", "cite": "Riviere, J. (1929). <i>Womanliness as a Masquerade</i>.", "web": "https://tadaei.com/womanliness-as-a-masquerade/", "ig": "https://www.instagram.com/p/DdEuS_LDT8D/", "pub": "گروه روانکاوی تداعی", "note": "جون ریویر (۱۸۸۳–۱۹۶۲) روانکاو بریتانیایی و از مترجمانِ آثارِ فروید به انگلیسی بود. این مقاله در ۱۹۲۹ در «مجلهٔ بین‌المللیِ روانکاوی» منتشر شد و از متن‌های کلاسیکِ روانکاوی دربارهٔ زنانگی است.", "topics": ["نقاب‌ها", "کودکی و رابطه‌های نخستین", "زنانگی"], "who": ["ریویر"]}, {"label": "ترجمه", "title": "کمال‌گرایی: تاوانِ مشکلاتِ دورانِ کودکی", "cite": "Hewitt, P. L., Flett, G. L., &amp; Mikail, S. F. (2017). <i>Perfectionism: A Relational Approach</i>.", "web": "", "ig": "https://www.instagram.com/p/Cb8HQspAGQE/", "pub": "انتشارات اسبار", "note": "پل هیویت و گوردون فلت از پژوهشگرانِ سرشناسِ کمال‌گرایی‌اند و «مقیاسِ چندبعدیِ کمال‌گرایی» را ساخته‌اند. این کتاب را انتشاراتِ گیلفورد در ۲۰۱۷ منتشر کرده است.", "topics": ["نقاب‌ها", "کودکی و رابطه‌های نخستین", "کمال‌گرایی"], "who": ["هیویت"]}];   /* منتشر شده: کارهای منتشرشده در جاهای دیگر */
+const PUBLISHED=[{"label": "ترجمه", "title": "زنانگی به‌مثابهٔ نقاب", "cite": "Riviere, J. (1929). <i>Womanliness as a Masquerade</i>.", "web": "https://tadaei.com/womanliness-as-a-masquerade/", "ig": "https://www.instagram.com/p/DdEuS_LDT8D/", "pub": "گروه روانکاوی تداعی", "note": "جون ریویر (۱۸۸۳–۱۹۶۲)، روانکاو بریتانیایی و از مترجمان آثار فروید به انگلیسی، مقالهٔ «زنانگی به‌مثابه نقاب» را در سال ۱۹۲۹ منتشر کرد. او در این مقاله، با بررسی یک مورد بالینی، این فرضیه را مطرح می‌کند که نمایش زنانگی می‌تواند کارکردی دفاعی در برابر اضطراب ناشی از رقابت با مردان و ترس از تلافی داشته باشد.", "topics": ["نقاب‌ها", "کودکی و رابطه‌های نخستین", "زنانگی"], "who": ["ریویر"]}, {"label": "ترجمه", "title": "کمال‌گرایی: تاوانِ مشکلاتِ دورانِ کودکی", "cite": "Hewitt, P. L., Flett, G. L., &amp; Mikail, S. F. (2017). <i>Perfectionism: A Relational Approach</i>.", "web": "", "ig": "https://www.instagram.com/p/Cb8HQspAGQE/", "pub": "انتشارات اسبار", "note": "پل هویت، گوردون فلت و ساموئل میکائیل، پژوهشگران روان‌شناسی بالینی، در کتاب «کمال‌گرایی: رویکردی رابطه‌ای» (۲۰۱۷)، کمال‌گرایی را از منظر روابط بین‌فردی و تجربه‌های تحولی بررسی می‌کنند. آنها میان ابعاد مختلف کمال‌گرایی تمایز می‌گذارند و نقش روابط اولیه، نیاز به پذیرش و ترس از طرد را در شکل‌گیری و تداوم الگوهای کمال‌گرایانه توضیح می‌دهند.", "topics": ["نقاب‌ها", "کودکی و رابطه‌های نخستین", "کمال‌گرایی"], "who": ["هویت"]}];   /* منتشر شده: کارهای منتشرشده در جاهای دیگر */
 const FA=n=>String(n).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
 const IG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>';
 /* «منتشر شده»: label — line — title, English citation, site and Instagram icons */
@@ -978,10 +1003,10 @@ function renderWr(){
  const TYPES=[['all','همه',ITEMS.length],['pub','منتشرشده‌ها',cnt(q=>q.type==='pub')],['essay','جستارها',cnt(q=>q.type==='essay')],['post','اینستاگرام',cnt(q=>q.type==='post')]].filter(t=>t[2]>0);
  const TOP=uniq('topics'),WHO=uniq('who');
  const tile=q=>{
-  if(q.type==='pub'){const d=q.ts?FAMON(q.ts):'';return `<article class="t" data-type="pub"><div class="tx"><span class="lb">${q.label}</span><h3>${q.title}</h3><p class="ps">${q.pub||''}${d?`<span class="pd">${d}</span>`:''}</p>${q.lead?`<p class="ld nt">${q.lead}</p>`:''}<p class="ct" dir="ltr">${q.cite}</p></div><div class="lk">${q.web?`<a href="${q.web}" target="_blank" rel="noopener">دیدن در سایت</a>`:''}${q.ig?`<a href="${q.ig}" target="_blank" rel="noopener">${IG}دیدن در اینستاگرام</a>`:''}</div></article>`;}
+  if(q.type==='pub'){const d=q.ts?FAMON(q.ts):'';return `<article class="t" data-type="pub"><div class="tx"><div class="th"><span class="lb">${q.label}</span><h3>${q.title}</h3><p class="ps">${q.pub||''}${d?`<span class="pd">${d}</span>`:''}</p></div><div class="tb">${q.lead?`<p class="ld nt">${q.lead}</p>`:''}<p class="ct" dir="ltr">${q.cite}</p></div></div><div class="lk">${q.web?`<a href="${q.web}" target="_blank" rel="noopener">دیدن در سایت</a>`:''}${q.ig?`<a href="${q.ig}" target="_blank" rel="noopener">${IG}دیدن در اینستاگرام</a>`:''}</div></article>`;}
   const im=q.img?`<span class="im"><img src="${q.img}" alt=""></span>`:'';
   if(q.type==='post')return `<a class="t" data-type="post" href="${q.url}" target="_blank" rel="noopener">${im}<span class="tx"><span class="ttl">${IG}<h3>${q.title}</h3></span><span class="ld">${q.lead}</span></span></a>`;
-  return `<a class="t" data-type="essay" href="#read-${q.id}">${im}<span class="tx"><span class="lb">${q.label}</span><h3>${q.title}</h3>${q.sub?`<span class="sb">${q.sub}</span>`:''}${q.cite?`<span class="ct" dir="ltr">${q.cite}</span>`:''}<span class="ld${q.q?' lq':''}">${q.q||q.lead}</span><span class="go">خواندن</span></span></a>`;};
+  return `<a class="t" data-type="essay" href="#read-${q.id}">${im}<span class="tx"><span class="lb">${q.label}</span><h3>${q.title}</h3>${q.sub?`<span class="sb">${q.sub}</span>`:''}${q.cite?`<span class="ct" dir="ltr">${q.cite}</span>`:''}<span class="ld">${q.q||q.lead}</span><span class="go">خواندن</span></span></a>`;};
  const grp=(name,key,list)=>list.length?`<h2>${name}</h2>${list.map(v=>`<button type="button" data-k="${key}" data-v="${v[0]}" aria-pressed="false">${v[0]}<span>${FA(v[1])}</span></button>`).join('')}`:'';
  const hasT=TOP.length+WHO.length>0,hasK=TYPES.length>2,hasBar=hasK||hasT;
  document.getElementById('ed').innerHTML=`${hasBar?`<div class="wbar"><div class="wf2" role="group" aria-label="نوع">${hasK?TYPES.map((t,k)=>`<button type="button" data-f="${t[0]}" aria-pressed="${k===0}">${t[1]}<span>${FA(t[2])}</span></button>`).join(''):''}</div>
@@ -991,10 +1016,16 @@ function renderWr(){
  let F='all',K=null,V=null;
  /* layout: whatever is showing is laid out again so every row closes. The newest essay with a picture and every fifth picture take two columns; the last row stretches to fill */
  /* layout: the newest essay with a picture leads, across the full width; the rest fill rows evenly on a six-part grid (two to a row take halves, three take thirds); a piece left alone in a row splits into two columns of its own */
+ /* layout (rules in the skill, "writings page"): six-part grid, halves and thirds only; pictures are never cropped.
+    The newest essay with a picture leads. A horizontal lead takes the full row, picture beside text. A vertical lead takes half
+    the width over two rows, text above its picture, with the next two pieces stacked beside it; with fewer than two to stack,
+    it takes the full row with a narrow picture column. The rest fill rows evenly; a piece alone in a row splits in two. */
  const layout=()=>{const C=matchMedia('(max-width:720px)').matches?1:matchMedia('(max-width:1100px)').matches?2:3;
-  const ts=T.filter(t=>!t.hidden);ts.forEach(t=>{t.classList.remove('w','f','ft','wd');t.style.gridColumn='';t.style.order='';});if(C===1)return;
+  const ts=T.filter(t=>!t.hidden);ts.forEach(t=>{t.classList.remove('w','f','ft','wd','fv');t.classList.toggle('v',ITEMS[+t.dataset.i].imgo==='p');t.style.gridColumn='';t.style.gridRow='';t.style.order='';});if(C===1)return;
   let rest=ts;const lead=ts.find(t=>{const q=ITEMS[+t.dataset.i];return q.type==='essay'&&q.img;});
-  if(lead){lead.classList.add('ft');lead.style.gridColumn='1/-1';lead.style.order='-1';rest=ts.filter(t=>t!==lead);}
+  if(lead){rest=ts.filter(t=>t!==lead);lead.style.order='-1';
+   if(lead.classList.contains('v')&&rest.length>=2){lead.classList.add('fv');lead.style.gridColumn='span 3';lead.style.gridRow='span 2';rest.slice(0,2).forEach(t=>{t.style.gridColumn='span 3';t.style.order='-1';});rest=rest.slice(2);}
+   else{lead.classList.add('ft');lead.style.gridColumn='1/-1';}}
   const n=rest.length;if(!n)return;const rows=Math.ceil(n/C),base=Math.floor(n/rows),extra=n%rows;let k=0;
   for(let r=0;r<rows;r++){const m=base+(r<extra?1:0);for(let j=0;j<m;j++,k++){rest[k].style.gridColumn='span '+(6/m);if(m===1)rest[k].classList.add('wd');}}};
  const apply=()=>{let n=0;T.forEach(t=>{const q=ITEMS[+t.dataset.i];const ok=(F==='all'||q.type===F)&&(!K||(q[K]||[]).includes(V));t.hidden=!ok;n+=ok;});document.querySelector('.wnone').hidden=n>0;layout();};
@@ -1012,7 +1043,7 @@ if(POSTS.concat(PUBLISHED).some(q=>q.kind==='embed')){const sc=document.createEl
 function openRead(id){const q=ESSAYS.concat(POSTS).find(p=>p.id===id);if(!q)return false;
  const isE=ESSAYS.includes(q),txt=q.body.join(' ').replace(/<[^>]+>/g,' '),mins=Math.max(1,Math.round(txt.split(/\s+/).filter(Boolean).length/180));
  const body=[];for(let i=0;i<q.body.length;i++){const p=q.body[i];if(p.startsWith('<p class="eq"')&&i+1<q.body.length){const n=q.body[++i];body.push(`<figure class="qb">${p.replace('class="eq"','class="en"').replace(/[“”]/g,'')}${n.startsWith('<p>')?'<p class="fa">'+n.slice(3):'<p class="fa">'+n+'</p>'}</figure>`);}else body.push(p.startsWith('<')?p:`<p>${p}</p>`);}
- document.getElementById('readbox').innerHTML=`${q.img&&isE?`<figure class="fl ${q.imgo==='p'?'pt':'ls'}"><img class="im1" src="${q.img}" alt="">${q.imgnote?`<figcaption>${q.imgnote}</figcaption>`:''}</figure>`:''}<header class="rh2"><h1>${q.title}${q.label?`<span class="kk">${q.label}</span>`:''}</h1>${isE?`${q.q?`<p class="dq">${q.q}</p>`:''}<p class="tm">حدود ${FA(mins)} دقیقه مطالعه</p>`:`${q.sub?`<span class="sub">${q.sub}</span>`:''}`}${q.cite?`<p class="ct" dir="ltr">${q.cite}</p>`:''}</header>${body.join('')}${q.refs?`<details class="refs"><summary>منابع</summary><ol dir="ltr">${q.refs.map((r,i)=>`<li id="ref-${i+1}">${r.u?`<a href="${r.u}" target="_blank" rel="noopener">${r.t}</a>`:r.t}</li>`).join('')}</ol></details>`:''}`;fitTitle();document.fonts&&document.fonts.ready.then(fitTitle);document.querySelectorAll('#readbox .rf').forEach(x=>x.addEventListener('click',()=>{const d=document.querySelector('#readbox .refs');if(!d)return;d.open=true;const li=document.getElementById('ref-'+x.dataset.r);if(li){li.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});li.classList.remove('hit');void li.offsetWidth;li.classList.add('hit');}}));return true;}
+ document.getElementById('readbox').innerHTML=`${q.img&&isE?`<figure class="fl ${q.imgo==='p'?'pt':'ls'}"><img class="im1" src="${q.img}" alt="">${q.imgnote?`<figcaption>${q.imgnote}</figcaption>`:''}</figure>`:''}<header class="rh2"><h1>${q.title}${q.label?`<span class="kk">${q.label}</span>`:''}</h1>${isE?`${q.sub?`<p class="sb3">${q.sub}</p>`:''}${q.q?`<p class="dq">${q.q}</p>`:''}<p class="tm">حدود ${FA(mins)} دقیقه مطالعه</p>`:`${q.sub?`<span class="sub">${q.sub}</span>`:''}`}${q.cite?`<p class="ct" dir="ltr">${q.cite}</p>`:''}</header>${body.join('')}${q.refs?`<details class="refs"><summary>منابع</summary><ol dir="ltr">${q.refs.map((r,i)=>`<li id="ref-${i+1}">${r.u?`<a href="${r.u}" target="_blank" rel="noopener">${r.t}</a>`:r.t}</li>`).join('')}</ol></details>`:''}`;fitTitle();document.fonts&&document.fonts.ready.then(fitTitle);document.querySelectorAll('#readbox .rf').forEach(x=>x.addEventListener('click',()=>{const d=document.querySelector('#readbox .refs');if(!d)return;d.open=true;const li=document.getElementById('ref-'+x.dataset.r);if(li){li.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});li.classList.remove('hit');void li.offsetWidth;li.classList.add('hit');}}));return true;}
 
 const SHOW_WRITINGS=ITEMS.length>0;   /* «نوشته‌ها» با اولین پست خودش ظاهر می‌شود */
 const SHOW_OTHER=false;   /* «منتشر شده» */

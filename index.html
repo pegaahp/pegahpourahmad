@@ -645,6 +645,9 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 #writings .wg .t.wd .th{grid-column:1;grid-row:1 / span 2}
 #writings .wg .t.wd .tb{grid-column:2;grid-row:1}
 #writings .wg .t.wd .lk{grid-column:2;grid-row:2;margin-top:6px}
+.read .igl{display:inline-flex;align-items:center;gap:7px;margin-top:12px;padding-bottom:4px;border-bottom:1px solid var(--blue);font-family:"EpsB";font-size:13px;line-height:1;color:var(--blue);text-decoration:none}
+.read .igl svg{width:15px;height:15px;flex:none}
+.read .igl:hover{border-bottom-color:var(--ochre)}
 .read .rh2 .sb3{margin:8px 0 0;font-family:"Lei";font-size:22px;line-height:1.5;color:var(--ochre)}
 @media (min-width:721px) and (max-width:1100px){#writings .wg .t.ft,#writings .wg .t.wd:has(.im){column-gap:22px}}
 @media (max-width:720px){#writings .wg .t:has(.im){display:flex;flex-direction:column;gap:12px}#writings .wg .t .im{aspect-ratio:auto;margin:0}#writings .wg .t .ld{-webkit-line-clamp:3}.read .rh2 .sb3{font-size:19px}}
@@ -859,8 +862,8 @@ const ESSAYS=[
     "u": "https://pep-web.org/browse/document/IJP.091.0717A"
    },
    {
-    "t": "Rolnik EJ. Before Babel: Reflections on reading and translating Freud. <i>The Psychoanalytic Quarterly<\/i>. 2015;84(2):305–330.",
-    "u": "https://pep-web.org/browse/document/PAQ.084.0305A"
+    "t": "Rolnik EJ. Before Babel: Reflections on reading and translating Freud. <i>The Psychoanalytic Quarterly<\/i>. 2015;84(2):307–330.",
+    "u": "https://pep-web.org/browse/document/PAQ.084.0307A"
    },
    {
     "t": "Priel B. Transformation and invariance in creative translations and analytic interpretations: A Bionian reading of Borges and Cervantes. <i>The International Journal of Psychoanalysis<\/i>. 2013;94:1115–1127.",
@@ -956,14 +959,16 @@ const ESSAYS=[
     "u": "https://www.journal-psychoanalysis.eu/articles/learning-from-experience-artificial-intelligence-and-the-institutionalization-of-k-2/"
    },
    {
-    "t": "Bion WR. The Psycho-Analytic Study of Thinking. <i>The Psychoanalytic Quarterly<\/i>. 2013;82(2):301–310. First published in <i>International Journal of Psycho-Analysis<\/i>. 1962;43:306–310. <span dir=\"rtl\">(شمارهٔ صفحه‌ها مطابق بازنشر ۲۰۱۳ است.)<\/span>",
+    "t": "Bion WR. The Psycho-Analytic Study of Thinking. <i>The Psychoanalytic Quarterly<\/i>. 2013;82(2):301–310. Originally published in <i>International Journal of Psycho-Analysis<\/i>. 1962;43:306–310.",
     "u": "https://pep-web.org/browse/document/PAQ.082.0301A"
    },
    {
-    "t": "Bion WR. <i>Learning from Experience<\/i>. London: William Heinemann Medical Books; 1962."
+    "t": "Bion WR. <i>Learning from Experience<\/i>. London: William Heinemann Medical Books; 1962.",
+    "u": "https://www.routledge.com/Learning-From-Experience/Bion/p/book/9781032533957"
    },
    {
-    "t": "Bion WR. <i>Attention and Interpretation: A Scientific Approach to Insight in Psycho-Analysis and Groups<\/i>. London: Tavistock Publications; 1970."
+    "t": "Bion WR. <i>Attention and Interpretation: A Scientific Approach to Insight in Psycho-Analysis and Groups<\/i>. London: Tavistock Publications; 1970.",
+    "u": "https://www.routledge.com/Attention-and-Interpretation-A-scientific-approach-to-insight-in-psycho-analysis/Bion/p/book/9780415846158"
    },
    {
     "t": "Bion WR. Attacks on Linking. <i>International Journal of Psycho-Analysis<\/i>. 1959;40:308–315.",
@@ -1043,7 +1048,7 @@ if(POSTS.concat(PUBLISHED).some(q=>q.kind==='embed')){const sc=document.createEl
 function openRead(id){const q=ESSAYS.concat(POSTS).find(p=>p.id===id);if(!q)return false;
  const isE=ESSAYS.includes(q),txt=q.body.join(' ').replace(/<[^>]+>/g,' '),mins=Math.max(1,Math.round(txt.split(/\s+/).filter(Boolean).length/180));
  const body=[];for(let i=0;i<q.body.length;i++){const p=q.body[i];if(p.startsWith('<p class="eq"')&&i+1<q.body.length){const n=q.body[++i];body.push(`<figure class="qb">${p.replace('class="eq"','class="en"').replace(/[“”]/g,'')}${n.startsWith('<p>')?'<p class="fa">'+n.slice(3):'<p class="fa">'+n+'</p>'}</figure>`);}else body.push(p.startsWith('<')?p:`<p>${p}</p>`);}
- document.getElementById('readbox').innerHTML=`${q.img&&isE?`<figure class="fl ${q.imgo==='p'?'pt':'ls'}"><img class="im1" src="${q.img}" alt="">${q.imgnote?`<figcaption>${q.imgnote}</figcaption>`:''}</figure>`:''}<header class="rh2"><h1>${q.title}${q.label?`<span class="kk">${q.label}</span>`:''}</h1>${isE?`${q.sub?`<p class="sb3">${q.sub}</p>`:''}${q.q?`<p class="dq">${q.q}</p>`:''}<p class="tm">حدود ${FA(mins)} دقیقه مطالعه</p>`:`${q.sub?`<span class="sub">${q.sub}</span>`:''}`}${q.cite?`<p class="ct" dir="ltr">${q.cite}</p>`:''}</header>${body.join('')}${q.refs?`<details class="refs"><summary>منابع</summary><ol dir="ltr">${q.refs.map((r,i)=>`<li id="ref-${i+1}">${r.u?`<a href="${r.u}" target="_blank" rel="noopener">${r.t}</a>`:r.t}</li>`).join('')}</ol></details>`:''}`;fitTitle();document.fonts&&document.fonts.ready.then(fitTitle);document.querySelectorAll('#readbox .rf').forEach(x=>x.addEventListener('click',()=>{const d=document.querySelector('#readbox .refs');if(!d)return;d.open=true;const li=document.getElementById('ref-'+x.dataset.r);if(li){li.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});li.classList.remove('hit');void li.offsetWidth;li.classList.add('hit');}}));return true;}
+ document.getElementById('readbox').innerHTML=`${q.img&&isE?`<figure class="fl ${q.imgo==='p'?'pt':'ls'}"><img class="im1" src="${q.img}" alt="">${q.imgnote?`<figcaption>${q.imgnote}</figcaption>`:''}</figure>`:''}<header class="rh2"><h1>${q.title}${q.label?`<span class="kk">${q.label}</span>`:''}</h1>${isE?`${q.sub?`<p class="sb3">${q.sub}</p>`:''}${q.q?`<p class="dq">${q.q}</p>`:''}<p class="tm">حدود ${FA(mins)} دقیقه مطالعه</p>${q.ig?`<a class="igl" href="${q.ig}" target="_blank" rel="noopener">${IG}<span>این جستار در اینستاگرام</span></a>`:''}`:`${q.sub?`<span class="sub">${q.sub}</span>`:''}`}${q.cite?`<p class="ct" dir="ltr">${q.cite}</p>`:''}</header>${body.join('')}${q.refs?`<details class="refs"><summary>منابع</summary><ol dir="ltr">${q.refs.map((r,i)=>`<li id="ref-${i+1}">${r.u?`<a href="${r.u}" target="_blank" rel="noopener">${r.t}</a>`:r.t}</li>`).join('')}</ol></details>`:''}`;fitTitle();document.fonts&&document.fonts.ready.then(fitTitle);document.querySelectorAll('#readbox .rf').forEach(x=>x.addEventListener('click',()=>{const d=document.querySelector('#readbox .refs');if(!d)return;d.open=true;const li=document.getElementById('ref-'+x.dataset.r);if(li){li.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});li.classList.remove('hit');void li.offsetWidth;li.classList.add('hit');}}));return true;}
 
 const SHOW_WRITINGS=ITEMS.length>0;   /* «نوشته‌ها» با اولین پست خودش ظاهر می‌شود */
 const SHOW_OTHER=false;   /* «منتشر شده» */

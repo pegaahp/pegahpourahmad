@@ -792,7 +792,7 @@ const ESSAYS=[
   "id": "e1",
   "label": "جستار",
   "title": "مترجم با متن چه کار می‌کند؟",
-  "sub": "دربارهٔ ترجمه",
+  "sub": "دربارهٔ وفاداری به متن در فرایند ترجمه",
   "q": "وقتی ترجمه ناگزیر صورت متن را تغییر می‌دهد، چطور می‌شود فهمید چه چیزی باید ثابت بماند؟",
   "lead": "اگر چیزی از اطلاعات جمله حذف نشده، چه چیزی تغییر کرده است؟ و وقتی از وفاداری ترجمه به متن اصلی حرف می‌زنیم، دقیقاً از حفظ چه چیزی حرف می‌زنیم؟",
   "date": "2026-10-07",
@@ -923,7 +923,7 @@ function renderWr(){
  const cnt=f=>ITEMS.filter(f).length;
  /* topics are cut from all the pieces read together, and cut again whenever a new piece is added; a topic or a thinker shows up only once it has at least three pieces */
  const MIN=3,uniq=k=>[...new Set(ITEMS.flatMap(q=>q[k]||[]))].map(v=>[v,cnt(q=>(q[k]||[]).includes(v))]).filter(x=>x[1]>=MIN).sort((a,b)=>b[1]-a[1]);
- const TYPES=[['all','همه',ITEMS.length],['pub','منتشرشده‌ها',cnt(q=>q.type==='pub')],['essay','جستارها',cnt(q=>q.type==='essay')],['post','اینستاگرام',cnt(q=>q.type==='post')]].filter(t=>t[2]>0);
+ const TYPES=[['all','همه',ITEMS.length],['essay','جستارها',cnt(q=>q.type==='essay')],['pub','منتشرشده‌ها',cnt(q=>q.type==='pub')],['post','اینستاگرام',cnt(q=>q.type==='post')]].filter(t=>t[2]>0);
  const TOP=uniq('topics'),WHO=uniq('who');
  const tile=q=>{
   if(q.type==='pub'){const d=q.ts?FAMON(q.ts):'';return `<article class="t" data-type="pub"><div class="tx"><div class="th"><span class="lb">${q.label}</span><h3>${q.title}</h3><p class="ps">${q.pub||''}${d?`<span class="pd">${d}</span>`:''}</p></div><div class="tb">${q.lead?`<p class="ld nt">${q.lead}</p>`:''}<p class="ct" dir="ltr">${q.cite}</p></div></div><div class="lk">${q.web?`<a href="${q.web}" target="_blank" rel="noopener">دیدن در سایت</a>`:''}${q.ig?`<a href="${q.ig}" target="_blank" rel="noopener">${IG}دیدن در اینستاگرام</a>`:''}</div></article>`;}

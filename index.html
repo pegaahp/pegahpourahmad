@@ -1058,7 +1058,8 @@ const MIN=d=>{const p=new Intl.DateTimeFormat('en-US',{hour:'2-digit',minute:'2-
 const DAT=d=>{const ir=(document.getElementById('bco')||{}).value==='IR';const P={};new Intl.DateTimeFormat(ir?'fa-IR-u-ca-persian':'fa-IR-u-ca-gregory-nu-latn',{day:'numeric',month:'long',year:'numeric',timeZone:TZ}).formatToParts(d).forEach(x=>P[x.type]=x.value);return P.day+' '+P.month+' '+P.year;};
 function clrT(){tS.classList.remove('has');tOv.innerHTML='';tS.style.paddingRight='';tS.style.textAlign='';tS.style.textAlignLast='';}
 function clrF(){fS.innerHTML='<option value="" selected disabled>تاریخ جلسهٔ اول</option>';fS.disabled=true;hid.value='';iso.value='';}
-function render(){const now=Date.now()+LEAD_MS;G={};slotList().filter(d=>d>now).sort((a,b)=>a-b).forEach(d=>{const w=WDO(d),t=tF.format(d);const W=(G[w]=G[w]||{n:WDN(d),T:{}});(W.T[t]=W.T[t]||{m:MIN(d),L:[]}).L.push(d);});
+const AHEAD_MS=21*864e5;   /* 2.53: تاریخ جلسهٔ اول حداکثر تا ۳ هفتهٔ آینده */
+function render(){const now=Date.now()+LEAD_MS,lim=Date.now()+AHEAD_MS;G={};slotList().filter(d=>d>now&&d<=lim).sort((a,b)=>a-b).forEach(d=>{const w=WDO(d),t=tF.format(d);const W=(G[w]=G[w]||{n:WDN(d),T:{}});(W.T[t]=W.T[t]||{m:MIN(d),L:[]}).L.push(d);});
  const ks=Object.keys(G).sort((a,b)=>a-b);const nn=document.getElementById('bnone');const ldg=!!((SCRIPT_URL||(GCAL.id&&GCAL.key))&&!GC);nn.classList.toggle('ld',ldg);nn.textContent=ldg?'در حال بارگیریِ زمان‌ها':GCerr?'زمان‌ها بارگیری نشد؛ لطفاً از تلگرام یا ایمیل پیام دهید.':'فعلاً زمانِ خالی‌ای برای انتخاب نیست.';nn.hidden=!!ks.length;box.hidden=!ks.length;
  dS.innerHTML='<option value="" selected disabled>روز هفته</option>'+ks.map(k=>`<option value="${k}">${G[k].n}</option>`).join('');
  tS.innerHTML='<option value="" selected disabled>ساعت</option>';tS.disabled=true;clrT();clrF();}

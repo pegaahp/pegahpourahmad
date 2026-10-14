@@ -375,6 +375,8 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 .bbox .r2e select:disabled{opacity:.55;cursor:default}
 .bbox .none{font-size:13.5px;color:var(--soft);margin:0}
 .bbox .r2e{grid-template-columns:1.5fr 1fr}
+.bbox #slots{grid-template-columns:1fr 1fr 1.5fr}
+@media (max-width:720px){.bbox #slots{grid-template-columns:1fr 1fr}.bbox #slots>label:last-child{grid-column:1/-1}}
 .bbox .r3{display:grid;grid-template-columns:1.2fr .6fr 1.2fr;gap:10px}
 @media (max-width:720px){.bbox .r3{grid-template-columns:1fr .6fr;gap:8px}.bbox .r3>label:last-child{grid-column:1/-1}}
 .bbox .ra{grid-template-columns:1fr 110px}.bbox .rj{grid-template-columns:1.3fr 1fr}
@@ -748,7 +750,7 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
   </div>
   <input type="hidden" name="کشور" id="bcov"><input type="hidden" name="منطقه_زمانی" id="btzv"><input type="hidden" name="زمان_جلسه_به_وقت_من" id="bslothome">
   <details class="fl nt"><summary>توضیحات<b aria-hidden="true">+</b></summary><textarea name="توضیح" maxlength="2000" placeholder="اگر توضیحی مد نظر دارید بنویسید" aria-label="توضیحات"></textarea></details>
-  <div class="r2 r2e" id="slots"><select id="bday" aria-label="روز جلسه" required><option value="" selected disabled>روز جلسه</option></select><label class="fl tw"><select id="btime" aria-label="ساعت جلسه" required disabled><option value="" selected disabled>ساعت جلسه</option></select><span class="tov" id="btov" aria-hidden="true"></span></label></div>
+  <div class="r3 r2e" id="slots"><select id="bday" aria-label="روز هفته" required><option value="" selected disabled>روز هفته</option></select><label class="fl tw"><select id="btime" aria-label="ساعت" required disabled><option value="" selected disabled>ساعت</option></select><span class="tov" id="btov" aria-hidden="true"></span></label><label class="fl sel"><select id="bfirst" aria-label="تاریخ جلسهٔ اول" required disabled><option value="" selected disabled>تاریخ جلسهٔ اول</option></select></label></div>
   <p class="none" id="bnone" hidden>فعلاً زمانِ خالی‌ای برای انتخاب نیست.</p>
   <input type="hidden" name="زمان_جلسه" id="bslot"><input type="hidden" name="زمان_جلسه_ISO" id="bslotiso">
   <p class="berr" id="berr" role="alert" hidden></p>
@@ -1048,16 +1050,24 @@ function mk(){const ir=(document.getElementById('bco')||{}).value==='IR';{const 
 const fa=x=>String(x).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
 function off(z){try{const p=new Intl.DateTimeFormat('en-US',{timeZone:z,timeZoneName:'longOffset'}).formatToParts(new Date()).find(x=>x.type==='timeZoneName').value;let o=p.replace('GMT','')||'+00:00';const m=o.match(/^([+-])(\d{2}):?(\d{2})?$/);if(!m)return {t:'UTC'+o,n:0};const n=(m[1]==='-'?-1:1)*(parseInt(m[2])*60+parseInt(m[3]||0));return {t:'UTC'+m[1]+parseInt(m[2])+':'+(m[3]||'00'),n};}catch(e){return {t:'',n:0}}}
 
-let G={};const dS=document.getElementById('bday'),tS=document.getElementById('btime');
-function render(){const now=Date.now()+LEAD_MS;G={};slotList().filter(d=>d>now).sort((a,b)=>a-b).forEach(d=>{const k=dF.format(d);(G[k]=G[k]||[]).push(d)});
- const ks=Object.keys(G);const nn=document.getElementById('bnone');const ldg=!!((SCRIPT_URL||(GCAL.id&&GCAL.key))&&!GC);nn.classList.toggle('ld',ldg);nn.textContent=ldg?'در حال بارگیریِ زمان‌ها':GCerr?'زمان‌ها بارگیری نشد؛ لطفاً از تلگرام یا ایمیل پیام دهید.':'فعلاً زمانِ خالی‌ای برای انتخاب نیست.';nn.hidden=!!ks.length;box.hidden=!ks.length;
- dS.innerHTML='<option value="" selected disabled>روز جلسه</option>'+ks.map(k=>`<option>${k}</option>`).join('');
- tS.innerHTML='<option value="" selected disabled>ساعت جلسه</option>';tS.disabled=true;hid.value='';iso.value='';tS.classList.remove('has');tOv.innerHTML='';tS.style.paddingRight='';tS.style.textAlign='';tS.style.textAlignLast='';}
-dS.addEventListener('change',()=>{const L=G[dS.value]||[];tS.innerHTML='<option value="" selected disabled>ساعت جلسه</option>'+L.map(d=>`<option value="${d.toISOString()}">${tF.format(d)}</option>`).join('');tS.disabled=!L.length;hid.value='';iso.value='';tS.classList.remove('has');tOv.innerHTML='';tS.style.paddingRight='';tS.style.textAlign='';tS.style.textAlignLast='';err.hidden=true;});
+/* 2.52: the slot is chosen in three steps — weekday, then a time on that weekday, then the date of the first session — all in the visitor's time zone */
+let G={};const dS=document.getElementById('bday'),tS=document.getElementById('btime'),fS=document.getElementById('bfirst');
+const WDO=d=>{const w=new Intl.DateTimeFormat('en-US',{weekday:'short',timeZone:TZ}).format(d);return (['Sat','Sun','Mon','Tue','Wed','Thu','Fri']).indexOf(w);};
+const WDN=d=>new Intl.DateTimeFormat('fa-IR',{weekday:'long',timeZone:TZ}).format(d);
+const MIN=d=>{const p=new Intl.DateTimeFormat('en-US',{hour:'2-digit',minute:'2-digit',hourCycle:'h23',timeZone:TZ}).formatToParts(d).reduce((o,q)=>(o[q.type]=q.value,o),{});return (+p.hour)*60+(+p.minute);};
+const DAT=d=>{const ir=(document.getElementById('bco')||{}).value==='IR';const P={};new Intl.DateTimeFormat(ir?'fa-IR-u-ca-persian':'fa-IR-u-ca-gregory-nu-latn',{day:'numeric',month:'long',year:'numeric',timeZone:TZ}).formatToParts(d).forEach(x=>P[x.type]=x.value);return P.day+' '+P.month+' '+P.year;};
+function clrT(){tS.classList.remove('has');tOv.innerHTML='';tS.style.paddingRight='';tS.style.textAlign='';tS.style.textAlignLast='';}
+function clrF(){fS.innerHTML='<option value="" selected disabled>تاریخ جلسهٔ اول</option>';fS.disabled=true;hid.value='';iso.value='';}
+function render(){const now=Date.now()+LEAD_MS;G={};slotList().filter(d=>d>now).sort((a,b)=>a-b).forEach(d=>{const w=WDO(d),t=tF.format(d);const W=(G[w]=G[w]||{n:WDN(d),T:{}});(W.T[t]=W.T[t]||{m:MIN(d),L:[]}).L.push(d);});
+ const ks=Object.keys(G).sort((a,b)=>a-b);const nn=document.getElementById('bnone');const ldg=!!((SCRIPT_URL||(GCAL.id&&GCAL.key))&&!GC);nn.classList.toggle('ld',ldg);nn.textContent=ldg?'در حال بارگیریِ زمان‌ها':GCerr?'زمان‌ها بارگیری نشد؛ لطفاً از تلگرام یا ایمیل پیام دهید.':'فعلاً زمانِ خالی‌ای برای انتخاب نیست.';nn.hidden=!!ks.length;box.hidden=!ks.length;
+ dS.innerHTML='<option value="" selected disabled>روز هفته</option>'+ks.map(k=>`<option value="${k}">${G[k].n}</option>`).join('');
+ tS.innerHTML='<option value="" selected disabled>ساعت</option>';tS.disabled=true;clrT();clrF();}
+dS.addEventListener('change',()=>{const W=G[dS.value],T=W?W.T:{};const ks=Object.keys(T).sort((a,b)=>T[a].m-T[b].m);tS.innerHTML='<option value="" selected disabled>ساعت</option>'+ks.map(k=>`<option value="${k}">${k}</option>`).join('');tS.disabled=!ks.length;clrT();clrF();err.hidden=true;});
 tS.addEventListener('change',()=>{tOv.innerHTML='<small><bdi dir="ltr">('+offTxt(TZ)+')</bdi></small>';{tS.style.paddingRight='';tS.style.textAlign='';tS.style.textAlignLast='';const cs=getComputedStyle(tS),cv=document.createElement('canvas').getContext('2d');cv.font=cs.fontSize+' '+cs.fontFamily;
  const tw=cv.measureText(tS.options[tS.selectedIndex].text).width,pl=parseFloat(cs.paddingLeft),pr=parseFloat(cs.paddingRight),cw=tS.clientWidth-pl-pr,ow=tOv.firstChild.getBoundingClientRect().width,W=tw+5+ow;
  if(W<=cw-4){const st=pr+(cw-W)/2;tS.style.paddingRight=st+'px';tS.style.textAlign='right';tS.style.textAlignLast='right';tOv.style.right=(st+tw+5)+'px';tOv.style.visibility='visible';}else{tOv.style.visibility='hidden';}}
-iso.value=tS.value;document.getElementById('bslothome').value=new Intl.DateTimeFormat('fa-IR-u-ca-persian',{timeZone:HOME_TZ,weekday:'long',day:'numeric',month:'long',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(new Date(tS.value));hid.value=dS.value+'، ساعت '+tS.options[tS.selectedIndex].text+' (به وقتِ '+TZ+')';err.hidden=true;});
+ const L=((G[dS.value]||{T:{}}).T[tS.value]||{L:[]}).L;clrF();fS.innerHTML='<option value="" selected disabled>تاریخ جلسهٔ اول</option>'+L.map(d=>`<option value="${d.toISOString()}">${DAT(d)}</option>`).join('');fS.disabled=!L.length;if(L.length===1){fS.selectedIndex=1;fS.dispatchEvent(new Event('change'));}err.hidden=true;});
+fS.addEventListener('change',()=>{if(!fS.value)return;const d=new Date(fS.value);iso.value=fS.value;document.getElementById('bslothome').value=new Intl.DateTimeFormat('fa-IR-u-ca-persian',{timeZone:HOME_TZ,weekday:'long',day:'numeric',month:'long',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(d);hid.value=WDN(d)+' '+DAT(d)+'، ساعت '+tS.value+' (به وقتِ '+TZ+')';err.hidden=true;});
 const cS=document.getElementById('bco'),zS=document.getElementById('btz'),zW=document.getElementById('btzw'),zV=document.getElementById('btzv'),cRow=document.getElementById('bcrow');
 /* ترتیبِ کشورها: اول ایران؛ بعد کشورهایی که بیشترین مهاجرِ ایرانی دارند، از بیشتر به کمتر
    (UN DESA, International Migrant Stock 2024؛ متولدانِ ایران در هر کشور، بالای ۱۰ هزار نفر، به‌جز اسرائیل که در فهرستِ الفبایی است)؛ بعد بقیه به ترتیبِ الفبا. */
@@ -1103,7 +1113,7 @@ f.addEventListener('submit',e=>{e.preventDefault();err.hidden=true;f.querySelect
  jb.value=jb.value.replace(/\s+/g,' ').trim();if(jb.value.length<2)return bad(jb,'لطفاً «شغل» را پر کنید.');
  if(!document.getElementById('bwayv').value)return bad(document.getElementById('bwayv'),'لطفاً «روش ارتباطی» را انتخاب کنید.');
  if(hid.value&&new Date(iso.value)<=new Date(Date.now()+LEAD_MS)){render();return bad(dS,'زمانِ انتخاب‌شده دیگر در دسترس نیست؛ لطفاً زمان دیگری انتخاب کنید.');}
- if(!hid.value)return bad(dS.value?tS:dS,dS.value?'لطفاً «ساعت جلسه» را انتخاب کنید.':'لطفاً «روز جلسه» را انتخاب کنید.');
+ if(!hid.value)return bad(!dS.value?dS:!tS.value?tS:fS,!dS.value?'لطفاً «روز هفته» را انتخاب کنید.':!tS.value?'لطفاً «ساعت» را انتخاب کنید.':'لطفاً «تاریخ جلسهٔ اول» را انتخاب کنید.');
  const sb=f.querySelector('button[type=submit]');sb.disabled=true;
  const ok=()=>{const k=document.getElementById('bokm');k.hidden=false;const fin=()=>{k.hidden=true;m.hidden=true;f.reset();pre();f.querySelector('.nt').open=false;sb.disabled=false;hid.value='';iso.value='';btn.focus()};k.querySelector('.qx').onclick=fin;k.onclick=e=>{if(e.target===k)fin()};};
  const fail=()=>{sb.disabled=false;say('ثبت انجام نشد. اتصال اینترنت را بررسی کنید و دوباره امتحان کنید.')};

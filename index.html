@@ -681,12 +681,14 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 .bbox .phw:hover .tip,.bbox .phw:focus-within .tip{opacity:1;visibility:visible;transform:none}
 @media (max-width:720px){.bbox .phw .tip{font-size:10.5px;white-space:normal;width:max-content;max-width:min(300px,80vw)}}
 /* 2.57: هزینه زیرِ «زمان جلسه»؛ تلگرام، ایمیل و ثبتِ سؤال به‌صورت آیکون کنارِ دکمهٔ ثبت؛ پنجرهٔ «شرایط برگزاری جلسه» پیش از ثبت */
-#booking .bfee{margin:-8px 0 30px}
-#booking .bfh{display:block;font-family:"EpsB";font-size:14px;color:var(--blue);margin-bottom:8px}
-#booking .bfee ul{list-style:none;margin:0;padding:0}
-#booking .bfee li{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--hair);font-size:14px;color:var(--ink)}
-#booking .bfee li:first-child{border-top:1px solid var(--hair)}
-#booking .bfee b{font-family:"EpsB";font-weight:normal;color:var(--blue)}
+#booking .bfee{margin:-8px 0 30px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:12px 0;display:grid;gap:10px}
+#booking .bfr{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+#booking .bfh{font-family:"Eps";font-size:14px;color:var(--ink)}
+#booking .bfv{font-family:"Eps";font-size:15px;color:var(--blue)}
+#booking .bfv s{color:var(--soft);margin-left:8px;text-decoration-thickness:1px}
+#booking .bfv.emp{font-size:12.5px;color:var(--soft)}
+#booking .bst{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--ink);cursor:pointer;justify-self:start}
+#booking .bst input{width:16px;height:16px;min-height:0;margin:0;padding:0;accent-color:var(--blue)}
 #booking .bact{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap}
 #booking .bic{display:flex;align-items:center;justify-content:center;width:50px;min-height:50px;box-sizing:border-box;border:1px solid var(--blue);background:var(--paper);color:var(--blue);padding:0;cursor:pointer}
 #booking .bic:hover{background:#EEF0F8}
@@ -790,7 +792,7 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
     <details class="fl nt"><summary>توضیحات<b aria-hidden="true">+</b></summary><textarea name="توضیح" maxlength="2000" placeholder="اگر توضیحی مد نظر دارید بنویسید" aria-label="توضیحات"></textarea></details>
    </fieldset>
    <input type="hidden" name="زمان_جلسه" id="bslot"><input type="hidden" name="زمان_جلسه_ISO" id="bslotiso">
-   <div class="bfee"><span class="bfh">هزینهٔ هر جلسه</span><ul><li><span>مراجعان داخل ایران</span><b>۱ میلیون و ۸۰۰ هزار تومان</b></li><li><span>دانشجو، خارج از ایران</span><b>۲۵ دلار</b></li><li><span>سایر مراجعان خارج از ایران</span><b>۵۰ دلار</b></li></ul></div>
+   <div class="bfee"><div class="bfr"><span class="bfh">هزینهٔ هر جلسه</span><span class="bfv" id="bfv" aria-live="polite"></span></div><label class="bst"><input type="checkbox" id="bstu" name="دانشجو" value="بله"><span>دانشجو هستم</span></label><input type="hidden" name="هزینهٔ_جلسه" id="bfeev"></div>
    <div class="bsend"><p class="berr" id="berr" role="alert" hidden></p><div class="bact"><button type="submit">ثبت رزرو</button><a class="bic" href="https://t.me/pprhmd" target="_blank" rel="noopener" aria-label="تلگرام" title="تلگرام"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 4.5 2.9 11.6c-.9.4-.9 1.2 0 1.5l4.6 1.4 1.8 5.5c.2.6.9.8 1.4.4l2.6-2.2 4.6 3.4c.6.4 1.3.1 1.5-.6l3-15.2c.2-.9-.4-1.5-.9-1.3Z"/><path d="m7.5 14.5 10-7-7.4 8.2"/></svg></a><a class="bic" href="mailto:pegah.pourahmad@gmail.com?subject=%D8%B1%D8%B2%D8%B1%D9%88%20%D8%AC%D9%84%D8%B3%D9%87" aria-label="ایمیل" title="ایمیل"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></a><button type="button" class="bic rqt" aria-haspopup="dialog" aria-expanded="false" aria-label="ثبتِ سؤال" title="ثبتِ سؤال"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.6"/><circle cx="12" cy="16.9" r=".6" fill="currentColor" stroke="none"/></svg></button></div></div>
   </div>
   </div>
@@ -1142,6 +1144,12 @@ zS.addEventListener('change',()=>{const x=zS._L[+zS.value];setTimeout(zShort,0);
 function pre(){let cc='';for(const k in TZC){if(TZC[k][1].some(x=>x[0]===LOC)){cc=k;break}}
  if(cc){cS.value=cc;cS.dispatchEvent(new Event('change'));}else{cS.value='';zS.hidden=false;zRO.hidden=true;zS.innerHTML='<option value="" selected disabled>منطقهٔ زمانی</option>';setTZ('');}}
 pre();
+/* 2.58: هزینه بسته به کشورِ انتخاب‌شده (ایران / خارج از ایران)؛ تیکِ «دانشجو هستم» برای هر دو، با قیمتِ قبلی خط‌خورده */
+(function(){const v=document.getElementById('bfv'),st=document.getElementById('bstu'),hv=document.getElementById('bfeev');
+ const up=()=>{if(!cS.value){v.textContent='پس از انتخابِ کشور نشان داده می‌شود';v.classList.add('emp');hv.value='';return;}v.classList.remove('emp');
+  const ir=cS.value==='IR',full=ir?'۱ میلیون و ۸۰۰ هزار تومان':'۵۰ دلار',stu=ir?'۱ میلیون و ۵۰۰ هزار تومان':'۳۰ دلار';
+  v.innerHTML=st.checked?'<s>'+full+'</s> <span>'+stu+'</span>':'<span>'+full+'</span>';hv.value=st.checked?stu+' (دانشجو)':full;};
+ cS.addEventListener('change',up);st.addEventListener('change',up);f.addEventListener('reset',()=>setTimeout(up,0));up();})();
 /* 2.55: فرم از اول در خودِ صفحهٔ «رزرو جلسه» است؛ زمان‌ها با بازشدنِ صفحه بارگیری می‌شوند */
 const open=()=>{if((location.hash||'').slice(1)==='booking'){render();gcLoad(render);}};addEventListener('hashchange',open);open();
 const ph=document.getElementById('bph'),em=document.getElementById('bem');

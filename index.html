@@ -1106,14 +1106,17 @@ const WDO=d=>{const w=new Intl.DateTimeFormat('en-US',{weekday:'short',timeZone:
 const WDN=d=>new Intl.DateTimeFormat('fa-IR',{weekday:'long',timeZone:TZ}).format(d);
 const MIN=d=>{const p=new Intl.DateTimeFormat('en-US',{hour:'2-digit',minute:'2-digit',hourCycle:'h23',timeZone:TZ}).formatToParts(d).reduce((o,q)=>(o[q.type]=q.value,o),{});return (+p.hour)*60+(+p.minute);};
 const DAT=d=>{const ir=(document.getElementById('bco')||{}).value==='IR';const P={};new Intl.DateTimeFormat(ir?'fa-IR-u-ca-persian':'fa-IR-u-ca-gregory-nu-latn',{day:'numeric',month:'long',year:'numeric',timeZone:TZ}).formatToParts(d).forEach(x=>P[x.type]=x.value);return P.day+' '+P.month+' '+P.year;};
+const OKM=m=>m>=480&&m<=1290,DIS=m=>m<480?480-m:m-1290;
 function clrT(){tS.classList.remove('has');tOv.innerHTML='';tS.style.paddingRight='';tS.style.textAlign='';tS.style.textAlignLast='';}
 function clrF(){fS.innerHTML='<option value="" selected disabled>تاریخ جلسهٔ اول</option>';fS.disabled=true;hid.value='';iso.value='';}
 const AHEAD_MS=21*864e5;   /* 2.53: تاریخ جلسهٔ اول حداکثر تا ۳ هفتهٔ آینده */
 function render(){const now=Date.now()+LEAD_MS,lim=Date.now()+AHEAD_MS;G={};slotList().filter(d=>d>now&&d<=lim).sort((a,b)=>a-b).forEach(d=>{const w=WDO(d),t=tF.format(d);const W=(G[w]=G[w]||{n:WDN(d),T:{}});(W.T[t]=W.T[t]||{m:MIN(d),L:[]}).L.push(d);});
  const ks=Object.keys(G).sort((a,b)=>a-b);const nn=document.getElementById('bnone');const ldg=!!((SCRIPT_URL||(GCAL.id&&GCAL.key))&&!GC);nn.classList.toggle('ld',ldg);nn.textContent=ldg?'در حال بارگیریِ زمان‌ها':GCerr?'زمان‌ها بارگیری نشد؛ لطفاً از تلگرام یا ایمیل پیام دهید.':'فعلاً زمانِ خالی‌ای برای انتخاب نیست.';nn.hidden=!!ks.length;box.hidden=!ks.length;
- dS.innerHTML='<option value="" selected disabled>روز هفته</option>'+ks.map(k=>`<option value="${k}">${G[k].n}</option>`).join('');
+ /* 2.60: اول روزها و ساعت‌هایی که در وقتِ مراجع معقول‌اند (۸ صبح تا ۹:۳۰ شب)؛ نیمه‌شب و سحر پایین‌تر، جدا */
+ const dOk=ks.filter(k=>Object.values(G[k].T).some(x=>OKM(x.m))),dNo=ks.filter(k=>dOk.indexOf(k)<0);
+ dS.innerHTML='<option value="" selected disabled>روز هفته</option>'+dOk.map(k=>`<option value="${k}">${G[k].n}</option>`).join('')+(dNo.length?'<optgroup label="فقط نیمه‌شب یا سحر">'+dNo.map(k=>`<option value="${k}">${G[k].n}</option>`).join('')+'</optgroup>':'');
  tS.innerHTML='<option value="" selected disabled>ساعت</option>';tS.disabled=true;clrT();clrF();}
-dS.addEventListener('change',()=>{const W=G[dS.value],T=W?W.T:{};const ks=Object.keys(T).sort((a,b)=>T[a].m-T[b].m);tS.innerHTML='<option value="" selected disabled>ساعت</option>'+ks.map(k=>`<option value="${k}">${k}</option>`).join('');tS.disabled=!ks.length;clrT();clrF();err.hidden=true;});
+dS.addEventListener('change',()=>{const W=G[dS.value],T=W?W.T:{};const ks=Object.keys(T),o=k=>`<option value="${k}">${k}</option>`,a=ks.filter(k=>OKM(T[k].m)).sort((x,y)=>T[x].m-T[y].m),b=ks.filter(k=>!OKM(T[k].m)).sort((x,y)=>DIS(T[x].m)-DIS(T[y].m));tS.innerHTML='<option value="" selected disabled>ساعت</option>'+a.map(o).join('')+(b.length?'<optgroup label="نیمه‌شب یا سحر">'+b.map(o).join('')+'</optgroup>':'');tS.disabled=!ks.length;clrT();clrF();err.hidden=true;});
 tS.addEventListener('change',()=>{tOv.innerHTML='<small><bdi dir="ltr">('+offTxt(TZ)+')</bdi></small>';{tS.style.paddingRight='';tS.style.textAlign='';tS.style.textAlignLast='';const cs=getComputedStyle(tS),cv=document.createElement('canvas').getContext('2d');cv.font=cs.fontSize+' '+cs.fontFamily;
  const tw=cv.measureText(tS.options[tS.selectedIndex].text).width,pl=parseFloat(cs.paddingLeft),pr=parseFloat(cs.paddingRight),cw=tS.clientWidth-pl-pr,ow=tOv.firstChild.getBoundingClientRect().width,W=tw+5+ow;
  if(W<=cw-4){const st=pr+(cw-W)/2;tS.style.paddingRight=st+'px';tS.style.textAlign='right';tS.style.textAlignLast='right';tOv.style.right=(st+tw+5)+'px';tOv.style.visibility='visible';}else{tOv.style.visibility='hidden';}}

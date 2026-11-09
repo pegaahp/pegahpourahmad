@@ -660,6 +660,10 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 #booking .bln{display:flex;flex-wrap:wrap;gap:6px 22px;margin:18px 0 0;font-size:13.5px;color:var(--soft)}
 #booking .bln a,#booking .bln button{font-family:"Eps";font-size:13.5px;color:var(--blue);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
 #booking .bln a:hover,#booking .bln button:hover{color:var(--blue2)}
+/* 2.56: شماره تماس — توضیح از داخلِ خانه برداشته شد؛ با رفتن روی خانه، برچسبِ سفیدِ کوچکی بالای آن نشان داده می‌شود */
+.bbox .phw .tip{position:absolute;right:0;bottom:calc(100% + 6px);z-index:3;background:#fff;color:var(--ink);font-family:"Eps";font-size:11px;line-height:1.6;padding:5px 9px;border:1px solid var(--hair);box-shadow:0 6px 16px -8px rgba(23,47,150,.35);white-space:nowrap;opacity:0;visibility:hidden;transform:translateY(3px);transition:opacity .15s,transform .15s,visibility .15s;pointer-events:none}
+.bbox .phw:hover .tip,.bbox .phw:focus-within .tip{opacity:1;visibility:visible;transform:none}
+@media (max-width:720px){.bbox .phw .tip{font-size:10.5px;white-space:normal;width:max-content;max-width:min(300px,80vw)}}
 </style>
 </head>
 <body>
@@ -718,7 +722,7 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
   <label class="fl"><input name="سن" id="bag" placeholder="سن" aria-label="سن" inputmode="numeric" maxlength="3" data-k="num" required></label>
   </div>
   <div class="r2 rp">
-  <label class="fl phw"><input name="شماره_تماس" id="bph" placeholder=" " aria-label="شماره تماس، شماره‌ای که حساب کاربری تلگرام یا واتس‌اپ شما با آن فعال است" maxlength="16" type="tel" dir="ltr" inputmode="tel" autocomplete="tel" pattern="\+?[0-9]{7,15}" required><span class="fph" aria-hidden="true"><span class="fb">شماره تماس <i>شماره‌ای که حساب کاربری تلگرام یا واتس‌اپ شما با آن فعال است</i></span></span></label>
+  <label class="fl phw"><input name="شماره_تماس" id="bph" placeholder=" " aria-label="شماره تماس، شماره‌ای که حساب کاربری تلگرام یا واتس‌اپ شما با آن فعال است" maxlength="16" type="tel" dir="ltr" inputmode="tel" autocomplete="tel" pattern="\+?[0-9]{7,15}" required><span class="fph" aria-hidden="true"><span class="fb">شماره تماس</span></span><span class="tip" aria-hidden="true">شماره‌ای که حساب کاربری تلگرام یا واتس‌اپ شما با آن فعال است</span></label>
   <label class="fl sel"><select name="روش_ارتباطی" id="bwayv" aria-label="روش ارتباطی" required><option value="" selected disabled>روش ارتباطی</option><option>ایمیل</option><option>تلگرام</option><option>واتس‌اپ</option></select></label>
   </div>
   <label class="fl"><input name="email" id="bem" placeholder="ایمیل" aria-label="ایمیل" maxlength="80" type="email" dir="ltr" autocomplete="email" pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}" required></label>

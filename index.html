@@ -681,9 +681,10 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 .bbox .phw:hover .tip,.bbox .phw:focus-within .tip{opacity:1;visibility:visible;transform:none}
 @media (max-width:720px){.bbox .phw .tip{font-size:10.5px;white-space:normal;width:max-content;max-width:min(300px,80vw)}}
 /* 2.57: هزینه زیرِ «زمان جلسه»؛ تلگرام، ایمیل و ثبتِ سؤال به‌صورت آیکون کنارِ دکمهٔ ثبت؛ پنجرهٔ «شرایط برگزاری جلسه» پیش از ثبت */
-#booking .bfee{margin:-8px 0 30px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:12px 0;display:grid;gap:10px}
+#booking .bfee{margin:-8px 0 30px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:12px 0;display:flex;align-items:center;gap:10px 20px;flex-wrap:wrap}
+#booking .bfee .bfv{margin-right:auto;white-space:nowrap}
 #booking .bfr{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
-#booking .bfh{font-family:"Eps";font-size:14px;color:var(--ink)}
+#booking .bfh{font-family:"EpsB";font-size:15px;color:var(--blue)}
 #booking .bfv{font-family:"Eps";font-size:15px;color:var(--blue)}
 #booking .bfv s{color:var(--soft);margin-left:8px;text-decoration-thickness:1px}
 #booking .bfv.emp{font-size:12.5px;color:var(--soft)}
@@ -792,7 +793,7 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
     <details class="fl nt"><summary>توضیحات<b aria-hidden="true">+</b></summary><textarea name="توضیح" maxlength="2000" placeholder="اگر توضیحی مد نظر دارید بنویسید" aria-label="توضیحات"></textarea></details>
    </fieldset>
    <input type="hidden" name="زمان_جلسه" id="bslot"><input type="hidden" name="زمان_جلسه_ISO" id="bslotiso">
-   <div class="bfee"><div class="bfr"><span class="bfh">هزینهٔ هر جلسه</span><span class="bfv" id="bfv" aria-live="polite"></span></div><label class="bst"><input type="checkbox" id="bstu" name="دانشجو" value="بله"><span>دانشجو هستم</span></label><input type="hidden" name="هزینهٔ_جلسه" id="bfeev"></div>
+   <div class="bfee"><span class="bfh">هزینهٔ هر جلسه</span><label class="bst"><input type="checkbox" id="bstu" name="دانشجو" value="بله"><span>دانشجو هستم</span></label><span class="bfv" id="bfv" aria-live="polite"></span><input type="hidden" name="هزینهٔ_جلسه" id="bfeev"></div>
    <div class="bsend"><p class="berr" id="berr" role="alert" hidden></p><div class="bact"><button type="submit">ثبت رزرو</button><a class="bic" href="https://t.me/pprhmd" target="_blank" rel="noopener" aria-label="تلگرام" title="تلگرام"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 4.5 2.9 11.6c-.9.4-.9 1.2 0 1.5l4.6 1.4 1.8 5.5c.2.6.9.8 1.4.4l2.6-2.2 4.6 3.4c.6.4 1.3.1 1.5-.6l3-15.2c.2-.9-.4-1.5-.9-1.3Z"/><path d="m7.5 14.5 10-7-7.4 8.2"/></svg></a><a class="bic" href="mailto:pegah.pourahmad@gmail.com?subject=%D8%B1%D8%B2%D8%B1%D9%88%20%D8%AC%D9%84%D8%B3%D9%87" aria-label="ایمیل" title="ایمیل"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></a><button type="button" class="bic rqt" aria-haspopup="dialog" aria-expanded="false" aria-label="ثبتِ سؤال" title="ثبتِ سؤال"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.6"/><circle cx="12" cy="16.9" r=".6" fill="currentColor" stroke="none"/></svg></button></div></div>
   </div>
   </div>

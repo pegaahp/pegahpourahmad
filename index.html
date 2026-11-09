@@ -655,15 +655,51 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 @media (max-width:720px){#writings .wg .t:has(.im){display:flex;flex-direction:column;gap:12px}#writings .wg .t .im{aspect-ratio:auto;margin:0}#writings .wg .t .ld{-webkit-line-clamp:3}.read .rh2 .sb3{font-size:19px}}
 /* 2.55: «رزرو جلسه» — فرم در خودِ صفحه؛ چارچوب کار حذف شد؛ تلگرام، ایمیل و ثبتِ سؤال کوچک زیرِ فرم */
 #booking .bpg{display:flex;flex-direction:column;align-items:flex-start}
-#booking .bin{max-height:none;overflow:visible;width:min(560px,100%);margin:0}
+#booking .bin{max-height:none;overflow:visible;width:100%;margin:0;padding:0;background:none;box-shadow:none;border:0}
+#booking .rd>label:last-child{grid-column:auto}
+/* 2.57: «رزرو جلسه» — فرم در دو ستونِ هم‌عرض به پهنای صفحه، در سه بخش: دربارهٔ شما · راه ارتباط · زمان جلسه */
+#booking .bgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:clamp(48px,6vw,96px);align-items:start}
+@media (max-width:1100px){#booking .bgrid{grid-template-columns:minmax(0,1fr);max-width:600px}}
+#booking .bsec{border:0;padding:0;margin:0 0 38px;min-width:0;display:grid;gap:12px}
+#booking .bsec>legend{float:right;width:100%;box-sizing:border-box;font-family:"EpsB";font-size:18px;color:var(--blue);padding:0 0 10px;margin:0 0 8px;border-bottom:1px solid var(--blue)}
+#booking .bsec>legend+*{clear:both}
+#booking .rn{grid-template-columns:1fr 1fr}
+#booking .rd{grid-template-columns:.8fr 1.3fr 1fr}
+#booking .rc{grid-template-columns:1.3fr 1fr}
+#booking .bdob{display:grid;gap:6px}
+#booking .bdh{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--soft)}
+#booking .bcal{display:flex;gap:12px}
+#booking .bcal button{font-family:"Eps";font-size:12.5px;background:none;border:0;padding:0 0 2px;color:var(--soft);cursor:pointer;border-bottom:1px solid transparent}
+#booking .bcal button[aria-checked=true]{color:var(--blue);border-bottom-color:var(--blue)}
+#booking .bsend{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+#booking .bsend .berr{margin:0}
+#booking .bin button[type=submit]{font-size:15px;padding:13px 44px}
+@media (max-width:720px){#booking .rd{grid-template-columns:.8fr 1.3fr 1fr}#booking .rc{grid-template-columns:1fr 1fr}#booking .bin button[type=submit]{width:100%}}
 #booking .bin form{margin-top:0}
-#booking .bln{display:flex;flex-wrap:wrap;gap:6px 22px;margin:18px 0 0;font-size:13.5px;color:var(--soft)}
-#booking .bln a,#booking .bln button{font-family:"Eps";font-size:13.5px;color:var(--blue);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
-#booking .bln a:hover,#booking .bln button:hover{color:var(--blue2)}
 /* 2.56: شماره تماس — توضیح از داخلِ خانه برداشته شد؛ با رفتن روی خانه، برچسبِ سفیدِ کوچکی بالای آن نشان داده می‌شود */
 .bbox .phw .tip{position:absolute;right:0;bottom:calc(100% + 6px);z-index:3;background:#fff;color:var(--ink);font-family:"Eps";font-size:11px;line-height:1.6;padding:5px 9px;border:1px solid var(--hair);box-shadow:0 6px 16px -8px rgba(23,47,150,.35);white-space:nowrap;opacity:0;visibility:hidden;transform:translateY(3px);transition:opacity .15s,transform .15s,visibility .15s;pointer-events:none}
 .bbox .phw:hover .tip,.bbox .phw:focus-within .tip{opacity:1;visibility:visible;transform:none}
 @media (max-width:720px){.bbox .phw .tip{font-size:10.5px;white-space:normal;width:max-content;max-width:min(300px,80vw)}}
+/* 2.57: هزینه زیرِ «زمان جلسه»؛ تلگرام، ایمیل و ثبتِ سؤال به‌صورت آیکون کنارِ دکمهٔ ثبت؛ پنجرهٔ «شرایط برگزاری جلسه» پیش از ثبت */
+#booking .bfee{margin:-8px 0 30px}
+#booking .bfh{display:block;font-family:"EpsB";font-size:14px;color:var(--blue);margin-bottom:8px}
+#booking .bfee ul{list-style:none;margin:0;padding:0}
+#booking .bfee li{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--hair);font-size:14px;color:var(--ink)}
+#booking .bfee li:first-child{border-top:1px solid var(--hair)}
+#booking .bfee b{font-family:"EpsB";font-weight:normal;color:var(--blue)}
+#booking .bact{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap}
+#booking .bic{display:flex;align-items:center;justify-content:center;width:50px;min-height:50px;box-sizing:border-box;border:1px solid var(--blue);background:var(--paper);color:var(--blue);padding:0;cursor:pointer}
+#booking .bic:hover{background:#EEF0F8}
+#booking .bic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:720px){#booking .bact button[type=submit]{width:auto;flex:1}}
+.tmbox{width:min(560px,100%)}
+.tmbox .tml{margin:6px 0 0;padding:0;font-size:14px;color:var(--ink)}
+.tmbox .tml li{text-align:justify;text-align-last:right}
+.tmb{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.tmb button{font-family:"EpsB";font-size:14px;padding:11px 26px;cursor:pointer;border:1px solid var(--blue)}
+.tmb .tmy,.tmb .tmq{background:var(--blue);color:var(--paper)}.tmb .tmy:hover,.tmb .tmq:hover{background:var(--blue2)}
+.tmb .tmn{background:var(--paper);color:var(--blue)}.tmb .tmn:hover{background:#EEF0F8}
+.tmbox [hidden]{display:none}
 </style>
 </head>
 <body>
@@ -714,37 +750,68 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
  <main class="pc nb bpg">
 <div class="qbox bbox bin" id="bm">
 <form id="bf" action="https://formsubmit.co/3e7b95d01e6ad2f4d0d4995be29aa5b4" method="POST" novalidate>
-  <p class="bi">برای رزرو جلسه، اطلاعات زیر را وارد کنید و یکی از زمان‌های موجود را انتخاب کنید.</p>
   <input type="hidden" name="_subject" value="رزرو تازه از سایت"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
   <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-  <div class="r2 ra">
-  <label class="fl"><input name="نام_و_نام_خانوادگی" placeholder="نام و نام خانوادگی" aria-label="نام و نام خانوادگی" autocomplete="name" minlength="3" maxlength="60" data-k="txt" required></label>
-  <label class="fl"><input name="سن" id="bag" placeholder="سن" aria-label="سن" inputmode="numeric" maxlength="3" data-k="num" required></label>
-  </div>
-  <div class="r2 rp">
-  <label class="fl phw"><input name="شماره_تماس" id="bph" placeholder=" " aria-label="شماره تماس، شماره‌ای که حساب کاربری تلگرام یا واتس‌اپ شما با آن فعال است" maxlength="16" type="tel" dir="ltr" inputmode="tel" autocomplete="tel" pattern="\+?[0-9]{7,15}" required><span class="fph" aria-hidden="true"><span class="fb">شماره تماس</span></span><span class="tip" aria-hidden="true">شماره‌ای که حساب کاربری تلگرام یا واتس‌اپ شما با آن فعال است</span></label>
-  <label class="fl sel"><select name="روش_ارتباطی" id="bwayv" aria-label="روش ارتباطی" required><option value="" selected disabled>روش ارتباطی</option><option>ایمیل</option><option>تلگرام</option><option>واتس‌اپ</option></select></label>
-  </div>
-  <label class="fl"><input name="email" id="bem" placeholder="ایمیل" aria-label="ایمیل" maxlength="80" type="email" dir="ltr" autocomplete="email" pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}" required></label>
-  <div class="r3" id="bcrow">
-   <label class="fl sel"><select id="bco" aria-label="کشور" required><option value="" selected disabled>کشور</option></select></label>
-   <label class="fl sel tw" id="btzw"><select id="btz" aria-label="منطقهٔ زمانی" required><option value="" selected disabled>منطقهٔ زمانی</option></select><span class="tzro" id="btzro" hidden><bdi dir="ltr"></bdi></span><span class="tov" id="bzov" aria-hidden="true"></span></label>
-   <label class="fl"><input name="شغل" id="bjob" placeholder="شغل" aria-label="شغل" autocomplete="organization-title" minlength="2" maxlength="40" data-k="txt" required></label>
-  </div>
+  <input type="hidden" name="نام_و_نام_خانوادگی" id="bnm"><input type="hidden" name="تاریخ_تولد" id="bbd"><input type="hidden" name="سن" id="bag">
   <input type="hidden" name="کشور" id="bcov"><input type="hidden" name="منطقه_زمانی" id="btzv"><input type="hidden" name="زمان_جلسه_به_وقت_من" id="bslothome">
-  <details class="fl nt"><summary>توضیحات<b aria-hidden="true">+</b></summary><textarea name="توضیح" maxlength="2000" placeholder="اگر توضیحی مد نظر دارید بنویسید" aria-label="توضیحات"></textarea></details>
-  <div class="r3 r2e" id="slots"><select id="bday" aria-label="روز هفته" required><option value="" selected disabled>روز هفته</option></select><label class="fl tw"><select id="btime" aria-label="ساعت" required disabled><option value="" selected disabled>ساعت</option></select><span class="tov" id="btov" aria-hidden="true"></span></label><label class="fl sel"><select id="bfirst" aria-label="تاریخ جلسهٔ اول" required disabled><option value="" selected disabled>تاریخ جلسهٔ اول</option></select></label></div>
-  <p class="none" id="bnone" hidden>فعلاً زمانِ خالی‌ای برای انتخاب نیست.</p>
-  <input type="hidden" name="زمان_جلسه" id="bslot"><input type="hidden" name="زمان_جلسه_ISO" id="bslotiso">
-  <p class="berr" id="berr" role="alert" hidden></p>
-  <button type="submit">ثبت رزرو</button>
+  <div class="bgrid">
+  <div class="bcol">
+   <fieldset class="bsec"><legend>دربارهٔ شما</legend>
+    <div class="r2 rn">
+     <label class="fl"><input id="bfn" placeholder="نام" aria-label="نام" autocomplete="given-name" minlength="2" maxlength="40" data-k="txt" required></label>
+     <label class="fl"><input id="bln" placeholder="نام خانوادگی" aria-label="نام خانوادگی" autocomplete="family-name" minlength="2" maxlength="40" data-k="txt" required></label>
+    </div>
+    <div class="bdob" role="group" aria-labelledby="bdobl">
+     <div class="bdh"><span id="bdobl">تاریخ تولد</span><span class="bcal" role="radiogroup" aria-label="تقویم"><button type="button" role="radio" data-c="p" aria-checked="true">شمسی</button><button type="button" role="radio" data-c="g" aria-checked="false">میلادی</button></span></div>
+     <div class="r3 rd">
+      <label class="fl sel"><select id="bdd" aria-label="روز تولد" required><option value="" selected disabled>روز</option></select></label>
+      <label class="fl sel"><select id="bdm" aria-label="ماه تولد" required><option value="" selected disabled>ماه</option></select></label>
+      <label class="fl sel"><select id="bdy" aria-label="سال تولد" required><option value="" selected disabled>سال</option></select></label>
+     </div>
+    </div>
+    <label class="fl"><input name="شغل" id="bjob" placeholder="شغل" aria-label="شغل" autocomplete="organization-title" minlength="2" maxlength="40" data-k="txt" required></label>
+   </fieldset>
+   <fieldset class="bsec"><legend>راه ارتباط</legend>
+    <div class="r2 rp">
+    <label class="fl phw"><input name="شماره_تماس" id="bph" placeholder=" " aria-label="شماره تماس، شماره‌ای که حساب کاربری تلگرام یا واتس‌اپ شما با آن فعال است" maxlength="16" type="tel" dir="ltr" inputmode="tel" autocomplete="tel" pattern="\+?[0-9]{7,15}" required><span class="fph" aria-hidden="true"><span class="fb">شماره تماس</span></span><span class="tip" aria-hidden="true">شماره‌ای که حساب کاربری تلگرام یا واتس‌اپ شما با آن فعال است</span></label>
+    <label class="fl sel"><select name="روش_ارتباطی" id="bwayv" aria-label="روش ارتباطی" required><option value="" selected disabled>روش ارتباطی</option><option>ایمیل</option><option>تلگرام</option><option>واتس‌اپ</option></select></label>
+    </div>
+    <label class="fl"><input name="email" id="bem" placeholder="ایمیل" aria-label="ایمیل" maxlength="80" type="email" dir="ltr" autocomplete="email" pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}" required></label>
+   </fieldset>
+  </div>
+  <div class="bcol">
+   <fieldset class="bsec"><legend>زمان جلسه</legend>
+    <div class="r2 rc" id="bcrow">
+    <label class="fl sel"><select id="bco" aria-label="کشور" required><option value="" selected disabled>کشور</option></select></label>
+    <label class="fl sel tw" id="btzw"><select id="btz" aria-label="منطقهٔ زمانی" required><option value="" selected disabled>منطقهٔ زمانی</option></select><span class="tzro" id="btzro" hidden><bdi dir="ltr"></bdi></span><span class="tov" id="bzov" aria-hidden="true"></span></label>
+    </div>
+    <div class="r3 r2e" id="slots"><select id="bday" aria-label="روز هفته" required><option value="" selected disabled>روز هفته</option></select><label class="fl tw"><select id="btime" aria-label="ساعت" required disabled><option value="" selected disabled>ساعت</option></select><span class="tov" id="btov" aria-hidden="true"></span></label><label class="fl sel"><select id="bfirst" aria-label="تاریخ جلسهٔ اول" required disabled><option value="" selected disabled>تاریخ جلسهٔ اول</option></select></label></div>
+    <p class="none" id="bnone" hidden>فعلاً زمانِ خالی‌ای برای انتخاب نیست.</p>
+    <details class="fl nt"><summary>توضیحات<b aria-hidden="true">+</b></summary><textarea name="توضیح" maxlength="2000" placeholder="اگر توضیحی مد نظر دارید بنویسید" aria-label="توضیحات"></textarea></details>
+   </fieldset>
+   <input type="hidden" name="زمان_جلسه" id="bslot"><input type="hidden" name="زمان_جلسه_ISO" id="bslotiso">
+   <div class="bfee"><span class="bfh">هزینهٔ هر جلسه</span><ul><li><span>مراجعان داخل ایران</span><b>۱ میلیون و ۸۰۰ هزار تومان</b></li><li><span>دانشجو، خارج از ایران</span><b>۲۵ دلار</b></li><li><span>سایر مراجعان خارج از ایران</span><b>۵۰ دلار</b></li></ul></div>
+   <div class="bsend"><p class="berr" id="berr" role="alert" hidden></p><div class="bact"><button type="submit">ثبت رزرو</button><a class="bic" href="https://t.me/pprhmd" target="_blank" rel="noopener" aria-label="تلگرام" title="تلگرام"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 4.5 2.9 11.6c-.9.4-.9 1.2 0 1.5l4.6 1.4 1.8 5.5c.2.6.9.8 1.4.4l2.6-2.2 4.6 3.4c.6.4 1.3.1 1.5-.6l3-15.2c.2-.9-.4-1.5-.9-1.3Z"/><path d="m7.5 14.5 10-7-7.4 8.2"/></svg></a><a class="bic" href="mailto:pegah.pourahmad@gmail.com?subject=%D8%B1%D8%B2%D8%B1%D9%88%20%D8%AC%D9%84%D8%B3%D9%87" aria-label="ایمیل" title="ایمیل"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></a><button type="button" class="bic rqt" aria-haspopup="dialog" aria-expanded="false" aria-label="ثبتِ سؤال" title="ثبتِ سؤال"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.6"/><circle cx="12" cy="16.9" r=".6" fill="currentColor" stroke="none"/></svg></button></div></div>
+  </div>
+  </div>
  </form>
 </div>
-<p class="bln"><a href="https://t.me/pprhmd" target="_blank" rel="noopener">تلگرام</a><a href="mailto:pegah.pourahmad@gmail.com?subject=%D8%B1%D8%B2%D8%B1%D9%88%20%D8%AC%D9%84%D8%B3%D9%87">ایمیل</a><button type="button" class="rqt" aria-haspopup="dialog" aria-expanded="false">ثبتِ سؤال</button></p>
+
+<div class="qm qm2" id="btm" hidden><div class="qbox okbox tmbox" role="dialog" aria-modal="true" aria-labelledby="btmt">
+ <button type="button" class="qx" aria-label="بستن">×</button>
+ <div class="tmA"><h3 id="btmt">شرایط برگزاری جلسه</h3>
+ <ul class="bl tml">
+  <li>جلسات <b>هفتگی</b> و به مدت <b>۵۰ دقیقه</b> برگزار می‌شوند.</li>
+  <li>رزرو جلسه باید توسط <b>خود فردی</b> انجام شود که قصد شرکت در جلسه را دارد.</li>
+  <li><b>جلسهٔ اول</b> فرصتی برای آشنایی با یکدیگر و شیوهٔ کار خواهد بود. در این جلسه دربارهٔ چارچوب ادامهٔ جلسات گفت‌وگو خواهیم کرد.</li>
+ </ul>
+ <div class="tmb"><button type="button" class="tmy">موافقم و ادامه</button><button type="button" class="tmn">موافق نیستم</button></div></div>
+ <div class="tmB" hidden><h3>رزرو ثبت نشد.</h3><p>اگر دربارهٔ شرایط برگزاری جلسه سؤالی دارید، «ثبت سؤال» را بزنید.</p><div class="tmb"><button type="button" class="tmq">ثبت سؤال</button></div></div>
+</div></div>
 <div class="qm qm2" id="bokm" hidden><div class="qbox okbox" role="alertdialog" aria-modal="true" aria-labelledby="bokt">
  <button type="button" class="qx" aria-label="بستن">×</button>
  <h3 id="bokt">رزرو شما ثبت شد.</h3>
- <p>تأیید زمان، چارچوب کار و هزینه‌ها و لینک برگزاری جلسه از طریق روش ارتباطی انتخاب‌شده برای شما ارسال خواهد شد.</p>
+ <p>از طریق روش ارتباطی انتخاب‌شده با شما در ارتباط خواهم بود.</p>
 </div></div>
 <div class="qm" id="qm" hidden><div class="qbox" role="dialog" aria-modal="true" aria-labelledby="qmt">
  <button type="button" class="qx" aria-label="بستن">×</button>
@@ -1078,23 +1145,50 @@ pre();
 /* 2.55: فرم از اول در خودِ صفحهٔ «رزرو جلسه» است؛ زمان‌ها با بازشدنِ صفحه بارگیری می‌شوند */
 const open=()=>{if((location.hash||'').slice(1)==='booking'){render();gcLoad(render);}};addEventListener('hashchange',open);open();
 const ph=document.getElementById('bph'),em=document.getElementById('bem');
+/* 2.57: تاریخ تولد به‌جای سن — سه انتخاب (روز، ماه، سال)، تقویمِ شمسی یا میلادی؛ سن از روی آن حساب و همراهِ تاریخ فرستاده می‌شود */
+const DOB=(()=>{const dd=document.getElementById('bdd'),dm=document.getElementById('bdm'),dy=document.getElementById('bdy'),B=[...document.querySelectorAll('.bcal button')];let C='p';
+ const MN={p:['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'],g:['ژانویه','فوریه','مارس','آوریل','مه','ژوئن','ژوئیه','اوت','سپتامبر','اکتبر','نوامبر','دسامبر']};
+ const now=c=>{const P={};new Intl.DateTimeFormat('en-US-u-ca-'+(c==='p'?'persian':'gregory')+'-nu-latn',{year:'numeric',month:'numeric',day:'numeric'}).formatToParts(new Date()).forEach(x=>P[x.type]=x.value);return [parseInt(P.year),+P.month,+P.day];};
+ const fill=()=>{const Y=now(C)[0],o=(v,t)=>`<option value="${v}">${t}</option>`;
+  dd.innerHTML='<option value="" selected disabled>روز</option>'+Array.from({length:31},(_,i)=>o(i+1,fa(i+1))).join('');
+  dm.innerHTML='<option value="" selected disabled>ماه</option>'+MN[C].map((n,i)=>o(i+1,n)).join('');
+  dy.innerHTML='<option value="" selected disabled>سال</option>'+Array.from({length:83},(_,i)=>o(Y-17-i,fa(Y-17-i))).join('');};
+ B.forEach(b=>b.addEventListener('click',()=>{if(b.dataset.c===C)return;C=b.dataset.c;B.forEach(x=>x.setAttribute('aria-checked',String(x===b)));fill();err.hidden=true;}));
+ fill();
+ return {check(){const d=+dd.value,m=+dm.value,y=+dy.value;if(!d||!m||!y)return {el:!d?dd:!m?dm:dy,t:'لطفاً «تاریخ تولد» را کامل انتخاب کنید.'};
+   const L=C==='p'?(m<=6?31:m<=11?30:30):new Date(y,m,0).getDate();if(d>L)return {el:dd,t:'این تاریخ تولد درست نیست؛ ماهِ انتخاب‌شده '+fa(L)+' روز دارد.'};
+   const [Y,M,D]=now(C),age=Y-y-((M<m||(M===m&&D<d))?1:0);if(age<18)return {el:dy,t:'رزرو جلسه برای افراد ۱۸ سال به بالاست.'};
+   document.getElementById('bbd').value=fa(d)+' '+MN[C][m-1]+' '+fa(y)+(C==='p'?' (شمسی)':' (میلادی)');document.getElementById('bag').value=String(age);return null;}};})();
+let AGREED=false;
+const TM=(()=>{const t=document.getElementById('btm'),A=t.querySelector('.tmA'),Bv=t.querySelector('.tmB'),sb=f.querySelector('button[type=submit]');
+ const close=()=>{t.hidden=true;sb.focus();};
+ const open=()=>{A.hidden=false;Bv.hidden=true;t.hidden=false;t.scrollTop=0;setTimeout(()=>t.querySelector('.tmy').focus(),50);};
+ t.querySelector('.qx').addEventListener('click',close);t.addEventListener('click',e=>{if(e.target===t)close();});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!t.hidden)close();});
+ t.querySelector('.tmy').addEventListener('click',()=>{t.hidden=true;AGREED=true;f.dispatchEvent(new Event('submit',{cancelable:true}));});
+ t.querySelector('.tmn').addEventListener('click',()=>{A.hidden=true;Bv.hidden=false;setTimeout(()=>t.querySelector('.tmq').focus(),50);});
+ t.querySelector('.tmq').addEventListener('click',()=>{t.hidden=true;document.querySelector('.nb .rqt').click();});
+ return {open};})();
 const say=t=>{err.textContent=t;err.hidden=false};const bad=(el,t)=>{say(t);f.querySelectorAll('.inv').forEach(x=>x.classList.remove('inv'));el.classList.add('inv');el.setAttribute('aria-invalid','true');el.setAttribute('aria-describedby','berr');el.focus();};const clr=e=>{e.target.classList.remove('inv');e.target.removeAttribute('aria-invalid');};f.addEventListener('input',clr);f.addEventListener('change',clr);document.getElementById('bwayv').addEventListener('change',()=>{err.hidden=true});
 f.addEventListener('submit',e=>{e.preventDefault();err.hidden=true;f.querySelectorAll('.inv').forEach(x=>x.classList.remove('inv'));
- const nm=f.querySelector('input[name="نام_و_نام_خانوادگی"]');ph.value=ph.value.trim();em.value=em.value.trim();
- nm.value=nm.value.replace(/\s+/g,' ').trim();if(nm.value.length<3)return bad(nm,nm.value?'نام و نام خانوادگی را کامل وارد کنید.':'لطفاً «نام و نام خانوادگی» را پر کنید.');
+ const fn=document.getElementById('bfn'),ln=document.getElementById('bln');ph.value=ph.value.trim();em.value=em.value.trim();
+ fn.value=fn.value.replace(/\s+/g,' ').trim();ln.value=ln.value.replace(/\s+/g,' ').trim();
+ if(fn.value.length<2)return bad(fn,'لطفاً «نام» را پر کنید.');if(ln.value.length<2)return bad(ln,'لطفاً «نام خانوادگی» را پر کنید.');
+ document.getElementById('bnm').value=fn.value+' '+ln.value;
+ {const x=DOB.check();if(x)return bad(x.el,x.t);}
+ const jb=document.getElementById('bjob');jb.value=jb.value.replace(/\s+/g,' ').trim();if(jb.value.length<2)return bad(jb,'لطفاً «شغل» را پر کنید.');
  if(!ph.value||!ph.checkValidity())return bad(ph,ph.value?'شماره تماس باید ۷ تا ۱۵ رقم باشد.':'لطفاً «شماره تماس» را پر کنید.');
  if(!em.value||!em.checkValidity())return bad(em,em.value?'نشانیِ ایمیل درست نیست.':'لطفاً «ایمیل» را پر کنید.');
- const co=document.getElementById('bco'),ag=document.getElementById('bag'),jb=document.getElementById('bjob');
- ag.value=ag.value.replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).trim();
+ const co=document.getElementById('bco');
+ if(!document.getElementById('bwayv').value)return bad(document.getElementById('bwayv'),'لطفاً «روش ارتباطی» را انتخاب کنید.');
  if(!co.value)return bad(co,'لطفاً «کشور» را انتخاب کنید.');
  if(!document.getElementById('btz').value)return bad(document.getElementById('btz'),'لطفاً «'+document.getElementById('btz').getAttribute('aria-label')+'» را انتخاب کنید.');
- if(!/^[0-9]{1,3}$/.test(ag.value)||+ag.value<18||+ag.value>99)return bad(ag,ag.value?'سن باید عددی بین ۱۸ تا ۹۹ باشد.':'لطفاً «سن» را پر کنید.');
- jb.value=jb.value.replace(/\s+/g,' ').trim();if(jb.value.length<2)return bad(jb,'لطفاً «شغل» را پر کنید.');
- if(!document.getElementById('bwayv').value)return bad(document.getElementById('bwayv'),'لطفاً «روش ارتباطی» را انتخاب کنید.');
  if(hid.value&&new Date(iso.value)<=new Date(Date.now()+LEAD_MS)){render();return bad(dS,'زمانِ انتخاب‌شده دیگر در دسترس نیست؛ لطفاً زمان دیگری انتخاب کنید.');}
  if(!hid.value)return bad(!dS.value?dS:!tS.value?tS:fS,!dS.value?'لطفاً «روز هفته» را انتخاب کنید.':!tS.value?'لطفاً «ساعت» را انتخاب کنید.':'لطفاً «تاریخ جلسهٔ اول» را انتخاب کنید.');
- const sb=f.querySelector('button[type=submit]');sb.disabled=true;
- const ok=()=>{const k=document.getElementById('bokm');k.hidden=false;const fin=()=>{k.hidden=true;f.reset();pre();f.querySelector('.nt').open=false;sb.disabled=false;hid.value='';iso.value='';btn.focus()};k.querySelector('.qx').onclick=fin;k.onclick=e=>{if(e.target===k)fin()};};
+ const sb=f.querySelector('button[type=submit]');
+ /* 2.57: پیش از ثبت، پنجرهٔ «شرایط برگزاری جلسه»؛ فقط با «موافقم و ادامه» رزرو فرستاده می‌شود */
+ if(!AGREED){TM.open();return;}AGREED=false;sb.disabled=true;
+ const ok=()=>{const k=document.getElementById('bokm');k.querySelector('p').textContent='از طریق '+(document.getElementById('bwayv').value||'روش ارتباطی انتخاب‌شده')+' با شما در ارتباط خواهم بود.';k.hidden=false;const fin=()=>{k.hidden=true;f.reset();pre();f.querySelector('.nt').open=false;sb.disabled=false;hid.value='';iso.value='';btn.focus()};k.querySelector('.qx').onclick=fin;k.onclick=e=>{if(e.target===k)fin()};};
  const fail=()=>{sb.disabled=false;say('ثبت انجام نشد. اتصال اینترنت را بررسی کنید و دوباره امتحان کنید.')};
  if(SCRIPT_URL){const data={};new FormData(f).forEach((v,k)=>{data[k]=v});
   fetchT(SCRIPT_URL,{method:'POST',body:JSON.stringify(data)},20000).then(r=>r.json()).then(j=>{

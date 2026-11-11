@@ -748,6 +748,25 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 #writings .wg>.t h3{font-size:22px!important}#writings .wg>.t .ld{font-size:14.5px!important}
 #writings .wg>.t .tx{padding:22px 26px 26px!important}#writings .wg>article.t .lk{padding:0 26px 26px!important}#writings .tcv i{font-size:30px}
 @media (max-width:720px){#writings .wg{grid-template-columns:minmax(0,1fr)!important}#writings .wg>.t h3{font-size:20px!important}#writings .tcv i{font-size:24px}}
+/* 2.70: صفحهٔ جستار — صفحهٔ مجله */
+#readbox.es2{width:calc(100% - 128px);max-width:1184px;margin:36px auto 72px;padding:0;box-sizing:border-box}
+.read .e2{background:#fff;box-shadow:0 1px 2px rgba(23,47,150,.06),0 18px 40px -26px rgba(23,47,150,.5);padding:56px 64px 88px;display:grid;grid-template-columns:minmax(0,300px) minmax(0,640px);justify-content:space-between;column-gap:64px;align-items:start}
+.read .e2h{grid-column:1/-1;grid-row:1;margin:0 0 44px}
+.read .e2l{font-family:"Lei";color:var(--ochre);font-size:16px}
+.read .e2h h1{font-family:"EpsB";font-size:54px;line-height:1.4;margin:6px 0 4px;text-align:right}
+.read .e2s{font-family:"Lei";color:var(--ochre);font-size:22px;line-height:1.5;margin:0;text-align:right;text-align-last:right}
+.read .e2a{grid-column:1;grid-row:2;position:sticky;top:28px}
+.read .e2t{font-family:"Eps";font-size:13px;opacity:.75;margin:0;text-align:right}
+.read .e2q{font-family:"EpsB";font-size:19px;line-height:1.85;margin:10px 0 24px;text-align:right;text-align-last:right}
+.read .e2f{margin:0;display:flex;flex-direction:column;gap:6px}
+.read .e2f .im1{width:100%;height:auto;margin:0}
+.read .e2f figcaption{font-family:"Eps";font-size:10.5px;line-height:1.4;opacity:.45;text-align:left}
+.read .e2a .igl{margin-top:20px}
+.read .e2b{grid-column:2;grid-row:2;min-width:0}
+.read .e2b p{font-size:17px;line-height:2.1;margin:0 0 1em}
+.read .e2b .e2pq{font-family:"EpsB";font-size:24px;line-height:1.75;margin:28px 0 32px;text-align:right;text-align-last:right}
+@media (max-width:1100px){#readbox.es2{width:calc(100% - 64px)}.read .e2{grid-template-columns:minmax(0,1fr);padding:40px 40px 64px}.read .e2h,.read .e2a,.read .e2b{grid-column:1;grid-row:auto}.read .e2a{position:static;margin-bottom:32px}.read .e2h{margin-bottom:24px}.read .e2h h1{font-size:40px}.read .e2f{max-width:380px}}
+@media (max-width:720px){#readbox.es2{width:auto;margin:16px 0 40px}.read .e2{padding:28px 20px 48px;box-shadow:none}.read .e2h h1{font-size:30px}.read .e2s{font-size:18px}.read .e2q{font-size:17px}.read .e2b p{font-size:16px}.read .e2b .e2pq{font-size:20px}.read .e2f{max-width:none}}
 </style>
 </head>
 <body>
@@ -1100,7 +1119,11 @@ function findPost(k){return ESSAYS.concat(POSTS).find(p=>p.slug===k||p.id===k);}
 function openRead(id){const q=findPost(id);if(!q)return false;
  const isE=ESSAYS.includes(q),txt=q.body.join(' ').replace(/<[^>]+>/g,' '),mins=Math.max(1,Math.round(txt.split(/\s+/).filter(Boolean).length/180));
  const body=[];for(let i=0;i<q.body.length;i++){const p=q.body[i];if(p.startsWith('<p class="eq"')&&i+1<q.body.length){const n=q.body[++i];body.push(`<figure class="qb">${p.replace('class="eq"','class="en"').replace(/[“”]/g,'')}${n.startsWith('<p>')?'<p class="fa">'+n.slice(3):'<p class="fa">'+n+'</p>'}</figure>`);}else body.push(p.startsWith('<')?p:`<p>${p}</p>`);}
- document.getElementById('readbox').innerHTML=`${q.img&&isE?`<figure class="fl ${q.imgo==='p'?'pt':'ls'}"><img class="im1" src="${q.img}" alt="">${q.imgnote?`<figcaption>${q.imgnote}</figcaption>`:''}</figure>`:''}<header class="rh2"><h1>${q.title}${q.label?`<span class="kk">${q.label}</span>`:''}</h1>${isE?`${q.sub?`<p class="sb3">${q.sub}</p>`:''}${q.q?`<p class="dq">${q.q}</p>`:''}<p class="tm">حدود ${FA(mins)} دقیقه مطالعه</p>${q.ig?`<a class="igl" href="${q.ig}" target="_blank" rel="noopener">${IG}<span>این جستار در اینستاگرام</span></a>`:''}`:`${q.sub?`<span class="sub">${q.sub}</span>`:''}`}${q.cite?`<p class="ct" dir="ltr">${q.cite}</p>`:''}</header>${body.join('')}${q.refs?`<details class="refs"><summary>منابع</summary><ol dir="ltr">${q.refs.map((r,i)=>`<li id="ref-${i+1}">${r.u?`<a href="${r.u}" target="_blank" rel="noopener">${r.t}</a>`:r.t}</li>`).join('')}</ol></details>`:''}`;fitTitle();document.fonts&&document.fonts.ready.then(fitTitle);document.querySelectorAll('#readbox .rf').forEach(x=>x.addEventListener('click',()=>{const d=document.querySelector('#readbox .refs');if(!d)return;d.open=true;const li=document.getElementById('ref-'+x.dataset.r);if(li){li.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});li.classList.remove('hit');void li.offsetWidth;li.classList.add('hit');}}));return true;}
+ const rb=document.getElementById('readbox');rb.classList.toggle('es2',isE);
+ /* 2.70: جستار مثلِ صفحهٔ مجله (قواعد در اسکیل): برگهٔ سفید؛ عنوان در کلِ عرض؛ ستونِ حاشیه (زمان، پرسش، عکسِ کامل) کنارِ ستونِ متنِ ثابت؛ پرسش یک بار هم وسطِ متن */
+ if(isE){const refs=q.refs?`<details class="refs"><summary>منابع</summary><ol dir="ltr">${q.refs.map((r,i)=>`<li id="ref-${i+1}">${r.u?`<a href="${r.u}" target="_blank" rel="noopener">${r.t}</a>`:r.t}</li>`).join('')}</ol></details>`:'';const pq=q.q?`<p class="e2pq">${q.q}</p>`:'';const bd=body.slice(0,2).join('')+pq+body.slice(2).join('');
+  rb.innerHTML=`<div class="e2"><header class="e2h"><span class="e2l">${q.label||'جستار'}</span><h1>${q.title}</h1>${q.sub?`<p class="e2s">${q.sub}</p>`:''}</header><aside class="e2a"><p class="e2t">حدود ${FA(mins)} دقیقه مطالعه</p>${q.q?`<p class="e2q">${q.q}</p>`:''}${q.img?`<figure class="e2f"><img class="im1" src="${q.img}" alt="">${q.imgnote?`<figcaption>${q.imgnote}</figcaption>`:''}</figure>`:''}${q.ig?`<a class="igl" href="${q.ig}" target="_blank" rel="noopener">${IG}<span>این جستار در اینستاگرام</span></a>`:''}</aside><div class="e2b">${bd}${refs}</div></div>`;}
+ else rb.innerHTML=`${q.img&&isE?`<figure class="fl ${q.imgo==='p'?'pt':'ls'}"><img class="im1" src="${q.img}" alt="">${q.imgnote?`<figcaption>${q.imgnote}</figcaption>`:''}</figure>`:''}<header class="rh2"><h1>${q.title}${q.label?`<span class="kk">${q.label}</span>`:''}</h1>${isE?`${q.sub?`<p class="sb3">${q.sub}</p>`:''}${q.q?`<p class="dq">${q.q}</p>`:''}<p class="tm">حدود ${FA(mins)} دقیقه مطالعه</p>${q.ig?`<a class="igl" href="${q.ig}" target="_blank" rel="noopener">${IG}<span>این جستار در اینستاگرام</span></a>`:''}`:`${q.sub?`<span class="sub">${q.sub}</span>`:''}`}${q.cite?`<p class="ct" dir="ltr">${q.cite}</p>`:''}</header>${body.join('')}${q.refs?`<details class="refs"><summary>منابع</summary><ol dir="ltr">${q.refs.map((r,i)=>`<li id="ref-${i+1}">${r.u?`<a href="${r.u}" target="_blank" rel="noopener">${r.t}</a>`:r.t}</li>`).join('')}</ol></details>`:''}`;fitTitle();document.fonts&&document.fonts.ready.then(fitTitle);document.querySelectorAll('#readbox .rf').forEach(x=>x.addEventListener('click',()=>{const d=document.querySelector('#readbox .refs');if(!d)return;d.open=true;const li=document.getElementById('ref-'+x.dataset.r);if(li){li.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});li.classList.remove('hit');void li.offsetWidth;li.classList.add('hit');}}));return true;}
 
 const SHOW_WRITINGS=ITEMS.length>0;   /* «نوشته‌ها» با اولین پست خودش ظاهر می‌شود */
 const SHOW_OTHER=false;   /* «منتشر شده» */
@@ -1192,7 +1215,7 @@ const DAT=d=>{const ir=(document.getElementById('bco')||{}).value==='IR';const P
 const OKM=m=>m>=480&&m<=1290,DIS=m=>m<480?480-m:m-1290;
 function clrT(){tS.classList.remove('has');tOv.innerHTML='';tS.style.paddingRight='';tS.style.textAlign='';tS.style.textAlignLast='';}
 function clrF(){fS.innerHTML='<option value="" selected disabled>تاریخ جلسهٔ اول</option>';fS.disabled=true;hid.value='';iso.value='';}
-const AHEAD_MS=31*864e5;   /* 2.61: زمان‌ها از یک ماه پیش نشان داده می‌شوند (پیش‌تر ۳ هفته) */
+const AHEAD_MS=45*864e5;   /* 2.70: زمان‌ها همیشه تا یک ماه و نیم آینده باز است (قاعدهٔ ۱۱ نوامبر) */
 function render(){const now=Date.now()+LEAD_MS,lim=Date.now()+AHEAD_MS;G={};slotList().filter(d=>d>now&&d<=lim).sort((a,b)=>a-b).forEach(d=>{const w=WDO(d),t=tF.format(d);const W=(G[w]=G[w]||{n:WDN(d),T:{}});(W.T[t]=W.T[t]||{m:MIN(d),L:[]}).L.push(d);});
  const ks=Object.keys(G).sort((a,b)=>a-b);const nn=document.getElementById('bnone');const ldg=!!((SCRIPT_URL||(GCAL.id&&GCAL.key))&&!GC);nn.classList.toggle('ld',ldg);nn.textContent=ldg?'در حال بارگیریِ زمان‌ها':GCerr?'زمان‌ها بارگیری نشد؛ لطفاً از تلگرام یا ایمیل پیام دهید.':'فعلاً زمانِ خالی‌ای برای انتخاب نیست.';nn.hidden=!!ks.length;box.hidden=!ks.length;
  /* 2.60: اول روزها و ساعت‌هایی که در وقتِ مراجع معقول‌اند (۸ صبح تا ۹:۳۰ شب)؛ نیمه‌شب و سحر پایین‌تر، جدا */

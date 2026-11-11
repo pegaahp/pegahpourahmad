@@ -1151,7 +1151,7 @@ pre();
 /* 2.58: هزینه بسته به کشورِ انتخاب‌شده (ایران / خارج از ایران)؛ تیکِ «دانشجو هستم» برای هر دو، با قیمتِ قبلی خط‌خورده */
 (function(){const v=document.getElementById('bfv'),st=document.getElementById('bstu'),hv=document.getElementById('bfeev');
  const up=()=>{if(!cS.value){v.textContent='پس از انتخابِ کشور نشان داده می‌شود';v.classList.add('emp');hv.value='';return;}v.classList.remove('emp');
-  const ir=cS.value==='IR',full=ir?'۱ میلیون و ۸۰۰ هزار تومان':'۵۰ دلار',stu=ir?'۱ میلیون و ۵۰۰ هزار تومان':'۳۰ دلار';
+  const ir=cS.value==='IR',full=ir?'۱ میلیون و ۸۰۰ هزار تومان':'۵۰ دلار',stu=ir?'۱ میلیون و ۳۰۰ هزار تومان':'۳۰ دلار';
   v.innerHTML=st.checked?'<s>'+full+'</s> <span>'+stu+'</span>':'<span>'+full+'</span>';hv.value=st.checked?stu+' (دانشجو)':full;};
  cS.addEventListener('change',up);st.addEventListener('change',up);f.addEventListener('reset',()=>setTimeout(up,0));up();})();
 /* 2.55: فرم از اول در خودِ صفحهٔ «رزرو جلسه» است؛ زمان‌ها با بازشدنِ صفحه بارگیری می‌شوند */

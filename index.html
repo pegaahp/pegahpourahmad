@@ -316,7 +316,16 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 .nb .qx:hover{background:none;color:var(--ink)}
 .nb .qbox button[type=submit]{border:0;background:var(--ochre);color:#fff}
 .nb .qbox button[type=submit]:hover{background:var(--ochre);color:#fff;opacity:.88}
-.qbox #qc:placeholder-shown{direction:rtl}
+.qbox #qc:placeholder-shown,.qbox #qem:placeholder-shown{direction:rtl}
+/* question form: the same «روش ارتباطی» list as the booking form, sharing a row with the phone number */
+.qbox form{grid-template-columns:1fr 1fr}
+.qbox form>*{grid-column:1/-1}
+.qbox form>.qph{grid-column:1}
+.qbox form>#qway{grid-column:2}
+.qbox select{font-family:"Eps";font-size:14px;width:100%;min-height:42px;box-sizing:border-box;border:1px solid var(--guide);border-radius:0;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%231C39BB' stroke-width='1.4'/%3E%3C/svg%3E") no-repeat left 12px center/11px 8px;padding:9px 11px 9px 32px;color:var(--blue);appearance:none;-webkit-appearance:none;cursor:pointer}
+.qbox select:invalid{color:#8A877F}
+.qbox select option{color:var(--blue)}
+.qbox select:focus{outline:none;border-color:var(--blue)}
 .qrow{display:flex;align-items:center;gap:16px}.qrow .qn{margin:0;line-height:1.7}.qrow button{flex:none}
 .bbox{width:min(520px,100%)}
 .bbox .bi{font-size:14px;line-height:1.9;color:var(--ink);margin:0 0 6px}
@@ -345,9 +354,9 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 .nb .chips button:hover{border-color:var(--line);background:#fff;color:var(--ink)}
 .nb .chips button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
 .qm2{z-index:60;background:rgba(23,47,150,.22)}
-.okbox{width:min(420px,100%);padding:34px 32px 30px}
-.okbox h3{margin-bottom:14px}
-.okbox p{font-size:14.5px;line-height:1.9;color:var(--ink);margin:0}
+.okbox{width:min(420px,100%);padding:44px 32px 34px}
+.okbox p{font-size:15px;line-height:1.9;color:var(--ink);margin:0;text-wrap:balance}
+.okbox p#bokt{text-align:right}
 .nb .qbox form{max-width:none}
 .bbox .nt summary{font-family:"EpsB";font-size:13.5px;color:var(--ink);cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px}
 .bbox .nt summary::-webkit-details-marker{display:none}
@@ -921,8 +930,7 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 </div></div>
 <div class="qm qm2" id="bokm" hidden><div class="qbox okbox" role="alertdialog" aria-modal="true" aria-labelledby="bokt">
  <button type="button" class="qx" aria-label="بستن">×</button>
- <h3 id="bokt">رزرو شما ثبت شد.</h3>
- <p>از طریق روش ارتباطی انتخاب‌شده با شما در ارتباط خواهم بود.</p>
+ <p id="bokt">درخواست رزرو جلسه ثبت شد و نتیجه از طریق روش ارتباطی انتخاب‌شده به اطلاع شما خواهد رسید.</p>
 </div></div>
 <div class="qm" id="qm" hidden><div class="qbox" role="dialog" aria-modal="true" aria-labelledby="qmt">
  <button type="button" class="qx" aria-label="بستن">×</button>
@@ -932,6 +940,8 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
   <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
   <input name="نام" placeholder="نام و نام خانوادگی" aria-label="نام و نام خانوادگی" autocomplete="name" minlength="3" maxlength="60" data-k="txt" required>
   <label class="qph"><input name="شماره_تماس" id="qc" type="tel" dir="ltr" inputmode="tel" autocomplete="tel" maxlength="16" placeholder="شماره تماس" aria-label="شماره تماس، شماره‌ای که حساب کاربری تلگرام یا واتس‌اپ شما با آن فعال است" pattern="\+?[0-9]{7,15}" required><span class="tip" aria-hidden="true">شماره‌ای که حساب کاربری تلگرام یا واتس‌اپ شما با آن فعال است</span></label>
+  <select name="روش_ارتباطی" id="qway" aria-label="روش ارتباطی" required><option value="" selected disabled>روش ارتباطی</option><option>ایمیل</option><option>تلگرام</option><option>واتس‌اپ</option></select>
+  <input name="email" id="qem" placeholder="ایمیل" aria-label="ایمیل" maxlength="80" type="email" dir="ltr" autocomplete="email" pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}" required>
   <textarea name="پیام" maxlength="4000" placeholder="پیام" aria-label="پیام" required></textarea>
   <div class="qrow"><button type="submit">ثبتِ پیام</button><p class="qn">پیام شما ثبت می‌شود و در اولین فرصت پاسخ داده خواهد شد.</p></div>
  </form>
@@ -1243,7 +1253,8 @@ addEventListener('hashchange',route);addEventListener('resize',fit);document.fon
 (function(){const b=document.querySelector('.nb .rqt'),m=document.getElementById('qm'),f=document.getElementById('qf');if(!b||!m)return;
 const open=()=>{/* 2.63: نام و شماره تماس از فرمِ رزرو، اگر پر شده باشند */
  {const g=id=>((document.getElementById(id)||{}).value||'').replace(/\s+/g,' ').trim(),nm=f.querySelector('input[name="نام"]'),qc=document.getElementById('qc'),full=(g('bfn')+' '+g('bln')).trim(),ph=g('bph').replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[\s\-()]/g,'');
-  if(nm&&!nm.value.trim()&&full)nm.value=full;if(qc&&!qc.value.trim()&&ph)qc.value=ph;}
+  if(nm&&!nm.value.trim()&&full)nm.value=full;if(qc&&!qc.value.trim()&&ph)qc.value=ph;
+  const qw=document.getElementById('qway'),qe=document.getElementById('qem');if(qw){qw.setCustomValidity('');if(!qw.value&&g('bwayv'))qw.value=g('bwayv');}if(qe&&!qe.value.trim()&&g('bem'))qe.value=g('bem');}
  f.hidden=false;const ok=m.querySelector('.qok');if(ok)ok.hidden=true;const qe=m.querySelector('.qerr');if(qe)qe.hidden=true;m.hidden=false;b.setAttribute('aria-expanded','true');setTimeout(()=>m.querySelector('input:not([type=hidden]):not([name=_honey])').focus(),50)};
 const close=()=>{m.hidden=true;b.setAttribute('aria-expanded','false');b.focus()};
 b.addEventListener('click',open);m.querySelector('.qx').addEventListener('click',close);
@@ -1256,7 +1267,10 @@ f.addEventListener('submit',e=>{e.preventDefault();const btn=f.querySelector('bu
 <script>
 (function(){const c=document.getElementById('qc');if(!c)return;const msg='لطفاً شماره را با اعداد انگلیسی و بدون فاصله وارد کنید؛ مثلاً ۴۹۱۵۱۲۳۴۵۶۷۸.';
 const chk=()=>{c.value=c.value.trim();c.setCustomValidity(c.validity.patternMismatch?msg:(c.validity.valueMissing?'این بخش را پر کنید.':''))};
-c.addEventListener('input',()=>c.setCustomValidity(''));c.addEventListener('invalid',chk);c.addEventListener('blur',()=>{if(c.value)chk()});})();
+c.addEventListener('input',()=>c.setCustomValidity(''));c.addEventListener('invalid',chk);c.addEventListener('blur',()=>{if(c.value)chk()});
+const w=document.getElementById('qway'),em=document.getElementById('qem');
+if(w){w.addEventListener('invalid',()=>w.setCustomValidity(w.value?'':'لطفاً «روش ارتباطی» را انتخاب کنید.'));w.addEventListener('change',()=>w.setCustomValidity(''));}
+if(em){const ce=()=>{em.value=em.value.trim();em.setCustomValidity(!em.value?'لطفاً «ایمیل» را پر کنید.':((em.validity.patternMismatch||em.validity.typeMismatch)?'نشانیِ ایمیل درست نیست.':''))};em.addEventListener('input',()=>em.setCustomValidity(''));em.addEventListener('invalid',ce);}})();
 </script>
 <script>
 /* زمان‌های خالی: هر مورد یک زمانِ شروع به وقتِ خودتان، با اختلافِ ساعت. نمونه‌اند؛ پیش از انتشار با زمان‌های واقعی جایگزین شوند. */
@@ -1399,7 +1413,7 @@ f.addEventListener('submit',e=>{e.preventDefault();err.hidden=true;f.querySelect
  const sb=f.querySelector('button[type=submit]');
  /* 2.57: پیش از ثبت، پنجرهٔ «شرایط برگزاری جلسه»؛ فقط با «موافقم و ادامه» رزرو فرستاده می‌شود */
  if(!AGREED){TM.open();return;}AGREED=false;sb.disabled=true;
- const ok=()=>{const k=document.getElementById('bokm');k.querySelector('p').textContent='از طریق '+(document.getElementById('bwayv').value||'روش ارتباطی انتخاب‌شده')+' با شما در ارتباط خواهم بود.';k.hidden=false;const fin=()=>{k.hidden=true;f.reset();pre();f.querySelector('.nt').open=false;sb.disabled=false;hid.value='';iso.value='';btn.focus()};k.querySelector('.qx').onclick=fin;k.onclick=e=>{if(e.target===k)fin()};};
+ const ok=()=>{const k=document.getElementById('bokm');k.querySelector('p').textContent='درخواست رزرو جلسه ثبت شد و نتیجه از طریق '+(document.getElementById('bwayv').value||'روش ارتباطی انتخاب‌شده')+' به اطلاع شما خواهد رسید.';k.hidden=false;const fin=()=>{k.hidden=true;f.reset();pre();f.querySelector('.nt').open=false;sb.disabled=false;hid.value='';iso.value='';btn.focus()};k.querySelector('.qx').onclick=fin;k.onclick=e=>{if(e.target===k)fin()};};
  const fail=()=>{sb.disabled=false;say('ثبت انجام نشد. اتصال اینترنت را بررسی کنید و دوباره امتحان کنید.')};
  if(SCRIPT_URL){const data={};new FormData(f).forEach((v,k)=>{data[k]=v});
   fetchT(SCRIPT_URL,{method:'POST',body:JSON.stringify(data)},20000).then(r=>r.json()).then(j=>{

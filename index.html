@@ -703,6 +703,12 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 .tmb .tmy,.tmb .tmq{background:var(--blue);color:var(--paper)}.tmb .tmy:hover,.tmb .tmq:hover{background:var(--blue2)}
 .tmb .tmn{background:var(--paper);color:var(--blue)}.tmb .tmn:hover{background:#EEF0F8}
 .tmbox [hidden]{display:none}
+/* 2.63: ثبتِ سؤال — شماره تماس مثلِ فرمِ رزرو، با توضیحِ کوچکِ سفید هنگامِ رفتن روی خانه */
+.qbox .qph{display:block;position:relative}
+.qbox .qph input{width:100%;box-sizing:border-box}
+.qbox .qph .tip{position:absolute;left:0;right:auto;bottom:calc(100% + 6px);z-index:3;background:#fff;color:var(--ink);font-family:"Eps";font-size:11px;line-height:1.6;padding:5px 9px;border:1px solid var(--hair);box-shadow:0 6px 16px -8px rgba(23,47,150,.35);white-space:nowrap;opacity:0;visibility:hidden;transform:translateY(3px);transition:opacity .15s,transform .15s,visibility .15s;pointer-events:none}
+.qbox .qph:hover .tip,.qbox .qph:focus-within .tip{opacity:1;visibility:visible;transform:none}
+@media (max-width:720px){.qbox .qph .tip{font-size:10.5px;white-space:normal;width:max-content;max-width:min(190px,52vw)}}
 </style>
 </head>
 <body>
@@ -752,7 +758,7 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
  <h1 class="pt">رزرو جلسه</h1>
  <main class="pc nb bpg">
 <div class="qbox bbox bin" id="bm">
-<form id="bf" action="https://formsubmit.co/3e7b95d01e6ad2f4d0d4995be29aa5b4" method="POST" novalidate>
+<form id="bf" action="https://formsubmit.co/3e7b95d01e6ad2f4d0d4995be29aa5b4" method="POST" novalidate onsubmit="return false">
   <input type="hidden" name="_subject" value="رزرو تازه از سایت"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
   <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
   <input type="hidden" name="نام_و_نام_خانوادگی" id="bnm"><input type="hidden" name="تاریخ_تولد" id="bbd"><input type="hidden" name="سن" id="bag">
@@ -823,7 +829,7 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
   <input type="hidden" name="_subject" value="سؤالِ تازه از سایت"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
   <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
   <input name="نام" placeholder="نام و نام خانوادگی" aria-label="نام و نام خانوادگی" autocomplete="name" minlength="3" maxlength="60" data-k="txt" required>
-  <input name="راه_ارتباط" id="qc" dir="ltr" inputmode="email" autocomplete="off" placeholder="ایمیل یا شماره تماسی که در تلگرام داشته باشید" aria-label="ایمیل یا شماره تماسی که در تلگرام داشته باشید" pattern="(\+?[0-9]{7,15}|[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,})" required>
+  <label class="qph"><input name="شماره_تماس" id="qc" type="tel" dir="ltr" inputmode="tel" autocomplete="tel" maxlength="16" placeholder="شماره تماس" aria-label="شماره تماس، شماره‌ای که حساب کاربری تلگرام یا واتس‌اپ شما با آن فعال است" pattern="\+?[0-9]{7,15}" required><span class="tip" aria-hidden="true">شماره‌ای که حساب کاربری تلگرام یا واتس‌اپ شما با آن فعال است</span></label>
   <textarea name="پیام" maxlength="4000" placeholder="پیام" aria-label="پیام" required></textarea>
   <div class="qrow"><button type="submit">ثبتِ پیام</button><p class="qn">پیام شما ثبت می‌شود و در اولین فرصت پاسخ داده خواهد شد.</p></div>
  </form>
@@ -1045,7 +1051,10 @@ addEventListener('hashchange',route);addEventListener('resize',fit);document.fon
 </script>
 <script>
 (function(){const b=document.querySelector('.nb .rqt'),m=document.getElementById('qm'),f=document.getElementById('qf');if(!b||!m)return;
-const open=()=>{f.hidden=false;const ok=m.querySelector('.qok');if(ok)ok.hidden=true;const qe=m.querySelector('.qerr');if(qe)qe.hidden=true;m.hidden=false;b.setAttribute('aria-expanded','true');setTimeout(()=>m.querySelector('input:not([type=hidden]):not([name=_honey])').focus(),50)};
+const open=()=>{/* 2.63: نام و شماره تماس از فرمِ رزرو، اگر پر شده باشند */
+ {const g=id=>((document.getElementById(id)||{}).value||'').replace(/\s+/g,' ').trim(),nm=f.querySelector('input[name="نام"]'),qc=document.getElementById('qc'),full=(g('bfn')+' '+g('bln')).trim(),ph=g('bph').replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[\s\-()]/g,'');
+  if(nm&&!nm.value.trim()&&full)nm.value=full;if(qc&&!qc.value.trim()&&ph)qc.value=ph;}
+ f.hidden=false;const ok=m.querySelector('.qok');if(ok)ok.hidden=true;const qe=m.querySelector('.qerr');if(qe)qe.hidden=true;m.hidden=false;b.setAttribute('aria-expanded','true');setTimeout(()=>m.querySelector('input:not([type=hidden]):not([name=_honey])').focus(),50)};
 const close=()=>{m.hidden=true;b.setAttribute('aria-expanded','false');b.focus()};
 b.addEventListener('click',open);m.querySelector('.qx').addEventListener('click',close);
 m.addEventListener('click',e=>{if(e.target===m&&!dirty(f))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!m.hidden)close()});
@@ -1055,7 +1064,7 @@ f.addEventListener('submit',e=>{e.preventDefault();const btn=f.querySelector('bu
  .catch(()=>{btn.disabled=false;let e=m.querySelector('.qerr');if(!e){e=document.createElement('p');e.className='berr qerr';e.setAttribute('role','alert');f.appendChild(e);}e.textContent='ارسال انجام نشد. اتصال اینترنت را بررسی کنید و دوباره امتحان کنید.';e.hidden=false;});});})();
 </script>
 <script>
-(function(){const c=document.getElementById('qc');if(!c)return;const msg='لطفاً ایمیل یا شماره را با اعداد انگلیسی و بدون فاصله وارد کنید.';
+(function(){const c=document.getElementById('qc');if(!c)return;const msg='لطفاً شماره را با اعداد انگلیسی و بدون فاصله وارد کنید؛ مثلاً ۴۹۱۵۱۲۳۴۵۶۷۸.';
 const chk=()=>{c.value=c.value.trim();c.setCustomValidity(c.validity.patternMismatch?msg:(c.validity.valueMissing?'این بخش را پر کنید.':''))};
 c.addEventListener('input',()=>c.setCustomValidity(''));c.addEventListener('invalid',chk);c.addEventListener('blur',()=>{if(c.value)chk()});})();
 </script>

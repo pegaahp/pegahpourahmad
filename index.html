@@ -755,7 +755,7 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 .read .e2s{font-family:"Lei";color:var(--ochre);font-size:22px;line-height:1.5;margin:0;text-align:right;text-align-last:right}
 .read .e2a{grid-column:1;grid-row:2;position:sticky;top:28px}
 .read .e2t{font-family:"Eps";font-size:13px;opacity:.75;margin:0;text-align:right}
-.read .e2q{font-family:"EpsB";font-size:19px;line-height:1.85;margin:10px 0 24px;text-align:right;text-align-last:right}
+.read .e2q{font-family:"Eps";font-size:17px;line-height:1.95;margin:10px 0 24px;text-align:right;text-align-last:right}
 .read .e2f{margin:0;display:flex;flex-direction:column;gap:6px}
 .read .e2f .im1{width:100%;height:auto;margin:0}
 .read .e2f figcaption{font-family:"Eps";font-size:10.5px;line-height:1.4;opacity:.45;text-align:left}
@@ -764,7 +764,9 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 .read .e2b p{font-size:17px;line-height:2.1;margin:0 0 1em}
 .read .e2b .e2pq{font-family:"EpsB";font-size:24px;line-height:1.75;margin:28px 0 32px;text-align:right;text-align-last:right}
 @media (max-width:1100px){#readbox.es2{width:calc(100% - 64px)}.read .e2{grid-template-columns:minmax(0,1fr);padding:40px 40px 64px}.read .e2h,.read .e2a,.read .e2b{grid-column:1;grid-row:auto}.read .e2a{position:static;margin-bottom:32px}.read .e2h{margin-bottom:24px}.read .e2h h1{font-size:40px}.read .e2f{max-width:380px}}
-@media (max-width:720px){#readbox.es2{width:auto;margin:16px 0 40px}.read .e2{padding:28px 20px 48px;box-shadow:none}.read .e2h h1{font-size:30px}.read .e2s{font-size:18px}.read .e2q{font-size:17px}.read .e2b p{font-size:16px}.read .e2b .e2pq{font-size:20px}.read .e2f{max-width:none}}
+/* mid widths: the picture and the opening (title, subtitle, reading time, question) sit side by side; the text runs full width under them */
+@media (min-width:721px) and (max-width:1100px){.read .e2{grid-template-columns:minmax(0,40%) minmax(0,1fr);grid-template-rows:auto auto auto 1fr auto;column-gap:40px}.read .e2a{display:contents}.read .e2f{grid-column:1;grid-row:1/span 4;max-width:none}.read .e2h{grid-column:2;grid-row:1;margin-bottom:14px}.read .e2t{grid-column:2;grid-row:2}.read .e2q{grid-column:2;grid-row:3;margin-bottom:0}.read .e2a .igl{grid-column:2;grid-row:4;align-self:start}.read .e2b{grid-column:1/-1;grid-row:5;margin-top:40px}}
+@media (max-width:720px){#readbox.es2{width:auto;margin:16px 0 40px}.read .e2{padding:28px 20px 48px;box-shadow:none}.read .e2h h1{font-size:30px}.read .e2s{font-size:18px}.read .e2q{font-size:16px}.read .e2b p{font-size:16px}.read .e2b .e2pq{font-size:20px}.read .e2f{max-width:none}}
 /* home: a small picture on the left, the name large on the right with the page links in a row
    under it, both centred in the height of the sheet. The picture has a transparent ground, so
    it sits straight on the paper. Where the window is narrow and the text comes over the

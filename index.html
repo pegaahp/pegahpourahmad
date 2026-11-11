@@ -765,32 +765,35 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 .read .e2b .e2pq{font-family:"EpsB";font-size:24px;line-height:1.75;margin:28px 0 32px;text-align:right;text-align-last:right}
 @media (max-width:1100px){#readbox.es2{width:calc(100% - 64px)}.read .e2{grid-template-columns:minmax(0,1fr);padding:40px 40px 64px}.read .e2h,.read .e2a,.read .e2b{grid-column:1;grid-row:auto}.read .e2a{position:static;margin-bottom:32px}.read .e2h{margin-bottom:24px}.read .e2h h1{font-size:40px}.read .e2f{max-width:380px}}
 @media (max-width:720px){#readbox.es2{width:auto;margin:16px 0 40px}.read .e2{padding:28px 20px 48px;box-shadow:none}.read .e2h h1{font-size:30px}.read .e2s{font-size:18px}.read .e2q{font-size:17px}.read .e2b p{font-size:16px}.read .e2b .e2pq{font-size:20px}.read .e2f{max-width:none}}
-/* about 2.72: four cards, one panel under them */
-.ab2 .lead{font-size:21px;line-height:1.75;margin:0 0 40px}
-.abt{appearance:none;border:0;font:inherit;color:var(--blue);cursor:pointer;background:#fff;box-shadow:0 10px 30px -18px rgba(23,47,150,.45);padding:22px 22px;text-align:center;display:block;transition:background .2s,color .2s}
-.abt.on{background:var(--blue);color:var(--paper)}
-.abt:focus-visible{outline:2px solid var(--ochre);outline-offset:3px}
-.abl{font-family:"EpsB";font-size:17px;display:block}
-.ab2c{display:grid;grid-template-columns:1fr 1fr;gap:48px}
-.ab2c h3{font-family:"EpsB";font-weight:normal;font-size:17px;margin:0 0 14px;color:var(--ochre)}
-.abr{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:20px}
-.abp{display:none;font-size:17px;line-height:1.95;background:#fff;box-shadow:0 10px 30px -18px rgba(23,47,150,.45);padding:30px 34px}
-.abp.on{display:block;animation:abf .35s ease}
-@keyframes abf{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.abp p+p{margin-top:14px}
-.abp ul{list-style:none;margin:0;padding:0}
-.abp li{padding:12px 0;border-bottom:1px solid rgba(28,57,187,.14);text-align:right}
-.abp li:first-child{padding-top:0}
-.abp li:last-child{border-bottom:0;padding-bottom:0}
-@media (max-width:720px){
- .ab2 .lead{font-size:18px;margin-bottom:28px}
- .abr{gap:10px;grid-template-columns:repeat(2,1fr)}
- .abt{padding:16px 10px}
- .ab2c{grid-template-columns:1fr;gap:26px}
- .abl{font-size:15px}
- .abp{font-size:15px;line-height:2;padding:22px 20px}
+/* about 2.76: one timeline. Stations sit above and below the line in date order;
+   dot colour marks the kind (ochre = psychoanalysis and education, blue = work). */
+.tl{position:relative;height:300px;margin:8px 0 28px;--ax:122px}
+.tl::before{content:"";position:absolute;left:0;right:0;top:var(--ax);height:1.4px;background:var(--blue);opacity:.8}
+.tl::after{content:"";position:absolute;left:0;top:calc(var(--ax) - 4px);width:9px;height:9px;border-left:1.4px solid var(--blue);border-bottom:1.4px solid var(--blue);transform:rotate(45deg)}
+.te{position:absolute;right:calc(100% - var(--x));top:var(--ax);width:0;height:0}
+.te::before{content:"";position:absolute;right:-.7px;border-right:1.4px dashed rgba(28,57,187,.5);height:var(--s)}
+.te.up::before{bottom:0}.te.dn::before{top:0}
+.te i{position:absolute;right:-6.5px;width:13px;height:13px;border-radius:50%}
+.te.up i{top:calc(var(--s)*-1 - 6.5px)}.te.dn i{top:calc(var(--s) - 6.5px)}
+.te.p i{background:var(--ochre)}
+.te.w i{background:var(--blue)}
+.tc{position:absolute;right:16px;width:158px;text-align:right}
+.te.up .tc{top:calc(var(--s)*-1 - 10px)}
+.te.dn .tc{top:calc(var(--s) - 10px)}
+.ty{display:block;font-family:"EpsB";font-size:12.5px;line-height:1.6;margin-bottom:2px}
+.te.p .ty{color:var(--ochre)}
+.tc b{display:block;font-family:"EpsB";font-weight:normal;font-size:15.5px;line-height:1.6}
+.tsub{display:block;font-size:13px;line-height:1.7;opacity:.7;margin-top:3px}
+@media (max-width:1250px){
+ .tl{height:auto;padding:4px 28px 0 0;margin:8px 0 26px}
+ .tl::before{left:auto;right:5.8px;top:10px;bottom:0;width:1.4px;height:auto}
+ .tl::after{left:auto;right:2px;top:auto;bottom:0;transform:rotate(-45deg)}
+ .te{position:relative;right:auto;top:auto;width:auto;height:auto;padding-bottom:26px}
+ .te:last-child{padding-bottom:14px}
+ .te::before{display:none}
+ .te i,.te.up i,.te.dn i{right:-28px;top:6px}
+ .tc,.te.up .tc,.te.dn .tc{position:static;width:auto}
 }
-@media (prefers-reduced-motion:reduce){.abp.on{animation:none}}
 </style>
 </head>
 <body>
@@ -807,7 +810,7 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 
 <section class="page" id="about" data-title="دربارهٔ من"><div class="frame"><div class="sheet"><header class="hd" role="banner"><nav aria-label="صفحه‌ها"><a href="#home">خانه</a><a href="#writings" data-w hidden>نوشته‌ها</a><a href="#about" aria-current="page">دربارهٔ من</a><a href="#published" data-o>منتشر شده</a><a href="#booking" class="bk">رزرو جلسه</a></nav></header>
  <h1 class="pt">دربارهٔ من</h1>
- <main class="pc ab2 v3"><div class="abw"><div class="abr"><button type="button" class="abt on" data-t="0" aria-expanded="true"><span class="abl">روانکاوی</span></button><button type="button" class="abt" data-t="1" aria-expanded="false"><span class="abl">تحصیلات</span></button><button type="button" class="abt" data-t="2" aria-expanded="false"><span class="abl">تجارب حرفه‌ای</span></button><button type="button" class="abt" data-t="3" aria-expanded="false"><span class="abl">علایق</span></button></div><div class="abps"><div class="abp on" data-p="0"><ul><li>کارشناسی ارشد روان‌شناسی تربیتی</li><li>دوره‌های روان‌شناسی شناختی‌رفتاری</li><li>درمان شخصی</li><li>دوره‌های روانکاوی</li></ul></div><div class="abp" data-p="1"><ul><li>تبارشناسی روابط ابژه‌ای</li><li>روانکاوی با رویکرد روابط ابژه‌ای</li><li>درمان شناختی‌رفتاری و آسیب‌شناسی</li><li>کارشناسی ارشد روان‌شناسی تربیتی، دانشگاه شهید بهشتی، ۱۳۹۷</li></ul></div><div class="abp" data-p="2"><div class="ab2c"><div><h3>فردی</h3><ul><li>درمانگری با رویکرد تحلیلی</li><li>کوچینگ فردی</li></ul></div><div><h3>سازمانی</h3><ul><li>مشاوره و کوچینگ سازمانی</li><li>تیم و لیدرشیپ، ساختار، فرآیند، فرهنگ و عملکرد سازمانی</li></ul></div></div></div><div class="abp" data-p="3"><ul><li>ادبیات و هنر ایران و جهان</li><li>فرهنگ و جامعه‌ی ایران و جهان</li><li>بازی (خصوصاً استراتژیک و بردگیم)</li><li>سفر و تجربه</li></ul></div></div></div></main><script>(function(){var m=document.querySelector('.ab2');if(!m)return;m.addEventListener('click',function(e){var b=e.target.closest('.abt');if(!b)return;m.querySelectorAll('.abt').forEach(function(x){var o=x===b;x.classList.toggle('on',o);x.setAttribute('aria-expanded',o)});m.querySelectorAll('.abp').forEach(function(p){p.classList.toggle('on',p.dataset.p===b.dataset.t)})})})()</script>
+ <main class="pc"><div class="tl" id="abtl"><div class="te dn p" style="--x:98%;--s:44px"><i></i><div class="tc"><span class="ty" data-g="۲۰۱۵">۱۳۹۴</span><b>کارشناسی ریاضی</b><span class="tsub">دانشگاه شهید بهشتی</span></div></div><div class="te up p" style="--x:84%;--s:100px"><i></i><div class="tc"><span class="ty" data-g="۲۰۱۶ تا ۲۰۱۸">۱۳۹۵ تا ۱۳۹۷</span><b>درمان شناختی‌رفتاری و آسیب‌شناسی</b></div></div><div class="te dn p" style="--x:70%;--s:44px"><i></i><div class="tc"><span class="ty" data-g="۲۰۱۹">۱۳۹۷</span><b>کارشناسی ارشد روان‌شناسی تربیتی</b><span class="tsub">دانشگاه شهید بهشتی</span></div></div><div class="te up w" style="--x:57%;--s:100px"><i></i><div class="tc"><span class="ty" data-g="۲۰۱۸ تا ۲۰۲۴">۱۳۹۷ تا ۱۴۰۳</span><b>آموزش و توسعه در سازمان و توسعهٔ سازمان</b></div></div><div class="te dn w" style="--x:44%;--s:44px"><i></i><div class="tc"><span class="ty" data-g="از ۲۰۲۴">از ۱۴۰۳</span><b>مشاوره و کوچینگ فردی و سازمانی</b><span class="tsub">تیم و لیدرشیپ، ساختار، فرآیند، فرهنگ و عملکرد</span></div></div><div class="te up p" style="--x:31%;--s:100px"><i></i><div class="tc"><span class="ty" data-g="۲۰۲۵">۱۴۰۴</span><b>روان‌درمانگری با رویکرد روابط ابژه‌ای</b></div></div><div class="te dn p" style="--x:19%;--s:44px"><i></i><div class="tc"><span class="ty" data-g="۲۰۲۵ تا ۲۰۲۶">۱۴۰۴ تا ۱۴۰۵</span><b>تبارشناسی رویکرد روابط ابژه‌ای</b></div></div></div></main><script>(function(){try{if(Intl.DateTimeFormat().resolvedOptions().timeZone!=='Asia/Tehran')document.querySelectorAll('#abtl .ty').forEach(function(e){e.textContent=e.dataset.g})}catch(e){}})()</script>
 </div></div></section>
 
 <section class="page" id="writings" data-title="نوشته‌ها"><div class="frame"><div class="sheet"><header class="hd" role="banner"><nav aria-label="صفحه‌ها"><a href="#home">خانه</a><a href="#writings" aria-current="page" data-w hidden>نوشته‌ها</a><a href="#about">دربارهٔ من</a><a href="#published" data-o>منتشر شده</a><a href="#booking" class="bk">رزرو جلسه</a></nav></header>

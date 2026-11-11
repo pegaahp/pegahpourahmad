@@ -852,6 +852,7 @@ const POSTS=[];   /* پست‌های اینستاگرام: title, excerpt, url, 
 const ESSAYS=[
  {
   "id": "e1",
+    "slug": "what-stays-in-translation",
   "label": "جستار",
   "title": "چه چیزی در ترجمه باید همان بماند؟",
   "sub": "دربارهٔ ترجمه و وفاداری به متن اصلی",
@@ -917,6 +918,7 @@ const ESSAYS=[
  },
  {
   "id": "e3",
+    "slug": "being-understood",
   "label": "جستار",
   "title": "آیا فهمیده‌شدن مستلزم وجود کسی است که می‌فهمد؟",
   "sub": "دربارهٔ هوش مصنوعی و تجربهٔ گفت‌وگو",
@@ -989,7 +991,7 @@ function renderWr(){
   if(q.type==='pub'){const d=q.ts?FAMON(q.ts):'';return `<article class="t" data-type="pub"><div class="tx"><div class="th"><span class="lb">${q.label}</span><h3>${q.title}</h3><p class="ps">${q.pub||''}${d?`<span class="pd">${d}</span>`:''}</p></div><div class="tb">${q.lead?`<p class="ld nt">${q.lead}</p>`:''}<p class="ct" dir="ltr">${q.cite}</p></div></div><div class="lk">${q.web?`<a href="${q.web}" target="_blank" rel="noopener">دیدن در سایت</a>`:''}${q.ig?`<a href="${q.ig}" target="_blank" rel="noopener">${IG}دیدن در اینستاگرام</a>`:''}</div></article>`;}
   const im=q.img?`<span class="im"><img src="${q.img}" alt=""></span>`:'';
   if(q.type==='post')return `<a class="t" data-type="post" href="${q.url}" target="_blank" rel="noopener">${im}<span class="tx"><span class="ttl">${IG}<h3>${q.title}</h3></span><span class="ld">${q.lead}</span></span></a>`;
-  return `<a class="t" data-type="essay" href="#read-${q.id}">${im}<span class="tx"><span class="lb">${q.label}</span><h3>${q.title}</h3>${q.sub?`<span class="sb">${q.sub}</span>`:''}${q.cite?`<span class="ct" dir="ltr">${q.cite}</span>`:''}<span class="ld">${q.q||q.lead}</span><span class="go">خواندن</span></span></a>`;};
+  return `<a class="t" data-type="essay" href="#writings/${q.slug||q.id}">${im}<span class="tx"><span class="lb">${q.label}</span><h3>${q.title}</h3>${q.sub?`<span class="sb">${q.sub}</span>`:''}${q.cite?`<span class="ct" dir="ltr">${q.cite}</span>`:''}<span class="ld">${q.q||q.lead}</span><span class="go">خواندن</span></span></a>`;};
  const grp=(name,key,list)=>list.length?`<h2>${name}</h2>${list.map(v=>`<button type="button" data-k="${key}" data-v="${v[0]}" aria-pressed="false">${v[0]}<span>${FA(v[1])}</span></button>`).join('')}`:'';
  const hasT=TOP.length+WHO.length>0,hasK=TYPES.length>2,hasBar=hasK||hasT;
  document.getElementById('ed').innerHTML=`${hasBar?`<div class="wbar"><div class="wf2" role="group" aria-label="نوع">${hasK?TYPES.map((t,k)=>`<button type="button" data-f="${t[0]}" aria-pressed="${k===0}">${t[1]}<span>${FA(t[2])}</span></button>`).join(''):''}</div>
@@ -1023,7 +1025,9 @@ function renderWr(){
  addEventListener('resize',layout);apply();}
 renderWr();
 if(POSTS.concat(PUBLISHED).some(q=>q.kind==='embed')){const sc=document.createElement('script');sc.async=true;sc.src='https://www.instagram.com/embed.js';document.body.appendChild(sc);}
-function openRead(id){const q=ESSAYS.concat(POSTS).find(p=>p.id===id);if(!q)return false;
+/* 2.64: هر نوشته نشانیِ نام‌دار دارد: #writings/<slug>؛ نشانی‌های قدیمیِ #read-e1 هم باز می‌شوند و به نشانیِ تازه می‌روند */
+function findPost(k){return ESSAYS.concat(POSTS).find(p=>p.slug===k||p.id===k);}
+function openRead(id){const q=findPost(id);if(!q)return false;
  const isE=ESSAYS.includes(q),txt=q.body.join(' ').replace(/<[^>]+>/g,' '),mins=Math.max(1,Math.round(txt.split(/\s+/).filter(Boolean).length/180));
  const body=[];for(let i=0;i<q.body.length;i++){const p=q.body[i];if(p.startsWith('<p class="eq"')&&i+1<q.body.length){const n=q.body[++i];body.push(`<figure class="qb">${p.replace('class="eq"','class="en"').replace(/[“”]/g,'')}${n.startsWith('<p>')?'<p class="fa">'+n.slice(3):'<p class="fa">'+n+'</p>'}</figure>`);}else body.push(p.startsWith('<')?p:`<p>${p}</p>`);}
  document.getElementById('readbox').innerHTML=`${q.img&&isE?`<figure class="fl ${q.imgo==='p'?'pt':'ls'}"><img class="im1" src="${q.img}" alt="">${q.imgnote?`<figcaption>${q.imgnote}</figcaption>`:''}</figure>`:''}<header class="rh2"><h1>${q.title}${q.label?`<span class="kk">${q.label}</span>`:''}</h1>${isE?`${q.sub?`<p class="sb3">${q.sub}</p>`:''}${q.q?`<p class="dq">${q.q}</p>`:''}<p class="tm">حدود ${FA(mins)} دقیقه مطالعه</p>${q.ig?`<a class="igl" href="${q.ig}" target="_blank" rel="noopener">${IG}<span>این جستار در اینستاگرام</span></a>`:''}`:`${q.sub?`<span class="sub">${q.sub}</span>`:''}`}${q.cite?`<p class="ct" dir="ltr">${q.cite}</p>`:''}</header>${body.join('')}${q.refs?`<details class="refs"><summary>منابع</summary><ol dir="ltr">${q.refs.map((r,i)=>`<li id="ref-${i+1}">${r.u?`<a href="${r.u}" target="_blank" rel="noopener">${r.t}</a>`:r.t}</li>`).join('')}</ol></details>`:''}`;fitTitle();document.fonts&&document.fonts.ready.then(fitTitle);document.querySelectorAll('#readbox .rf').forEach(x=>x.addEventListener('click',()=>{const d=document.querySelector('#readbox .refs');if(!d)return;d.open=true;const li=document.getElementById('ref-'+x.dataset.r);if(li){li.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});li.classList.remove('hit');void li.offsetWidth;li.classList.add('hit');}}));return true;}
@@ -1036,7 +1040,7 @@ if(!SHOW_OTHER)document.querySelectorAll('.hd [data-o]').forEach(x=>x.remove());
 
 /* common questions: opening one closes the others */
 document.querySelectorAll('.faq details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)document.querySelectorAll('.faq details').forEach(o=>{if(o!==d)o.open=false;});}));
-function route(){let id=(location.hash||'#home').slice(1);if(!SHOW_WRITINGS&&(id==='writings'||id==='read'||id.startsWith('read-')))id='home';if(id==='other'||id==='published')id='writings';if(id.startsWith('read-')){id=openRead(id.slice(5))?'read':'writings';}const el=document.getElementById(id);const target=el&&el.classList.contains('page')?id:'home';
+function route(){let id=(location.hash||'#home').slice(1);try{id=decodeURIComponent(id)}catch(e){}if(id.startsWith('read-')){const q=findPost(id.slice(5));if(q&&q.slug){history.replaceState(null,'','#writings/'+q.slug);}id='read-'+(q?(q.slug||q.id):id.slice(5));}else if(id.startsWith('writings/'))id='read-'+id.slice(9);if(!SHOW_WRITINGS&&(id==='writings'||id==='read'||id.startsWith('read-')))id='home';if(id==='other'||id==='published')id='writings';if(id.startsWith('read-')){id=openRead(id.slice(5))?'read':'writings';}const el=document.getElementById(id);const target=el&&el.classList.contains('page')?id:'home';
  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p.id===target));
  const cur=target==='read'?'writings':target;document.querySelectorAll('.hd nav a').forEach(a=>{if(a.getAttribute('href')==='#'+cur)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
  window.scrollTo(0,0);fit();}

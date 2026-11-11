@@ -709,6 +709,39 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 .qbox .qph .tip{position:absolute;left:0;right:auto;bottom:calc(100% + 6px);z-index:3;background:#fff;color:var(--ink);font-family:"Eps";font-size:11px;line-height:1.6;padding:5px 9px;border:1px solid var(--hair);box-shadow:0 6px 16px -8px rgba(23,47,150,.35);white-space:nowrap;opacity:0;visibility:hidden;transform:translateY(3px);transition:opacity .15s,transform .15s,visibility .15s;pointer-events:none}
 .qbox .qph:hover .tip,.qbox .qph:focus-within .tip{opacity:1;visibility:visible;transform:none}
 @media (max-width:720px){.qbox .qph .tip{font-size:10.5px;white-space:normal;width:max-content;max-width:min(190px,52vw)}}
+/* 2.67: «نوشته‌ها» — بی‌خط؛ کارت‌های سفید با سایهٔ نرم روی کاغذ؛ نوشتهٔ ویژه پهن؛ دکمه‌های فیلتر جدا */
+#writings .pc.wr{margin:0 auto!important;width:calc(100% - 128px)!important;max-width:1184px!important}
+#writings .wbar{border:0!important;padding:0!important;margin:0 0 28px!important;display:flex;justify-content:flex-start}
+#writings .wbar .wf2{display:flex;gap:10px;border:0!important;flex-wrap:wrap}
+#writings .wbar .wf2 button{border:1px solid var(--blue)!important;background:transparent!important;color:var(--blue)!important;padding:8px 18px!important;font-size:14px!important;height:auto!important}
+#writings .wbar .wf2 button[aria-pressed=true]{background:var(--blue)!important;color:var(--paper)!important}
+#writings .wg{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:44px 28px!important;border:0!important}
+#writings .wg>.t{grid-area:auto!important;grid-column:span 1!important;grid-row:auto!important;border:0!important;padding:0!important;background:#fff!important;box-shadow:0 1px 2px rgba(23,47,150,.06),0 14px 30px -22px rgba(23,47,150,.45)!important;display:flex!important;flex-direction:column!important;min-width:0}
+#writings .wg>.t[hidden],#writings .wg>.t.fv[hidden]{display:none!important}
+#writings .wg>.t::before,#writings .wg>.t::after{display:none!important}
+#writings .wg>.t .im{display:block!important;width:100%!important;aspect-ratio:4/3!important;height:auto!important;max-height:none!important;overflow:hidden!important;margin:0!important;order:0!important;flex:none!important;position:relative!important}
+#writings .wg>.t .im img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:50% 30%!important;max-height:none!important}
+#writings .wg>.t .tx{order:1!important;padding:18px 20px 22px!important;display:flex!important;flex-direction:column!important;flex:1!important;width:auto!important}
+#writings .wg>.t h3{font-size:19px!important;line-height:1.55!important;margin:4px 0 2px!important}
+#writings .wg>.t .sb,#writings .wg>.t .ps{font-size:14px!important}
+#writings .wg>.t .ld{font-size:13.5px!important;line-height:1.95!important;display:-webkit-box!important;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden!important;margin-top:8px!important}
+#writings .wg>.t .ct{display:none!important}
+#writings .wg>.t .go{margin-top:auto!important;padding-top:14px}
+#writings .wg>article.t .lk{order:2!important;padding:0 20px 22px!important;margin-top:auto!important;border:0!important}
+#writings .wg>article.t .tx{flex:0 0 auto!important}
+#writings .wg>.t.fv{grid-column:1/-1!important;display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);align-items:center}
+#writings .wg>.t.fv .tx{padding:32px 44px!important;justify-content:center}
+#writings .wg>.t.fv .im{aspect-ratio:auto!important;height:340px!important}
+#writings .wg>.t.fv h3{font-size:32px!important;line-height:1.4!important}
+#writings .wg>.t.fv .sb{font-size:18px!important;margin-top:6px}
+#writings .wg>.t.fv .ld{font-size:16px!important;-webkit-line-clamp:4;margin-top:18px!important}
+#writings .wg>.t.fv .go{margin-top:22px!important}
+#writings .tcv{position:absolute;inset:0;background:var(--blue);color:var(--paper);display:flex;flex-direction:column;justify-content:flex-end;padding:22px 22px 20px;direction:ltr;text-align:left}
+#writings .tcv.o{background:#B5623A}
+#writings .tcv i{font-family:"CarlitoW",Carlito,serif;font-size:24px;line-height:1.25;font-style:italic}
+#writings .tcv small{font-family:"CarlitoW",Carlito,serif;font-size:12px;opacity:.78;margin-top:10px;letter-spacing:.04em}
+@media (max-width:1100px){#writings .pc.wr{width:calc(100% - 64px)!important}#writings .wg{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:32px 22px!important}#writings .wg>.t.fv .im{height:300px!important}#writings .wg>.t.fv h3{font-size:26px!important}#writings .wg>.t.fv .tx{padding:26px 28px!important}}
+@media (max-width:720px){#writings .pc.wr{width:auto!important;padding:0 16px!important}#writings .wg>.t .tcvw{aspect-ratio:16/9!important}#writings .wg{grid-template-columns:minmax(0,1fr)!important;gap:26px!important}#writings .wg>.t.fv{display:flex!important}#writings .wg>.t.fv .im{height:auto!important;aspect-ratio:4/3!important}#writings .wg>.t.fv .tx{padding:18px 20px 22px!important}#writings .wg>.t.fv h3{font-size:22px!important}#writings .wg>.t.fv .ld{font-size:14px!important}}
 </style>
 </head>
 <body>
@@ -1039,14 +1072,9 @@ function renderWr(){
     The newest essay with a picture leads. A horizontal lead takes the full row, picture beside text. A vertical lead takes half
     the width over two rows, text above its picture, with the next two pieces stacked beside it; with fewer than two to stack,
     it takes the full row with a narrow picture column. The rest fill rows evenly; a piece alone in a row splits in two. */
- const layout=()=>{const C=matchMedia('(max-width:720px)').matches?1:matchMedia('(max-width:1100px)').matches?2:3;
-  const ts=T.filter(t=>!t.hidden);ts.forEach(t=>{t.classList.remove('w','f','ft','wd','fv');t.classList.toggle('v',ITEMS[+t.dataset.i].imgo==='p');t.style.gridColumn='';t.style.gridRow='';t.style.order='';});if(C===1)return;
-  let rest=ts;const lead=ts.find(t=>{const q=ITEMS[+t.dataset.i];return q.type==='essay'&&q.img;});
-  if(lead){rest=ts.filter(t=>t!==lead);lead.style.order='-1';
-   if(lead.classList.contains('v')&&rest.length>=2){lead.classList.add('fv');lead.style.gridColumn='span 3';lead.style.gridRow='span 2';rest.slice(0,2).forEach(t=>{t.style.gridColumn='span 3';t.style.order='-1';});rest=rest.slice(2);}
-   else{lead.classList.add('ft');lead.style.gridColumn='1/-1';}}
-  const n=rest.length;if(!n)return;const rows=Math.ceil(n/C),base=Math.floor(n/rows),extra=n%rows;let k=0;
-  for(let r=0;r<rows;r++){const m=base+(r<extra?1:0);for(let j=0;j<m;j++,k++){rest[k].style.gridColumn='span '+(6/m);if(m===1)rest[k].classList.add('wd');}}};
+ /* 2.67: کارت‌ها (رهنمودِ تازه، ۱۱ نوامبر): نوشتهٔ اول با عکس، کارتِ پهنِ ویژه در کلِ عرض؛ بقیه کارت‌های هم‌اندازه — دسکتاپ ۴، تبلت ۲، موبایل ۱ در ردیف؛ ستون‌ها در CSS */
+ const layout=()=>{T.forEach(t=>t.classList.remove('fv'));const ts=T.filter(t=>!t.hidden);ts.forEach(t=>{t.classList.remove('w','f','ft','wd','fv');t.classList.toggle('v',ITEMS[+t.dataset.i].imgo==='p');t.style.gridColumn='';t.style.gridRow='';t.style.order='';});
+  const lead=ts.find(t=>{const q=ITEMS[+t.dataset.i];return q.type==='essay'&&q.img;});if(lead){lead.classList.add('fv');lead.style.order='-1';}};
  const apply=()=>{let n=0;T.forEach(t=>{const q=ITEMS[+t.dataset.i];const ok=(F==='all'||q.type===F)&&(!K||(q[K]||[]).includes(V));t.hidden=!ok;n+=ok;});document.querySelector('.wnone').hidden=n>0;layout();};
  document.querySelectorAll('.wf2 button').forEach(b=>b.addEventListener('click',()=>{F=b.dataset.f;document.querySelectorAll('.wf2 button').forEach(x=>x.setAttribute('aria-pressed',x===b));apply();}));
  const tb=document.querySelector('.wtb'),tl=document.getElementById('wtl');
@@ -1058,6 +1086,8 @@ function renderWr(){
    tl.hidden=true;tb.setAttribute('aria-expanded','false');apply();}));}
  addEventListener('resize',layout);apply();}
 renderWr();
+/* 2.67: ترجمه‌ها عکس ندارند؛ جلدِ تایپوگرافیک با نامِ اصلیِ اثر روی آبی یا اُخراییِ برند */
+document.querySelectorAll('#writings .wg>article.t').forEach((a,k)=>{if(a.querySelector('.im'))return;const ct=a.querySelector('.ct');if(!ct)return;const ti=ct.querySelector('i');const by=ct.textContent.replace(ti?ti.textContent:'','').replace(/[.\s]+$/,'').trim();const s=document.createElement('span');s.className='im tcvw';s.setAttribute('aria-hidden','true');s.innerHTML='<span class="tcv'+(k%2?' o':'')+'"><i></i><small></small></span>';s.querySelector('i').textContent=ti?ti.textContent:'';s.querySelector('small').textContent=by;a.prepend(s);});
 if(POSTS.concat(PUBLISHED).some(q=>q.kind==='embed')){const sc=document.createElement('script');sc.async=true;sc.src='https://www.instagram.com/embed.js';document.body.appendChild(sc);}
 /* 2.64: هر نوشته نشانیِ نام‌دار دارد: #writings/<slug>؛ نشانی‌های قدیمیِ #read-e1 هم باز می‌شوند و به نشانیِ تازه می‌روند */
 function findPost(k){return ESSAYS.concat(POSTS).find(p=>p.slug===k||p.id===k);}

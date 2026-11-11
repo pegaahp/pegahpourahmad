@@ -742,6 +742,9 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 #writings .tcv small{font-family:"CarlitoW",Carlito,serif;font-size:12px;opacity:.78;margin-top:10px;letter-spacing:.04em}
 @media (max-width:1100px){#writings .pc.wr{width:calc(100% - 64px)!important}#writings .wg{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:32px 22px!important}#writings .wg>.t.fv .im{height:300px!important}#writings .wg>.t.fv h3{font-size:26px!important}#writings .wg>.t.fv .tx{padding:26px 28px!important}}
 @media (max-width:720px){#writings .pc.wr{width:auto!important;padding:0 16px!important}#writings .wg>.t .tcvw{aspect-ratio:16/9!important}#writings .wg{grid-template-columns:minmax(0,1fr)!important;gap:26px!important}#writings .wg>.t.fv{display:flex!important}#writings .wg>.t.fv .im{height:auto!important;aspect-ratio:4/3!important}#writings .wg>.t.fv .tx{padding:18px 20px 22px!important}#writings .wg>.t.fv h3{font-size:22px!important}#writings .wg>.t.fv .ld{font-size:14px!important}}
+/* 2.68: شبکهٔ شش‌قسمتی: ردیفِ اول دو کارتِ بزرگ، بقیه سه‌تا در ردیف */
+@media (min-width:1101px){#writings .wg{grid-template-columns:repeat(6,minmax(0,1fr))!important}#writings .wg>.t{grid-column:span 2!important}#writings .wg>.t.big{grid-column:span 3!important}
+#writings .wg>.t.big .im{aspect-ratio:16/10!important}#writings .wg>.t.big h3{font-size:24px!important}#writings .wg>.t.big .ld{font-size:15px!important}#writings .wg>.t.big .tx{padding:22px 26px 26px!important}#writings .wg>article.t.big .lk{padding:0 26px 26px!important}#writings .wg>.t.big .tcv i{font-size:32px}}
 </style>
 </head>
 <body>
@@ -1043,10 +1046,13 @@ const ITEMS0=ESSAYS.map(q=>Object.assign({type:'essay'},q)).concat(POSTS.map(p=>
 function igDate(u){const m=/instagram\.com\/(?:p|reel)\/([\w-]+)/.exec(u||'');if(!m)return 0;const A='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';let n=0n;for(const c of m[1])n=n*64n+BigInt(A.indexOf(c));return Number(n>>23n)+1314220021721;}
 const TS=q=>q.date?Date.parse(q.date):igDate(q.ig||q.url);
 const FAMON=t=>{try{const d=new Date(t),f=o=>new Intl.DateTimeFormat('fa-IR-u-ca-persian-nu-arabext',o).format(d);return f({month:'long'})+' '+f({year:'numeric'}).replace(/[^۰-۹]/g,'');}catch(e){return ''}};
+/* 2.68: ترتیبِ «نوشته‌ها» را پگاه تعیین می‌کند (۱۱ نوامبر): شناسهٔ جستار یا عنوانِ ترجمه؛ هر نوشتهٔ تازه‌ای که در این فهرست نیست، اول می‌آید */
+const ORDER=['کمال‌گرایی: تاوانِ مشکلاتِ دورانِ کودکی','زنانگی به‌مثابهٔ نقاب','e4','e1','e3'];
+const OKEY=q=>{const i=ORDER.indexOf(q.type==='pub'?q.title:q.id);return i<0?-1:i;};
 const PUBS=PUBLISHED.map(p=>Object.assign({type:'pub',lead:p.note},p,PUBX[p.title]||{}));
 /* Instagram is switched off for now: set SHOW_IG to true to bring the posts back */
 const SHOW_IG=false;
-const ITEMS=ITEMS0.filter(q=>SHOW_IG||q.type!=='post').concat(PUBS).map(q=>Object.assign(q,{ts:TS(q)})).sort((a,b)=>((b.pin||0)-(a.pin||0))||(b.ts-a.ts))   /* 2.66: pin: با تاریخِ قدیمی‌تر هم اول می‌آید */;
+const ITEMS=ITEMS0.filter(q=>SHOW_IG||q.type!=='post').concat(PUBS).map(q=>Object.assign(q,{ts:TS(q)})).sort((a,b)=>(OKEY(a)-OKEY(b))||(b.ts-a.ts))   /* 2.66: pin: با تاریخِ قدیمی‌تر هم اول می‌آید */;
 
 function renderWr(){
  const cnt=f=>ITEMS.filter(f).length;
@@ -1073,8 +1079,9 @@ function renderWr(){
     the width over two rows, text above its picture, with the next two pieces stacked beside it; with fewer than two to stack,
     it takes the full row with a narrow picture column. The rest fill rows evenly; a piece alone in a row splits in two. */
  /* 2.67: کارت‌ها (رهنمودِ تازه، ۱۱ نوامبر): نوشتهٔ اول با عکس، کارتِ پهنِ ویژه در کلِ عرض؛ بقیه کارت‌های هم‌اندازه — دسکتاپ ۴، تبلت ۲، موبایل ۱ در ردیف؛ ستون‌ها در CSS */
- const layout=()=>{T.forEach(t=>t.classList.remove('fv'));const ts=T.filter(t=>!t.hidden);ts.forEach(t=>{t.classList.remove('w','f','ft','wd','fv');t.classList.toggle('v',ITEMS[+t.dataset.i].imgo==='p');t.style.gridColumn='';t.style.gridRow='';t.style.order='';});
-  const lead=ts.find(t=>{const q=ITEMS[+t.dataset.i];return q.type==='essay'&&q.img;});if(lead){lead.classList.add('fv');lead.style.order='-1';}};
+ /* 2.68: ردیفِ اول دو کارتِ بزرگ (نیمه‌نیمه)، بقیه سه‌تا در ردیف (یک‌سوم)؛ تبلت دوتا، موبایل یکی — ستون‌ها در CSS */
+ const layout=()=>{T.forEach(t=>t.classList.remove('fv','big'));const ts=T.filter(t=>!t.hidden);ts.forEach(t=>{t.classList.remove('w','f','ft','wd');t.classList.toggle('v',ITEMS[+t.dataset.i].imgo==='p');t.style.gridColumn='';t.style.gridRow='';t.style.order='';});
+  const n=ts.length,r=n%3,big=r===2?2:r===1?Math.min(n,4):0;ts.slice(0,big).forEach(t=>t.classList.add('big'));};
  const apply=()=>{let n=0;T.forEach(t=>{const q=ITEMS[+t.dataset.i];const ok=(F==='all'||q.type===F)&&(!K||(q[K]||[]).includes(V));t.hidden=!ok;n+=ok;});document.querySelector('.wnone').hidden=n>0;layout();};
  document.querySelectorAll('.wf2 button').forEach(b=>b.addEventListener('click',()=>{F=b.dataset.f;document.querySelectorAll('.wf2 button').forEach(x=>x.setAttribute('aria-pressed',x===b));apply();}));
  const tb=document.querySelector('.wtb'),tl=document.getElementById('wtl');

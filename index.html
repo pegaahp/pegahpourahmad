@@ -786,7 +786,7 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
  .h2n a{padding:9px 0}
 }
 /* about: one timeline. Stations sit above and below the line in date order;
-   past events get a small blue dot, ongoing ones (.on) a larger ochre dot. */
+   past events get a blue dot, ongoing ones (.on) an ochre dot of the same size. */
 .tl{position:relative;height:340px;margin:8px 0 28px;--ax:156px}
 .tl::before{content:"";position:absolute;left:0;right:0;top:var(--ax);height:1.4px;background:var(--blue);opacity:.8}
 .tl::after{content:"";position:absolute;left:0;top:calc(var(--ax) - 4px);width:9px;height:9px;border-left:1.4px solid var(--blue);border-bottom:1.4px solid var(--blue);transform:rotate(45deg)}
@@ -795,14 +795,11 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 .te.up::before{bottom:0}.te.dn::before{top:0}
 .te i{position:absolute;right:-5px;width:10px;height:10px;border-radius:50%;background:var(--blue)}
 .te.up i{top:calc(var(--s)*-1 - 5px)}.te.dn i{top:calc(var(--s) - 5px)}
-.te.on i{right:-8px;width:16px;height:16px;background:var(--ochre)}
-.te.on.up i{top:calc(var(--s)*-1 - 8px)}.te.on.dn i{top:calc(var(--s) - 8px)}
+.te.on i{background:var(--ochre)}
 /* training courses (.c): a small book instead of the dot, same colours */
 .te.c i{right:-10px;width:20px;height:20px;background:var(--paper)}
 .te.c.up i{top:calc(var(--s)*-1 - 10px)}.te.c.dn i{top:calc(var(--s) - 10px)}
 .te.c i::before{content:"";position:absolute;inset:0;background:var(--blue);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11.2 6.4C9.5 5.2 7.2 4.7 4 4.8v12.9c3.2-.1 5.5.4 7.2 1.5zM12.8 6.4c1.7-1.2 4-1.7 7.2-1.6v12.9c-3.2-.1-5.5.4-7.2 1.5z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11.2 6.4C9.5 5.2 7.2 4.7 4 4.8v12.9c3.2-.1 5.5.4 7.2 1.5zM12.8 6.4c1.7-1.2 4-1.7 7.2-1.6v12.9c-3.2-.1-5.5.4-7.2 1.5z'/%3E%3C/svg%3E") center/contain no-repeat}
-.te.c.on i{right:-12px;width:24px;height:24px}
-.te.c.on.up i{top:calc(var(--s)*-1 - 12px)}.te.c.on.dn i{top:calc(var(--s) - 12px)}
 .te.c.on i::before{background:var(--ochre)}
 .tc{position:absolute;right:16px;width:158px;text-align:right}
 .te.up .tc{top:calc(var(--s)*-1 - 10px)}
@@ -818,9 +815,7 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
  .te:last-child{padding-bottom:14px}
  .te::before{display:none}
  .te i,.te.up i,.te.dn i{right:-26.5px;top:8px}
- .te.on i,.te.on.up i,.te.on.dn i{right:-29.5px;top:5px}
  .te.c i,.te.c.up i,.te.c.dn i{right:-31.5px;top:3px}
- .te.c.on i,.te.c.on.up i,.te.c.on.dn i{right:-33.5px;top:1px}
  .tc,.te.up .tc,.te.dn .tc{position:static;width:auto}
 }
 </style>

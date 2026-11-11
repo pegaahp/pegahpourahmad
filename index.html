@@ -767,13 +767,12 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 @media (max-width:720px){#readbox.es2{width:auto;margin:16px 0 40px}.read .e2{padding:28px 20px 48px;box-shadow:none}.read .e2h h1{font-size:30px}.read .e2s{font-size:18px}.read .e2q{font-size:17px}.read .e2b p{font-size:16px}.read .e2b .e2pq{font-size:20px}.read .e2f{max-width:none}}
 /* about 2.72: four cards, one panel under them */
 .ab2 .lead{font-size:21px;line-height:1.75;margin:0 0 40px}
-.abt{appearance:none;border:0;font:inherit;color:var(--blue);cursor:pointer;background:#fff;box-shadow:0 10px 30px -18px rgba(23,47,150,.45);padding:26px 22px;text-align:right;display:flex;flex-direction:column;gap:4px;transition:background .2s,color .2s}
+.abt{appearance:none;border:0;font:inherit;color:var(--blue);cursor:pointer;background:#fff;box-shadow:0 10px 30px -18px rgba(23,47,150,.45);padding:22px 22px;text-align:center;display:block;transition:background .2s,color .2s}
 .abt.on{background:var(--blue);color:var(--paper)}
 .abt:focus-visible{outline:2px solid var(--ochre);outline-offset:3px}
-.abi{width:38px;height:38px;margin-bottom:14px}
-.abi svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;display:block}
 .abl{font-family:"EpsB";font-size:17px;display:block}
-.abd{font-size:13px;opacity:.7;display:block}
+.ab2c{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.ab2c h3{font-family:"EpsB";font-weight:normal;font-size:17px;margin:0 0 14px;color:var(--ochre)}
 .abr{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:20px}
 .abp{display:none;font-size:17px;line-height:1.95;background:#fff;box-shadow:0 10px 30px -18px rgba(23,47,150,.45);padding:30px 34px}
 .abp.on{display:block;animation:abf .35s ease}
@@ -786,10 +785,9 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 @media (max-width:720px){
  .ab2 .lead{font-size:18px;margin-bottom:28px}
  .abr{gap:10px;grid-template-columns:repeat(2,1fr)}
- .abt{padding:16px 10px;align-items:center;text-align:center}
- .abi{width:30px;height:30px;margin-bottom:8px}
+ .abt{padding:16px 10px}
+ .ab2c{grid-template-columns:1fr;gap:26px}
  .abl{font-size:15px}
- .abd{display:none}
  .abp{font-size:15px;line-height:2;padding:22px 20px}
 }
 @media (prefers-reduced-motion:reduce){.abp.on{animation:none}}
@@ -809,7 +807,7 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 
 <section class="page" id="about" data-title="دربارهٔ من"><div class="frame"><div class="sheet"><header class="hd" role="banner"><nav aria-label="صفحه‌ها"><a href="#home">خانه</a><a href="#writings" data-w hidden>نوشته‌ها</a><a href="#about" aria-current="page">دربارهٔ من</a><a href="#published" data-o>منتشر شده</a><a href="#booking" class="bk">رزرو جلسه</a></nav></header>
  <h1 class="pt">دربارهٔ من</h1>
- <main class="pc ab2 v3"><div class="abw"><div class="abr"><button type="button" class="abt on" data-t="2" aria-expanded="true"><span class="abi"><svg viewBox="0 0 24 24"><circle cx="9" cy="12" r="5.8"/><circle cx="15" cy="12" r="5.8"/></svg></span><span class="abl">روانکاوی</span><span class="abd">مسیر و رویکرد</span></button><button type="button" class="abt" data-t="0" aria-expanded="false"><span class="abi"><svg viewBox="0 0 24 24"><path d="M12 6.6C10 5.1 7 4.6 4 5v13.2c3-.4 6 .1 8 1.6 2-1.5 5-2 8-1.6V5c-3-.4-6 .1-8 1.6z"/><path d="M12 6.6v13.2"/></svg></span><span class="abl">تحصیلات</span><span class="abd">ریاضی و روان‌شناسی</span></button><button type="button" class="abt" data-t="1" aria-expanded="false"><span class="abi"><svg viewBox="0 0 24 24"><rect x="9" y="3.5" width="6" height="4.5"/><rect x="3" y="16" width="6" height="4.5"/><rect x="15" y="16" width="6" height="4.5"/><path d="M12 8v4M6 16v-4h12v4"/></svg></span><span class="abl">تجارب حرفه‌ای</span><span class="abd">کار در سازمان</span></button><button type="button" class="abt" data-t="3" aria-expanded="false"><span class="abi"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12"/><rect x="6" y="6" width="12" height="12" transform="rotate(45 12 12)"/><circle cx="12" cy="12" r="2.2"/></svg></span><span class="abl">علایق</span><span class="abd">ادبیات، هنر، فرهنگ</span></button></div><div class="abps"><div class="abp just" data-p="0"><ul><li>کارشناسی ریاضی</li><li>کارشناسی ارشد روان‌شناسی تربیتی، دانشگاه شهید بهشتی، ۱۳۹۷</li></ul></div><div class="abp just" data-p="1"><p>حدود هشت سال در منابع انسانی کار کرده‌ام: تحلیل داده‌های سازمانی، طراحی سیستم‌ها و فرایندها، و گفت‌وگوی هرروزه با آدم‌ها دربارهٔ کارشان.</p></div><div class="abp just on" data-p="2"><p>آشنایی من با روانکاوی از تجربه‌ی درمان شخصی آغاز شد و در ادامه، با مطالعه‌ی فردی و شرکت در دوره‌های گروه روانکاوی تداعی، به‌تدریج روانکاوی به محور اصلی مطالعات و کار بالینی‌ام تبدیل شد.</p><p>در سال‌های اخیر، تمرکز مطالعاتی من بر روانکاوی روابط ابژه‌ای بوده است و در کار درمانی نیز از همین منظر به تجربه‌ی روانی و روابط نگاه می‌کنم.</p></div><div class="abp just" data-p="3"><p>ادبیات، هنر و فرهنگ ایران همواره بخش مهمی از جهان فکری من بوده‌اند و در شیوه‌ای که به انسان، تجربه‌ی او و زندگی روانی فکر می‌کنم، حضور دارند.</p></div></div></div></main><script>(function(){var m=document.querySelector('.ab2');if(!m)return;m.addEventListener('click',function(e){var b=e.target.closest('.abt');if(!b)return;m.querySelectorAll('.abt').forEach(function(x){var o=x===b;x.classList.toggle('on',o);x.setAttribute('aria-expanded',o)});m.querySelectorAll('.abp').forEach(function(p){p.classList.toggle('on',p.dataset.p===b.dataset.t)})})})()</script>
+ <main class="pc ab2 v3"><div class="abw"><div class="abr"><button type="button" class="abt on" data-t="0" aria-expanded="true"><span class="abl">روانکاوی</span></button><button type="button" class="abt" data-t="1" aria-expanded="false"><span class="abl">تحصیلات</span></button><button type="button" class="abt" data-t="2" aria-expanded="false"><span class="abl">تجارب حرفه‌ای</span></button><button type="button" class="abt" data-t="3" aria-expanded="false"><span class="abl">علایق</span></button></div><div class="abps"><div class="abp on" data-p="0"><ul><li>کارشناسی ارشد روان‌شناسی تربیتی</li><li>دوره‌های روان‌شناسی شناختی‌رفتاری</li><li>درمان شخصی</li><li>دوره‌های روانکاوی</li></ul></div><div class="abp" data-p="1"><ul><li>تبارشناسی روابط ابژه‌ای</li><li>روانکاوی با رویکرد روابط ابژه‌ای</li><li>درمان شناختی‌رفتاری و آسیب‌شناسی</li><li>کارشناسی ارشد روان‌شناسی تربیتی، دانشگاه شهید بهشتی، ۱۳۹۷</li></ul></div><div class="abp" data-p="2"><div class="ab2c"><div><h3>فردی</h3><ul><li>درمانگری با رویکرد تحلیلی</li><li>کوچینگ فردی</li></ul></div><div><h3>سازمانی</h3><ul><li>مشاوره و کوچینگ سازمانی</li><li>تیم و لیدرشیپ، ساختار، فرآیند، فرهنگ و عملکرد سازمانی</li></ul></div></div></div><div class="abp" data-p="3"><ul><li>ادبیات و هنر ایران و جهان</li><li>فرهنگ و جامعه‌ی ایران و جهان</li><li>بازی (خصوصاً استراتژیک و بردگیم)</li><li>سفر و تجربه</li></ul></div></div></div></main><script>(function(){var m=document.querySelector('.ab2');if(!m)return;m.addEventListener('click',function(e){var b=e.target.closest('.abt');if(!b)return;m.querySelectorAll('.abt').forEach(function(x){var o=x===b;x.classList.toggle('on',o);x.setAttribute('aria-expanded',o)});m.querySelectorAll('.abp').forEach(function(p){p.classList.toggle('on',p.dataset.p===b.dataset.t)})})})()</script>
 </div></div></section>
 
 <section class="page" id="writings" data-title="نوشته‌ها"><div class="frame"><div class="sheet"><header class="hd" role="banner"><nav aria-label="صفحه‌ها"><a href="#home">خانه</a><a href="#writings" aria-current="page" data-w hidden>نوشته‌ها</a><a href="#about">دربارهٔ من</a><a href="#published" data-o>منتشر شده</a><a href="#booking" class="bk">رزرو جلسه</a></nav></header>

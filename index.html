@@ -1288,7 +1288,7 @@ const FREE_WORDS=["free","فری","خالی"];
    اگر SCRIPT_URL (نشانیِ /exec اسکریپت) پر باشد، زمان‌های خالی از همان اسکریپت خوانده می‌شوند و فرمِ رزرو هم به آن فرستاده می‌شود:
    اسکریپت زمان را در تقویم «پر» می‌کند، جلسه را در تقویمِ اصلی می‌گذارد و ایمیل می‌فرستد. کلیدِ API و عمومی بودنِ تقویم لازم نیست. */
 const SCRIPT_URL="https://script.google.com/macros/s/AKfycbwnD0VtCaNT4zQyTtXyxfswhReCAKc6MyWBjhZYvqRfE-AIbM2_9eOU9B8NgdHoyqmP/exec";
-const LEAD_MS=24*3600e3;   /* زمانی که کمتر از ۲۴ ساعت به آن مانده نشان داده و پذیرفته نمی‌شود */
+const LEAD_MS=48*3600e3;   /* 2.90: زمانی که کمتر از ۴۸ ساعت به آن مانده نشان داده و پذیرفته نمی‌شود (از تقویم هم حذف می‌شود) */
 let GC=null,GCerr=false,GCload=false;
 const GCq=[];   /* 2.14: whoever is waiting for the free times is told when they arrive */
 function gcLoad(cb){if(SCRIPT_URL){if(GC)return cb();if(GCload){GCq.push(cb);return cb();}GCload=true;GCerr=false;const get=n=>fetchT(SCRIPT_URL+'?a=slots'+(n?'&r='+n:''),{},15000).then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{if(!j||!j.ok)throw 0;return j});/* 2.9: اگر بارِ اول جواب نیامد، یک بارِ دیگر */get(0).catch(()=>get(1)).then(j=>{GC=(j.slots||[]).map(x=>new Date(x)).filter(d=>!isNaN(d));}).catch(()=>{GCerr=true;GC=[];}).finally(()=>{GCload=false;cb();GCq.splice(0).forEach(f=>f());});return;}
@@ -1333,7 +1333,7 @@ dS.addEventListener('change',()=>{const W=G[dS.value],T=W?W.T:{};const ks=Object
 tS.addEventListener('change',()=>{tOv.innerHTML='<small><bdi dir="ltr">('+offTxt(TZ)+')</bdi></small>';{tS.style.paddingRight='';tS.style.textAlign='';tS.style.textAlignLast='';const cs=getComputedStyle(tS),cv=document.createElement('canvas').getContext('2d');cv.font=cs.fontSize+' '+cs.fontFamily;
  const tw=cv.measureText(tS.options[tS.selectedIndex].text).width,pl=parseFloat(cs.paddingLeft),pr=parseFloat(cs.paddingRight),cw=tS.clientWidth-pl-pr,ow=tOv.firstChild.getBoundingClientRect().width,W=tw+5+ow;
  if(W<=cw-4){const st=pr+(cw-W)/2;tS.style.paddingRight=st+'px';tS.style.textAlign='right';tS.style.textAlignLast='right';tOv.style.right=(st+tw+5)+'px';tOv.style.visibility='visible';}else{tOv.style.visibility='hidden';}}
- const L=((G[dS.value]||{T:{}}).T[tS.value]||{L:[]}).L;clrF();fS.innerHTML='<option value="" selected disabled>تاریخ جلسهٔ اول</option>'+L.map(d=>`<option value="${d.toISOString()}">${DAT(d)}</option>`).join('');fS.disabled=!L.length;if(L.length===1){fS.selectedIndex=1;fS.dispatchEvent(new Event('change'));}err.hidden=true;});
+ const L=((G[dS.value]||{T:{}}).T[tS.value]||{L:[]}).L;clrF();fS.innerHTML='<option value="" selected disabled>تاریخ جلسهٔ اول</option>'+L.slice(0,2).map(/* 2.90: فقط نزدیک‌ترین تاریخ و هفتهٔ بعدش */d=>`<option value="${d.toISOString()}">${DAT(d)}</option>`).join('');fS.disabled=!L.length;if(L.length===1){fS.selectedIndex=1;fS.dispatchEvent(new Event('change'));}err.hidden=true;});
 fS.addEventListener('change',()=>{if(!fS.value)return;const d=new Date(fS.value);iso.value=fS.value;document.getElementById('bslothome').value=new Intl.DateTimeFormat('fa-IR-u-ca-persian',{timeZone:HOME_TZ,weekday:'long',day:'numeric',month:'long',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(d);hid.value=WDN(d)+' '+DAT(d)+'، ساعت '+tS.value+' (به وقتِ '+TZ+')';err.hidden=true;});
 const cS=document.getElementById('bco'),zS=document.getElementById('btz'),zW=document.getElementById('btzw'),zV=document.getElementById('btzv'),cRow=document.getElementById('bcrow');
 /* ترتیبِ کشورها: اول ایران؛ بعد کشورهایی که بیشترین مهاجرِ ایرانی دارند، از بیشتر به کمتر

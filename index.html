@@ -362,7 +362,7 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 .bbox .nt summary b{font-family:"Eps";font-weight:normal;color:var(--ochre);font-size:18px;line-height:1;transition:transform .2s}
 .bbox .nt[open] summary b{transform:rotate(45deg)}
 .bbox .nt textarea{margin-top:8px;animation:op .2s ease}
-.bbox #bph:placeholder-shown,.bbox #bem:placeholder-shown{direction:rtl}
+.bbox #bph:placeholder-shown,.bbox #bem:placeholder-shown,.bbox #bdi:placeholder-shown{direction:rtl}
 .bbox #bph::placeholder{font-size:13px}
 @media (max-width:720px){.bbox #bph{padding-left:8px;padding-right:9px}.bbox #bph::placeholder{font-size:10.5px;letter-spacing:-.1px}}
 @media (max-width:370px){.bbox #bph::placeholder{font-size:9.5px}}
@@ -409,7 +409,8 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 .bbox .phw>.fph .fb i{font-size:9.5px;margin-right:6px;font-style:italic}
 .bbox #btime{text-align:center;text-align-last:center}
 .bbox .fl>.tzro{justify-content:center}
-.bbox #bph:not(:placeholder-shown),.bbox #bem:not(:placeholder-shown){text-align:left}
+.bbox #bph:not(:placeholder-shown),.bbox #bem:not(:placeholder-shown),.bbox #bdi:not(:placeholder-shown){text-align:left}
+.bbox .bdr:empty{display:none}
 .bbox #bag{text-align:center}
 @media (max-width:720px){.bbox .r3{grid-template-columns:1fr 1fr}.bbox .phw>.fph{white-space:normal;align-items:center;flex-direction:row}.bbox .phw>.fph .fb{line-height:1.3}.bbox .phw>.fph .fb i{font-size:8.5px;margin-right:3px}}
 @media (max-width:720px){.bbox .r2e{grid-template-columns:1fr 1fr}}
@@ -823,11 +824,12 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 .tc b{display:block;font-family:"EpsB";font-weight:normal;font-size:15.5px;line-height:1.6}
 .tsub{display:block;font-size:13px;line-height:1.7;opacity:.7;margin-top:3px}
 @media (max-width:1250px){
- .tl{height:auto;padding:4px 28px 0 0;margin:8px 0 26px}
- .tl::before{left:auto;right:5.8px;top:10px;bottom:0;width:1.4px;height:auto}
- .tl::after{left:auto;right:2px;top:auto;bottom:0;transform:rotate(-45deg)}
+ .tl{height:auto;padding:20px 28px 0 0;margin:8px 0 26px}
+ .tl::before{left:auto;right:5.8px;top:2px;bottom:0;width:1.4px;height:auto}
+ /* 2.94: تازه‌ترین بالا، قدیمی‌ترین پایین؛ پیکان رو به بالا */
+ .tl::after{left:auto;right:2px;top:0;bottom:auto;transform:rotate(135deg)}
  .te{position:relative;right:auto;top:auto;width:auto;height:auto;padding-bottom:26px}
- .te:last-child{padding-bottom:14px}
+ .te:last-child{padding-bottom:0}
  .te::before{display:none}
  .te i,.te.up i,.te.dn i{right:-26.5px;top:8px}
  .te.c i,.te.c.up i,.te.c.dn i{right:-31.5px;top:3px}
@@ -846,7 +848,7 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 
 <section class="page" id="about" data-title="دربارهٔ من"><div class="frame"><div class="sheet"><header class="hd" role="banner"><nav aria-label="صفحه‌ها"><a href="#home">خانه</a><a href="#writings" data-w hidden>نوشته‌ها</a><a href="#about" aria-current="page">دربارهٔ من</a><a href="#published" data-o>منتشر شده</a><a href="#booking" class="bk">رزرو جلسه</a></nav></header>
  <h1 class="pt">دربارهٔ من</h1>
- <main class="pc"><div class="tl" id="abtl"><div class="te dn" style="--x:98%;--s:44px"><i></i><div class="tc"><span class="ty" data-g="۲۰۱۵">۱۳۹۴</span><b>کارشناسی ریاضی</b><span class="tsub">دانشگاه شهید بهشتی</span></div></div><div class="te up c" style="--x:84%;--s:134px"><i></i><div class="tc"><span class="ty" data-g="۲۰۱۶ تا ۲۰۱۸">۱۳۹۵ تا ۱۳۹۷</span><b>درمان شناختی‌رفتاری</b><span class="tsub">دوره‌های آموزشی CBT، طرحواره‌درمانی و آسیب‌شناسی</span></div></div><div class="te dn" style="--x:70%;--s:44px"><i></i><div class="tc"><span class="ty" data-g="۲۰۱۹">۱۳۹۷</span><b>کارشناسی ارشد روان‌شناسی تربیتی</b><span class="tsub">دانشگاه شهید بهشتی</span></div></div><div class="te up" style="--x:57%;--s:134px"><i></i><div class="tc"><span class="ty" data-g="۲۰۱۸ تا ۲۰۲۴">۱۳۹۷ تا ۱۴۰۳</span><b>آموزش و توسعهٔ فردی و سازمانی</b><span class="tsub">آموزش، مدیریت تیم و منابع انسانی</span></div></div><div class="te dn" style="--x:44%;--s:44px"><i></i><div class="tc"><span class="ty" data-g="از ۲۰۲۴">از ۱۴۰۳</span><b>مشاوره و کوچینگ فردی و سازمانی</b><span class="tsub">تیم و لیدرشیپ، ساختار، فرآیند، فرهنگ، عملکرد و ارزیابی</span></div></div><div class="te up c" style="--x:31%;--s:134px"><i></i><div class="tc"><span class="ty" data-g="۲۰۲۵">۱۴۰۴</span><b>روان‌درمانگری با رویکرد روابط ابژه‌ای</b><span class="tsub">دورهٔ آموزشی گروه روانکاوی تداعی</span></div></div><div class="te dn c" style="--x:19%;--s:44px"><i></i><div class="tc"><span class="ty" data-g="۲۰۲۵ تا ۲۰۲۶">۱۴۰۴ تا ۱۴۰۵</span><b>تبارشناسی رویکرد روابط ابژه‌ای</b><span class="tsub">دورهٔ آموزشی گروه روانکاوی تداعی</span></div></div></div></main><script>(function(){try{if(Intl.DateTimeFormat().resolvedOptions().timeZone!=='Asia/Tehran')document.querySelectorAll('#abtl .ty').forEach(function(e){e.textContent=e.dataset.g})}catch(e){}})()</script>
+ <main class="pc"><div class="tl" id="abtl"><div class="te dn c" style="--x:19%;--s:44px"><i></i><div class="tc"><span class="ty" data-g="۲۰۲۵ تا ۲۰۲۶">۱۴۰۴ تا ۱۴۰۵</span><b>تبارشناسی رویکرد روابط ابژه‌ای</b><span class="tsub">دورهٔ آموزشی گروه روانکاوی تداعی</span></div></div><div class="te up c" style="--x:31%;--s:134px"><i></i><div class="tc"><span class="ty" data-g="۲۰۲۵">۱۴۰۴</span><b>روان‌درمانگری با رویکرد روابط ابژه‌ای</b><span class="tsub">دورهٔ آموزشی گروه روانکاوی تداعی</span></div></div><div class="te dn" style="--x:44%;--s:44px"><i></i><div class="tc"><span class="ty" data-g="از ۲۰۲۴">از ۱۴۰۳</span><b>مشاوره و کوچینگ فردی و سازمانی</b><span class="tsub">تیم و لیدرشیپ، ساختار، فرآیند، فرهنگ، عملکرد و ارزیابی</span></div></div><div class="te up" style="--x:57%;--s:134px"><i></i><div class="tc"><span class="ty" data-g="۲۰۱۸ تا ۲۰۲۴">۱۳۹۷ تا ۱۴۰۳</span><b>آموزش و توسعهٔ فردی و سازمانی</b><span class="tsub">آموزش، مدیریت تیم و منابع انسانی</span></div></div><div class="te dn" style="--x:70%;--s:44px"><i></i><div class="tc"><span class="ty" data-g="۲۰۱۹">۱۳۹۷</span><b>کارشناسی ارشد روان‌شناسی تربیتی</b><span class="tsub">دانشگاه شهید بهشتی</span></div></div><div class="te up c" style="--x:84%;--s:134px"><i></i><div class="tc"><span class="ty" data-g="۲۰۱۶ تا ۲۰۱۸">۱۳۹۵ تا ۱۳۹۷</span><b>درمان شناختی‌رفتاری</b><span class="tsub">دوره‌های آموزشی CBT، طرحواره‌درمانی و آسیب‌شناسی</span></div></div><div class="te dn" style="--x:98%;--s:44px"><i></i><div class="tc"><span class="ty" data-g="۲۰۱۵">۱۳۹۴</span><b>کارشناسی ریاضی</b><span class="tsub">دانشگاه شهید بهشتی</span></div></div></div></main><script>(function(){try{if(Intl.DateTimeFormat().resolvedOptions().timeZone!=='Asia/Tehran')document.querySelectorAll('#abtl .ty').forEach(function(e){e.textContent=e.dataset.g})}catch(e){}})()</script>
 </div></div></section>
 
 <section class="page" id="writings" data-title="نوشته‌ها"><div class="frame"><div class="sheet"><header class="hd" role="banner"><nav aria-label="صفحه‌ها"><a href="#home">خانه</a><a href="#writings" aria-current="page" data-w hidden>نوشته‌ها</a><a href="#about">دربارهٔ من</a><a href="#published" data-o>منتشر شده</a><a href="#booking" class="bk">رزرو جلسه</a></nav></header>
@@ -882,14 +884,7 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
      <label class="fl"><input id="bfn" placeholder="نام" aria-label="نام" autocomplete="given-name" minlength="2" maxlength="40" data-k="txt" required></label>
      <label class="fl"><input id="bln" placeholder="نام خانوادگی" aria-label="نام خانوادگی" autocomplete="family-name" minlength="2" maxlength="40" data-k="txt" required></label>
     </div>
-    <div class="bdob" role="group" aria-labelledby="bdobl">
-     <div class="bdh"><span id="bdobl">تاریخ تولد</span><span class="bcal" role="radiogroup" aria-label="تقویم"><button type="button" role="radio" data-c="p" aria-checked="true">شمسی</button><button type="button" role="radio" data-c="g" aria-checked="false">میلادی</button></span></div>
-     <div class="r3 rd">
-      <label class="fl sel"><select id="bdd" aria-label="روز تولد" required><option value="" selected disabled>روز</option></select></label>
-      <label class="fl sel"><select id="bdm" aria-label="ماه تولد" required><option value="" selected disabled>ماه</option></select></label>
-      <label class="fl sel"><select id="bdy" aria-label="سال تولد" required><option value="" selected disabled>سال</option></select></label>
-     </div>
-    </div>
+    <label class="fl bdf"><input id="bdi" type="text" inputmode="decimal" dir="ltr" autocomplete="bday" maxlength="12" placeholder="تاریخ تولد، مثلاً ۱۳۷۰/۰۵/۲۳" aria-label="تاریخ تولد، شمسی یا میلادی؛ مثلاً ۱۳۷۰/۰۵/۲۳ یا 1991/08/14" aria-describedby="bdr" required><small id="bdr" class="bdr" aria-live="polite"></small></label>
     <label class="fl"><input name="شغل" id="bjob" placeholder="شغل" aria-label="شغل" autocomplete="organization-title" minlength="2" maxlength="40" data-k="txt" required></label>
    </fieldset>
    <fieldset class="bsec"><legend>راه ارتباط</legend>
@@ -1373,20 +1368,29 @@ pre();
 /* 2.55: فرم از اول در خودِ صفحهٔ «رزرو جلسه» است؛ زمان‌ها با بازشدنِ صفحه بارگیری می‌شوند */
 const open=()=>{if((location.hash||'').slice(1)==='booking'){render();gcLoad(render);}};addEventListener('hashchange',open);open();
 const ph=document.getElementById('bph'),em=document.getElementById('bem');
-/* 2.57: تاریخ تولد به‌جای سن — سه انتخاب (روز، ماه، سال)، تقویمِ شمسی یا میلادی؛ سن از روی آن حساب و همراهِ تاریخ فرستاده می‌شود */
-const DOB=(()=>{const dd=document.getElementById('bdd'),dm=document.getElementById('bdm'),dy=document.getElementById('bdy'),B=[...document.querySelectorAll('.bcal button')];let C='p';
+/* 2.93: تاریخ تولد در یک فیلد — سال/ماه/روز یا روز/ماه/سال، با هر جداکننده یا ۸ رقمِ پشتِ‌هم؛ سالِ ۱۳۰۰ تا ۱۴۲۰ شمسی و ۱۹۰۰ به بعد میلادی خوانده می‌شود.
+   زیرِ فیلد نشان داده می‌شود تاریخ چطور خوانده شد؛ سن از روی آن حساب و همراهِ تاریخ فرستاده می‌شود */
+const DOB=(()=>{const inp=document.getElementById('bdi'),out=document.getElementById('bdr');
  const MN={p:['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'],g:['ژانویه','فوریه','مارس','آوریل','مه','ژوئن','ژوئیه','اوت','سپتامبر','اکتبر','نوامبر','دسامبر']};
  const now=c=>{const P={};new Intl.DateTimeFormat('en-US-u-ca-'+(c==='p'?'persian':'gregory')+'-nu-latn',{year:'numeric',month:'numeric',day:'numeric'}).formatToParts(new Date()).forEach(x=>P[x.type]=x.value);return [parseInt(P.year),+P.month,+P.day];};
- const fill=()=>{const Y=now(C)[0],o=(v,t)=>`<option value="${v}">${t}</option>`;
-  dd.innerHTML='<option value="" selected disabled>روز</option>'+Array.from({length:31},(_,i)=>o(i+1,fa(i+1))).join('');
-  dm.innerHTML='<option value="" selected disabled>ماه</option>'+MN[C].map((n,i)=>o(i+1,n)).join('');
-  dy.innerHTML='<option value="" selected disabled>سال</option>'+Array.from({length:83},(_,i)=>o(Y-17-i,fa(Y-17-i))).join('');};
- B.forEach(b=>b.addEventListener('click',()=>{if(b.dataset.c===C)return;C=b.dataset.c;B.forEach(x=>x.setAttribute('aria-checked',String(x===b)));fill();err.hidden=true;}));
- fill();
- return {check(){const d=+dd.value,m=+dm.value,y=+dy.value;if(!d||!m||!y)return {el:!d?dd:!m?dm:dy,t:'لطفاً «تاریخ تولد» را کامل انتخاب کنید.'};
-   const L=C==='p'?(m<=6?31:m<=11?30:30):new Date(y,m,0).getDate();if(d>L)return {el:dd,t:'این تاریخ تولد درست نیست؛ ماهِ انتخاب‌شده '+fa(L)+' روز دارد.'};
-   const [Y,M,D]=now(C),age=Y-y-((M<m||(M===m&&D<d))?1:0);if(age<18)return {el:dy,t:'رزرو جلسه برای افراد ۱۸ سال به بالاست.'};
-   document.getElementById('bbd').value=fa(d)+' '+MN[C][m-1]+' '+fa(y)+(C==='p'?' (شمسی)':' (میلادی)');document.getElementById('bag').value=String(age);return null;}};})();
+ const lat=v=>v.replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+ const parse=()=>{const v=lat(inp.value).trim();if(!v)return null;let p=v.split(/[^0-9]+/).filter(Boolean);
+  if(p.length===1&&p[0].length===8)p=[p[0].slice(0,4),p[0].slice(4,6),p[0].slice(6)];
+  if(p.length!==3)return {bad:1};let y,m,d;
+  if(p[0].length===4)[y,m,d]=p.map(Number);else if(p[2].length===4)[d,m,y]=p.map(Number);else return {bad:1};
+  const C=y>=1300&&y<=1420?'p':y>=1900&&y<=2100?'g':null;if(!C||m<1||m>12||d<1)return {bad:1};
+  const L=C==='p'?(m<=6?31:30):new Date(y,m,0).getDate();if(d>L)return {bad:2,L};return {y,m,d,C};};
+ const txt=r=>fa(r.d)+' '+MN[r.C][r.m-1]+' '+fa(r.y)+(r.C==='p'?' (شمسی)':' (میلادی)');
+ const upd=()=>{const r=parse();out.textContent=r&&!r.bad?txt(r):'';};
+ inp.addEventListener('input',()=>{inp.setCustomValidity('');upd();});
+ inp.addEventListener('blur',()=>{const r=parse();if(r&&!r.bad)inp.value=r.y+'/'+String(r.m).padStart(2,'0')+'/'+String(r.d).padStart(2,'0');});
+ f.addEventListener('reset',()=>setTimeout(upd));
+ return {check(){const r=parse();if(!r)return {el:inp,t:'لطفاً «تاریخ تولد» را وارد کنید.'};
+   if(r.bad===2)return {el:inp,t:'این تاریخ تولد درست نیست؛ ماهِ واردشده '+fa(r.L)+' روز دارد.'};
+   if(r.bad)return {el:inp,t:'تاریخ تولد را به شکلِ سال/ماه/روز وارد کنید؛ مثلاً ۱۳۷۰/۰۵/۲۳ یا 1991/08/14.'};
+   const [Y,M,D]=now(r.C),age=Y-r.y-((M<r.m||(M===r.m&&D<r.d))?1:0);if(age<18)return {el:inp,t:'رزرو جلسه برای افراد ۱۸ سال به بالاست.'};
+   if(age>100)return {el:inp,t:'تاریخ تولد را دوباره بررسی کنید.'};
+   document.getElementById('bbd').value=txt(r);document.getElementById('bag').value=String(age);return null;}};})();
 let AGREED=false;
 const TM=(()=>{const t=document.getElementById('btm'),A=t.querySelector('.tmA'),Bv=t.querySelector('.tmB'),sb=f.querySelector('button[type=submit]');
  const close=()=>{t.hidden=true;sb.focus();};

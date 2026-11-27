@@ -704,7 +704,7 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 #booking .bpg{display:block}
 #bm{width:100%;color:var(--blue);font-family:"Eps",Tahoma,sans-serif}
 #bm [hidden]{display:none!important}
-#bm .bk-in{margin:0 0 36px;font-size:15px;line-height:1.9}
+
 #bm .bk-g{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:0 clamp(40px,5.5vw,88px);align-items:start}
 #bm .bk-m{min-width:0}
 #bm .bk-s{display:grid;gap:16px;margin:0 0 44px;min-width:0}
@@ -737,17 +737,17 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 #bm .bk-tzn bdi{font-family:"CarlitoW","Calibri Light",sans-serif;font-size:13.5px;letter-spacing:.2px;margin-right:4px}
 #bm .bk-tzp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:6px}
 #bm .bk-sl{display:grid;gap:18px}
-#bm .bk-days{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:8px}
-#bm .bk-days button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 6px;border:1px solid var(--guide);border-radius:0;background:#fff;color:var(--blue);cursor:pointer;font-family:"Eps";line-height:1.4}
+#bm .bk-days{display:flex;flex-wrap:wrap;gap:6px}
+#bm .bk-days button{display:flex;flex-direction:column;align-items:center;gap:0;min-width:76px;padding:6px 8px;border:1px solid var(--guide);border-radius:0;background:#fff;color:var(--blue);cursor:pointer;font-family:"Eps";line-height:1.4}
 #bm .bk-days button:hover{border-color:var(--blue)}
-#bm .bk-days .w{font-family:"EpsB";font-size:14.5px}
-#bm .bk-days .m{font-size:12.5px;color:var(--soft)}
+#bm .bk-days .w{font-family:"EpsB";font-size:13px}
+#bm .bk-days .m{font-size:11px;color:var(--soft)}
 #bm .bk-days [aria-selected=true]{background:var(--blue);border-color:var(--blue);color:var(--paper)}
 #bm .bk-days [aria-selected=true] .m{color:#C9D1F0}
 #bm .bk-tp{display:grid;gap:10px;padding-top:16px;border-top:1px solid var(--guide)}
 #bm .bk-cap{margin:0;font-size:13px;color:var(--soft)}
 #bm .bk-t{display:flex;flex-wrap:wrap;gap:8px}
-#bm .bk-t button{font-family:"Eps";font-size:15px;min-width:78px;min-height:44px;padding:0 14px;border:1px solid var(--blue);border-radius:0;background:var(--paper);color:var(--blue);cursor:pointer;transition:background .15s}
+#bm .bk-t button{font-family:"Eps";font-size:14px;min-width:70px;min-height:38px;padding:0 12px;border:1px solid var(--blue);border-radius:0;background:var(--paper);color:var(--blue);cursor:pointer;transition:background .15s}
 #bm .bk-t button:hover{background:#EEF0F8}
 #bm .bk-t button[aria-pressed=true]{background:var(--blue);color:var(--paper)}
 #bm .bk-t button.odd{border-style:dashed;border-color:var(--guide);color:var(--soft)}
@@ -763,7 +763,7 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 #bm .bk-a{position:sticky;top:24px;display:grid;gap:18px;padding:22px 24px 22px;border:1px solid var(--blue);background:var(--paper)}
 #bm .bk-sum{display:grid;gap:12px;margin:0}
 #bm .bk-sum>div{display:grid;gap:2px}
-#bm .bk-sum dt{font-size:12.5px;color:var(--soft)}
+#bm .bk-sum dt{font-size:12.5px;color:var(--soft)}#bm .bk-dur{font-size:11.5px}
 #bm .bk-sum dd{margin:0;font-size:15px;line-height:1.7;color:var(--blue)}
 #bm .bk-sum dd.emp{font-size:14px;color:var(--soft)}
 #bm .bk-sum s{color:var(--soft);margin-left:6px;text-decoration-thickness:1px}
@@ -806,9 +806,9 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 #bm .dpg .wd{font-size:12px;color:var(--soft);text-align:center;padding:2px 0}
 #bm .dpg.d button{min-height:34px;font-size:13.5px}
 @media (max-width:1100px){#bm .bk-g{grid-template-columns:minmax(0,1fr)}#bm .bk-a{position:static}}
-@media (max-width:560px){#bm .bk-in{margin-bottom:28px;font-size:14px}#bm .bk-r,#bm .bk-tzp{grid-template-columns:minmax(0,1fr)}#bm .bk-s{margin-bottom:36px}
+@media (max-width:560px){#bm .bk-r,#bm .bk-tzp{grid-template-columns:minmax(0,1fr)}#bm .bk-s{margin-bottom:36px}
  #bm .bk-days{display:flex;overflow-x:auto;scroll-snap-type:x proximity;padding:0 0 4px;scrollbar-width:none}#bm .bk-days::-webkit-scrollbar{display:none}
- #bm .bk-days button{flex:0 0 88px;scroll-snap-align:start}#bm .bk-t button{flex:1 1 0;min-width:0}#bm .bk-a{padding:18px 16px}#bm .dpp{left:0;right:0;width:auto}}
+ #bm .bk-days{flex-wrap:nowrap}#bm .bk-days button{flex:0 0 auto;min-width:68px;scroll-snap-align:start}#bm .bk-t button{flex:0 0 auto}#bm .bk-a{padding:18px 16px}#bm .dpp{left:0;right:0;width:auto}}
 </style>
 </head>
 <body>
@@ -851,7 +851,6 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
   <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
   <input type="hidden" name="تاریخ_تولد" id="bbd"><input type="hidden" name="سن" id="bag"><input type="hidden" name="کشور" id="bcov"><input type="hidden" name="منطقه_زمانی" id="btzv">
   <input type="hidden" name="زمان_جلسه" id="bslot"><input type="hidden" name="زمان_جلسه_ISO" id="bslotiso"><input type="hidden" name="زمان_جلسه_به_وقت_من" id="bslothome"><input type="hidden" name="هزینهٔ_جلسه" id="bfeev">
-  <p class="bk-in">جلسه‌ها هفتگی‌اند و هر جلسه ۵۰ دقیقه. <span id="bfi"></span></p>
   <div class="bk-g">
    <div class="bk-m">
     <section class="bk-s" aria-labelledby="bkh1">
@@ -891,7 +890,7 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
    </div>
    <aside class="bk-a" aria-labelledby="bkh3">
     <h2 class="bk-h" id="bkh3"><span class="n">۳</span>ثبت درخواست</h2>
-    <dl class="bk-sum"><div><dt>زمانِ جلسهٔ اول</dt><dd id="bsum" class="emp" aria-live="polite">هنوز انتخاب نشده</dd></div><div><dt>هزینهٔ هر جلسه</dt><dd id="bfv" aria-live="polite"></dd></div></dl>
+    <dl class="bk-sum"><div><dt>زمانِ جلسهٔ اول</dt><dd id="bsum" class="emp" aria-live="polite">هنوز انتخاب نشده</dd></div><div><dt>هزینهٔ هر جلسه <span class="bk-dur">(هفتگی، ۵۰ دقیقه)</span></dt><dd id="bfv" aria-live="polite"></dd></div></dl>
     <label class="bk-cb"><input type="checkbox" id="bstu" name="دانشجو" value="بله"><span>دانشجو هستم</span></label>
     <div class="bk-f"><label class="bk-cb"><input type="checkbox" id="bagr"><span>این رزرو را برای خودم انجام می‌دهم و می‌دانم جلسهٔ اول برای آشنایی و گفت‌وگو دربارهٔ چارچوبِ جلسه‌هاست.</span></label><small class="bk-e" hidden></small></div>
     <button type="submit">ثبت درخواست رزرو</button>
@@ -1339,10 +1338,9 @@ function detect(){let cc='';for(const k in TZC){if(TZC[k][1].some(x=>x[0]===LOC)
 
 /* ── هزینه ── */
 const stu=$('bstu');
-function fee(){const v=$('bfv'),hv=$('bfeev'),i=$('bfi');if(!CC){v.textContent='پس از انتخابِ کشور';v.classList.add('emp');hv.value='';i.textContent='';return;}
+function fee(){const v=$('bfv'),hv=$('bfeev');if(!CC){v.textContent='پس از انتخابِ کشور';v.classList.add('emp');hv.value='';return;}
  const ir=CC==='IR',full=ir?'۱ میلیون و ۶۰۰ هزار تومان':'۵۰ دلار',st=ir?'۱ میلیون و ۳۰۰ هزار تومان':'۴۰ دلار';v.classList.remove('emp');v.textContent='';
- if(stu.checked){const s=document.createElement('s');s.textContent=full;v.append(s,' '+st);}else v.textContent=full;hv.value=stu.checked?st+' (دانشجو)':full;
- i.textContent='هزینهٔ هر جلسه '+full+'؛ برای دانشجوها '+st+'.';}
+ if(stu.checked){const s=document.createElement('s');s.textContent=full;v.append(s,' '+st);}else v.textContent=full;hv.value=stu.checked?st+' (دانشجو)':full;}
 stu.addEventListener('change',fee);
 
 /* ── تاریخ تولد: یک فیلد با تقویمِ انتخابی (شمسی/میلادی)؛ اول سال، بعد ماه، بعد روز ── */

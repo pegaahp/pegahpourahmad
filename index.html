@@ -362,7 +362,7 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 .bbox .nt summary b{font-family:"Eps";font-weight:normal;color:var(--ochre);font-size:18px;line-height:1;transition:transform .2s}
 .bbox .nt[open] summary b{transform:rotate(45deg)}
 .bbox .nt textarea{margin-top:8px;animation:op .2s ease}
-.bbox #bph:placeholder-shown,.bbox #bem:placeholder-shown,.bbox #bdi:placeholder-shown{direction:rtl}
+.bbox #bph:placeholder-shown,.bbox #bem:placeholder-shown{direction:rtl}
 .bbox #bph::placeholder{font-size:13px}
 @media (max-width:720px){.bbox #bph{padding-left:8px;padding-right:9px}.bbox #bph::placeholder{font-size:10.5px;letter-spacing:-.1px}}
 @media (max-width:370px){.bbox #bph::placeholder{font-size:9.5px}}
@@ -409,8 +409,7 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 .bbox .phw>.fph .fb i{font-size:9.5px;margin-right:6px;font-style:italic}
 .bbox #btime{text-align:center;text-align-last:center}
 .bbox .fl>.tzro{justify-content:center}
-.bbox #bph:not(:placeholder-shown),.bbox #bem:not(:placeholder-shown),.bbox #bdi:not(:placeholder-shown){text-align:left}
-.bbox .bdr:empty{display:none}
+.bbox #bph:not(:placeholder-shown),.bbox #bem:not(:placeholder-shown){text-align:left}
 .bbox #bag{text-align:center}
 @media (max-width:720px){.bbox .r3{grid-template-columns:1fr 1fr}.bbox .phw>.fph{white-space:normal;align-items:center;flex-direction:row}.bbox .phw>.fph .fb{line-height:1.3}.bbox .phw>.fph .fb i{font-size:8.5px;margin-right:3px}}
 @media (max-width:720px){.bbox .r2e{grid-template-columns:1fr 1fr}}
@@ -835,6 +834,33 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
  .te.c i,.te.c.up i,.te.c.dn i{right:-31.5px;top:3px}
  .tc,.te.up .tc,.te.dn .tc{position:static;width:auto}
 }
+/* 2.95: تاریخ تولد — یک فیلد با تقویمِ انتخابی (شمسی/میلادی): اول سال، بعد ماه، بعد روز */
+.bbox .dpw{position:relative}
+.bbox .dpf{font-family:"Eps";font-size:14px;width:100%;min-height:42px;border:1px solid var(--guide);border-radius:0;background:#fff;color:#8A877F;padding:9px 11px;display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;text-align:right}
+.bbox .dpf.has{color:var(--blue)}
+.bbox .dpf:focus-visible,.bbox .dpf[aria-expanded="true"]{outline:none;border-color:var(--blue)}
+.bbox .dpf svg{width:18px;height:18px;flex-shrink:0;fill:none;stroke:var(--blue);stroke-width:1.4;stroke-linecap:round}
+.bbox .dpp{position:absolute;right:0;left:0;top:calc(100% + 4px);z-index:20;background:var(--paper);border:1px solid var(--blue);box-shadow:0 14px 30px -14px rgba(23,47,150,.45);padding:10px 12px 12px;display:flex;flex-direction:column;gap:8px;max-width:360px}
+.bbox .dph{display:flex;justify-content:space-between;align-items:center}
+.bbox .dpcal{display:flex;gap:14px}
+.bbox .dpcal button,.bbox .dpx,.bbox .dpb{font-family:"Eps";background:none;border:0;padding:0;cursor:pointer;color:var(--soft)}
+.bbox .dpcal button{font-size:13px;padding-bottom:2px;border-bottom:1px solid transparent}
+.bbox .dpcal button[aria-checked=true]{color:var(--blue);border-bottom-color:var(--blue)}
+.bbox .dpx{font-size:20px;line-height:1;color:var(--ink)}
+.bbox .dpn{display:flex;align-items:center;justify-content:space-between;min-height:24px;border-bottom:1px solid var(--hair);padding-bottom:6px}
+.bbox .dpt{font-family:"EpsB";font-weight:normal;font-size:14px;color:var(--ink)}
+.bbox .dpb{font-size:13px;color:var(--blue)}
+.bbox .dpg{display:grid;gap:4px;max-height:236px;overflow-y:auto;overscroll-behavior:contain}
+.bbox .dpg.y{grid-template-columns:repeat(4,1fr)}
+.bbox .dpg.m{grid-template-columns:repeat(3,1fr)}
+.bbox .dpg.d{grid-template-columns:repeat(7,1fr);max-height:none}
+.bbox .dpg button{font-family:"Eps";font-size:14px;min-height:38px;border:1px solid transparent;background:#fff;color:var(--ink);cursor:pointer;padding:0}
+.bbox .dpg button:hover{border-color:var(--blue);color:var(--blue)}
+.bbox .dpg button:focus-visible{outline:none;border-color:var(--blue)}
+.bbox .dpg button[aria-pressed=true]{background:var(--blue);color:#fff;border-color:var(--blue)}
+.bbox .dpg button:disabled{color:#C9C6BE;background:transparent;cursor:default;border-color:transparent}
+.bbox .dpg .wd{font-family:"Eps";font-size:12px;color:var(--soft);text-align:center;padding:2px 0}
+.bbox .dpg.d button{min-height:34px;font-size:13.5px}
 </style>
 </head>
 <body>
@@ -884,7 +910,12 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
      <label class="fl"><input id="bfn" placeholder="نام" aria-label="نام" autocomplete="given-name" minlength="2" maxlength="40" data-k="txt" required></label>
      <label class="fl"><input id="bln" placeholder="نام خانوادگی" aria-label="نام خانوادگی" autocomplete="family-name" minlength="2" maxlength="40" data-k="txt" required></label>
     </div>
-    <label class="fl bdf"><input id="bdi" type="text" inputmode="decimal" dir="ltr" autocomplete="bday" maxlength="12" placeholder="تاریخ تولد، مثلاً ۱۳۷۰/۰۵/۲۳" aria-label="تاریخ تولد، شمسی یا میلادی؛ مثلاً ۱۳۷۰/۰۵/۲۳ یا 1991/08/14" aria-describedby="bdr" required><small id="bdr" class="bdr" aria-live="polite"></small></label>
+    <div class="fl dpw"><button type="button" id="bdi" class="dpf" aria-haspopup="dialog" aria-expanded="false" aria-controls="bdp"><span class="dpv">تاریخ تولد</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="1"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg></button>
+     <div class="dpp" id="bdp" role="dialog" aria-label="انتخاب تاریخ تولد" hidden>
+      <div class="dph"><span class="dpcal" role="radiogroup" aria-label="تقویم"><button type="button" role="radio" data-c="p" aria-checked="true">شمسی</button><button type="button" role="radio" data-c="g" aria-checked="false">میلادی</button></span><button type="button" class="dpx" aria-label="بستن">×</button></div>
+      <div class="dpn"><button type="button" class="dpb" hidden><span aria-hidden="true">→</span> <span class="dpbl"></span></button><b class="dpt" aria-live="polite"></b></div>
+      <div class="dpg"></div>
+     </div></div>
     <label class="fl"><input name="شغل" id="bjob" placeholder="شغل" aria-label="شغل" autocomplete="organization-title" minlength="2" maxlength="40" data-k="txt" required></label>
    </fieldset>
    <fieldset class="bsec"><legend>راه ارتباط</legend>
@@ -1368,29 +1399,48 @@ pre();
 /* 2.55: فرم از اول در خودِ صفحهٔ «رزرو جلسه» است؛ زمان‌ها با بازشدنِ صفحه بارگیری می‌شوند */
 const open=()=>{if((location.hash||'').slice(1)==='booking'){render();gcLoad(render);}};addEventListener('hashchange',open);open();
 const ph=document.getElementById('bph'),em=document.getElementById('bem');
-/* 2.93: تاریخ تولد در یک فیلد — سال/ماه/روز یا روز/ماه/سال، با هر جداکننده یا ۸ رقمِ پشتِ‌هم؛ سالِ ۱۳۰۰ تا ۱۴۲۰ شمسی و ۱۹۰۰ به بعد میلادی خوانده می‌شود.
-   زیرِ فیلد نشان داده می‌شود تاریخ چطور خوانده شد؛ سن از روی آن حساب و همراهِ تاریخ فرستاده می‌شود */
-const DOB=(()=>{const inp=document.getElementById('bdi'),out=document.getElementById('bdr');
+/* 2.95: تاریخ تولد — یک فیلد با تقویمِ انتخابی. اول سال (از ۱۸ سال پیش به عقب)، بعد ماه، بعد روز؛ شمسی یا میلادی.
+   تبدیلِ شمسی/میلادی با Intl انجام می‌شود؛ سن از روی تاریخ حساب و همراهِ تاریخ فرستاده می‌شود */
+const DOB=(()=>{const fld=document.getElementById('bdi'),val=fld.querySelector('.dpv'),pp=document.getElementById('bdp'),G=pp.querySelector('.dpg'),T=pp.querySelector('.dpt'),bk=pp.querySelector('.dpb'),bkl=pp.querySelector('.dpbl'),CB=[...pp.querySelectorAll('.dpcal button')];
  const MN={p:['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'],g:['ژانویه','فوریه','مارس','آوریل','مه','ژوئن','ژوئیه','اوت','سپتامبر','اکتبر','نوامبر','دسامبر']};
- const now=c=>{const P={};new Intl.DateTimeFormat('en-US-u-ca-'+(c==='p'?'persian':'gregory')+'-nu-latn',{year:'numeric',month:'numeric',day:'numeric'}).formatToParts(new Date()).forEach(x=>P[x.type]=x.value);return [parseInt(P.year),+P.month,+P.day];};
- const lat=v=>v.replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
- const parse=()=>{const v=lat(inp.value).trim();if(!v)return null;let p=v.split(/[^0-9]+/).filter(Boolean);
-  if(p.length===1&&p[0].length===8)p=[p[0].slice(0,4),p[0].slice(4,6),p[0].slice(6)];
-  if(p.length!==3)return {bad:1};let y,m,d;
-  if(p[0].length===4)[y,m,d]=p.map(Number);else if(p[2].length===4)[d,m,y]=p.map(Number);else return {bad:1};
-  const C=y>=1300&&y<=1420?'p':y>=1900&&y<=2100?'g':null;if(!C||m<1||m>12||d<1)return {bad:1};
-  const L=C==='p'?(m<=6?31:30):new Date(y,m,0).getDate();if(d>L)return {bad:2,L};return {y,m,d,C};};
- const txt=r=>fa(r.d)+' '+MN[r.C][r.m-1]+' '+fa(r.y)+(r.C==='p'?' (شمسی)':' (میلادی)');
- const upd=()=>{const r=parse();out.textContent=r&&!r.bad?txt(r):'';};
- inp.addEventListener('input',()=>{inp.setCustomValidity('');upd();});
- inp.addEventListener('blur',()=>{const r=parse();if(r&&!r.bad)inp.value=r.y+'/'+String(r.m).padStart(2,'0')+'/'+String(r.d).padStart(2,'0');});
- f.addEventListener('reset',()=>setTimeout(upd));
- return {check(){const r=parse();if(!r)return {el:inp,t:'لطفاً «تاریخ تولد» را وارد کنید.'};
-   if(r.bad===2)return {el:inp,t:'این تاریخ تولد درست نیست؛ ماهِ واردشده '+fa(r.L)+' روز دارد.'};
-   if(r.bad)return {el:inp,t:'تاریخ تولد را به شکلِ سال/ماه/روز وارد کنید؛ مثلاً ۱۳۷۰/۰۵/۲۳ یا 1991/08/14.'};
-   const [Y,M,D]=now(r.C),age=Y-r.y-((M<r.m||(M===r.m&&D<r.d))?1:0);if(age<18)return {el:inp,t:'رزرو جلسه برای افراد ۱۸ سال به بالاست.'};
-   if(age>100)return {el:inp,t:'تاریخ تولد را دوباره بررسی کنید.'};
-   document.getElementById('bbd').value=txt(r);document.getElementById('bag').value=String(age);return null;}};})();
+ const WD=['ش','ی','د','س','چ','پ','ج'],DAY=864e5;
+ const PF=new Intl.DateTimeFormat('en-US-u-ca-persian-nu-latn',{timeZone:'UTC',year:'numeric',month:'numeric',day:'numeric'});
+ const ymd=(t,c)=>{if(c==='g'){const d=new Date(t);return [d.getUTCFullYear(),d.getUTCMonth()+1,d.getUTCDate()];}const P={};PF.formatToParts(new Date(t)).forEach(x=>P[x.type]=x.value);return [parseInt(P.year),+P.month,+P.day];};
+ const toT=(y,m,d,c)=>{if(c==='g')return Date.UTC(y,m-1,d);let t=Date.UTC(y+621,2,20)+((m<=6?(m-1)*31:186+(m-7)*30)+d-1)*DAY;
+  for(let k=0;k<8;k++){const [Y,M,D]=ymd(t,'p'),s=(Y-y)||(M-m)||(D-d);if(!s)return t;t+=(s>0?-1:1)*DAY;}return t;};
+ const mlen=(y,m,c)=>{if(c==='g')return new Date(Date.UTC(y,m,0)).getUTCDate();if(m<=6)return 31;if(m<=11)return 30;return ymd(toT(y,12,29,'p')+DAY,'p')[1]===12?30:29;};
+ const today=()=>{const n=new Date();return Date.UTC(n.getFullYear(),n.getMonth(),n.getDate());};
+ let C='p',sel=null,Y=null,M=null,step='y';
+ const btn=(txt,on,attrs)=>{const b=document.createElement('button');b.type='button';b.textContent=txt;if(attrs)for(const k in attrs)b.setAttribute(k,attrs[k]);b.addEventListener('click',on);return b;};
+ const show=()=>{G.textContent='';G.className='dpg '+step;const sY=sel?ymd(sel,C):null,tY=ymd(today(),C);
+  if(step==='y'){T.textContent='سالِ تولد';bk.hidden=true;let first=null;
+   for(let y=tY[0]-18;y>=tY[0]-100;y--){const b=btn(fa(y),()=>{Y=y;step='m';show();},{'aria-pressed':String(!!sY&&sY[0]===y)});if((sY&&sY[0]===y)||(!sY&&y===tY[0]-35))first=b;G.append(b);}
+   if(first)requestAnimationFrame(()=>{G.scrollTop=first.offsetTop-G.offsetTop-G.clientHeight/2+first.offsetHeight/2;first.focus({preventScroll:true});});}
+  else if(step==='m'){T.textContent=fa(Y);bk.hidden=false;bkl.textContent='سال';
+   MN[C].forEach((n,i)=>G.append(btn(n,()=>{M=i+1;step='d';show();},{'aria-pressed':String(!!sY&&sY[0]===Y&&sY[1]===i+1)})));
+   (G.querySelector('[aria-pressed=true]')||G.firstChild).focus();}
+  else{T.textContent=MN[C][M-1]+' '+fa(Y);bk.hidden=false;bkl.textContent='ماه';
+   WD.forEach(w=>{const s=document.createElement('span');s.className='wd';s.textContent=w;G.append(s);});
+   const t1=toT(Y,M,1,C),off=(new Date(t1).getUTCDay()+1)%7,L=mlen(Y,M,C),lim=today();
+   for(let k=0;k<off;k++)G.append(document.createElement('span'));
+   for(let d=1;d<=L;d++){const t=t1+(d-1)*DAY;const b=btn(fa(d),()=>pick(t),{'aria-pressed':String(sel===t),'aria-label':fa(d)+' '+MN[C][M-1]+' '+fa(Y)});if(age(t)<18)b.disabled=true;G.append(b);}
+   (G.querySelector('[aria-pressed=true]')||G.querySelector('button:not(:disabled)')||G).focus();}};
+ const age=t=>{const [y,m,d]=ymd(t,'g'),[Y2,M2,D2]=ymd(today(),'g');return Y2-y-((M2<m||(M2===m&&D2<d))?1:0);};
+ const txt=t=>{const [y,m,d]=ymd(t,C);return fa(d)+' '+MN[C][m-1]+' '+fa(y);};
+ const paint=()=>{val.textContent=sel?txt(sel):'تاریخ تولد';fld.classList.toggle('has',!!sel);fld.setAttribute('aria-label',sel?'تاریخ تولد: '+txt(sel):'تاریخ تولد');};
+ const open=()=>{if(sel){[Y,M]=ymd(sel,C);step='d';}else step='y';pp.hidden=false;fld.setAttribute('aria-expanded','true');fld.classList.remove('inv');show();};
+ const close=(back)=>{if(pp.hidden)return;pp.hidden=true;fld.setAttribute('aria-expanded','false');if(back)fld.focus();};
+ const pick=t=>{sel=t;paint();close(true);err.hidden=true;};
+ fld.addEventListener('click',()=>pp.hidden?open():close(false));
+ pp.querySelector('.dpx').addEventListener('click',()=>close(true));
+ bk.addEventListener('click',()=>{step=step==='d'?'m':'y';show();});
+ CB.forEach(b=>b.addEventListener('click',()=>{if(b.dataset.c===C)return;C=b.dataset.c;CB.forEach(x=>x.setAttribute('aria-checked',String(x===b)));
+  if(step!=='y'){const ref=sel||toT(Y,M||1,1,C==='p'?'g':'p');[Y,M]=ymd(ref,C);}paint();show();}));
+ pp.addEventListener('keydown',e=>{if(e.key==='Escape'){e.stopPropagation();close(true);}});
+ document.addEventListener('click',e=>{if(!pp.hidden&&!pp.contains(e.target)&&!fld.contains(e.target))close(false);});
+ f.addEventListener('reset',()=>{sel=null;close(false);paint();});
+ return {check(){if(!sel)return {el:fld,t:'لطفاً «تاریخ تولد» را انتخاب کنید.'};const a=age(sel);if(a<18)return {el:fld,t:'رزرو جلسه برای افراد ۱۸ سال به بالاست.'};
+   document.getElementById('bbd').value=txt(sel)+(C==='p'?' (شمسی)':' (میلادی)');document.getElementById('bag').value=String(a);return null;}};})();
 let AGREED=false;
 const TM=(()=>{const t=document.getElementById('btm'),A=t.querySelector('.tmA'),Bv=t.querySelector('.tmB'),sb=f.querySelector('button[type=submit]');
  const close=()=>{t.hidden=true;sb.focus();};

@@ -291,7 +291,7 @@ body{padding-top:0}
    Sending (booking, question): the whole button turns the accent colour and says «در حال ثبت…» (no line under it). */
 button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 .qbox button[type=submit][data-busy],.nb .qbox button[type=submit][data-busy],button[data-busy]{background:var(--ochre);color:#fff;opacity:1}
-.bbox .none.ld,.none.ld,.post.emb blockquote.instagram-media::before{font-family:"EpsB";color:var(--ochre)}
+.none.ld,.post.emb blockquote.instagram-media::before{font-family:"EpsB";color:var(--ochre)}
 .none.ld::after,.post.emb blockquote.instagram-media::after{content:"";display:inline-block;width:3px;height:3px;margin-right:7px;vertical-align:middle;background:var(--ochre);box-shadow:-6px 0 transparent,-12px 0 transparent;animation:ldDots 1.2s steps(1) infinite}
 @keyframes ldDots{0%{box-shadow:-6px 0 transparent,-12px 0 transparent}33%{box-shadow:-6px 0 var(--ochre),-12px 0 transparent}66%{box-shadow:-6px 0 var(--ochre),-12px 0 var(--ochre)}}
 .post.emb blockquote.instagram-media{font-size:0}
@@ -326,16 +326,6 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 .qbox select option{color:var(--blue)}
 .qbox select:focus{outline:none;border-color:var(--blue)}
 .qrow{display:flex;align-items:center;gap:16px}.qrow .qn{margin:0;line-height:1.7}.qrow button{flex:none}
-.bbox{width:min(520px,100%)}
-.bbox .bi{font-size:14px;line-height:1.9;color:var(--ink);margin:0 0 6px}
-.bbox .fl{display:grid;gap:6px;border:0;padding:0;margin:0}
-.bbox .fl>span,.bbox legend{font-family:"EpsB";font-size:13.5px;color:var(--ink);padding:0;margin-bottom:6px}
-.bbox .fl small{font-size:12px;color:var(--soft)}
-.bbox .rb{display:flex;flex-wrap:wrap;gap:8px 34px}
-.bbox .rb legend{width:100%}
-.bbox .rb label{display:flex;align-items:center;gap:7px;font-size:14px;color:var(--ink);cursor:pointer}
-.bbox .rb input{width:auto;min-height:0;accent-color:var(--ink);margin:0;padding:0;border:0}
-.bbox textarea{min-height:96px}
 .slots{display:grid;gap:12px}
 .slots .dy{font-size:13px;color:var(--soft);margin-bottom:6px}
 .slots .tm{display:flex;flex-wrap:wrap;gap:8px}
@@ -344,10 +334,7 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 .nb .slots button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
 .slots .none{font-size:13.5px;color:var(--soft);margin:0}
 .berr{font-size:13px;color:var(--ochre);margin:0}
-.bbox .bok{margin-top:18px}.bbox .bok p{font-size:14.5px;line-height:1.9;color:var(--ink);margin:0}.bbox .bok .bok1{font-family:"EpsB";font-size:16px;margin-bottom:6px}
 .qbox form[hidden],.bbox .bok[hidden]{display:none}
-.bbox .fl{gap:4px}.bbox .fl>span,.bbox legend{margin-bottom:2px}
-.bbox form{gap:16px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .nb .chips button,.nb .slots button{font-family:"Eps";font-size:14px;background:#fff;border:1px solid var(--hair);color:var(--ink);padding:7px 16px;cursor:pointer;min-width:74px}
 .nb .chips button:hover{border-color:var(--line);background:#fff;color:var(--ink)}
@@ -355,81 +342,12 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 .qm2{z-index:60;background:rgba(23,47,150,.22)}
 .okbox{width:min(420px,100%);padding:44px 32px 34px}
 .okbox p{font-size:15px;line-height:1.9;color:var(--ink);margin:0;text-wrap:balance}
-.okbox p#bokt{text-align:right}
 .nb .qbox form{max-width:none}
-.bbox .nt summary{font-family:"EpsB";font-size:13.5px;color:var(--ink);cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px}
-.bbox .nt summary::-webkit-details-marker{display:none}
-.bbox .nt summary b{font-family:"Eps";font-weight:normal;color:var(--ochre);font-size:18px;line-height:1;transition:transform .2s}
-.bbox .nt[open] summary b{transform:rotate(45deg)}
-.bbox .nt textarea{margin-top:8px;animation:op .2s ease}
-.bbox #bph:placeholder-shown,.bbox #bem:placeholder-shown{direction:rtl}
-.bbox #bph::placeholder{font-size:13px}
-@media (max-width:720px){.bbox #bph{padding-left:8px;padding-right:9px}.bbox #bph::placeholder{font-size:10.5px;letter-spacing:-.1px}}
-@media (max-width:370px){.bbox #bph::placeholder{font-size:9.5px}}
-.bbox select{font-family:"Eps";font-size:14px;width:100%;min-height:42px;border:1px solid var(--hair);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23172F96' stroke-width='1.4'/%3E%3C/svg%3E") no-repeat left 12px center/11px 8px;padding:9px 11px 9px 32px;color:var(--ink);appearance:none;-webkit-appearance:none;border-radius:0;cursor:pointer}
-.bbox select:invalid{color:#8A877F}.bbox select option{color:var(--ink)}
-.bbox select:focus{outline:none;border-color:var(--line)}
-.bbox .r2{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}
-.bbox .phw{position:relative}
-.bbox .fph{position:absolute;right:12px;top:0;height:42px;display:flex;align-items:center;gap:5px;pointer-events:none;font-size:14px;color:#8A877F;white-space:nowrap;overflow:hidden;left:10px}
-.bbox .fph i{font-size:10.5px;font-style:italic}
-.bbox #bph:not(:placeholder-shown)+.fph{display:none}
-@media (max-width:720px){.bbox .fph i{font-size:9.5px}.bbox .r2{grid-template-columns:1.3fr 1fr}}
-.bbox .phw>.fph{font-family:"Eps";color:#8A877F;margin:0;font-size:14px}
-.bbox .phw>.fph i{font-size:10px}
-@media (max-width:720px){.bbox .r2{grid-template-columns:1fr 1fr;gap:8px}.bbox .r2 select{font-size:13px;padding-left:26px;background-position:left 9px center}.bbox .phw>.fph{font-size:13px;gap:4px;right:10px;left:6px}.bbox .phw>.fph i{font-size:8.5px}}
-.bbox .r2e select:disabled{opacity:.55;cursor:default}
-.bbox .none{font-size:13.5px;color:var(--soft);margin:0}
-.bbox .r2e{grid-template-columns:1.5fr 1fr}
-.bbox #slots{grid-template-columns:1fr 1fr 1.5fr}
-@media (max-width:720px){.bbox #slots{grid-template-columns:1fr 1fr}.bbox #slots>label:last-child{grid-column:1/-1}}
-.bbox .r3{display:grid;grid-template-columns:1.2fr .6fr 1.2fr;gap:10px}
-@media (max-width:720px){.bbox .r3{grid-template-columns:1fr .6fr;gap:8px}.bbox .r3>label:last-child{grid-column:1/-1}}
-.bbox .ra{grid-template-columns:1fr 110px}.bbox .rj{grid-template-columns:1.3fr 1fr}
-.bbox .rc{grid-template-columns:1fr}.bbox .rc.two{grid-template-columns:1fr 1fr}
-@media (max-width:720px){.bbox .ra{grid-template-columns:1fr 80px}.bbox .rj{grid-template-columns:1fr}.bbox .rc.two{grid-template-columns:1fr}}
-.bbox label[hidden]{display:none}
-.bbox .rp{grid-template-columns:1.75fr 1fr}.bbox .phw>.fph i{font-size:9.5px}
-@media (max-width:720px){.bbox .rp{grid-template-columns:1fr}}
-.bbox .r3{grid-template-columns:1fr 1fr 1fr}
-@media (max-width:720px){.bbox .rp{grid-template-columns:1.25fr 1fr}.bbox .phw>.fph{font-size:12px}.bbox .phw>.fph i{font-size:7.5px}.bbox .r3{grid-template-columns:1fr 1fr}.bbox .r3>label:last-child{grid-column:1/-1}}
-@media (max-width:720px){.bbox #bph{min-height:54px}.bbox .phw>.fph{height:54px;flex-direction:column;align-items:flex-start;justify-content:center;gap:1px;white-space:normal;line-height:1.35}.bbox .phw>.fph i{font-size:8.5px}.bbox .r2.rp select{min-height:54px;font-size:12.5px;padding-left:24px;background-position:left 8px center}}
-.bbox #btzw,.bbox .tw{position:relative}
-.bbox .tzro{display:flex;align-items:center;min-height:42px;box-sizing:border-box;border:1px solid var(--hair);background:#F4F3EF;color:#A5A29A;padding:9px 11px;font-size:14px;cursor:default}
-.bbox .tzro[hidden]{display:none}
-.bbox .tw select.has{color:transparent}.bbox .tw select.has option{color:var(--ink)}
-.bbox .tov{position:absolute;right:12px;top:0;bottom:0;display:flex;align-items:center;gap:4px;pointer-events:none;color:var(--ink);font-size:14px}
-.bbox .tov small{font-size:9.5px;color:var(--soft)}
-.bbox .fl>.tzro{font-family:"Eps";color:#C9C6BE;margin:0;font-size:13px;background:transparent;border-color:#ECEAE4}
-.bbox .fl>.tov{font-family:"Eps";color:var(--ink);margin:0;font-size:14px}
-.bbox .fl>.tov small{font-size:9.5px;color:#8A877F}
-.bbox .r3{grid-template-columns:.8fr .8fr 1.4fr}
-.bbox .phw>.fph{display:flex;align-items:center;white-space:nowrap;overflow:hidden}
-.bbox .phw>.fph .fb{display:block;line-height:1.5}
-.bbox .phw>.fph .fb i{font-size:9.5px;margin-right:6px;font-style:italic}
-.bbox #btime{text-align:center;text-align-last:center}
-.bbox .fl>.tzro{justify-content:center}
-.bbox #bph:not(:placeholder-shown),.bbox #bem:not(:placeholder-shown){text-align:left}
-.bbox #bag{text-align:center}
-@media (max-width:720px){.bbox .r3{grid-template-columns:1fr 1fr}.bbox .phw>.fph{white-space:normal;align-items:center;flex-direction:row}.bbox .phw>.fph .fb{line-height:1.3}.bbox .phw>.fph .fb i{font-size:8.5px;margin-right:3px}}
-@media (max-width:720px){.bbox .r2e{grid-template-columns:1fr 1fr}}
-.bbox .inv{border-color:var(--ochre)!important;background-color:#FFF8F4!important}
-.bbox .berr{font-size:13.5px;color:var(--ochre);margin:0}
-.bbox input,.bbox select{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
-.bbox .tw{overflow:hidden}
 .nb .spread>.pg{min-width:0}.bbox .r2>*,.bbox .r3>*{min-width:0}
 @media (max-width:370px){.nb .pg{padding-left:18px;padding-right:18px}.nb .ics{gap:8px}.nb .g3{gap:2px}.nb .ci{min-width:52px}.nb .ib{width:40px;height:40px;padding:10px}.nb .nm{font-size:10.5px}}
-@media (max-width:370px){.bbox .rp{grid-template-columns:1fr}.bbox .phw>.fph{left:10px;right:10px;white-space:nowrap}.bbox #bph{min-height:42px}.bbox .phw>.fph{height:42px}.bbox .phw>.fph .fb i{font-size:7.8px;margin-right:2px}.bbox .r2.rp select{min-height:42px}}
-/* 2.92: شماره تماس حالا تنها در ردیف خودش است، هم‌اندازه و هم‌ترازِ ایمیل */
-.bbox #bph{min-height:42px}.bbox .phw>.fph{height:42px;flex-direction:row;justify-content:flex-start;align-items:center;white-space:nowrap;font-size:14px}
-.bbox .tov bdi,.bbox .tzro bdi{font-family:"CarlitoW","Calibri Light",sans-serif}
-.bbox #btz{direction:ltr;text-align:center;text-align-last:center;font-family:"CarlitoW","Calibri Light",sans-serif;padding-right:11px}.bbox #btz option{direction:ltr}
-.bbox #btz:invalid{direction:rtl;font-family:"Eps";text-align:right;text-align-last:right;padding-right:11px;padding-left:32px}.bbox #btz{font-size:14.5px}
-.bbox #btz:valid{font-size:12px;letter-spacing:.2px}.bbox .fl>.tzro{font-size:12px;font-family:"CarlitoW","Calibri Light",sans-serif;letter-spacing:.2px}
 .aboutg .atext{padding:30px 34px 32px;margin:0 -34px;background:rgba(179,210,220,.09)}
 @media (max-width:720px){.aboutg .atext{padding:22px 18px 24px;margin:0 -18px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
-.bbox .qok{font-size:15px;color:var(--ink);margin:18px 0 4px}
 .about .bio,.bbox .bi,.okbox p,.qrow .qn,.bbox .none,.qbox p{text-align:justify;text-justify:inter-word;text-align-last:right}
 /* windows (booking, question, confirmation) in the second look: cream sheet, square corners, blue frame line, blue filled button */
 .qm{background:rgba(28,57,187,.42)}
@@ -438,12 +356,10 @@ button[data-busy]{pointer-events:none;position:relative;overflow:hidden}
 .qbox h3{font-size:22px;color:var(--blue);border-bottom:1px solid var(--guide)}
 .qx,.nb .qx{color:var(--blue);opacity:.7}.qx:hover,.nb .qx:hover{opacity:1;color:var(--blue)}
 .qbox input,.qbox textarea,.bbox select{border-color:var(--guide);border-radius:0;color:var(--blue)}
-.bbox select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%231C39BB' stroke-width='1.4'/%3E%3C/svg%3E")}
 .qbox input:focus,.qbox textarea:focus,.bbox select:focus{border-color:var(--blue)}
 .qbox button[type=submit],.nb .qbox button[type=submit]{font-family:"EpsB";font-size:15px;background:var(--blue);color:var(--paper);border:0;padding:12px 28px;border-radius:0}
 .qbox button[type=submit]:hover,.nb .qbox button[type=submit]:hover{background:var(--blue2);color:var(--paper);opacity:1}
-.bbox .nt summary{font-family:"EpsB"}
-.bbox .bi,.okbox p,.qok,.bbox .qok{color:var(--blue)}
+.okbox p,.qok{color:var(--blue)}
 
 /* 2.16: «رزرو وقت» — خط‌ها نزدیک‌تر؛ در تبلت متن تا همان لبهٔ چپِ خط و دکمه‌های پایین می‌رود (سقفِ ۶۰۰px برداشته شد) */
 .bl{line-height:1.7}.bl li::before{top:calc(.85em - 4px)}
@@ -661,56 +577,6 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 .read .rh2 .sb3{margin:22px 0 0;font-family:"Lei";font-size:22px;line-height:1.5;color:var(--ochre)}
 @media (min-width:721px) and (max-width:1100px){#writings .wg .t.ft,#writings .wg .t.wd:has(.im){column-gap:22px}}
 @media (max-width:720px){#writings .wg .t:has(.im){display:flex;flex-direction:column;gap:12px}#writings .wg .t .im{aspect-ratio:auto;margin:0}#writings .wg .t .ld{-webkit-line-clamp:3}.read .rh2 .sb3{font-size:19px}}
-/* 2.55: «رزرو جلسه» — فرم در خودِ صفحه؛ چارچوب کار حذف شد؛ ایمیل و ثبتِ سؤال کوچک زیرِ فرم */
-#booking .bpg{display:flex;flex-direction:column;align-items:flex-start}
-#booking .bin{max-height:none;overflow:visible;width:100%;margin:0;padding:0;background:none;box-shadow:none;border:0}
-#booking .rd>label:last-child{grid-column:auto}
-/* 2.57: «رزرو جلسه» — فرم در دو ستونِ هم‌عرض به پهنای صفحه، در سه بخش: دربارهٔ شما · راه ارتباط · زمان جلسه */
-#booking .bgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:clamp(48px,6vw,96px);align-items:start}
-@media (max-width:1100px){#booking .bgrid{grid-template-columns:minmax(0,1fr);max-width:600px}}
-#booking .bsec{border:0;padding:0;margin:0 0 38px;min-width:0;display:grid;gap:12px}
-#booking .bsec>legend{float:right;width:100%;box-sizing:border-box;font-family:"EpsB";font-size:18px;color:var(--blue);padding:0 0 10px;margin:0 0 8px;border-bottom:1px solid var(--blue)}
-#booking .bsec>legend+*{clear:both}
-#booking .rn{grid-template-columns:1fr 1fr}
-#booking .rd{grid-template-columns:.8fr 1.3fr 1fr}
-#booking .rc{grid-template-columns:1.3fr 1fr}
-#booking .bdob{display:grid;gap:6px}
-#booking .bdh{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--soft)}
-#booking .bcal{display:flex;gap:12px}
-#booking .bcal button{font-family:"Eps";font-size:12.5px;background:none;border:0;padding:0 0 2px;color:var(--soft);cursor:pointer;border-bottom:1px solid transparent}
-#booking .bcal button[aria-checked=true]{color:var(--blue);border-bottom-color:var(--blue)}
-#booking .bsend{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
-#booking .bsend .berr{margin:0}
-#booking .bin button[type=submit]{font-size:15px;padding:13px 44px}
-@media (max-width:720px){#booking .rd{grid-template-columns:.8fr 1.3fr 1fr}#booking .rc{grid-template-columns:1fr 1fr}#booking .bin button[type=submit]{width:100%}}
-#booking .bin form{margin-top:0}
-/* 2.56: شماره تماس — توضیح از داخلِ خانه برداشته شد؛ با رفتن روی خانه، برچسبِ سفیدِ کوچکی بالای آن نشان داده می‌شود */
-.bbox .phw .tip{position:absolute;right:0;bottom:calc(100% + 6px);z-index:3;background:#fff;color:var(--ink);font-family:"Eps";font-size:11px;line-height:1.6;padding:5px 9px;border:1px solid var(--hair);box-shadow:0 6px 16px -8px rgba(23,47,150,.35);white-space:nowrap;opacity:0;visibility:hidden;transform:translateY(3px);transition:opacity .15s,transform .15s,visibility .15s;pointer-events:none}
-.bbox .phw:hover .tip,.bbox .phw:focus-within .tip{opacity:1;visibility:visible;transform:none}
-@media (max-width:720px){.bbox .phw .tip{font-size:10.5px;white-space:normal;width:max-content;max-width:min(300px,80vw)}}
-/* 2.57: هزینه زیرِ «زمان جلسه»؛ ایمیل و ثبتِ سؤال به‌صورت آیکون کنارِ دکمهٔ ثبت؛ پنجرهٔ «شرایط برگزاری جلسه» پیش از ثبت */
-#booking .bfee{margin:-8px 0 30px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:12px 0;display:flex;align-items:center;gap:10px 20px;flex-wrap:wrap}
-#booking .bfee .bfv{margin-right:auto;white-space:nowrap}
-#booking .bfr{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
-#booking .bfh{font-family:"EpsB";font-size:15px;color:var(--blue)}
-#booking .bfv{font-family:"Eps";font-size:15px;color:var(--blue)}
-#booking .bfv s{color:var(--soft);margin-left:8px;text-decoration-thickness:1px}
-#booking .bfv.emp{font-size:12.5px;color:var(--soft)}
-#booking .bst{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--ink);cursor:pointer;justify-self:start}
-#booking .bst input{width:16px;height:16px;min-height:0;margin:0;padding:0;accent-color:var(--blue)}
-#booking .bact{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap}
-#booking .bic{display:flex;align-items:center;justify-content:center;width:50px;min-height:50px;box-sizing:border-box;border:1px solid var(--blue);background:var(--paper);color:var(--blue);padding:0;cursor:pointer}
-#booking .bic:hover{background:#EEF0F8}
-#booking .bic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-@media (max-width:720px){#booking .bact button[type=submit]{width:auto;flex:1}}
-.tmbox{width:min(560px,100%)}
-.tmbox .tml{margin:6px 0 0;padding:0;font-size:14px;color:var(--ink)}
-.tmbox .tml li{text-align:justify;text-align-last:right}
-.tmb{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
-.tmb button{font-family:"EpsB";font-size:14px;padding:11px 26px;cursor:pointer;border:1px solid var(--blue)}
-.tmb .tmy,.tmb .tmq{background:var(--blue);color:var(--paper)}.tmb .tmy:hover,.tmb .tmq:hover{background:var(--blue2)}
-.tmb .tmn{background:var(--paper);color:var(--blue)}.tmb .tmn:hover{background:#EEF0F8}
-.tmbox [hidden]{display:none}
 /* 2.63: ثبتِ سؤال — شماره تماس مثلِ فرمِ رزرو، با توضیحِ کوچکِ سفید هنگامِ رفتن روی خانه */
 .qbox .qph{display:block;position:relative}
 .qbox .qph input{width:100%;box-sizing:border-box}
@@ -834,33 +700,115 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
  .te.c i,.te.c.up i,.te.c.dn i{right:-31.5px;top:3px}
  .tc,.te.up .tc,.te.dn .tc{position:static;width:auto}
 }
-/* 2.95: تاریخ تولد — یک فیلد با تقویمِ انتخابی (شمسی/میلادی): اول سال، بعد ماه، بعد روز */
-.bbox .dpw{position:relative}
-.bbox .dpf{font-family:"Eps";font-size:14px;width:100%;min-height:42px;border:1px solid var(--guide);border-radius:0;background:#fff;color:#8A877F;padding:9px 11px;display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;text-align:right}
-.bbox .dpf.has{color:var(--blue)}
-.bbox .dpf:focus-visible,.bbox .dpf[aria-expanded="true"]{outline:none;border-color:var(--blue)}
-.bbox .dpf svg{width:18px;height:18px;flex-shrink:0;fill:none;stroke:var(--blue);stroke-width:1.4;stroke-linecap:round}
-.bbox .dpp{position:absolute;right:0;left:0;top:calc(100% + 4px);z-index:20;background:var(--paper);border:1px solid var(--blue);box-shadow:0 14px 30px -14px rgba(23,47,150,.45);padding:10px 12px 12px;display:flex;flex-direction:column;gap:8px;max-width:360px}
-.bbox .dph{display:flex;justify-content:space-between;align-items:center}
-.bbox .dpcal{display:flex;gap:14px}
-.bbox .dpcal button,.bbox .dpx,.bbox .dpb{font-family:"Eps";background:none;border:0;padding:0;cursor:pointer;color:var(--soft)}
-.bbox .dpcal button{font-size:13px;padding-bottom:2px;border-bottom:1px solid transparent}
-.bbox .dpcal button[aria-checked=true]{color:var(--blue);border-bottom-color:var(--blue)}
-.bbox .dpx{font-size:20px;line-height:1;color:var(--ink)}
-.bbox .dpn{display:flex;align-items:center;justify-content:space-between;min-height:24px;border-bottom:1px solid var(--hair);padding-bottom:6px}
-.bbox .dpt{font-family:"EpsB";font-weight:normal;font-size:14px;color:var(--ink)}
-.bbox .dpb{font-size:13px;color:var(--blue)}
-.bbox .dpg{display:grid;gap:4px;max-height:236px;overflow-y:auto;overscroll-behavior:contain}
-.bbox .dpg.y{grid-template-columns:repeat(4,1fr)}
-.bbox .dpg.m{grid-template-columns:repeat(3,1fr)}
-.bbox .dpg.d{grid-template-columns:repeat(7,1fr);max-height:none}
-.bbox .dpg button{font-family:"Eps";font-size:14px;min-height:38px;border:1px solid transparent;background:#fff;color:var(--ink);cursor:pointer;padding:0}
-.bbox .dpg button:hover{border-color:var(--blue);color:var(--blue)}
-.bbox .dpg button:focus-visible{outline:none;border-color:var(--blue)}
-.bbox .dpg button[aria-pressed=true]{background:var(--blue);color:#fff;border-color:var(--blue)}
-.bbox .dpg button:disabled{color:#C9C6BE;background:transparent;cursor:default;border-color:transparent}
-.bbox .dpg .wd{font-family:"Eps";font-size:12px;color:var(--soft);text-align:center;padding:2px 0}
-.bbox .dpg.d button{min-height:34px;font-size:13.5px}
+/* 3.0 رزرو جلسه — فرمِ تازه: مراحل در یک ستون، خلاصه و ثبت در ستونِ کناری؛ همهٔ قاعده‌ها زیرِ #bm */
+#booking .bpg{display:block}
+#bm{width:100%;color:var(--blue);font-family:"Eps",Tahoma,sans-serif}
+#bm [hidden]{display:none!important}
+#bm .bk-in{margin:0 0 36px;font-size:15px;line-height:1.9}
+#bm .bk-g{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:0 clamp(40px,5.5vw,88px);align-items:start}
+#bm .bk-m{min-width:0}
+#bm .bk-s{display:grid;gap:16px;margin:0 0 44px;min-width:0}
+#bm .bk-h{display:flex;align-items:baseline;gap:10px;margin:0;padding:0 0 10px;border-bottom:1px solid var(--blue);font-family:"EpsB";font-weight:normal;font-size:18px;line-height:1.4;color:var(--blue)}
+#bm .bk-h .n{font-family:"EpsB";font-size:13px;color:var(--ochre)}
+#bm .bk-l{font:inherit;background:none;border:0;border-radius:0;padding:0 0 1px;margin:0;color:var(--blue);border-bottom:1px solid currentColor;cursor:pointer;line-height:1.5}
+#bm .bk-l:hover{color:var(--ochre)}
+/* fields */
+#bm .bk-r{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+#bm .bk-f{display:grid;gap:6px;min-width:0;align-content:start}
+#bm .bk-lb{font-size:13px;line-height:1.5;color:var(--blue)}
+#bm input:not([type=checkbox]),#bm select,#bm textarea,#bm .dpf{font-family:"Eps";font-size:15px;width:100%;box-sizing:border-box;min-height:46px;margin:0;padding:10px 12px;border:1px solid var(--guide);border-radius:0;background:#fff;color:var(--blue);-webkit-appearance:none;appearance:none}
+#bm input[dir=ltr]{text-align:left;font-family:"CarlitoW","Calibri Light","Eps",sans-serif;letter-spacing:.2px}
+#bm input:focus,#bm select:focus,#bm textarea:focus,#bm .dpf:focus-visible,#bm .dpf[aria-expanded=true]{outline:none;border-color:var(--blue);box-shadow:inset 0 0 0 1px var(--blue)}
+#bm select{padding-left:34px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%231C39BB' stroke-width='1.4'/%3E%3C/svg%3E") no-repeat left 12px center/12px 8px;cursor:pointer}
+#bm #btz{font-family:"CarlitoW","Calibri Light",sans-serif;text-align:left;padding-left:12px;padding-right:12px;background-position:right 12px center}
+#bm textarea{min-height:110px;resize:vertical;line-height:1.8}
+#bm [aria-invalid=true]{border-color:var(--ochre)!important;box-shadow:none!important;background-color:#FFF8F4}
+#bm .bk-e{font-size:12.5px;line-height:1.6;color:var(--ochre)}
+#bm .bk-hn{font-size:12px;line-height:1.6;color:var(--soft)}
+#bm .bk-nt summary{display:inline-flex;align-items:baseline;gap:6px;cursor:pointer;list-style:none;font-size:14px;color:var(--blue)}
+#bm .bk-nt summary::-webkit-details-marker{display:none}
+#bm .bk-nt summary::before{content:"+";font-size:18px;line-height:1;color:var(--ochre);width:12px}
+#bm .bk-nt[open] summary::before{content:"−"}
+#bm .bk-nt summary span{color:var(--soft);font-size:12.5px}
+#bm .bk-nt textarea{margin-top:10px}
+/* time */
+#bm .bk-tz{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0;font-size:14px;line-height:1.7}
+#bm .bk-tzn{font-family:"EpsB"}
+#bm .bk-tzn bdi{font-family:"CarlitoW","Calibri Light",sans-serif;font-size:13.5px;letter-spacing:.2px;margin-right:4px}
+#bm .bk-tzp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:6px}
+#bm .bk-sl{display:grid;gap:18px}
+#bm .bk-days{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:8px}
+#bm .bk-days button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 6px;border:1px solid var(--guide);border-radius:0;background:#fff;color:var(--blue);cursor:pointer;font-family:"Eps";line-height:1.4}
+#bm .bk-days button:hover{border-color:var(--blue)}
+#bm .bk-days .w{font-family:"EpsB";font-size:14.5px}
+#bm .bk-days .m{font-size:12.5px;color:var(--soft)}
+#bm .bk-days [aria-selected=true]{background:var(--blue);border-color:var(--blue);color:var(--paper)}
+#bm .bk-days [aria-selected=true] .m{color:#C9D1F0}
+#bm .bk-tp{display:grid;gap:10px;padding-top:16px;border-top:1px solid var(--guide)}
+#bm .bk-cap{margin:0;font-size:13px;color:var(--soft)}
+#bm .bk-t{display:flex;flex-wrap:wrap;gap:8px}
+#bm .bk-t button{font-family:"Eps";font-size:15px;min-width:78px;min-height:44px;padding:0 14px;border:1px solid var(--blue);border-radius:0;background:var(--paper);color:var(--blue);cursor:pointer;transition:background .15s}
+#bm .bk-t button:hover{background:#EEF0F8}
+#bm .bk-t button[aria-pressed=true]{background:var(--blue);color:var(--paper)}
+#bm .bk-t button.odd{border-style:dashed;border-color:var(--guide);color:var(--soft)}
+#bm .bk-t button.odd:hover{border-color:var(--blue);color:var(--blue)}
+#bm .bk-st{margin:0;padding:18px 0;font-size:14px;line-height:1.8;color:var(--soft);border-top:1px solid var(--guide);border-bottom:1px solid var(--guide)}
+#bm .bk-st.ld{animation:bkp 1.4s ease-in-out infinite}
+@keyframes bkp{50%{opacity:.45}}
+#bm .bk-pk{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 16px;border:1px solid var(--blue);background:#fff}
+#bm .bk-pk>div{display:grid;gap:2px}
+#bm .bk-pk .t{font-family:"EpsB";font-size:15.5px;line-height:1.6}
+#bm .bk-pk .s{font-size:12.5px;color:var(--soft)}
+/* aside */
+#bm .bk-a{position:sticky;top:24px;display:grid;gap:18px;padding:22px 24px 22px;border:1px solid var(--blue);background:var(--paper)}
+#bm .bk-sum{display:grid;gap:12px;margin:0}
+#bm .bk-sum>div{display:grid;gap:2px}
+#bm .bk-sum dt{font-size:12.5px;color:var(--soft)}
+#bm .bk-sum dd{margin:0;font-size:15px;line-height:1.7;color:var(--blue)}
+#bm .bk-sum dd.emp{font-size:14px;color:var(--soft)}
+#bm .bk-sum s{color:var(--soft);margin-left:6px;text-decoration-thickness:1px}
+#bm .bk-cb{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;line-height:1.8;cursor:pointer}
+#bm .bk-cb input{flex:none;width:17px;height:17px;margin:4px 0 0;accent-color:var(--blue);cursor:pointer}
+#bm .bk-cb input[aria-invalid=true]{outline:1px solid var(--ochre);outline-offset:2px}
+#bm button[type=submit]{font-family:"EpsB";font-size:15px;width:100%;min-height:52px;border:0;border-radius:0;background:var(--blue);color:var(--paper);cursor:pointer}
+#bm button[type=submit]:hover{background:var(--blue2)}
+#bm .bk-msg{margin:0;font-size:13px;line-height:1.8;color:var(--ochre)}
+#bm .bk-q{margin:0;padding-top:14px;border-top:1px solid var(--guide);font-size:13px;color:var(--soft)}
+/* done */
+#bm .bk-ok{max-width:560px;padding:28px 28px 26px;border:1px solid var(--blue);background:var(--paper);outline:none}
+#bm .bk-ok h2{margin:0 0 12px;font-family:"EpsB";font-weight:normal;font-size:20px}
+#bm .bk-ok p{margin:0 0 8px;font-size:15px;line-height:1.9}
+#bm .bk-ok #boks{font-family:"EpsB"}
+#bm .bk-ok .bk-l{display:inline-block;margin-top:10px;font-size:14px}
+/* birth-date picker */
+#bm .dpw{position:relative}
+#bm .dpf{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--soft);cursor:pointer;text-align:right}
+#bm .dpf.has{color:var(--blue)}
+#bm .dpf svg{width:18px;height:18px;flex-shrink:0;fill:none;stroke:var(--blue);stroke-width:1.4;stroke-linecap:round}
+#bm .dpp{position:absolute;right:0;top:calc(100% + 4px);z-index:20;width:min(340px,calc(100vw - 40px));box-sizing:border-box;background:var(--paper);border:1px solid var(--blue);box-shadow:0 14px 30px -14px rgba(23,47,150,.45);padding:10px 12px 12px;display:flex;flex-direction:column;gap:8px}
+#bm .dph{display:flex;justify-content:space-between;align-items:center}
+#bm .dpcal{display:flex;gap:14px}
+#bm .dpcal button,#bm .dpx,#bm .dpb{font-family:"Eps";background:none;border:0;padding:0;cursor:pointer;color:var(--soft)}
+#bm .dpcal button{font-size:13px;padding-bottom:2px;border-bottom:1px solid transparent}
+#bm .dpcal button[aria-checked=true]{color:var(--blue);border-bottom-color:var(--blue)}
+#bm .dpx{font-size:20px;line-height:1;color:var(--blue)}
+#bm .dpn{display:flex;align-items:center;justify-content:space-between;min-height:24px;border-bottom:1px solid var(--guide);padding-bottom:6px}
+#bm .dpt{font-family:"EpsB";font-size:14px}
+#bm .dpb{font-size:13px;color:var(--blue)}
+#bm .dpg{display:grid;gap:4px;max-height:236px;overflow-y:auto;overscroll-behavior:contain}
+#bm .dpg.y{grid-template-columns:repeat(4,1fr)}
+#bm .dpg.m{grid-template-columns:repeat(3,1fr)}
+#bm .dpg.d{grid-template-columns:repeat(7,1fr);max-height:none}
+#bm .dpg button{font-family:"Eps";font-size:14px;min-height:38px;border:1px solid transparent;border-radius:0;background:#fff;color:var(--blue);cursor:pointer;padding:0}
+#bm .dpg button:hover,#bm .dpg button:focus-visible{outline:none;border-color:var(--blue)}
+#bm .dpg button[aria-pressed=true]{background:var(--blue);color:#fff;border-color:var(--blue)}
+#bm .dpg button:disabled{color:#C9C6BE;background:transparent;cursor:default;border-color:transparent}
+#bm .dpg .wd{font-size:12px;color:var(--soft);text-align:center;padding:2px 0}
+#bm .dpg.d button{min-height:34px;font-size:13.5px}
+@media (max-width:1100px){#bm .bk-g{grid-template-columns:minmax(0,1fr)}#bm .bk-a{position:static}}
+@media (max-width:560px){#bm .bk-in{margin-bottom:28px;font-size:14px}#bm .bk-r,#bm .bk-tzp{grid-template-columns:minmax(0,1fr)}#bm .bk-s{margin-bottom:36px}
+ #bm .bk-days{display:flex;overflow-x:auto;scroll-snap-type:x proximity;padding:0 0 4px;scrollbar-width:none}#bm .bk-days::-webkit-scrollbar{display:none}
+ #bm .bk-days button{flex:0 0 88px;scroll-snap-align:start}#bm .bk-t button{flex:1 1 0;min-width:0}#bm .bk-a{padding:18px 16px}#bm .dpp{left:0;right:0;width:auto}}
 </style>
 </head>
 <body>
@@ -897,65 +845,68 @@ a.t:focus-visible{outline:2px solid var(--ochre);outline-offset:-2px}
 <section class="page" id="booking" data-title="رزرو جلسه"><div class="frame"><div class="sheet"><header class="hd" role="banner"><nav aria-label="صفحه‌ها"><a href="#home">خانه</a><a href="#writings" data-w hidden>نوشته‌ها</a><a href="#about">دربارهٔ من</a><a href="#published" data-o>منتشر شده</a><a href="#booking" aria-current="page" class="bk">رزرو جلسه</a></nav></header>
  <h1 class="pt">رزرو جلسه</h1>
  <main class="pc nb bpg">
-<div class="qbox bbox bin" id="bm">
-<form id="bf" action="https://formsubmit.co/3e7b95d01e6ad2f4d0d4995be29aa5b4" method="POST" novalidate onsubmit="return false">
+<div class="bk" id="bm">
+<form id="bf" action="https://formsubmit.co/3e7b95d01e6ad2f4d0d4995be29aa5b4" method="POST" novalidate>
   <input type="hidden" name="_subject" value="رزرو تازه از سایت"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
-  <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-  <input type="hidden" name="نام_و_نام_خانوادگی" id="bnm"><input type="hidden" name="تاریخ_تولد" id="bbd"><input type="hidden" name="سن" id="bag">
-  <input type="hidden" name="کشور" id="bcov"><input type="hidden" name="منطقه_زمانی" id="btzv"><input type="hidden" name="زمان_جلسه_به_وقت_من" id="bslothome">
-  <div class="bgrid">
-  <div class="bcol">
-   <fieldset class="bsec"><legend>دربارهٔ شما</legend>
-    <div class="r2 rn">
-     <label class="fl"><input id="bfn" placeholder="نام" aria-label="نام" autocomplete="given-name" minlength="2" maxlength="40" data-k="txt" required></label>
-     <label class="fl"><input id="bln" placeholder="نام خانوادگی" aria-label="نام خانوادگی" autocomplete="family-name" minlength="2" maxlength="40" data-k="txt" required></label>
-    </div>
-    <div class="fl dpw"><button type="button" id="bdi" class="dpf" aria-haspopup="dialog" aria-expanded="false" aria-controls="bdp"><span class="dpv">تاریخ تولد</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="1"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg></button>
-     <div class="dpp" id="bdp" role="dialog" aria-label="انتخاب تاریخ تولد" hidden>
-      <div class="dph"><span class="dpcal" role="radiogroup" aria-label="تقویم"><button type="button" role="radio" data-c="p" aria-checked="true">شمسی</button><button type="button" role="radio" data-c="g" aria-checked="false">میلادی</button></span><button type="button" class="dpx" aria-label="بستن">×</button></div>
-      <div class="dpn"><button type="button" class="dpb" hidden><span aria-hidden="true">→</span> <span class="dpbl"></span></button><b class="dpt" aria-live="polite"></b></div>
-      <div class="dpg"></div>
-     </div></div>
-    <label class="fl"><input name="شغل" id="bjob" placeholder="شغل" aria-label="شغل" autocomplete="organization-title" minlength="2" maxlength="40" data-k="txt" required></label>
-   </fieldset>
-   <fieldset class="bsec"><legend>راه ارتباط</legend>
-    <label class="fl phw"><input name="شماره_تماس" id="bph" placeholder=" " aria-label="شماره تماس" maxlength="16" type="tel" dir="ltr" inputmode="tel" autocomplete="tel" pattern="\+?[0-9]{7,15}" required><span class="fph" aria-hidden="true"><span class="fb">شماره تماس</span></span></label>
-    <label class="fl"><input name="email" id="bem" placeholder="ایمیل" aria-label="ایمیل" maxlength="80" type="email" dir="ltr" autocomplete="email" pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}" required></label>
-   </fieldset>
-  </div>
-  <div class="bcol">
-   <fieldset class="bsec"><legend>زمان جلسه</legend>
-    <div class="r2 rc" id="bcrow">
-    <label class="fl sel"><select id="bco" aria-label="کشور" required><option value="" selected disabled>کشور</option></select></label>
-    <label class="fl sel tw" id="btzw"><select id="btz" aria-label="منطقهٔ زمانی" required><option value="" selected disabled>منطقهٔ زمانی</option></select><span class="tzro" id="btzro" hidden><bdi dir="ltr"></bdi></span><span class="tov" id="bzov" aria-hidden="true"></span></label>
-    </div>
-    <div class="r3 r2e" id="slots"><select id="bday" aria-label="روز هفته" required><option value="" selected disabled>روز هفته</option></select><label class="fl tw"><select id="btime" aria-label="ساعت" required disabled><option value="" selected disabled>ساعت</option></select><span class="tov" id="btov" aria-hidden="true"></span></label><label class="fl sel"><select id="bfirst" aria-label="تاریخ جلسهٔ اول" required disabled><option value="" selected disabled>تاریخ جلسهٔ اول</option></select></label></div>
-    <p class="none" id="bnone" hidden>فعلاً زمانِ خالی‌ای برای انتخاب نیست.</p>
-    <details class="fl nt"><summary>توضیحات<b aria-hidden="true">+</b></summary><textarea name="توضیح" maxlength="2000" placeholder="اگر توضیحی مد نظر دارید بنویسید" aria-label="توضیحات"></textarea></details>
-   </fieldset>
-   <input type="hidden" name="زمان_جلسه" id="bslot"><input type="hidden" name="زمان_جلسه_ISO" id="bslotiso">
-   <div class="bfee"><span class="bfh">هزینهٔ هر جلسه</span><label class="bst"><input type="checkbox" id="bstu" name="دانشجو" value="بله"><span>دانشجو هستم</span></label><span class="bfv" id="bfv" aria-live="polite"></span><input type="hidden" name="هزینهٔ_جلسه" id="bfeev"></div>
-   <div class="bsend"><p class="berr" id="berr" role="alert" hidden></p><div class="bact"><button type="submit">ثبت رزرو</button><a class="bic" href="mailto:pegah.pourahmad@gmail.com?subject=%D8%B1%D8%B2%D8%B1%D9%88%20%D8%AC%D9%84%D8%B3%D9%87" aria-label="ایمیل" title="ایمیل"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></a><button type="button" class="bic rqt" aria-haspopup="dialog" aria-expanded="false" aria-label="ثبتِ سؤال" title="ثبتِ سؤال"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.6"/><circle cx="12" cy="16.9" r=".6" fill="currentColor" stroke="none"/></svg></button></div></div>
-  </div>
+  <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <input type="hidden" name="تاریخ_تولد" id="bbd"><input type="hidden" name="سن" id="bag"><input type="hidden" name="کشور" id="bcov"><input type="hidden" name="منطقه_زمانی" id="btzv">
+  <input type="hidden" name="زمان_جلسه" id="bslot"><input type="hidden" name="زمان_جلسه_ISO" id="bslotiso"><input type="hidden" name="زمان_جلسه_به_وقت_من" id="bslothome"><input type="hidden" name="هزینهٔ_جلسه" id="bfeev">
+  <p class="bk-in">جلسه‌ها هفتگی‌اند و هر جلسه ۵۰ دقیقه. <span id="bfi"></span></p>
+  <div class="bk-g">
+   <div class="bk-m">
+    <section class="bk-s" aria-labelledby="bkh1">
+     <h2 class="bk-h" id="bkh1"><span class="n">۱</span>زمانِ جلسه</h2>
+     <div class="bk-f bk-tzf">
+      <p class="bk-tz"><span>ساعت‌ها به وقتِ <span id="btzl" class="bk-tzn"></span></span><button type="button" class="bk-l" id="btzc" aria-expanded="false" aria-controls="btzp">تغییر</button></p>
+      <div class="bk-tzp" id="btzp" hidden>
+       <div class="bk-f"><label class="bk-lb" for="bco">کشورِ محلِ زندگی</label><select id="bco"></select><small class="bk-e" hidden></small></div>
+       <div class="bk-f" id="btzw" hidden><label class="bk-lb" for="btz">منطقهٔ زمانی</label><select id="btz" dir="ltr"></select></div>
+      </div>
+     </div>
+     <div class="bk-f bk-slf">
+      <div id="slots" class="bk-sl" hidden></div>
+      <p class="bk-st ld" id="bnone">در حال بارگیریِ زمان‌ها…</p>
+      <div class="bk-pk" id="bpick" tabindex="-1" hidden><div><span class="t" id="bpickt"></span><span class="s">هر هفته در همین روز و ساعت</span></div><button type="button" class="bk-l" id="bpickc">تغییر</button></div>
+      <small class="bk-e" hidden></small>
+     </div>
+    </section>
+    <section class="bk-s" aria-labelledby="bkh2">
+     <h2 class="bk-h" id="bkh2"><span class="n">۲</span>مشخصات شما</h2>
+     <div class="bk-r">
+      <div class="bk-f"><label class="bk-lb" for="bnm">نام و نام خانوادگی</label><input name="نام_و_نام_خانوادگی" id="bnm" autocomplete="name" maxlength="80" data-k="txt"><small class="bk-e" hidden></small></div>
+      <div class="bk-f dpw"><span class="bk-lb" id="bdl">تاریخ تولد</span><button type="button" id="bdi" class="dpf" aria-haspopup="dialog" aria-expanded="false" aria-controls="bdp" aria-labelledby="bdl bdi"><span class="dpv">انتخاب کنید</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="1"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg></button>
+       <div class="dpp" id="bdp" role="dialog" aria-label="انتخاب تاریخ تولد" hidden>
+        <div class="dph"><span class="dpcal" role="radiogroup" aria-label="تقویم"><button type="button" role="radio" data-c="p" aria-checked="true">شمسی</button><button type="button" role="radio" data-c="g" aria-checked="false">میلادی</button></span><button type="button" class="dpx" aria-label="بستن">×</button></div>
+        <div class="dpn"><button type="button" class="dpb" hidden><span aria-hidden="true">→</span> <span class="dpbl"></span></button><span class="dpt" aria-live="polite"></span></div>
+        <div class="dpg"></div>
+       </div><small class="bk-e" hidden></small></div>
+     </div>
+     <div class="bk-r">
+      <div class="bk-f"><label class="bk-lb" for="bjob">شغل</label><input name="شغل" id="bjob" autocomplete="organization-title" maxlength="40" data-k="txt"><small class="bk-e" hidden></small></div>
+      <div class="bk-f"><label class="bk-lb" for="bph">شماره تماس</label><input name="شماره_تماس" id="bph" type="tel" dir="ltr" inputmode="tel" autocomplete="tel" maxlength="16"><small class="bk-e" hidden></small></div>
+     </div>
+     <div class="bk-f"><label class="bk-lb" for="bem">ایمیل</label><input name="email" id="bem" type="email" dir="ltr" autocomplete="email" maxlength="80" aria-describedby="bemh"><small class="bk-hn" id="bemh">نتیجهٔ رزرو به همین نشانی فرستاده می‌شود.</small><small class="bk-e" hidden></small></div>
+     <details class="bk-nt"><summary>توضیح <span>(اختیاری)</span></summary><textarea name="توضیح" maxlength="2000" aria-label="توضیح"></textarea></details>
+    </section>
+   </div>
+   <aside class="bk-a" aria-labelledby="bkh3">
+    <h2 class="bk-h" id="bkh3"><span class="n">۳</span>ثبت درخواست</h2>
+    <dl class="bk-sum"><div><dt>زمانِ جلسهٔ اول</dt><dd id="bsum" class="emp" aria-live="polite">هنوز انتخاب نشده</dd></div><div><dt>هزینهٔ هر جلسه</dt><dd id="bfv" aria-live="polite"></dd></div></dl>
+    <label class="bk-cb"><input type="checkbox" id="bstu" name="دانشجو" value="بله"><span>دانشجو هستم</span></label>
+    <div class="bk-f"><label class="bk-cb"><input type="checkbox" id="bagr"><span>این رزرو را برای خودم انجام می‌دهم و می‌دانم جلسهٔ اول برای آشنایی و گفت‌وگو دربارهٔ چارچوبِ جلسه‌هاست.</span></label><small class="bk-e" hidden></small></div>
+    <button type="submit">ثبت درخواست رزرو</button>
+    <p class="bk-msg" id="berr" role="alert" hidden></p>
+    <p class="bk-q">سؤالی دارید؟ <button type="button" class="bk-l rqt" aria-haspopup="dialog" aria-expanded="false">ثبت سؤال</button></p>
+   </aside>
   </div>
  </form>
+ <div class="bk-ok" id="bok" role="status" tabindex="-1" hidden>
+  <h2>درخواستِ رزرو ثبت شد.</h2>
+  <p>زمانِ جلسهٔ اول: <span id="boks"></span></p>
+  <p>نتیجه به <bdi id="boke"></bdi> ایمیل می‌شود.</p>
+  <a href="#home" class="bk-l">بازگشت به صفحهٔ اصلی</a>
+ </div>
 </div>
-
-<div class="qm qm2" id="btm" hidden><div class="qbox okbox tmbox" role="dialog" aria-modal="true" aria-labelledby="btmt">
- <button type="button" class="qx" aria-label="بستن">×</button>
- <div class="tmA"><h3 id="btmt">شرایط برگزاری جلسه</h3>
- <ul class="bl tml">
-  <li>جلسات <b>هفتگی</b> و به مدت <b>۵۰ دقیقه</b> برگزار می‌شوند.</li>
-  <li>رزرو جلسه باید توسط <b>خود فردی</b> انجام شود که قصد شرکت در جلسه را دارد.</li>
-  <li><b>جلسهٔ اول</b> فرصتی برای آشنایی با یکدیگر و شیوهٔ کار خواهد بود. در این جلسه دربارهٔ چارچوب ادامهٔ جلسات گفت‌وگو خواهیم کرد.</li>
- </ul>
- <div class="tmb"><button type="button" class="tmy">موافقم و ادامه</button><button type="button" class="tmn">موافق نیستم</button></div></div>
- <div class="tmB" hidden><h3>رزرو ثبت نشد.</h3><p>اگر دربارهٔ شرایط برگزاری جلسه سؤالی دارید، «ثبت سؤال» را بزنید.</p><div class="tmb"><button type="button" class="tmq">ثبت سؤال</button></div></div>
-</div></div>
-<div class="qm qm2" id="bokm" hidden><div class="qbox okbox" role="alertdialog" aria-modal="true" aria-labelledby="bokt">
- <button type="button" class="qx" aria-label="بستن">×</button>
- <p id="bokt">درخواست رزرو جلسه ثبت شد و نتیجه از طریق ایمیل به اطلاع شما خواهد رسید.</p>
-</div></div>
 <div class="qm" id="qm" hidden><div class="qbox" role="dialog" aria-modal="true" aria-labelledby="qmt">
  <button type="button" class="qx" aria-label="بستن">×</button>
  <h3 id="qmt">ثبتِ سؤال</h3>
@@ -1275,7 +1226,7 @@ addEventListener('hashchange',route);addEventListener('resize',fit);document.fon
 <script>
 (function(){const b=document.querySelector('.nb .rqt'),m=document.getElementById('qm'),f=document.getElementById('qf');if(!b||!m)return;
 const open=()=>{/* 2.63: نام و شماره تماس از فرمِ رزرو، اگر پر شده باشند */
- {const g=id=>((document.getElementById(id)||{}).value||'').replace(/\s+/g,' ').trim(),nm=f.querySelector('input[name="نام"]'),qc=document.getElementById('qc'),full=(g('bfn')+' '+g('bln')).trim(),ph=g('bph').replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[\s\-()]/g,'');
+ {const g=id=>((document.getElementById(id)||{}).value||'').replace(/\s+/g,' ').trim(),nm=f.querySelector('input[name="نام"]'),qc=document.getElementById('qc'),full=g('bnm'),ph=g('bph').replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[\s\-()]/g,'');
   if(nm&&!nm.value.trim()&&full)nm.value=full;if(qc&&!qc.value.trim()&&ph)qc.value=ph;
   const qe=document.getElementById('qem');if(qe&&!qe.value.trim()&&g('bem'))qe.value=g('bem');}
  f.hidden=false;const ok=m.querySelector('.qok');if(ok)ok.hidden=true;const qe=m.querySelector('.qerr');if(qe)qe.hidden=true;m.hidden=false;b.setAttribute('aria-expanded','true');setTimeout(()=>m.querySelector('input:not([type=hidden]):not([name=_honey])').focus(),50)};
@@ -1295,189 +1246,189 @@ const em=document.getElementById('qem');
 if(em){const ce=()=>{em.value=em.value.trim();em.setCustomValidity(!em.value?'لطفاً «ایمیل» را پر کنید.':((em.validity.patternMismatch||em.validity.typeMismatch)?'نشانیِ ایمیل درست نیست.':''))};em.addEventListener('input',()=>em.setCustomValidity(''));em.addEventListener('invalid',ce);}})();
 </script>
 <script>
-/* زمان‌های خالی: هر مورد یک زمانِ شروع به وقتِ خودتان، با اختلافِ ساعت. نمونه‌اند؛ پیش از انتشار با زمان‌های واقعی جایگزین شوند. */
-const HOME_TZ="Europe/Berlin";
-/* زمان‌های خالی: روزهای هفته (۴ = پنجشنبه، ۵ = جمعه) و ساعت‌ها به وقتِ HOME_TZ. همیشه پنجشنبه و جمعهٔ پیشِ رو نشان داده می‌شوند. */
-const WEEKLY={4:["12:00","15:00","16:00"],5:["12:00","15:00","16:00"]};
-const EXTRA=[]; /* زمانِ اضافه، اختیاری: "YYYY-MM-DD HH:MM" */
-/* ─── زمان‌های خالی از تقویمِ گوگل ───
-   اگر GCAL.id و GCAL.key پر باشند، زمان‌ها فقط از آن تقویم خوانده می‌شوند:
-   هر رویدادی که عنوانش یکی از FREE_WORDS باشد یک زمانِ خالی است (شروعِ رویداد = شروعِ جلسه).
-   برای غیرفعال کردن، عنوانِ رویداد را عوض یا رویداد را حذف کنید. اگر خالی بمانند، از WEEKLY استفاده می‌شود. */
-const GCAL={id:"b01e675eb69783b3d010398a4dea936a08c84373d8469c5fd179822947b2945b@group.calendar.google.com",key:""};
-const FREE_WORDS=["free","فری","خالی"];
-/* ─── اسکریپتِ گوگل (پیشنهادی) ───
-   اگر SCRIPT_URL (نشانیِ /exec اسکریپت) پر باشد، زمان‌های خالی از همان اسکریپت خوانده می‌شوند و فرمِ رزرو هم به آن فرستاده می‌شود:
-   اسکریپت زمان را در تقویم «پر» می‌کند، جلسه را در تقویمِ اصلی می‌گذارد و ایمیل می‌فرستد. کلیدِ API و عمومی بودنِ تقویم لازم نیست. */
+/* 3.0 رزرو جلسه — بازنویسی: اول زمان (یک لمس)، بعد مشخصات، بعد ثبت.
+   زمان‌های خالی از اسکریپتِ گوگل (SCRIPT_URL) خوانده می‌شوند و فرم به همان فرستاده می‌شود. نامِ فیلدهای ارسالی همان قبلی است. */
+(function(){
+const f=document.getElementById('bf'),box=document.getElementById('bm');if(!f||!box)return;
 const SCRIPT_URL="https://script.google.com/macros/s/AKfycbwnD0VtCaNT4zQyTtXyxfswhReCAKc6MyWBjhZYvqRfE-AIbM2_9eOU9B8NgdHoyqmP/exec";
-const LEAD_MS=48*3600e3;   /* 2.90: زمانی که کمتر از ۴۸ ساعت به آن مانده نشان داده و پذیرفته نمی‌شود (از تقویم هم حذف می‌شود) */
-let GC=null,GCerr=false,GCload=false;
-const GCq=[];   /* 2.14: whoever is waiting for the free times is told when they arrive */
-function gcLoad(cb){if(SCRIPT_URL){if(GC)return cb();if(GCload){GCq.push(cb);return cb();}GCload=true;GCerr=false;const get=n=>fetchT(SCRIPT_URL+'?a=slots'+(n?'&r='+n:''),{},15000).then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{if(!j||!j.ok)throw 0;return j});/* 2.9: اگر بارِ اول جواب نیامد، یک بارِ دیگر */get(0).catch(()=>get(1)).then(j=>{GC=(j.slots||[]).map(x=>new Date(x)).filter(d=>!isNaN(d));}).catch(()=>{GCerr=true;GC=[];}).finally(()=>{GCload=false;cb();GCq.splice(0).forEach(f=>f());});return;}
- if(!GCAL.id||!GCAL.key)return cb();if(GC)return cb();if(GCload){GCq.push(cb);return cb();}GCload=true;
- const u='https://www.googleapis.com/calendar/v3/calendars/'+encodeURIComponent(GCAL.id)+'/events?singleEvents=true&orderBy=startTime&maxResults=250&timeMin='+encodeURIComponent(new Date(Date.now()+LEAD_MS).toISOString())+'&timeMax='+encodeURIComponent(new Date(Date.now()+45*864e5).toISOString())+'&key='+encodeURIComponent(GCAL.key);
- fetchT(u,{},12000).then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{GC=(j.items||[]).filter(e=>e.status!=='cancelled'&&e.start&&e.start.dateTime&&FREE_WORDS.includes(String(e.summary||'').trim().toLowerCase())).map(e=>new Date(e.start.dateTime));})
- .catch(()=>{GCerr=true;GC=[];}).finally(()=>{GCload=false;cb();GCq.splice(0).forEach(f=>f());});}
-/* 2.14: free times start loading as soon as the booking page opens, so they are usually ready when the form opens */
-(function(){const pre=()=>{if((location.hash||'').slice(1)==='booking')gcLoad(()=>{});};addEventListener('hashchange',pre);pre();})();
-function slotList(){if(SCRIPT_URL||(GCAL.id&&GCAL.key))return GC||[];const out=[],now=Date.now(),seen={};const ymd=new Intl.DateTimeFormat('en-CA',{timeZone:HOME_TZ,year:'numeric',month:'2-digit',day:'2-digit'});
- for(let i=0;i<14;i++){const day=ymd.format(new Date(now+i*864e5));if(seen[day])continue;seen[day]=1;const wd=new Date(day+'T12:00:00Z').getUTCDay();const H=WEEKLY[wd];if(!H)continue;
-  if(out.some(x=>x.wd===wd))continue;const L=H.map(h=>wall(day+' '+h)).filter(d=>d>now+LEAD_MS);if(L.length)out.push({wd,L});}
- return out.flatMap(x=>x.L).concat(EXTRA.map(wall));}
-function wall(x){const [d,t]=x.trim().split(/[ T]/),[Y,M,D]=d.split('-').map(Number),[h,mi]=t.split(':').map(Number);let u=Date.UTC(Y,M-1,D,h,mi);
- for(let i=0;i<2;i++){const p=new Intl.DateTimeFormat('en-US',{timeZone:HOME_TZ,hourCycle:'h23',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}).formatToParts(new Date(u)).reduce((o,q)=>(o[q.type]=q.value,o),{});
- const asU=Date.UTC(+p.year,+p.month-1,+p.day,+p.hour,+p.minute);u+=Date.UTC(Y,M-1,D,h,mi)-asU;}return new Date(u);}
-(function(){const m=document.getElementById('bm'),f=document.getElementById('bf');if(!m||!f)return;const btn={focus(){}};
-const box=document.getElementById('slots'),hid=document.getElementById('bslot'),iso=document.getElementById('bslotiso'),err=document.getElementById('berr');
-const TZC={"AD":["آندورا",[["Europe/Andorra","آندورا"]]],"AE":["امارات متحدهٔ عربی",[["Asia/Dubai","دبی"]]],"AF":["افغانستان",[["Asia/Kabul","کابل"]]],"AG":["آنتیگوا و باربودا",[["America/Antigua","آنتیگوا"]]],"AI":["آنگویلا",[["America/Anguilla","آنگوئیلا"]]],"AL":["آلبانی",[["Europe/Tirane","تیرانا"]]],"AM":["ارمنستان",[["Asia/Yerevan","ایروان"]]],"AO":["آنگولا",[["Africa/Luanda","لواندا"]]],"AQ":["جنوبگان",[["Antarctica/McMurdo","مک‌موردو"],["Antarctica/Casey","کیسی"],["Antarctica/Davis","دیویس"],["Antarctica/DumontDUrville","دومون دورویل"],["Antarctica/Mawson","ماوسون"],["Antarctica/Palmer","پالمر"],["Antarctica/Rothera","روترا"],["Antarctica/Syowa","شووا"],["Antarctica/Troll","ترول"],["Antarctica/Vostok","وستوک"]]],"AR":["آرژانتین",[["America/Argentina/Buenos_Aires","بوئنوس آیرس"],["America/Argentina/Cordoba","کوردوبا"],["America/Argentina/Salta","سالتا"],["America/Argentina/Jujuy","خوخوی"],["America/Argentina/Tucuman","توکومن"],["America/Argentina/Catamarca","کاتامارکا"],["America/Argentina/La_Rioja","لاریوخا"],["America/Argentina/San_Juan","سن‌خوان"],["America/Argentina/Mendoza","مندوسا"],["America/Argentina/San_Luis","سن‌لوئیس"],["America/Argentina/Rio_Gallegos","ریوگالگوس"],["America/Argentina/Ushuaia","اوشوایا"]]],"AS":["ساموآی امریکا",[["Pacific/Pago_Pago","پاگوپاگو"]]],"AT":["اتریش",[["Europe/Vienna","وین"]]],"AU":["استرالیا",[["Australia/Lord_Howe","لردهاو"],["Antarctica/Macquarie","مکواری"],["Australia/Hobart","هوبارت"],["Australia/Melbourne","ملبورن"],["Australia/Sydney","سیدنی"],["Australia/Broken_Hill","بروکن‌هیل"],["Australia/Brisbane","بریسبین"],["Australia/Lindeman","لیندمن"],["Australia/Adelaide","آدلاید"],["Australia/Darwin","داروین"],["Australia/Perth","پرت"],["Australia/Eucla","اوکلا"]]],"AW":["آروبا",[["America/Aruba","اروبا"]]],"AX":["جزایر آلاند",[["Europe/Mariehamn","ماریه‌هامن"]]],"AZ":["جمهوری آذربایجان",[["Asia/Baku","باکو"]]],"BA":["بوسنی و هرزگوین",[["Europe/Sarajevo","سارایوو"]]],"BB":["باربادوس",[["America/Barbados","باربادوس"]]],"BD":["بنگلادش",[["Asia/Dhaka","داکا"]]],"BE":["بلژیک",[["Europe/Brussels","بروکسل"]]],"BF":["بورکینافاسو",[["Africa/Ouagadougou","اوآگادوگو"]]],"BG":["بلغارستان",[["Europe/Sofia","صوفیه"]]],"BH":["بحرین",[["Asia/Bahrain","بحرین"]]],"BI":["بوروندی",[["Africa/Bujumbura","بوجومبورا"]]],"BJ":["بنین",[["Africa/Porto-Novo","پورتو نووو"]]],"BL":["سن بارتلمی",[["America/St_Barthelemy","سنت بارتلمی"]]],"BM":["برمودا",[["Atlantic/Bermuda","برمودا"]]],"BN":["برونئی",[["Asia/Brunei","برونئی"]]],"BO":["بولیوی",[["America/La_Paz","لاپاز"]]],"BQ":["جزایر کارائیب هلند",[["America/Kralendijk","کرالندیک"]]],"BR":["برزیل",[["America/Noronha","نورونیا"],["America/Belem","بلم"],["America/Fortaleza","فورتالزا"],["America/Recife","ریسیفی"],["America/Araguaina","آراگواینا"],["America/Maceio","ماسیو"],["America/Bahia","بایا"],["America/Sao_Paulo","سائوپائولو"],["America/Campo_Grande","کمپو گرانده"],["America/Cuiaba","کویاوا"],["America/Santarem","سنتارم"],["America/Porto_Velho","پورتوولیو"],["America/Boa_Vista","بوئاویستا"],["America/Manaus","ماناوس"],["America/Eirunepe","ایرونپه"],["America/Rio_Branco","ریوبرانکو"]]],"BS":["باهاما",[["America/Nassau","ناسائو"]]],"BT":["بوتان",[["Asia/Thimphu","تیمفو"]]],"BW":["بوتسوانا",[["Africa/Gaborone","گابورون"]]],"BY":["بلاروس",[["Europe/Minsk","مینسک"]]],"BZ":["بلیز",[["America/Belize","بلیز"]]],"CA":["کانادا",[["America/St_Johns","سنت جان"],["America/Halifax","هلیفکس"],["America/Glace_Bay","گلیس‌بی"],["America/Moncton","مانکتون"],["America/Goose_Bay","گوس‌بی"],["America/Blanc-Sablon","بلان‐سابلون"],["America/Toronto","تورنتو"],["America/Iqaluit","ایکلوئت"],["America/Atikokan","آتیکوکان"],["America/Winnipeg","وینیپگ"],["America/Resolute","رزولوت"],["America/Rankin_Inlet","خلیجک رنکین"],["America/Regina","رجاینا"],["America/Swift_Current","سویفت‌کارنت"],["America/Edmonton","ادمونتون"],["America/Cambridge_Bay","کمبریج‌بی"],["America/Inuvik","اینوویک"],["America/Vancouver","ونکوور"],["America/Creston","کرستون"],["America/Dawson_Creek","داوسن کریک"],["America/Fort_Nelson","فورت نلسون"],["America/Whitehorse","وایت‌هورس"],["America/Dawson","داوسن"]]],"CC":["جزایر کوکوس",[["Indian/Cocos","کوکوس"]]],"CD":["کنگو - کینشاسا",[["Africa/Kinshasa","کینشاسا"],["Africa/Lubumbashi","لوبومباشی"]]],"CF":["جمهوری افریقای مرکزی",[["Africa/Bangui","بانگی"]]],"CG":["کنگو - برازویل",[["Africa/Brazzaville","برازویل"]]],"CH":["سوئیس",[["Europe/Zurich","زوریخ"]]],"CI":["ساحل عاج",[["Africa/Abidjan","آبیجان"]]],"CK":["جزایر کوک",[["Pacific/Rarotonga","راروتونگا"]]],"CL":["شیلی",[["America/Santiago","سانتیاگو"],["America/Coyhaique","کویایکه"],["America/Punta_Arenas","پونتا آرناس"],["Pacific/Easter","ایستر"]]],"CM":["کامرون",[["Africa/Douala","دوآلا"]]],"CN":["چین",[["Asia/Shanghai","شانگهای"],["Asia/Urumqi","ارومچی"]]],"CO":["کلمبیا",[["America/Bogota","بوگوتا"]]],"CR":["کاستاریکا",[["America/Costa_Rica","کاستاریکا"]]],"CU":["کوبا",[["America/Havana","هاوانا"]]],"CV":["کیپ‌ورد",[["Atlantic/Cape_Verde","کیپ‌ورد"]]],"CW":["کوراسائو",[["America/Curacao","کوراسائو"]]],"CX":["جزیرهٔ کریسمس",[["Indian/Christmas","کریسمس"]]],"CY":["قبرس",[["Asia/Nicosia","نیکوزیا"],["Asia/Famagusta","فاماگوستا"]]],"CZ":["چک",[["Europe/Prague","پراگ"]]],"DE":["آلمان",[["Europe/Berlin","برلین"],["Europe/Busingen","بازنگن"]]],"DJ":["جیبوتی",[["Africa/Djibouti","جیبوتی"]]],"DK":["دانمارک",[["Europe/Copenhagen","کپنهاگ"]]],"DM":["دومینیکا",[["America/Dominica","دومینیکا"]]],"DO":["جمهوری دومینیکن",[["America/Santo_Domingo","سانتو دومینگو"]]],"DZ":["الجزایر",[["Africa/Algiers","الجزیره"]]],"EC":["اکوادور",[["America/Guayaquil","گوایاکیل"],["Pacific/Galapagos","گالاپاگوس"]]],"EE":["استونی",[["Europe/Tallinn","تالین"]]],"EG":["مصر",[["Africa/Cairo","قاهره"]]],"EH":["صحرای غربی",[["Africa/El_Aaiun","العیون"]]],"ER":["اریتره",[["Africa/Asmara","اسمره"]]],"ES":["اسپانیا",[["Europe/Madrid","مادرید"],["Africa/Ceuta","سبته"],["Atlantic/Canary","قناری"]]],"ET":["اتیوپی",[["Africa/Addis_Ababa","آدیس آبابا"]]],"FI":["فنلاند",[["Europe/Helsinki","هلسینکی"]]],"FJ":["فیجی",[["Pacific/Fiji","فیجی"]]],"FK":["جزایر فالکلند",[["Atlantic/Stanley","استانلی"]]],"FM":["میکرونزی",[["Pacific/Chuuk","چوک"],["Pacific/Pohnpei","پونپی"],["Pacific/Kosrae","کوسرای"]]],"FO":["جزایر فارو",[["Atlantic/Faroe","فارو"]]],"FR":["فرانسه",[["Europe/Paris","پاریس"]]],"GA":["گابن",[["Africa/Libreville","لیبرویل"]]],"GB":["بریتانیا",[["Europe/London","لندن"]]],"GD":["گرنادا",[["America/Grenada","گرنادا"]]],"GE":["گرجستان",[["Asia/Tbilisi","تفلیس"]]],"GF":["گویان فرانسه",[["America/Cayenne","کاین"]]],"GG":["گرنزی",[["Europe/Guernsey","گرنزی"]]],"GH":["غنا",[["Africa/Accra","اکرا"]]],"GI":["جبل‌الطارق",[["Europe/Gibraltar","جبل‌الطارق"]]],"GL":["گرینلند",[["America/Nuuk","نوک"],["America/Danmarkshavn","دانمارکس‌هاون"],["America/Scoresbysund","اسکورسبیسوند"],["America/Thule","تول"]]],"GM":["گامبیا",[["Africa/Banjul","بانجول"]]],"GN":["گینه",[["Africa/Conakry","کوناکری"]]],"GP":["گوادلوپ",[["America/Guadeloupe","گوادلوپ"]]],"GQ":["گینهٔ استوایی",[["Africa/Malabo","مالابو"]]],"GR":["یونان",[["Europe/Athens","آتن"]]],"GS":["جورجیای جنوبی و جزایر ساندویچ جنوبی",[["Atlantic/South_Georgia","جورجیای جنوبی"]]],"GT":["گواتمالا",[["America/Guatemala","گواتمالا"]]],"GU":["گوام",[["Pacific/Guam","گوام"]]],"GW":["گینهٔ بیسائو",[["Africa/Bissau","بیسائو"]]],"GY":["گویان",[["America/Guyana","گویان"]]],"HK":["هنگ‌کنگ، منطقهٔ ویژهٔ اداری چین",[["Asia/Hong_Kong","هنگ‌کنگ"]]],"HN":["هندوراس",[["America/Tegucigalpa","تگوسیگالپا"]]],"HR":["کرواسی",[["Europe/Zagreb","زاگرب"]]],"HT":["هائیتی",[["America/Port-au-Prince","پورتوپرنس"]]],"HU":["مجارستان",[["Europe/Budapest","بوداپست"]]],"ID":["اندونزی",[["Asia/Jakarta","جاکارتا"],["Asia/Pontianak","پونتیاناک"],["Asia/Makassar","ماکاسار"],["Asia/Jayapura","جایاپورا"]]],"IE":["ایرلند",[["Europe/Dublin","دوبلین"]]],"IL":["اسرائیل",[["Asia/Jerusalem","اورشلیم"]]],"IM":["جزیرهٔ من",[["Europe/Isle_of_Man","جزیرهٔ من"]]],"IN":["هند",[["Asia/Kolkata","کلکته"]]],"IO":["قلمرو بریتانیا در اقیانوس هند",[["Indian/Chagos","شاگوس"]]],"IQ":["عراق",[["Asia/Baghdad","بغداد"]]],"IR":["ایران",[["Asia/Tehran","تهران"]]],"IS":["ایسلند",[["Atlantic/Reykjavik","ریکیاویک"]]],"IT":["ایتالیا",[["Europe/Rome","رم"]]],"JE":["جرزی",[["Europe/Jersey","جرزی"]]],"JM":["جامائیکا",[["America/Jamaica","جامائیکا"]]],"JO":["اردن",[["Asia/Amman","عَمان"]]],"JP":["ژاپن",[["Asia/Tokyo","توکیو"]]],"KE":["کنیا",[["Africa/Nairobi","نایروبی"]]],"KG":["قرقیزستان",[["Asia/Bishkek","بیشکک"]]],"KH":["کامبوج",[["Asia/Phnom_Penh","پنوم‌پن"]]],"KI":["کیریباتی",[["Pacific/Tarawa","تاراوا"],["Pacific/Kanton","کانتون"],["Pacific/Kiritimati","کریتیماتی"]]],"KM":["کومور",[["Indian/Comoro","کومورو"]]],"KN":["سنت کیتس و نویس",[["America/St_Kitts","سنت کیتس"]]],"KP":["کرهٔ شمالی",[["Asia/Pyongyang","پیونگ‌یانگ"]]],"KR":["کرهٔ جنوبی",[["Asia/Seoul","سئول"]]],"KW":["کویت",[["Asia/Kuwait","کویت"]]],"KY":["جزایر کِیمن",[["America/Cayman","کیمن"]]],"KZ":["قزاقستان",[["Asia/Almaty","آلماتی"],["Asia/Qyzylorda","قیزیل‌اوردا"],["Asia/Qostanay","قوستانای"],["Asia/Aqtobe","آقتوبه"],["Asia/Aqtau","آقتاو"],["Asia/Atyrau","آتیراو"],["Asia/Oral","اورال"]]],"LA":["لائوس",[["Asia/Vientiane","وینتیان"]]],"LB":["لبنان",[["Asia/Beirut","بیروت"]]],"LC":["سنت لوسیا",[["America/St_Lucia","سنت لوسیا"]]],"LI":["لیختن‌اشتاین",[["Europe/Vaduz","فادوتس"]]],"LK":["سری‌لانکا",[["Asia/Colombo","کلمبو"]]],"LR":["لیبریا",[["Africa/Monrovia","مونروویا"]]],"LS":["لسوتو",[["Africa/Maseru","ماسرو"]]],"LT":["لیتوانی",[["Europe/Vilnius","ویلنیوس"]]],"LU":["لوکزامبورگ",[["Europe/Luxembourg","لوکزامبورگ"]]],"LV":["لتونی",[["Europe/Riga","ریگا"]]],"LY":["لیبی",[["Africa/Tripoli","طرابلس"]]],"MA":["مراکش",[["Africa/Casablanca","کازابلانکا"]]],"MC":["موناکو",[["Europe/Monaco","موناکو"]]],"MD":["مولداوی",[["Europe/Chisinau","کیشیناو"]]],"ME":["مونته‌نگرو",[["Europe/Podgorica","پادگاریتسا"]]],"MF":["سنت مارتین",[["America/Marigot","ماریگات"]]],"MG":["ماداگاسکار",[["Indian/Antananarivo","آنتاناناریوو"]]],"MH":["جزایر مارشال",[["Pacific/Majuro","ماجورو"],["Pacific/Kwajalein","کواجیلین"]]],"MK":["مقدونیهٔ شمالی",[["Europe/Skopje","اسکوپیه"]]],"ML":["مالی",[["Africa/Bamako","باماکو"]]],"MM":["میانمار (برمه)",[["Asia/Yangon","یانگون"]]],"MN":["مغولستان",[["Asia/Ulaanbaatar","اولان‌باتور"],["Asia/Hovd","خوود"]]],"MO":["ماکائو، منطقهٔ ویژهٔ اداری چین",[["Asia/Macau","ماکائو"]]],"MP":["جزایر ماریانای شمالی",[["Pacific/Saipan","سایپان"]]],"MQ":["مارتینیک",[["America/Martinique","مارتینیک"]]],"MR":["موریتانی",[["Africa/Nouakchott","نوآکشوت"]]],"MS":["مونت‌سرات",[["America/Montserrat","مونتسرات"]]],"MT":["مالت",[["Europe/Malta","مالت"]]],"MU":["موریس",[["Indian/Mauritius","موریس"]]],"MV":["مالدیو",[["Indian/Maldives","مالدیو"]]],"MW":["مالاوی",[["Africa/Blantyre","بلانتیره"]]],"MX":["مکزیک",[["America/Mexico_City","مکزیکوسیتی"],["America/Cancun","کانکون"],["America/Merida","مریدا"],["America/Monterrey","مونتری"],["America/Matamoros","ماتاموروس"],["America/Chihuahua","چیواوا"],["America/Ciudad_Juarez","سیوداد خوارز"],["America/Ojinaga","اوجیناگا"],["America/Mazatlan","ماساتلان"],["America/Bahia_Banderas","باهیا باندراس"],["America/Hermosillo","ارموسیو"],["America/Tijuana","تیخوانا"]]],"MY":["مالزی",[["Asia/Kuala_Lumpur","کوالالامپور"],["Asia/Kuching","کوچینگ"]]],"MZ":["موزامبیک",[["Africa/Maputo","ماپوتو"]]],"NA":["نامیبیا",[["Africa/Windhoek","ویندهوک"]]],"NC":["کالدونیای جدید",[["Pacific/Noumea","نومئا"]]],"NE":["نیجر",[["Africa/Niamey","نیامی"]]],"NF":["جزیرهٔ نورفولک",[["Pacific/Norfolk","نورفولک"]]],"NG":["نیجریه",[["Africa/Lagos","لاگوس"]]],"NI":["نیکاراگوئه",[["America/Managua","ماناگوا"]]],"NL":["هلند",[["Europe/Amsterdam","آمستردام"]]],"NO":["نروژ",[["Europe/Oslo","اسلو"]]],"NP":["نپال",[["Asia/Kathmandu","کاتماندو"]]],"NR":["نائورو",[["Pacific/Nauru","نائورو"]]],"NU":["نیوئه",[["Pacific/Niue","نیوئه"]]],"NZ":["نیوزیلند",[["Pacific/Auckland","اوکلند"],["Pacific/Chatham","چت‌هام"]]],"OM":["عمان",[["Asia/Muscat","مسقط"]]],"PA":["پاناما",[["America/Panama","پاناما"]]],"PE":["پرو",[["America/Lima","لیما"]]],"PF":["پلی‌نزی فرانسه",[["Pacific/Tahiti","تاهیتی"],["Pacific/Marquesas","مارکوزه"],["Pacific/Gambier","گامبیر"]]],"PG":["پاپوا گینهٔ نو",[["Pacific/Port_Moresby","پورت‌مورزبی"],["Pacific/Bougainville","بوگنویل"]]],"PH":["فیلیپین",[["Asia/Manila","مانیل"]]],"PK":["پاکستان",[["Asia/Karachi","کراچی"]]],"PL":["لهستان",[["Europe/Warsaw","ورشو"]]],"PM":["سن پیر و میکلن",[["America/Miquelon","میکلون"]]],"PN":["جزایر پیت‌کرن",[["Pacific/Pitcairn","پیت‌کرن"]]],"PR":["پورتوریکو",[["America/Puerto_Rico","پورتوریکو"]]],"PS":["فلسطین",[["Asia/Gaza","غزه"],["Asia/Hebron","الخلیل"]]],"PT":["پرتغال",[["Europe/Lisbon","لیسبون"],["Atlantic/Madeira","مادیرا"],["Atlantic/Azores","آزور"]]],"PW":["پالائو",[["Pacific/Palau","پالائو"]]],"PY":["پاراگوئه",[["America/Asuncion","آسونسیون"]]],"QA":["قطر",[["Asia/Qatar","قطر"]]],"RE":["رئونیون",[["Indian/Reunion","رئونیون"]]],"RO":["رومانی",[["Europe/Bucharest","بخارست"]]],"RS":["صربستان",[["Europe/Belgrade","بلگراد"]]],"RU":["روسیه",[["Europe/Kaliningrad","کالینینگراد"],["Europe/Moscow","مسکو"],["Europe/Kirov","کیروف"],["Europe/Volgograd","ولگاگراد"],["Europe/Astrakhan","آستراخان"],["Europe/Saratov","ساراتوف"],["Europe/Ulyanovsk","اولیانوفسک"],["Europe/Samara","سامارا"],["Asia/Yekaterinburg","یکاترینبرگ"],["Asia/Omsk","اومسک"],["Asia/Novosibirsk","نووسیبیریسک"],["Asia/Barnaul","بارنائول"],["Asia/Tomsk","تومسک"],["Asia/Novokuznetsk","نوووکوزنتسک"],["Asia/Krasnoyarsk","کراسنویارسک"],["Asia/Irkutsk","ایرکوتسک"],["Asia/Chita","چیتا"],["Asia/Yakutsk","یاکوتسک"],["Asia/Khandyga","خاندیگا"],["Asia/Vladivostok","ولادی‌وستوک"],["Asia/Ust-Nera","اوست نرا"],["Asia/Magadan","ماگادان"],["Asia/Sakhalin","ساخالین"],["Asia/Srednekolymsk","اسردنکولیمسک"],["Asia/Kamchatka","کامچاتکا"],["Asia/Anadyr","آنادیر"]]],"UA":["اوکراین",[["Europe/Simferopol","سیمفروپل"],["Europe/Kyiv","کی‌یف"]]],"RW":["رواندا",[["Africa/Kigali","کیگالی"]]],"SA":["عربستان سعودی",[["Asia/Riyadh","ریاض"]]],"SB":["جزایر سلیمان",[["Pacific/Guadalcanal","گوادال‌کانال"]]],"SC":["سیشل",[["Indian/Mahe","ماهه"]]],"SD":["سودان",[["Africa/Khartoum","خارطوم"]]],"SE":["سوئد",[["Europe/Stockholm","استکهلم"]]],"SG":["سنگاپور",[["Asia/Singapore","سنگاپور"]]],"SH":["سنت هلن",[["Atlantic/St_Helena","سنت هلنا"]]],"SI":["اسلوونی",[["Europe/Ljubljana","لیوبلیانا"]]],"SJ":["سوالبارد و یان ماین",[["Arctic/Longyearbyen","لانگ‌یربین"]]],"SK":["اسلواکی",[["Europe/Bratislava","براتیسلاوا"]]],"SL":["سیرالئون",[["Africa/Freetown","فری‌تاون"]]],"SM":["سان‌مارینو",[["Europe/San_Marino","سان‌مارینو"]]],"SN":["سنگال",[["Africa/Dakar","داکار"]]],"SO":["سومالی",[["Africa/Mogadishu","موگادیشو"]]],"SR":["سورینام",[["America/Paramaribo","پاراماریبو"]]],"SS":["سودان جنوبی",[["Africa/Juba","جوبا"]]],"ST":["سائوتومه و پرینسیپ",[["Africa/Sao_Tome","سائوتومه"]]],"SV":["السالوادور",[["America/El_Salvador","السالوادور"]]],"SX":["سنت مارتن",[["America/Lower_Princes","بخش شاهزاده‌‌نشین پایین"]]],"SY":["سوریه",[["Asia/Damascus","دمشق"]]],"SZ":["اسواتینی",[["Africa/Mbabane","مبابانه"]]],"TC":["جزایر تورکس و کایکوس",[["America/Grand_Turk","گراند تورک"]]],"TD":["چاد",[["Africa/Ndjamena","انجامنا"]]],"TF":["سرزمین‌های جنوبی فرانسه",[["Indian/Kerguelen","کرگولن"]]],"TG":["توگو",[["Africa/Lome","لومه"]]],"TH":["تایلند",[["Asia/Bangkok","بانکوک"]]],"TJ":["تاجیکستان",[["Asia/Dushanbe","دوشنبه"]]],"TK":["توکلائو",[["Pacific/Fakaofo","فاکائوفو"]]],"TL":["تیمور-لسته",[["Asia/Dili","دیلی"]]],"TM":["ترکمنستان",[["Asia/Ashgabat","عشق‌آباد"]]],"TN":["تونس",[["Africa/Tunis","تونس"]]],"TO":["تونگا",[["Pacific/Tongatapu","تونگاتاپو"]]],"TR":["ترکیه",[["Europe/Istanbul","استانبول"]]],"TT":["ترینیداد و توباگو",[["America/Port_of_Spain","پورت‌آواسپین"]]],"TV":["تووالو",[["Pacific/Funafuti","فونافوتی"]]],"TW":["تایوان",[["Asia/Taipei","تایپه"]]],"TZ":["تانزانیا",[["Africa/Dar_es_Salaam","دارالسلام"]]],"UG":["اوگاندا",[["Africa/Kampala","کامپالا"]]],"UM":["جزایر دورافتادهٔ ایالات متحده",[["Pacific/Midway","میدوی"],["Pacific/Wake","ویک"]]],"US":["ایالات متحده",[["America/New_York","نیویورک"],["America/Detroit","دیترویت"],["America/Kentucky/Louisville","لوئیزویل، کنتاکی"],["America/Kentucky/Monticello","مانتیسلو، کنتاکی"],["America/Indiana/Indianapolis","ایندیاناپولیس، ایندیانا"],["America/Indiana/Vincennes","وینسنس، اندیانا"],["America/Indiana/Winamac","ویناماک، ایندیانا"],["America/Indiana/Marengo","مارنگو، ایندیانا"],["America/Indiana/Petersburg","پیترزبرگ، ایندیانا"],["America/Indiana/Vevay","ویوی، ایندیانا"],["America/Chicago","شیکاگو"],["America/Indiana/Tell_City","تل‌سیتی، ایندیانا"],["America/Indiana/Knox","ناکس، ایندیانا"],["America/Menominee","منامینی"],["America/North_Dakota/Center","سنتر، داکوتای شمالی"],["America/North_Dakota/New_Salem","نیوسالم، داکوتای شمالی"],["America/North_Dakota/Beulah","بیولا، داکوتای شمالی"],["America/Denver","دنور"],["America/Boise","بویسی"],["America/Phoenix","فینکس"],["America/Los_Angeles","لوس‌آنجلس"],["America/Anchorage","انکوریج"],["America/Juneau","جونو"],["America/Sitka","سیتکا"],["America/Metlakatla","متالاکاتلا"],["America/Yakutat","یاکوتات"],["America/Nome","نوم"],["America/Adak","ایدک"],["Pacific/Honolulu","هونولولو"]]],"UY":["اروگوئه",[["America/Montevideo","مونته‌ویدئو"]]],"UZ":["ازبکستان",[["Asia/Samarkand","سمرقند"],["Asia/Tashkent","تاشکند"]]],"VA":["واتیکان",[["Europe/Vatican","واتیکان"]]],"VC":["سنت وینسنت و گرنادین",[["America/St_Vincent","سنت وینسنت"]]],"VE":["ونزوئلا",[["America/Caracas","کاراکاس"]]],"VG":["جزایر ویرجین بریتانیا",[["America/Tortola","تورتولا"]]],"VI":["جزایر ویرجین ایالات متحده",[["America/St_Thomas","سنت توماس"]]],"VN":["ویتنام",[["Asia/Ho_Chi_Minh","هوشی‌مین"]]],"VU":["وانواتو",[["Pacific/Efate","افاته"]]],"WF":["والیس و فوتونا",[["Pacific/Wallis","والیس"]]],"WS":["ساموآ",[["Pacific/Apia","آپیا"]]],"YE":["یمن",[["Asia/Aden","عدن"]]],"YT":["مایوت",[["Indian/Mayotte","مایوت"]]],"ZA":["افریقای جنوبی",[["Africa/Johannesburg","ژوهانسبورگ"]]],"ZM":["زامبیا",[["Africa/Lusaka","لوزاکا"]]],"ZW":["زیمبابوه",[["Africa/Harare","هراره"]]]};
-let TZ=Intl.DateTimeFormat().resolvedOptions().timeZone,dF,tF;
-function mk(){const ir=(document.getElementById('bco')||{}).value==='IR';{const F=new Intl.DateTimeFormat(ir?'fa-IR-u-ca-persian':'fa-IR-u-ca-gregory-nu-latn',{weekday:'long',day:'numeric',month:'long',year:'numeric',timeZone:TZ});dF={format:d=>{const P={};F.formatToParts(d).forEach(x=>P[x.type]=x.value);return P.weekday+' '+P.day+' '+P.month+' '+P.year;}};}tF=new Intl.DateTimeFormat(ir?'fa-IR':'fa-IR-u-nu-latn',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:TZ});}mk();
+const HOME_TZ="Europe/Berlin";
+const LEAD_MS=48*3600e3;   /* کمتر از ۴۸ ساعت مانده: نشان داده و پذیرفته نمی‌شود */
+const AHEAD_MS=45*864e5;   /* تا یک ماه و نیم آینده */
+const MAX_PER_DAY=3;       /* در هر روز (به وقتِ HOME_TZ) حداکثر ۳ زمان، به ترتیبِ ساعت */
+const PER_SLOT=2;          /* از هر زمانِ هفتگی فقط نزدیک‌ترین تاریخ و هفتهٔ بعدش */
+const OK_FROM=8*60,OK_TO=21*60+30;   /* بیرون از ۸ صبح تا ۹:۳۰ شب به وقتِ مراجع: کم‌رنگ */
+const $=id=>document.getElementById(id);
 const fa=x=>String(x).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
-function off(z){try{const p=new Intl.DateTimeFormat('en-US',{timeZone:z,timeZoneName:'longOffset'}).formatToParts(new Date()).find(x=>x.type==='timeZoneName').value;let o=p.replace('GMT','')||'+00:00';const m=o.match(/^([+-])(\d{2}):?(\d{2})?$/);if(!m)return {t:'UTC'+o,n:0};const n=(m[1]==='-'?-1:1)*(parseInt(m[2])*60+parseInt(m[3]||0));return {t:'UTC'+m[1]+parseInt(m[2])+':'+(m[3]||'00'),n};}catch(e){return {t:'',n:0}}}
-
-/* 2.52: the slot is chosen in three steps — weekday, then a time on that weekday, then the date of the first session — all in the visitor's time zone */
-let G={};const dS=document.getElementById('bday'),tS=document.getElementById('btime'),fS=document.getElementById('bfirst');
-const WDO=d=>{const w=new Intl.DateTimeFormat('en-US',{weekday:'short',timeZone:TZ}).format(d);return (['Sat','Sun','Mon','Tue','Wed','Thu','Fri']).indexOf(w);};
-const WDN=d=>new Intl.DateTimeFormat('fa-IR',{weekday:'long',timeZone:TZ}).format(d);
-const MIN=d=>{const p=new Intl.DateTimeFormat('en-US',{hour:'2-digit',minute:'2-digit',hourCycle:'h23',timeZone:TZ}).formatToParts(d).reduce((o,q)=>(o[q.type]=q.value,o),{});return (+p.hour)*60+(+p.minute);};
-const DAT=d=>{const ir=(document.getElementById('bco')||{}).value==='IR';const P={};new Intl.DateTimeFormat(ir?'fa-IR-u-ca-persian':'fa-IR-u-ca-gregory-nu-latn',{day:'numeric',month:'long',year:'numeric',timeZone:TZ}).formatToParts(d).forEach(x=>P[x.type]=x.value);return P.day+' '+P.month+' '+P.year;};
-const OKM=m=>m>=480&&m<=1290,DIS=m=>m<480?480-m:m-1290;
-function clrT(){tS.classList.remove('has');tOv.innerHTML='';tS.style.paddingRight='';tS.style.textAlign='';tS.style.textAlignLast='';}
-function clrF(){fS.innerHTML='<option value="" selected disabled>تاریخ جلسهٔ اول</option>';fS.disabled=true;hid.value='';iso.value='';}
-const AHEAD_MS=45*864e5;   /* 2.70: زمان‌ها همیشه تا یک ماه و نیم آینده باز است (قاعدهٔ ۱۱ نوامبر) */
-/* 2.91: در هر روز (به وقتِ HOME_TZ) حداکثر ۳ زمانِ آزاد نشان داده می‌شود، به ترتیبِ اولویتِ PRIO و بعد ساعت؛ وقتی یکی رزرو شد، بعدی می‌آید.
-   کلیدِ PRIO: روزِ هفته و ساعت به وقتِ HOME_TZ، مثل "sat-10:00"؛ عددِ کمتر = اولویتِ بالاتر. زمانِ بی‌اولویت آخر می‌آید. */
-const MAX_PER_DAY=3;
-const PRIO={};
-function capDay(list){const f=new Intl.DateTimeFormat('en-US',{timeZone:HOME_TZ,weekday:'short',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'});const by={};
- list.forEach(d=>{const p={};f.formatToParts(d).forEach(x=>p[x.type]=x.value);const day=p.year+p.month+p.day;(by[day]=by[day]||[]).push({d,k:p.weekday.toLowerCase().slice(0,3)+'-'+p.hour+':'+p.minute});});
- return Object.values(by).flatMap(a=>a.sort((x,y)=>((PRIO[x.k]||99)-(PRIO[y.k]||99))||(x.d-y.d)).slice(0,MAX_PER_DAY).map(x=>x.d)).sort((a,b)=>a-b);}
-function render(){const now=Date.now()+LEAD_MS,lim=Date.now()+AHEAD_MS;G={};capDay(slotList().filter(d=>d>now&&d<=lim)).forEach(d=>{const w=WDO(d),t=tF.format(d);const W=(G[w]=G[w]||{n:WDN(d),T:{}});(W.T[t]=W.T[t]||{m:MIN(d),L:[]}).L.push(d);});
- const ks=Object.keys(G).sort((a,b)=>a-b);const nn=document.getElementById('bnone');const ldg=!!((SCRIPT_URL||(GCAL.id&&GCAL.key))&&!GC);nn.classList.toggle('ld',ldg);nn.textContent=ldg?'در حال بارگیریِ زمان‌ها':GCerr?'زمان‌ها بارگیری نشد؛ لطفاً از طریق ایمیل پیام دهید.':'فعلاً زمانِ خالی‌ای برای انتخاب نیست.';nn.hidden=!!ks.length;box.hidden=!ks.length;
- /* 2.60: اول روزها و ساعت‌هایی که در وقتِ مراجع معقول‌اند (۸ صبح تا ۹:۳۰ شب)؛ نیمه‌شب و سحر پایین‌تر، جدا */
- const dOk=ks.filter(k=>Object.values(G[k].T).some(x=>OKM(x.m))),dNo=ks.filter(k=>dOk.indexOf(k)<0);
- dS.innerHTML='<option value="" selected disabled>روز هفته</option>'+dOk.map(k=>`<option value="${k}">${G[k].n}</option>`).join('')+(dNo.length?'<optgroup label="فقط نیمه‌شب یا سحر">'+dNo.map(k=>`<option value="${k}">${G[k].n}</option>`).join('')+'</optgroup>':'');
- tS.innerHTML='<option value="" selected disabled>ساعت</option>';tS.disabled=true;clrT();clrF();}
-dS.addEventListener('change',()=>{const W=G[dS.value],T=W?W.T:{};const ks=Object.keys(T),o=k=>`<option value="${k}">${k}</option>`,a=ks.filter(k=>OKM(T[k].m)).sort((x,y)=>T[x].m-T[y].m),b=ks.filter(k=>!OKM(T[k].m)).sort((x,y)=>DIS(T[x].m)-DIS(T[y].m));tS.innerHTML='<option value="" selected disabled>ساعت</option>'+a.map(o).join('')+(b.length?'<optgroup label="نیمه‌شب یا سحر">'+b.map(o).join('')+'</optgroup>':'');tS.disabled=!ks.length;clrT();clrF();err.hidden=true;});
-tS.addEventListener('change',()=>{tOv.innerHTML='<small><bdi dir="ltr">('+offTxt(TZ)+')</bdi></small>';{tS.style.paddingRight='';tS.style.textAlign='';tS.style.textAlignLast='';const cs=getComputedStyle(tS),cv=document.createElement('canvas').getContext('2d');cv.font=cs.fontSize+' '+cs.fontFamily;
- const tw=cv.measureText(tS.options[tS.selectedIndex].text).width,pl=parseFloat(cs.paddingLeft),pr=parseFloat(cs.paddingRight),cw=tS.clientWidth-pl-pr,ow=tOv.firstChild.getBoundingClientRect().width,W=tw+5+ow;
- if(W<=cw-4){const st=pr+(cw-W)/2;tS.style.paddingRight=st+'px';tS.style.textAlign='right';tS.style.textAlignLast='right';tOv.style.right=(st+tw+5)+'px';tOv.style.visibility='visible';}else{tOv.style.visibility='hidden';}}
- const L=((G[dS.value]||{T:{}}).T[tS.value]||{L:[]}).L;clrF();fS.innerHTML='<option value="" selected disabled>تاریخ جلسهٔ اول</option>'+L.slice(0,2).map(/* 2.90: فقط نزدیک‌ترین تاریخ و هفتهٔ بعدش */d=>`<option value="${d.toISOString()}">${DAT(d)}</option>`).join('');fS.disabled=!L.length;if(L.length===1){fS.selectedIndex=1;fS.dispatchEvent(new Event('change'));}err.hidden=true;});
-fS.addEventListener('change',()=>{if(!fS.value)return;const d=new Date(fS.value);iso.value=fS.value;document.getElementById('bslothome').value=new Intl.DateTimeFormat('fa-IR-u-ca-persian',{timeZone:HOME_TZ,weekday:'long',day:'numeric',month:'long',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(d);hid.value=WDN(d)+' '+DAT(d)+'، ساعت '+tS.value+' (به وقتِ '+TZ+')';err.hidden=true;});
-const cS=document.getElementById('bco'),zS=document.getElementById('btz'),zW=document.getElementById('btzw'),zV=document.getElementById('btzv'),cRow=document.getElementById('bcrow');
-/* ترتیبِ کشورها: اول ایران؛ بعد کشورهایی که بیشترین مهاجرِ ایرانی دارند، از بیشتر به کمتر
-   (UN DESA, International Migrant Stock 2024؛ متولدانِ ایران در هر کشور، بالای ۱۰ هزار نفر، به‌جز اسرائیل که در فهرستِ الفبایی است)؛ بعد بقیه به ترتیبِ الفبا. */
+const LOC=Intl.DateTimeFormat().resolvedOptions().timeZone;
+const TZC={"AD":["آندورا",[["Europe/Andorra","آندورا"]]],"AE":["امارات متحدهٔ عربی",[["Asia/Dubai","دبی"]]],"AF":["افغانستان",[["Asia/Kabul","کابل"]]],"AG":["آنتیگوا و باربودا",[["America/Antigua","آنتیگوا"]]],"AI":["آنگویلا",[["America/Anguilla","آنگوئیلا"]]],"AL":["آلبانی",[["Europe/Tirane","تیرانا"]]],"AM":["ارمنستان",[["Asia/Yerevan","ایروان"]]],"AO":["آنگولا",[["Africa/Luanda","لواندا"]]],"AQ":["جنوبگان",[["Antarctica/McMurdo","مک‌موردو"],["Antarctica/Casey","کیسی"],["Antarctica/Davis","دیویس"],["Antarctica/DumontDUrville","دومون دورویل"],["Antarctica/Mawson","ماوسون"],["Antarctica/Palmer","پالمر"],["Antarctica/Rothera","روترا"],["Antarctica/Syowa","شووا"],["Antarctica/Troll","ترول"],["Antarctica/Vostok","وستوک"]]],"AR":["آرژانتین",[["America/Argentina/Buenos_Aires","بوئنوس آیرس"],["America/Argentina/Cordoba","کوردوبا"],["America/Argentina/Salta","سالتا"],["America/Argentina/Jujuy","خوخوی"],["America/Argentina/Tucuman","توکومن"],["America/Argentina/Catamarca","کاتامارکا"],["America/Argentina/La_Rioja","لاریوخا"],["America/Argentina/San_Juan","سن‌خوان"],["America/Argentina/Mendoza","مندوسا"],["America/Argentina/San_Luis","سن‌لوئیس"],["America/Argentina/Rio_Gallegos","ریوگالگوس"],["America/Argentina/Ushuaia","اوشوایا"]]],"AS":["ساموآی امریکا",[["Pacific/Pago_Pago","پاگوپاگو"]]],"AT":["اتریش",[["Europe/Vienna","وین"]]],"AU":["استرالیا",[["Australia/Lord_Howe","لردهاو"],["Antarctica/Macquarie","مکواری"],["Australia/Hobart","هوبارت"],["Australia/Melbourne","ملبورن"],["Australia/Sydney","سیدنی"],["Australia/Broken_Hill","بروکن‌هیل"],["Australia/Brisbane","بریسبین"],["Australia/Lindeman","لیندمن"],["Australia/Adelaide","آدلاید"],["Australia/Darwin","داروین"],["Australia/Perth","پرت"],["Australia/Eucla","اوکلا"]]],"AW":["آروبا",[["America/Aruba","اروبا"]]],"AX":["جزایر آلاند",[["Europe/Mariehamn","ماریه‌هامن"]]],"AZ":["جمهوری آذربایجان",[["Asia/Baku","باکو"]]],"BA":["بوسنی و هرزگوین",[["Europe/Sarajevo","سارایوو"]]],"BB":["باربادوس",[["America/Barbados","باربادوس"]]],"BD":["بنگلادش",[["Asia/Dhaka","داکا"]]],"BE":["بلژیک",[["Europe/Brussels","بروکسل"]]],"BF":["بورکینافاسو",[["Africa/Ouagadougou","اوآگادوگو"]]],"BG":["بلغارستان",[["Europe/Sofia","صوفیه"]]],"BH":["بحرین",[["Asia/Bahrain","بحرین"]]],"BI":["بوروندی",[["Africa/Bujumbura","بوجومبورا"]]],"BJ":["بنین",[["Africa/Porto-Novo","پورتو نووو"]]],"BL":["سن بارتلمی",[["America/St_Barthelemy","سنت بارتلمی"]]],"BM":["برمودا",[["Atlantic/Bermuda","برمودا"]]],"BN":["برونئی",[["Asia/Brunei","برونئی"]]],"BO":["بولیوی",[["America/La_Paz","لاپاز"]]],"BQ":["جزایر کارائیب هلند",[["America/Kralendijk","کرالندیک"]]],"BR":["برزیل",[["America/Noronha","نورونیا"],["America/Belem","بلم"],["America/Fortaleza","فورتالزا"],["America/Recife","ریسیفی"],["America/Araguaina","آراگواینا"],["America/Maceio","ماسیو"],["America/Bahia","بایا"],["America/Sao_Paulo","سائوپائولو"],["America/Campo_Grande","کمپو گرانده"],["America/Cuiaba","کویاوا"],["America/Santarem","سنتارم"],["America/Porto_Velho","پورتوولیو"],["America/Boa_Vista","بوئاویستا"],["America/Manaus","ماناوس"],["America/Eirunepe","ایرونپه"],["America/Rio_Branco","ریوبرانکو"]]],"BS":["باهاما",[["America/Nassau","ناسائو"]]],"BT":["بوتان",[["Asia/Thimphu","تیمفو"]]],"BW":["بوتسوانا",[["Africa/Gaborone","گابورون"]]],"BY":["بلاروس",[["Europe/Minsk","مینسک"]]],"BZ":["بلیز",[["America/Belize","بلیز"]]],"CA":["کانادا",[["America/St_Johns","سنت جان"],["America/Halifax","هلیفکس"],["America/Glace_Bay","گلیس‌بی"],["America/Moncton","مانکتون"],["America/Goose_Bay","گوس‌بی"],["America/Blanc-Sablon","بلان‐سابلون"],["America/Toronto","تورنتو"],["America/Iqaluit","ایکلوئت"],["America/Atikokan","آتیکوکان"],["America/Winnipeg","وینیپگ"],["America/Resolute","رزولوت"],["America/Rankin_Inlet","خلیجک رنکین"],["America/Regina","رجاینا"],["America/Swift_Current","سویفت‌کارنت"],["America/Edmonton","ادمونتون"],["America/Cambridge_Bay","کمبریج‌بی"],["America/Inuvik","اینوویک"],["America/Vancouver","ونکوور"],["America/Creston","کرستون"],["America/Dawson_Creek","داوسن کریک"],["America/Fort_Nelson","فورت نلسون"],["America/Whitehorse","وایت‌هورس"],["America/Dawson","داوسن"]]],"CC":["جزایر کوکوس",[["Indian/Cocos","کوکوس"]]],"CD":["کنگو - کینشاسا",[["Africa/Kinshasa","کینشاسا"],["Africa/Lubumbashi","لوبومباشی"]]],"CF":["جمهوری افریقای مرکزی",[["Africa/Bangui","بانگی"]]],"CG":["کنگو - برازویل",[["Africa/Brazzaville","برازویل"]]],"CH":["سوئیس",[["Europe/Zurich","زوریخ"]]],"CI":["ساحل عاج",[["Africa/Abidjan","آبیجان"]]],"CK":["جزایر کوک",[["Pacific/Rarotonga","راروتونگا"]]],"CL":["شیلی",[["America/Santiago","سانتیاگو"],["America/Coyhaique","کویایکه"],["America/Punta_Arenas","پونتا آرناس"],["Pacific/Easter","ایستر"]]],"CM":["کامرون",[["Africa/Douala","دوآلا"]]],"CN":["چین",[["Asia/Shanghai","شانگهای"],["Asia/Urumqi","ارومچی"]]],"CO":["کلمبیا",[["America/Bogota","بوگوتا"]]],"CR":["کاستاریکا",[["America/Costa_Rica","کاستاریکا"]]],"CU":["کوبا",[["America/Havana","هاوانا"]]],"CV":["کیپ‌ورد",[["Atlantic/Cape_Verde","کیپ‌ورد"]]],"CW":["کوراسائو",[["America/Curacao","کوراسائو"]]],"CX":["جزیرهٔ کریسمس",[["Indian/Christmas","کریسمس"]]],"CY":["قبرس",[["Asia/Nicosia","نیکوزیا"],["Asia/Famagusta","فاماگوستا"]]],"CZ":["چک",[["Europe/Prague","پراگ"]]],"DE":["آلمان",[["Europe/Berlin","برلین"],["Europe/Busingen","بازنگن"]]],"DJ":["جیبوتی",[["Africa/Djibouti","جیبوتی"]]],"DK":["دانمارک",[["Europe/Copenhagen","کپنهاگ"]]],"DM":["دومینیکا",[["America/Dominica","دومینیکا"]]],"DO":["جمهوری دومینیکن",[["America/Santo_Domingo","سانتو دومینگو"]]],"DZ":["الجزایر",[["Africa/Algiers","الجزیره"]]],"EC":["اکوادور",[["America/Guayaquil","گوایاکیل"],["Pacific/Galapagos","گالاپاگوس"]]],"EE":["استونی",[["Europe/Tallinn","تالین"]]],"EG":["مصر",[["Africa/Cairo","قاهره"]]],"EH":["صحرای غربی",[["Africa/El_Aaiun","العیون"]]],"ER":["اریتره",[["Africa/Asmara","اسمره"]]],"ES":["اسپانیا",[["Europe/Madrid","مادرید"],["Africa/Ceuta","سبته"],["Atlantic/Canary","قناری"]]],"ET":["اتیوپی",[["Africa/Addis_Ababa","آدیس آبابا"]]],"FI":["فنلاند",[["Europe/Helsinki","هلسینکی"]]],"FJ":["فیجی",[["Pacific/Fiji","فیجی"]]],"FK":["جزایر فالکلند",[["Atlantic/Stanley","استانلی"]]],"FM":["میکرونزی",[["Pacific/Chuuk","چوک"],["Pacific/Pohnpei","پونپی"],["Pacific/Kosrae","کوسرای"]]],"FO":["جزایر فارو",[["Atlantic/Faroe","فارو"]]],"FR":["فرانسه",[["Europe/Paris","پاریس"]]],"GA":["گابن",[["Africa/Libreville","لیبرویل"]]],"GB":["بریتانیا",[["Europe/London","لندن"]]],"GD":["گرنادا",[["America/Grenada","گرنادا"]]],"GE":["گرجستان",[["Asia/Tbilisi","تفلیس"]]],"GF":["گویان فرانسه",[["America/Cayenne","کاین"]]],"GG":["گرنزی",[["Europe/Guernsey","گرنزی"]]],"GH":["غنا",[["Africa/Accra","اکرا"]]],"GI":["جبل‌الطارق",[["Europe/Gibraltar","جبل‌الطارق"]]],"GL":["گرینلند",[["America/Nuuk","نوک"],["America/Danmarkshavn","دانمارکس‌هاون"],["America/Scoresbysund","اسکورسبیسوند"],["America/Thule","تول"]]],"GM":["گامبیا",[["Africa/Banjul","بانجول"]]],"GN":["گینه",[["Africa/Conakry","کوناکری"]]],"GP":["گوادلوپ",[["America/Guadeloupe","گوادلوپ"]]],"GQ":["گینهٔ استوایی",[["Africa/Malabo","مالابو"]]],"GR":["یونان",[["Europe/Athens","آتن"]]],"GS":["جورجیای جنوبی و جزایر ساندویچ جنوبی",[["Atlantic/South_Georgia","جورجیای جنوبی"]]],"GT":["گواتمالا",[["America/Guatemala","گواتمالا"]]],"GU":["گوام",[["Pacific/Guam","گوام"]]],"GW":["گینهٔ بیسائو",[["Africa/Bissau","بیسائو"]]],"GY":["گویان",[["America/Guyana","گویان"]]],"HK":["هنگ‌کنگ، منطقهٔ ویژهٔ اداری چین",[["Asia/Hong_Kong","هنگ‌کنگ"]]],"HN":["هندوراس",[["America/Tegucigalpa","تگوسیگالپا"]]],"HR":["کرواسی",[["Europe/Zagreb","زاگرب"]]],"HT":["هائیتی",[["America/Port-au-Prince","پورتوپرنس"]]],"HU":["مجارستان",[["Europe/Budapest","بوداپست"]]],"ID":["اندونزی",[["Asia/Jakarta","جاکارتا"],["Asia/Pontianak","پونتیاناک"],["Asia/Makassar","ماکاسار"],["Asia/Jayapura","جایاپورا"]]],"IE":["ایرلند",[["Europe/Dublin","دوبلین"]]],"IL":["اسرائیل",[["Asia/Jerusalem","اورشلیم"]]],"IM":["جزیرهٔ من",[["Europe/Isle_of_Man","جزیرهٔ من"]]],"IN":["هند",[["Asia/Kolkata","کلکته"]]],"IO":["قلمرو بریتانیا در اقیانوس هند",[["Indian/Chagos","شاگوس"]]],"IQ":["عراق",[["Asia/Baghdad","بغداد"]]],"IR":["ایران",[["Asia/Tehran","تهران"]]],"IS":["ایسلند",[["Atlantic/Reykjavik","ریکیاویک"]]],"IT":["ایتالیا",[["Europe/Rome","رم"]]],"JE":["جرزی",[["Europe/Jersey","جرزی"]]],"JM":["جامائیکا",[["America/Jamaica","جامائیکا"]]],"JO":["اردن",[["Asia/Amman","عَمان"]]],"JP":["ژاپن",[["Asia/Tokyo","توکیو"]]],"KE":["کنیا",[["Africa/Nairobi","نایروبی"]]],"KG":["قرقیزستان",[["Asia/Bishkek","بیشکک"]]],"KH":["کامبوج",[["Asia/Phnom_Penh","پنوم‌پن"]]],"KI":["کیریباتی",[["Pacific/Tarawa","تاراوا"],["Pacific/Kanton","کانتون"],["Pacific/Kiritimati","کریتیماتی"]]],"KM":["کومور",[["Indian/Comoro","کومورو"]]],"KN":["سنت کیتس و نویس",[["America/St_Kitts","سنت کیتس"]]],"KP":["کرهٔ شمالی",[["Asia/Pyongyang","پیونگ‌یانگ"]]],"KR":["کرهٔ جنوبی",[["Asia/Seoul","سئول"]]],"KW":["کویت",[["Asia/Kuwait","کویت"]]],"KY":["جزایر کِیمن",[["America/Cayman","کیمن"]]],"KZ":["قزاقستان",[["Asia/Almaty","آلماتی"],["Asia/Qyzylorda","قیزیل‌اوردا"],["Asia/Qostanay","قوستانای"],["Asia/Aqtobe","آقتوبه"],["Asia/Aqtau","آقتاو"],["Asia/Atyrau","آتیراو"],["Asia/Oral","اورال"]]],"LA":["لائوس",[["Asia/Vientiane","وینتیان"]]],"LB":["لبنان",[["Asia/Beirut","بیروت"]]],"LC":["سنت لوسیا",[["America/St_Lucia","سنت لوسیا"]]],"LI":["لیختن‌اشتاین",[["Europe/Vaduz","فادوتس"]]],"LK":["سری‌لانکا",[["Asia/Colombo","کلمبو"]]],"LR":["لیبریا",[["Africa/Monrovia","مونروویا"]]],"LS":["لسوتو",[["Africa/Maseru","ماسرو"]]],"LT":["لیتوانی",[["Europe/Vilnius","ویلنیوس"]]],"LU":["لوکزامبورگ",[["Europe/Luxembourg","لوکزامبورگ"]]],"LV":["لتونی",[["Europe/Riga","ریگا"]]],"LY":["لیبی",[["Africa/Tripoli","طرابلس"]]],"MA":["مراکش",[["Africa/Casablanca","کازابلانکا"]]],"MC":["موناکو",[["Europe/Monaco","موناکو"]]],"MD":["مولداوی",[["Europe/Chisinau","کیشیناو"]]],"ME":["مونته‌نگرو",[["Europe/Podgorica","پادگاریتسا"]]],"MF":["سنت مارتین",[["America/Marigot","ماریگات"]]],"MG":["ماداگاسکار",[["Indian/Antananarivo","آنتاناناریوو"]]],"MH":["جزایر مارشال",[["Pacific/Majuro","ماجورو"],["Pacific/Kwajalein","کواجیلین"]]],"MK":["مقدونیهٔ شمالی",[["Europe/Skopje","اسکوپیه"]]],"ML":["مالی",[["Africa/Bamako","باماکو"]]],"MM":["میانمار (برمه)",[["Asia/Yangon","یانگون"]]],"MN":["مغولستان",[["Asia/Ulaanbaatar","اولان‌باتور"],["Asia/Hovd","خوود"]]],"MO":["ماکائو، منطقهٔ ویژهٔ اداری چین",[["Asia/Macau","ماکائو"]]],"MP":["جزایر ماریانای شمالی",[["Pacific/Saipan","سایپان"]]],"MQ":["مارتینیک",[["America/Martinique","مارتینیک"]]],"MR":["موریتانی",[["Africa/Nouakchott","نوآکشوت"]]],"MS":["مونت‌سرات",[["America/Montserrat","مونتسرات"]]],"MT":["مالت",[["Europe/Malta","مالت"]]],"MU":["موریس",[["Indian/Mauritius","موریس"]]],"MV":["مالدیو",[["Indian/Maldives","مالدیو"]]],"MW":["مالاوی",[["Africa/Blantyre","بلانتیره"]]],"MX":["مکزیک",[["America/Mexico_City","مکزیکوسیتی"],["America/Cancun","کانکون"],["America/Merida","مریدا"],["America/Monterrey","مونتری"],["America/Matamoros","ماتاموروس"],["America/Chihuahua","چیواوا"],["America/Ciudad_Juarez","سیوداد خوارز"],["America/Ojinaga","اوجیناگا"],["America/Mazatlan","ماساتلان"],["America/Bahia_Banderas","باهیا باندراس"],["America/Hermosillo","ارموسیو"],["America/Tijuana","تیخوانا"]]],"MY":["مالزی",[["Asia/Kuala_Lumpur","کوالالامپور"],["Asia/Kuching","کوچینگ"]]],"MZ":["موزامبیک",[["Africa/Maputo","ماپوتو"]]],"NA":["نامیبیا",[["Africa/Windhoek","ویندهوک"]]],"NC":["کالدونیای جدید",[["Pacific/Noumea","نومئا"]]],"NE":["نیجر",[["Africa/Niamey","نیامی"]]],"NF":["جزیرهٔ نورفولک",[["Pacific/Norfolk","نورفولک"]]],"NG":["نیجریه",[["Africa/Lagos","لاگوس"]]],"NI":["نیکاراگوئه",[["America/Managua","ماناگوا"]]],"NL":["هلند",[["Europe/Amsterdam","آمستردام"]]],"NO":["نروژ",[["Europe/Oslo","اسلو"]]],"NP":["نپال",[["Asia/Kathmandu","کاتماندو"]]],"NR":["نائورو",[["Pacific/Nauru","نائورو"]]],"NU":["نیوئه",[["Pacific/Niue","نیوئه"]]],"NZ":["نیوزیلند",[["Pacific/Auckland","اوکلند"],["Pacific/Chatham","چت‌هام"]]],"OM":["عمان",[["Asia/Muscat","مسقط"]]],"PA":["پاناما",[["America/Panama","پاناما"]]],"PE":["پرو",[["America/Lima","لیما"]]],"PF":["پلی‌نزی فرانسه",[["Pacific/Tahiti","تاهیتی"],["Pacific/Marquesas","مارکوزه"],["Pacific/Gambier","گامبیر"]]],"PG":["پاپوا گینهٔ نو",[["Pacific/Port_Moresby","پورت‌مورزبی"],["Pacific/Bougainville","بوگنویل"]]],"PH":["فیلیپین",[["Asia/Manila","مانیل"]]],"PK":["پاکستان",[["Asia/Karachi","کراچی"]]],"PL":["لهستان",[["Europe/Warsaw","ورشو"]]],"PM":["سن پیر و میکلن",[["America/Miquelon","میکلون"]]],"PN":["جزایر پیت‌کرن",[["Pacific/Pitcairn","پیت‌کرن"]]],"PR":["پورتوریکو",[["America/Puerto_Rico","پورتوریکو"]]],"PS":["فلسطین",[["Asia/Gaza","غزه"],["Asia/Hebron","الخلیل"]]],"PT":["پرتغال",[["Europe/Lisbon","لیسبون"],["Atlantic/Madeira","مادیرا"],["Atlantic/Azores","آزور"]]],"PW":["پالائو",[["Pacific/Palau","پالائو"]]],"PY":["پاراگوئه",[["America/Asuncion","آسونسیون"]]],"QA":["قطر",[["Asia/Qatar","قطر"]]],"RE":["رئونیون",[["Indian/Reunion","رئونیون"]]],"RO":["رومانی",[["Europe/Bucharest","بخارست"]]],"RS":["صربستان",[["Europe/Belgrade","بلگراد"]]],"RU":["روسیه",[["Europe/Kaliningrad","کالینینگراد"],["Europe/Moscow","مسکو"],["Europe/Kirov","کیروف"],["Europe/Volgograd","ولگاگراد"],["Europe/Astrakhan","آستراخان"],["Europe/Saratov","ساراتوف"],["Europe/Ulyanovsk","اولیانوفسک"],["Europe/Samara","سامارا"],["Asia/Yekaterinburg","یکاترینبرگ"],["Asia/Omsk","اومسک"],["Asia/Novosibirsk","نووسیبیریسک"],["Asia/Barnaul","بارنائول"],["Asia/Tomsk","تومسک"],["Asia/Novokuznetsk","نوووکوزنتسک"],["Asia/Krasnoyarsk","کراسنویارسک"],["Asia/Irkutsk","ایرکوتسک"],["Asia/Chita","چیتا"],["Asia/Yakutsk","یاکوتسک"],["Asia/Khandyga","خاندیگا"],["Asia/Vladivostok","ولادی‌وستوک"],["Asia/Ust-Nera","اوست نرا"],["Asia/Magadan","ماگادان"],["Asia/Sakhalin","ساخالین"],["Asia/Srednekolymsk","اسردنکولیمسک"],["Asia/Kamchatka","کامچاتکا"],["Asia/Anadyr","آنادیر"]]],"UA":["اوکراین",[["Europe/Simferopol","سیمفروپل"],["Europe/Kyiv","کی‌یف"]]],"RW":["رواندا",[["Africa/Kigali","کیگالی"]]],"SA":["عربستان سعودی",[["Asia/Riyadh","ریاض"]]],"SB":["جزایر سلیمان",[["Pacific/Guadalcanal","گوادال‌کانال"]]],"SC":["سیشل",[["Indian/Mahe","ماهه"]]],"SD":["سودان",[["Africa/Khartoum","خارطوم"]]],"SE":["سوئد",[["Europe/Stockholm","استکهلم"]]],"SG":["سنگاپور",[["Asia/Singapore","سنگاپور"]]],"SH":["سنت هلن",[["Atlantic/St_Helena","سنت هلنا"]]],"SI":["اسلوونی",[["Europe/Ljubljana","لیوبلیانا"]]],"SJ":["سوالبارد و یان ماین",[["Arctic/Longyearbyen","لانگ‌یربین"]]],"SK":["اسلواکی",[["Europe/Bratislava","براتیسلاوا"]]],"SL":["سیرالئون",[["Africa/Freetown","فری‌تاون"]]],"SM":["سان‌مارینو",[["Europe/San_Marino","سان‌مارینو"]]],"SN":["سنگال",[["Africa/Dakar","داکار"]]],"SO":["سومالی",[["Africa/Mogadishu","موگادیشو"]]],"SR":["سورینام",[["America/Paramaribo","پاراماریبو"]]],"SS":["سودان جنوبی",[["Africa/Juba","جوبا"]]],"ST":["سائوتومه و پرینسیپ",[["Africa/Sao_Tome","سائوتومه"]]],"SV":["السالوادور",[["America/El_Salvador","السالوادور"]]],"SX":["سنت مارتن",[["America/Lower_Princes","بخش شاهزاده‌‌نشین پایین"]]],"SY":["سوریه",[["Asia/Damascus","دمشق"]]],"SZ":["اسواتینی",[["Africa/Mbabane","مبابانه"]]],"TC":["جزایر تورکس و کایکوس",[["America/Grand_Turk","گراند تورک"]]],"TD":["چاد",[["Africa/Ndjamena","انجامنا"]]],"TF":["سرزمین‌های جنوبی فرانسه",[["Indian/Kerguelen","کرگولن"]]],"TG":["توگو",[["Africa/Lome","لومه"]]],"TH":["تایلند",[["Asia/Bangkok","بانکوک"]]],"TJ":["تاجیکستان",[["Asia/Dushanbe","دوشنبه"]]],"TK":["توکلائو",[["Pacific/Fakaofo","فاکائوفو"]]],"TL":["تیمور-لسته",[["Asia/Dili","دیلی"]]],"TM":["ترکمنستان",[["Asia/Ashgabat","عشق‌آباد"]]],"TN":["تونس",[["Africa/Tunis","تونس"]]],"TO":["تونگا",[["Pacific/Tongatapu","تونگاتاپو"]]],"TR":["ترکیه",[["Europe/Istanbul","استانبول"]]],"TT":["ترینیداد و توباگو",[["America/Port_of_Spain","پورت‌آواسپین"]]],"TV":["تووالو",[["Pacific/Funafuti","فونافوتی"]]],"TW":["تایوان",[["Asia/Taipei","تایپه"]]],"TZ":["تانزانیا",[["Africa/Dar_es_Salaam","دارالسلام"]]],"UG":["اوگاندا",[["Africa/Kampala","کامپالا"]]],"UM":["جزایر دورافتادهٔ ایالات متحده",[["Pacific/Midway","میدوی"],["Pacific/Wake","ویک"]]],"US":["ایالات متحده",[["America/New_York","نیویورک"],["America/Detroit","دیترویت"],["America/Kentucky/Louisville","لوئیزویل، کنتاکی"],["America/Kentucky/Monticello","مانتیسلو، کنتاکی"],["America/Indiana/Indianapolis","ایندیاناپولیس، ایندیانا"],["America/Indiana/Vincennes","وینسنس، اندیانا"],["America/Indiana/Winamac","ویناماک، ایندیانا"],["America/Indiana/Marengo","مارنگو، ایندیانا"],["America/Indiana/Petersburg","پیترزبرگ، ایندیانا"],["America/Indiana/Vevay","ویوی، ایندیانا"],["America/Chicago","شیکاگو"],["America/Indiana/Tell_City","تل‌سیتی، ایندیانا"],["America/Indiana/Knox","ناکس، ایندیانا"],["America/Menominee","منامینی"],["America/North_Dakota/Center","سنتر، داکوتای شمالی"],["America/North_Dakota/New_Salem","نیوسالم، داکوتای شمالی"],["America/North_Dakota/Beulah","بیولا، داکوتای شمالی"],["America/Denver","دنور"],["America/Boise","بویسی"],["America/Phoenix","فینکس"],["America/Los_Angeles","لوس‌آنجلس"],["America/Anchorage","انکوریج"],["America/Juneau","جونو"],["America/Sitka","سیتکا"],["America/Metlakatla","متالاکاتلا"],["America/Yakutat","یاکوتات"],["America/Nome","نوم"],["America/Adak","ایدک"],["Pacific/Honolulu","هونولولو"]]],"UY":["اروگوئه",[["America/Montevideo","مونته‌ویدئو"]]],"UZ":["ازبکستان",[["Asia/Samarkand","سمرقند"],["Asia/Tashkent","تاشکند"]]],"VA":["واتیکان",[["Europe/Vatican","واتیکان"]]],"VC":["سنت وینسنت و گرنادین",[["America/St_Vincent","سنت وینسنت"]]],"VE":["ونزوئلا",[["America/Caracas","کاراکاس"]]],"VG":["جزایر ویرجین بریتانیا",[["America/Tortola","تورتولا"]]],"VI":["جزایر ویرجین ایالات متحده",[["America/St_Thomas","سنت توماس"]]],"VN":["ویتنام",[["Asia/Ho_Chi_Minh","هوشی‌مین"]]],"VU":["وانواتو",[["Pacific/Efate","افاته"]]],"WF":["والیس و فوتونا",[["Pacific/Wallis","والیس"]]],"WS":["ساموآ",[["Pacific/Apia","آپیا"]]],"YE":["یمن",[["Asia/Aden","عدن"]]],"YT":["مایوت",[["Indian/Mayotte","مایوت"]]],"ZA":["افریقای جنوبی",[["Africa/Johannesburg","ژوهانسبورگ"]]],"ZM":["زامبیا",[["Africa/Lusaka","لوزاکا"]]],"ZW":["زیمبابوه",[["Africa/Harare","هراره"]]]};
 const TOP_CC=['US','DE','CA','TR','GB','SE','AU','NL','AT','IT','DK','NO','CH','BE','IQ'];
-(function(){const top=TOP_CC.filter(k=>TZC[k]);const ks=Object.keys(TZC).filter(k=>k!=='IR'&&!top.includes(k)).sort((a,b)=>TZC[a][0].localeCompare(TZC[b][0],'fa'));const op=k=>`<option value="${k}">${TZC[k][0]}</option>`;
- cS.innerHTML='<option value="" selected disabled>کشور</option><option value="IR">ایران</option>'+top.map(op).join('')+'<option disabled>──────────</option>'+ks.map(op).join('');})();
-const STATES={"US":[["آلاباما","America/Chicago"],["آلاسکا","America/Anchorage"],["آریزونا","America/Phoenix"],["آرکانزاس","America/Chicago"],["کالیفرنیا","America/Los_Angeles"],["کلرادو","America/Denver"],["کنتیکت","America/New_York"],["دلاور","America/New_York"],["واشینگتن دی‌سی","America/New_York"],["فلوریدا","America/New_York"],["فلوریدا – پن‌هندل غربی","America/Chicago"],["جورجیا","America/New_York"],["هاوایی","Pacific/Honolulu"],["آیداهو – جنوب","America/Boise"],["آیداهو – شمال","America/Los_Angeles"],["ایلینوی","America/Chicago"],["ایندیانا","America/Indiana/Indianapolis"],["ایندیانا – شمال‌غرب و جنوب‌غرب","America/Chicago"],["آیووا","America/Chicago"],["کانزاس","America/Chicago"],["کنتاکی – شرق","America/Kentucky/Louisville"],["کنتاکی – غرب","America/Chicago"],["لوئیزیانا","America/Chicago"],["مین","America/New_York"],["مریلند","America/New_York"],["ماساچوست","America/New_York"],["میشیگان","America/Detroit"],["مینه‌سوتا","America/Chicago"],["میسیسیپی","America/Chicago"],["میزوری","America/Chicago"],["مونتانا","America/Denver"],["نبراسکا","America/Chicago"],["نوادا","America/Los_Angeles"],["نیوهمپشایر","America/New_York"],["نیوجرسی","America/New_York"],["نیومکزیکو","America/Denver"],["نیویورک","America/New_York"],["کارولینای شمالی","America/New_York"],["داکوتای شمالی","America/Chicago"],["اوهایو","America/New_York"],["اوکلاهما","America/Chicago"],["اورگن","America/Los_Angeles"],["پنسیلوانیا","America/New_York"],["رود آیلند","America/New_York"],["کارولینای جنوبی","America/New_York"],["داکوتای جنوبی – شرق","America/Chicago"],["داکوتای جنوبی – غرب","America/Denver"],["تنسی – غرب و مرکز","America/Chicago"],["تنسی – شرق","America/New_York"],["تگزاس","America/Chicago"],["تگزاس – ال‌پاسو","America/Denver"],["یوتا","America/Denver"],["ورمانت","America/New_York"],["ویرجینیا","America/New_York"],["واشینگتن","America/Los_Angeles"],["ویرجینیای غربی","America/New_York"],["ویسکانسین","America/Chicago"],["وایومینگ","America/Denver"]],"CA":[["آلبرتا","America/Edmonton"],["بریتیش کلمبیا","America/Vancouver"],["منیتوبا","America/Winnipeg"],["نیوبرانزویک","America/Moncton"],["نیوفاندلند و لابرادور","America/St_Johns"],["نوا اسکوشیا","America/Halifax"],["انتاریو","America/Toronto"],["جزیرهٔ پرنس ادوارد","America/Halifax"],["کبک","America/Toronto"],["ساسکاچوان","America/Regina"],["قلمرو شمال‌غربی","America/Edmonton"],["نوناووت","America/Iqaluit"],["یوکان","America/Whitehorse"]],"AU":[["نیو ساوت ولز","Australia/Sydney"],["ویکتوریا","Australia/Melbourne"],["کوئینزلند","Australia/Brisbane"],["استرالیای جنوبی","Australia/Adelaide"],["استرالیای غربی","Australia/Perth"],["تاسمانی","Australia/Hobart"],["قلمرو شمالی","Australia/Darwin"],["قلمرو پایتخت (کانبرا)","Australia/Sydney"]],"MX":[["مکزیکوسیتی و بیشتر ایالت‌ها","America/Mexico_City"],["باخا کالیفرنیا","America/Tijuana"],["باخا کالیفرنیای جنوبی، سینالوا، نایاریت","America/Mazatlan"],["سونورا","America/Hermosillo"],["کینتانا رو","America/Cancun"],["چیواوا","America/Chihuahua"]],"BR":[["سائوپائولو، ریو، برازیلیا و بیشتر ایالت‌ها","America/Sao_Paulo"],["آمازوناس","America/Manaus"],["ماتو گروسو","America/Cuiaba"],["ماتو گروسو دو سول","America/Campo_Grande"],["رورایما","America/Boa_Vista"],["روندونیا","America/Porto_Velho"],["آکره","America/Rio_Branco"],["فرناندو د نورونیا","America/Noronha"]]};
-const LOC=Intl.DateTimeFormat().resolvedOptions().timeZone;const zRO=document.getElementById('btzro'),tOv=document.getElementById('btov');
-function offTxt(z){return off(z).t;}
-function setTZ(z){TZ=z||LOC;mk();zV.value=z?((TZC[cS.value]?TZC[cS.value][0]+' — ':'')+z+' ('+off(z).t+')'):'';render();}
-function zGroups(cc){const g={};TZC[cc][1].forEach(([z,c])=>{const o=off(z);(g[o.t]=g[o.t]||{z,zs:[],o});g[o.t].zs.push(z);});
- return Object.values(g).map(x=>({z:x.z,zs:x.zs,c:x.o.t,cities:[],o:x.o})).sort((a,b)=>a.o.n-b.o.n);}
-cS.addEventListener('change',()=>{document.getElementById('bcov').value=TZC[cS.value]?TZC[cS.value][0]:'';const L=zGroups(cS.value);zS.setAttribute('aria-label','منطقهٔ زمانی');
- zS.innerHTML=L.map((x,i)=>`<option value="${i}">${x.o.t}</option>`).join('');zS._L=L;
- const PRI={US:'America/New_York',CA:'America/Toronto',RU:'Europe/Moscow',AU:'Australia/Sydney',BR:'America/Sao_Paulo',MX:'America/Mexico_City',ID:'Asia/Jakarta',KZ:'Asia/Almaty',CN:'Asia/Shanghai',AR:'America/Argentina/Buenos_Aires',CL:'America/Santiago',ES:'Europe/Madrid',PT:'Europe/Lisbon',NZ:'Pacific/Auckland',GL:'America/Nuuk',CD:'Africa/Kinshasa',MN:'Asia/Ulaanbaatar',EC:'America/Guayaquil',UA:'Europe/Kyiv',DE:'Europe/Berlin'};
- let pi=L.findIndex(x=>x.zs.includes(LOC));if(pi<0&&PRI[cS.value])pi=L.findIndex(x=>x.zs.includes(PRI[cS.value]));if(pi<0){pi=0;L.forEach((x,i)=>{if(x.zs.length>L[pi].zs.length)pi=i});}
- zS.value=pi>=0?String(pi):'';const one=L.length===1;zS.hidden=one;zRO.hidden=!one;if(one)zRO.firstChild.textContent=L[0].o.t;
- setTZ(pi>=0?(L[pi].zs.includes(LOC)?LOC:L[pi].z):'');zShort();err.hidden=true;});
-const zOv=document.getElementById('bzov');
-function zFull(){}
-function zShort(){zOv.innerHTML='';}
-zS.addEventListener('mousedown',zFull);zS.addEventListener('focus',zFull);zS.addEventListener('blur',zShort);
-zS.addEventListener('change',()=>{const x=zS._L[+zS.value];setTimeout(zShort,0);setTZ(x.z);zV.value=TZC[cS.value][0]+' — '+x.o.t+' ('+x.z+')';err.hidden=true;});
-function pre(){let cc='';for(const k in TZC){if(TZC[k][1].some(x=>x[0]===LOC)){cc=k;break}}
- if(cc){cS.value=cc;cS.dispatchEvent(new Event('change'));}else{cS.value='';zS.hidden=false;zRO.hidden=true;zS.innerHTML='<option value="" selected disabled>منطقهٔ زمانی</option>';setTZ('');}}
-pre();
-/* 2.58: هزینه بسته به کشورِ انتخاب‌شده (ایران / خارج از ایران)؛ تیکِ «دانشجو هستم» برای هر دو، با قیمتِ قبلی خط‌خورده */
-(function(){const v=document.getElementById('bfv'),st=document.getElementById('bstu'),hv=document.getElementById('bfeev');
- const up=()=>{if(!cS.value){v.textContent='پس از انتخابِ کشور نشان داده می‌شود';v.classList.add('emp');hv.value='';return;}v.classList.remove('emp');
-  const ir=cS.value==='IR',full=ir?'۱ میلیون و ۶۰۰ هزار تومان':'۵۰ دلار',stu=ir?'۱ میلیون و ۳۰۰ هزار تومان':'۴۰ دلار';
-  v.innerHTML=st.checked?'<s>'+full+'</s> <span>'+stu+'</span>':'<span>'+full+'</span>';hv.value=st.checked?stu+' (دانشجو)':full;};
- cS.addEventListener('change',up);st.addEventListener('change',up);f.addEventListener('reset',()=>setTimeout(up,0));up();})();
-/* 2.55: فرم از اول در خودِ صفحهٔ «رزرو جلسه» است؛ زمان‌ها با بازشدنِ صفحه بارگیری می‌شوند */
-const open=()=>{if((location.hash||'').slice(1)==='booking'){render();gcLoad(render);}};addEventListener('hashchange',open);open();
-const ph=document.getElementById('bph'),em=document.getElementById('bem');
-/* 2.95: تاریخ تولد — یک فیلد با تقویمِ انتخابی. اول سال (از ۱۸ سال پیش به عقب)، بعد ماه، بعد روز؛ شمسی یا میلادی.
-   تبدیلِ شمسی/میلادی با Intl انجام می‌شود؛ سن از روی تاریخ حساب و همراهِ تاریخ فرستاده می‌شود */
-const DOB=(()=>{const fld=document.getElementById('bdi'),val=fld.querySelector('.dpv'),pp=document.getElementById('bdp'),G=pp.querySelector('.dpg'),T=pp.querySelector('.dpt'),bk=pp.querySelector('.dpb'),bkl=pp.querySelector('.dpbl'),CB=[...pp.querySelectorAll('.dpcal button')];
+const PRI={US:'America/New_York',CA:'America/Toronto',RU:'Europe/Moscow',AU:'Australia/Sydney',BR:'America/Sao_Paulo',MX:'America/Mexico_City',ID:'Asia/Jakarta',KZ:'Asia/Almaty',CN:'Asia/Shanghai',AR:'America/Argentina/Buenos_Aires',CL:'America/Santiago',ES:'Europe/Madrid',PT:'Europe/Lisbon',NZ:'Pacific/Auckland',GL:'America/Nuuk',CD:'Africa/Kinshasa',MN:'Asia/Ulaanbaatar',EC:'America/Guayaquil',UA:'Europe/Kyiv',DE:'Europe/Berlin'};
+
+/* ── وضعیت ── */
+let SL=null,ST='idle',TZ=LOC,CC='',PICK=null,BUSY=false,BY=new Map(),DAY='';
+
+/* ── زمان و تاریخ به وقتِ مراجع ── */
+const cal=()=>CC==='IR'?'fa-IR-u-ca-persian':'fa-IR-u-ca-gregory-nu-latn';
+const parts=(d,o,loc)=>{const r={};new Intl.DateTimeFormat(loc||cal(),Object.assign({timeZone:TZ},o)).formatToParts(d).forEach(x=>r[x.type]=x.value);return r;};
+const WDN=d=>new Intl.DateTimeFormat('fa-IR',{weekday:'long',timeZone:TZ}).format(d);
+const DM=d=>{const p=parts(d,{day:'numeric',month:'long'});return p.day+' '+p.month;};
+const DAT=d=>{const p=parts(d,{day:'numeric',month:'long',year:'numeric'});return p.day+' '+p.month+' '+p.year;};
+const HM=d=>new Intl.DateTimeFormat(CC==='IR'?'fa-IR':'fa-IR-u-nu-latn',{hour:'2-digit',minute:'2-digit',hourCycle:'h23',timeZone:TZ}).format(d);
+const MIN=d=>{const p=parts(d,{hour:'2-digit',minute:'2-digit',hourCycle:'h23'},'en-US');return (+p.hour)*60+(+p.minute);};
+const DK=d=>new Intl.DateTimeFormat('en-CA',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit'}).format(d);
+const LONG=d=>WDN(d)+' '+DAT(d)+'، ساعت '+HM(d);
+function off(z){try{const p=new Intl.DateTimeFormat('en-US',{timeZone:z,timeZoneName:'longOffset'}).formatToParts(new Date()).find(x=>x.type==='timeZoneName').value;const m=(p.replace('GMT','')||'+00:00').match(/^([+-])(\d{2}):?(\d{2})?$/);if(!m)return {t:'UTC',n:0};return {t:'UTC'+m[1]+parseInt(m[2])+(m[3]&&m[3]!=='00'?':'+m[3]:''),n:(m[1]==='-'?-1:1)*(parseInt(m[2])*60+parseInt(m[3]||0))};}catch(e){return {t:'',n:0}}}
+
+/* ── زمان‌های قابلِ رزرو ── */
+function load(force){if(ST==='load'||(ST==='ok'&&!force))return;ST='load';paint();
+ const get=n=>fetchT(SCRIPT_URL+'?a=slots'+(n?'&r='+n:''),{},15000).then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{if(!j||!j.ok)throw 0;return j});
+ get(0).catch(()=>get(1)).then(j=>{SL=(j.slots||[]).map(x=>new Date(x)).filter(d=>!isNaN(d));ST='ok';}).catch(()=>{SL=[];ST='err';}).finally(paint);}
+function avail(){const a=Date.now()+LEAD_MS,b=Date.now()+AHEAD_MS,L=(SL||[]).filter(d=>d>a&&d<=b).sort((x,y)=>x-y);
+ const day=new Intl.DateTimeFormat('en-CA',{timeZone:HOME_TZ,year:'numeric',month:'2-digit',day:'2-digit'}),wk=new Intl.DateTimeFormat('en-US',{timeZone:HOME_TZ,weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'});
+ const nd={},nw={};return L.filter(d=>{const k=day.format(d);return (nd[k]=(nd[k]||0)+1)<=MAX_PER_DAY;}).filter(d=>{const k=wk.format(d);return (nw[k]=(nw[k]||0)+1)<=PER_SLOT;});}
+
+const sl=$('slots'),stx=$('bnone'),pk=$('bpick');
+function paint(){
+ if(ST!=='ok'){sl.textContent='';stx.hidden=false;stx.className='bk-st'+(ST==='err'?' err':' ld');
+  if(ST==='err'){stx.innerHTML='زمان‌ها بارگیری نشد. <button type="button" class="bk-l">دوباره امتحان کنید</button>';stx.querySelector('button').onclick=()=>load(true);}else stx.textContent='در حال بارگیریِ زمان‌ها…';
+  sl.hidden=true;return;}
+ const L=avail();
+ if(PICK&&!L.some(d=>+d===+PICK))setPick(null);
+ if(!L.length){sl.textContent='';sl.hidden=true;stx.hidden=false;stx.className='bk-st';stx.textContent='فعلاً زمانِ خالی‌ای نیست. اگر سؤالی دارید، از «ثبت سؤال» پیام بدهید.';return;}
+ stx.hidden=true;sl.hidden=!!PICK;BY=new Map();L.forEach(d=>{const k=DK(d);BY.has(k)?BY.get(k).push(d):BY.set(k,[d]);});
+ if(!BY.has(DAY))DAY=PICK&&BY.has(DK(PICK))?DK(PICK):BY.keys().next().value;
+ const ds=document.createElement('div');ds.className='bk-days';ds.setAttribute('role','tablist');ds.setAttribute('aria-label','روز');
+ BY.forEach((L2,k)=>{const b=document.createElement('button'),w=document.createElement('span'),m=document.createElement('span');b.type='button';b.dataset.day=k;b.setAttribute('role','tab');b.setAttribute('aria-selected',String(k===DAY));b.tabIndex=k===DAY?0:-1;
+  w.className='w';m.className='m';w.textContent=WDN(L2[0]);m.textContent=DM(L2[0]);b.append(w,m);ds.append(b);});
+ const tp=document.createElement('div');tp.className='bk-tp';tp.setAttribute('role','tabpanel');const day=BY.get(DAY);
+ const cap=document.createElement('p');cap.className='bk-cap';cap.textContent='ساعت‌های خالیِ '+WDN(day[0])+' '+DM(day[0]);
+ const tt=document.createElement('div');tt.className='bk-t';
+ day.forEach(d=>{const b=document.createElement('button'),mi=MIN(d);b.type='button';b.dataset.iso=d.toISOString();b.textContent=HM(d);b.setAttribute('aria-pressed',String(!!PICK&&+PICK===+d));b.setAttribute('aria-label',WDN(d)+' '+DM(d)+'، ساعت '+HM(d));
+  if(mi<OK_FROM||mi>OK_TO){b.className='odd';b.title='نیمه‌شب یا سحر به وقتِ شما';}tt.append(b);});
+ tp.append(cap,tt);sl.textContent='';sl.append(ds,tp);}
+sl.addEventListener('keydown',e=>{const b=e.target.closest('[data-day]');if(!b||!/^Arrow(Left|Right)$/.test(e.key))return;e.preventDefault();const B=[...sl.querySelectorAll('[data-day]')],i=B.indexOf(b),n=B[Math.max(0,Math.min(B.length-1,i+(e.key==='ArrowLeft'?1:-1)))];DAY=n.dataset.day;paint();sl.querySelector('[data-day="'+DAY+'"]').focus();});
+sl.addEventListener('click',e=>{const d=e.target.closest('[data-day]');if(d){DAY=d.dataset.day;paint();const n=sl.querySelector('[data-day="'+DAY+'"]');n.focus();n.scrollIntoView({block:'nearest',inline:'nearest'});return;}
+ const b=e.target.closest('button[data-iso]');if(b)setPick(new Date(b.dataset.iso),true);});
+
+function setPick(d,user){PICK=d;const has=!!d;
+ $('bslot').value=has?LONG(d)+' (به وقتِ '+TZ+')':'';$('bslotiso').value=has?d.toISOString():'';
+ $('bslothome').value=has?new Intl.DateTimeFormat('fa-IR-u-ca-persian',{timeZone:HOME_TZ,weekday:'long',day:'numeric',month:'long',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(d):'';
+ const s=$('bsum');s.textContent=has?LONG(d):'هنوز انتخاب نشده';s.classList.toggle('emp',!has);
+ $('bpickt').textContent=has?LONG(d):'';pk.hidden=!has;if(ST==='ok')sl.hidden=has||!avail().length;
+ if(has){fix(pk);sl.querySelectorAll('[aria-pressed]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.iso===d.toISOString())));}
+ if(user){$('bpickc').focus({preventScroll:true});const h=$('bkh2').getBoundingClientRect();if(h.top>innerHeight*.7)$('bkh2').scrollIntoView({behavior:'smooth',block:'start'});}}
+$('bpickc').addEventListener('click',()=>{pk.hidden=true;sl.hidden=false;(sl.querySelector('[aria-pressed=true]')||sl.querySelector('[data-iso]')||sl).focus();});
+
+/* ── کشور و منطقهٔ زمانی: از دستگاهِ مراجع؛ «تغییر» برای اصلاح ── */
+const cS=$('bco'),zS=$('btz'),zP=$('btzp'),zB=$('btzc');
+(function(){const top=TOP_CC.filter(k=>TZC[k]),rest=Object.keys(TZC).filter(k=>k!=='IR'&&!top.includes(k)).sort((a,b)=>TZC[a][0].localeCompare(TZC[b][0],'fa')),op=k=>'<option value="'+k+'">'+TZC[k][0]+'</option>';
+ cS.innerHTML='<option value="" disabled selected>انتخاب کنید</option><option value="IR">ایران</option>'+top.map(op).join('')+'<option disabled>──────────</option>'+rest.map(op).join('');})();
+function groups(cc){const g={};TZC[cc][1].forEach(([z])=>{const o=off(z);(g[o.t]=g[o.t]||{z,zs:[],o}).zs.push(z);});return Object.values(g).sort((a,b)=>a.o.n-b.o.n);}
+function setCountry(cc){CC=cc;$('bcov').value=TZC[cc]?TZC[cc][0]:'';cS.value=cc;
+ if(!cc){$('btzw').hidden=true;setZone(LOC);return;}
+ const L=groups(cc);zS._L=L;zS.innerHTML=L.map((x,i)=>'<option value="'+i+'">'+x.o.t+'</option>').join('');$('btzw').hidden=L.length<2;
+ let i=L.findIndex(x=>x.zs.includes(LOC));if(i<0&&PRI[cc])i=L.findIndex(x=>x.zs.includes(PRI[cc]));if(i<0)i=L.reduce((b,x,k)=>x.zs.length>L[b].zs.length?k:b,0);
+ zS.value=String(i);setZone(L[i].zs.includes(LOC)?LOC:L[i].z);}
+function setZone(z){TZ=z;DAY='';const o=off(z).t;$('btzv').value=CC?TZC[CC][0]+' — '+z+' ('+o+')':'';
+ const l=$('btzl');l.textContent='';l.append(CC?TZC[CC][0]+' ':'دستگاهِ شما ');const b=document.createElement('bdi');b.dir='ltr';b.textContent='('+o+')';l.append(b);
+ fee();paint();if(PICK)setPick(PICK);}
+cS.addEventListener('change',()=>{setCountry(cS.value);fix(cS);});
+zS.addEventListener('change',()=>{const x=zS._L[+zS.value];setZone(x.zs.includes(LOC)?LOC:x.z);});
+zB.addEventListener('click',()=>{const o=zP.hidden;zP.hidden=!o;zB.setAttribute('aria-expanded',String(o));zB.textContent=o?'بستن':'تغییر';if(o)cS.focus();});
+function detect(){let cc='';for(const k in TZC){if(TZC[k][1].some(x=>x[0]===LOC)){cc=k;break}}setCountry(cc);if(!cc){zP.hidden=false;zB.hidden=true;}}
+
+/* ── هزینه ── */
+const stu=$('bstu');
+function fee(){const v=$('bfv'),hv=$('bfeev'),i=$('bfi');if(!CC){v.textContent='پس از انتخابِ کشور';v.classList.add('emp');hv.value='';i.textContent='';return;}
+ const ir=CC==='IR',full=ir?'۱ میلیون و ۶۰۰ هزار تومان':'۵۰ دلار',st=ir?'۱ میلیون و ۳۰۰ هزار تومان':'۴۰ دلار';v.classList.remove('emp');v.textContent='';
+ if(stu.checked){const s=document.createElement('s');s.textContent=full;v.append(s,' '+st);}else v.textContent=full;hv.value=stu.checked?st+' (دانشجو)':full;
+ i.textContent='هزینهٔ هر جلسه '+full+'؛ برای دانشجوها '+st+'.';}
+stu.addEventListener('change',fee);
+
+/* ── تاریخ تولد: یک فیلد با تقویمِ انتخابی (شمسی/میلادی)؛ اول سال، بعد ماه، بعد روز ── */
+const DOB=(()=>{const fld=$('bdi'),val=fld.querySelector('.dpv'),pp=$('bdp'),G=pp.querySelector('.dpg'),T=pp.querySelector('.dpt'),bk=pp.querySelector('.dpb'),bkl=pp.querySelector('.dpbl'),CB=[...pp.querySelectorAll('.dpcal button')];
  const MN={p:['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'],g:['ژانویه','فوریه','مارس','آوریل','مه','ژوئن','ژوئیه','اوت','سپتامبر','اکتبر','نوامبر','دسامبر']};
- const WD=['ش','ی','د','س','چ','پ','ج'],DAY=864e5;
- const PF=new Intl.DateTimeFormat('en-US-u-ca-persian-nu-latn',{timeZone:'UTC',year:'numeric',month:'numeric',day:'numeric'});
+ const WD=['ش','ی','د','س','چ','پ','ج'],DAY=864e5,PF=new Intl.DateTimeFormat('en-US-u-ca-persian-nu-latn',{timeZone:'UTC',year:'numeric',month:'numeric',day:'numeric'});
  const ymd=(t,c)=>{if(c==='g'){const d=new Date(t);return [d.getUTCFullYear(),d.getUTCMonth()+1,d.getUTCDate()];}const P={};PF.formatToParts(new Date(t)).forEach(x=>P[x.type]=x.value);return [parseInt(P.year),+P.month,+P.day];};
  const toT=(y,m,d,c)=>{if(c==='g')return Date.UTC(y,m-1,d);let t=Date.UTC(y+621,2,20)+((m<=6?(m-1)*31:186+(m-7)*30)+d-1)*DAY;
   for(let k=0;k<8;k++){const [Y,M,D]=ymd(t,'p'),s=(Y-y)||(M-m)||(D-d);if(!s)return t;t+=(s>0?-1:1)*DAY;}return t;};
  const mlen=(y,m,c)=>{if(c==='g')return new Date(Date.UTC(y,m,0)).getUTCDate();if(m<=6)return 31;if(m<=11)return 30;return ymd(toT(y,12,29,'p')+DAY,'p')[1]===12?30:29;};
  const today=()=>{const n=new Date();return Date.UTC(n.getFullYear(),n.getMonth(),n.getDate());};
+ const age=t=>{const [y,m,d]=ymd(t,'g'),[Y2,M2,D2]=ymd(today(),'g');return Y2-y-((M2<m||(M2===m&&D2<d))?1:0);};
  let C='p',sel=null,Y=null,M=null,step='y';
- const btn=(txt,on,attrs)=>{const b=document.createElement('button');b.type='button';b.textContent=txt;if(attrs)for(const k in attrs)b.setAttribute(k,attrs[k]);b.addEventListener('click',on);return b;};
+ const btn=(txt,on,at)=>{const b=document.createElement('button');b.type='button';b.textContent=txt;for(const k in at||{})b.setAttribute(k,at[k]);b.addEventListener('click',on);return b;};
+ const txt=t=>{const [y,m,d]=ymd(t,C);return fa(d)+' '+MN[C][m-1]+' '+fa(y);};
  const show=()=>{G.textContent='';G.className='dpg '+step;const sY=sel?ymd(sel,C):null,tY=ymd(today(),C);
   if(step==='y'){T.textContent='سالِ تولد';bk.hidden=true;let first=null;
    for(let y=tY[0]-18;y>=tY[0]-100;y--){const b=btn(fa(y),()=>{Y=y;step='m';show();},{'aria-pressed':String(!!sY&&sY[0]===y)});if((sY&&sY[0]===y)||(!sY&&y===tY[0]-35))first=b;G.append(b);}
    if(first)requestAnimationFrame(()=>{G.scrollTop=first.offsetTop-G.offsetTop-G.clientHeight/2+first.offsetHeight/2;first.focus({preventScroll:true});});}
   else if(step==='m'){T.textContent=fa(Y);bk.hidden=false;bkl.textContent='سال';
-   MN[C].forEach((n,i)=>G.append(btn(n,()=>{M=i+1;step='d';show();},{'aria-pressed':String(!!sY&&sY[0]===Y&&sY[1]===i+1)})));
-   (G.querySelector('[aria-pressed=true]')||G.firstChild).focus();}
+   MN[C].forEach((n,i)=>G.append(btn(n,()=>{M=i+1;step='d';show();},{'aria-pressed':String(!!sY&&sY[0]===Y&&sY[1]===i+1)})));(G.querySelector('[aria-pressed=true]')||G.firstChild).focus();}
   else{T.textContent=MN[C][M-1]+' '+fa(Y);bk.hidden=false;bkl.textContent='ماه';
    WD.forEach(w=>{const s=document.createElement('span');s.className='wd';s.textContent=w;G.append(s);});
-   const t1=toT(Y,M,1,C),off=(new Date(t1).getUTCDay()+1)%7,L=mlen(Y,M,C),lim=today();
-   for(let k=0;k<off;k++)G.append(document.createElement('span'));
-   for(let d=1;d<=L;d++){const t=t1+(d-1)*DAY;const b=btn(fa(d),()=>pick(t),{'aria-pressed':String(sel===t),'aria-label':fa(d)+' '+MN[C][M-1]+' '+fa(Y)});if(age(t)<18)b.disabled=true;G.append(b);}
+   const t1=toT(Y,M,1,C),o=(new Date(t1).getUTCDay()+1)%7,L=mlen(Y,M,C);for(let k=0;k<o;k++)G.append(document.createElement('span'));
+   for(let d=1;d<=L;d++){const t=t1+(d-1)*DAY,b=btn(fa(d),()=>pick(t),{'aria-pressed':String(sel===t),'aria-label':fa(d)+' '+MN[C][M-1]+' '+fa(Y)});if(age(t)<18)b.disabled=true;G.append(b);}
    (G.querySelector('[aria-pressed=true]')||G.querySelector('button:not(:disabled)')||G).focus();}};
- const age=t=>{const [y,m,d]=ymd(t,'g'),[Y2,M2,D2]=ymd(today(),'g');return Y2-y-((M2<m||(M2===m&&D2<d))?1:0);};
- const txt=t=>{const [y,m,d]=ymd(t,C);return fa(d)+' '+MN[C][m-1]+' '+fa(y);};
- const paint=()=>{val.textContent=sel?txt(sel):'تاریخ تولد';fld.classList.toggle('has',!!sel);fld.setAttribute('aria-label',sel?'تاریخ تولد: '+txt(sel):'تاریخ تولد');};
- const open=()=>{if(sel){[Y,M]=ymd(sel,C);step='d';}else step='y';pp.hidden=false;fld.setAttribute('aria-expanded','true');fld.classList.remove('inv');show();};
- const close=(back)=>{if(pp.hidden)return;pp.hidden=true;fld.setAttribute('aria-expanded','false');if(back)fld.focus();};
- const pick=t=>{sel=t;paint();close(true);err.hidden=true;};
+ const paintF=()=>{val.textContent=sel?txt(sel):'انتخاب کنید';fld.classList.toggle('has',!!sel);};
+ const open=()=>{if(sel){[Y,M]=ymd(sel,C);step='d';}else step='y';pp.hidden=false;fld.setAttribute('aria-expanded','true');show();};
+ const close=back=>{if(pp.hidden)return;pp.hidden=true;fld.setAttribute('aria-expanded','false');if(back)fld.focus();};
+ const pick=t=>{sel=t;paintF();close(true);fix(fld);};
  fld.addEventListener('click',()=>pp.hidden?open():close(false));
  pp.querySelector('.dpx').addEventListener('click',()=>close(true));
  bk.addEventListener('click',()=>{step=step==='d'?'m':'y';show();});
  CB.forEach(b=>b.addEventListener('click',()=>{if(b.dataset.c===C)return;C=b.dataset.c;CB.forEach(x=>x.setAttribute('aria-checked',String(x===b)));
-  if(step!=='y'){const ref=sel||toT(Y,M||1,1,C==='p'?'g':'p');[Y,M]=ymd(ref,C);}paint();show();}));
+  if(step!=='y'){const ref=sel||toT(Y,M||1,1,C==='p'?'g':'p');[Y,M]=ymd(ref,C);}paintF();show();}));
  pp.addEventListener('keydown',e=>{if(e.key==='Escape'){e.stopPropagation();close(true);}});
- document.addEventListener('click',e=>{if(!pp.hidden&&!pp.contains(e.target)&&!fld.contains(e.target))close(false);});
- f.addEventListener('reset',()=>{sel=null;close(false);paint();});
- return {check(){if(!sel)return {el:fld,t:'لطفاً «تاریخ تولد» را انتخاب کنید.'};const a=age(sel);if(a<18)return {el:fld,t:'رزرو جلسه برای افراد ۱۸ سال به بالاست.'};
-   document.getElementById('bbd').value=txt(sel)+(C==='p'?' (شمسی)':' (میلادی)');document.getElementById('bag').value=String(a);return null;}};})();
-let AGREED=false;
-const TM=(()=>{const t=document.getElementById('btm'),A=t.querySelector('.tmA'),Bv=t.querySelector('.tmB'),sb=f.querySelector('button[type=submit]');
- const close=()=>{t.hidden=true;sb.focus();};
- const open=()=>{A.hidden=false;Bv.hidden=true;t.hidden=false;t.scrollTop=0;setTimeout(()=>t.querySelector('.tmy').focus(),50);};
- t.querySelector('.qx').addEventListener('click',close);t.addEventListener('click',e=>{if(e.target===t)close();});
- document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!t.hidden)close();});
- t.querySelector('.tmy').addEventListener('click',()=>{t.hidden=true;AGREED=true;f.dispatchEvent(new Event('submit',{cancelable:true}));});
- t.querySelector('.tmn').addEventListener('click',()=>{A.hidden=true;Bv.hidden=false;setTimeout(()=>t.querySelector('.tmq').focus(),50);});
- t.querySelector('.tmq').addEventListener('click',()=>{t.hidden=true;document.querySelector('.nb .rqt').click();});
- return {open};})();
-const say=t=>{err.textContent=t;err.hidden=false};const bad=(el,t)=>{say(t);f.querySelectorAll('.inv').forEach(x=>x.classList.remove('inv'));el.classList.add('inv');el.setAttribute('aria-invalid','true');el.setAttribute('aria-describedby','berr');el.focus();};const clr=e=>{e.target.classList.remove('inv');e.target.removeAttribute('aria-invalid');};f.addEventListener('input',clr);f.addEventListener('change',clr);
-f.addEventListener('submit',e=>{e.preventDefault();err.hidden=true;f.querySelectorAll('.inv').forEach(x=>x.classList.remove('inv'));
- const fn=document.getElementById('bfn'),ln=document.getElementById('bln');ph.value=ph.value.trim();em.value=em.value.trim();
- fn.value=fn.value.replace(/\s+/g,' ').trim();ln.value=ln.value.replace(/\s+/g,' ').trim();
- if(fn.value.length<2)return bad(fn,'لطفاً «نام» را پر کنید.');if(ln.value.length<2)return bad(ln,'لطفاً «نام خانوادگی» را پر کنید.');
- document.getElementById('bnm').value=fn.value+' '+ln.value;
- {const x=DOB.check();if(x)return bad(x.el,x.t);}
- const jb=document.getElementById('bjob');jb.value=jb.value.replace(/\s+/g,' ').trim();if(jb.value.length<2)return bad(jb,'لطفاً «شغل» را پر کنید.');
- if(!ph.value||!ph.checkValidity())return bad(ph,ph.value?'شماره تماس باید ۷ تا ۱۵ رقم باشد.':'لطفاً «شماره تماس» را پر کنید.');
- if(!em.value||!em.checkValidity())return bad(em,em.value?'نشانیِ ایمیل درست نیست.':'لطفاً «ایمیل» را پر کنید.');
- const co=document.getElementById('bco');
- if(!co.value)return bad(co,'لطفاً «کشور» را انتخاب کنید.');
- if(!document.getElementById('btz').value)return bad(document.getElementById('btz'),'لطفاً «'+document.getElementById('btz').getAttribute('aria-label')+'» را انتخاب کنید.');
- if(hid.value&&new Date(iso.value)<=new Date(Date.now()+LEAD_MS)){render();return bad(dS,'زمانِ انتخاب‌شده دیگر در دسترس نیست؛ لطفاً زمان دیگری انتخاب کنید.');}
- if(!hid.value)return bad(!dS.value?dS:!tS.value?tS:fS,!dS.value?'لطفاً «روز هفته» را انتخاب کنید.':!tS.value?'لطفاً «ساعت» را انتخاب کنید.':'لطفاً «تاریخ جلسهٔ اول» را انتخاب کنید.');
- const sb=f.querySelector('button[type=submit]');
- /* 2.57: پیش از ثبت، پنجرهٔ «شرایط برگزاری جلسه»؛ فقط با «موافقم و ادامه» رزرو فرستاده می‌شود */
- if(!AGREED){TM.open();return;}AGREED=false;sb.disabled=true;
- const ok=()=>{const k=document.getElementById('bokm');k.querySelector('p').textContent='درخواست رزرو جلسه ثبت شد و نتیجه از طریق ایمیل به اطلاع شما خواهد رسید.';k.hidden=false;const fin=()=>{k.hidden=true;f.reset();pre();f.querySelector('.nt').open=false;sb.disabled=false;hid.value='';iso.value='';btn.focus()};k.querySelector('.qx').onclick=fin;k.onclick=e=>{if(e.target===k)fin()};};
- const fail=()=>{sb.disabled=false;say('ثبت انجام نشد. اتصال اینترنت را بررسی کنید و دوباره امتحان کنید.')};
- if(SCRIPT_URL){const data={};new FormData(f).forEach((v,k)=>{data[k]=v});
-  fetchT(SCRIPT_URL,{method:'POST',body:JSON.stringify(data)},20000).then(r=>r.json()).then(j=>{
-   if(j&&j.ok){GC=null;ok();return;}
-   if(j&&j.reason==='taken'){sb.disabled=false;GC=null;gcLoad(render);return bad(dS,'این زمان همین حالا رزرو شد؛ لطفاً زمانِ دیگری انتخاب کنید.');}
-   throw 0;}).catch(fail);return;}
- fetchT(f.action.replace('formsubmit.co/','formsubmit.co/ajax/'),{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)})
- .then(r=>r.json().catch(()=>({})).then(j=>{if(!r.ok||String(j.success)!=='true')throw 0;ok()})).catch(fail);});})();
+ document.addEventListener('click',e=>{if(!pp.hidden&&!e.composedPath().some(n=>n===pp||n===fld))close(false);});
+ return {reset(){sel=null;close(false);paintF();},
+  check(){if(!sel)return 'تاریخ تولد را انتخاب کنید.';const a=age(sel);if(a<18)return 'رزرو جلسه برای افراد ۱۸ سال به بالاست.';
+   $('bbd').value=txt(sel)+(C==='p'?' (شمسی)':' (میلادی)');$('bag').value=String(a);return '';}};})();
+
+/* ── خطاها: کنارِ همان فیلد ── */
+const wrap=el=>el.closest('.bk-f');
+function mark(el,msg){const w=wrap(el),e=w&&w.querySelector('.bk-e');if(!e)return;e.textContent=msg;e.hidden=false;if(el.matches('input,select,button'))el.setAttribute('aria-invalid','true');if(!e.id)e.id='e'+Math.random().toString(36).slice(2,8);el.setAttribute('aria-describedby',e.id);}
+function fix(el){const w=wrap(el),e=w&&w.querySelector('.bk-e');if(e)e.hidden=true;el.removeAttribute('aria-invalid');$('berr').hidden=true;}
+f.addEventListener('input',e=>{if(e.target.matches('input,textarea'))fix(e.target);});
+const nm=$('bnm'),jb=$('bjob'),em=$('bem'),ph=$('bph'),ag=$('bagr');ag.addEventListener('change',()=>fix(ag));
+const norm=s=>s.replace(/\s+/g,' ').trim();
+function check(){const E=[],add=(el,m)=>E.push([el,m]);
+ if(!CC)add(cS,'کشورِ محلِ زندگی را انتخاب کنید.');
+ if(PICK&&+PICK<=Date.now()+LEAD_MS){setPick(null);paint();add(pk,'این زمان دیگر در دسترس نیست؛ زمانِ دیگری انتخاب کنید.');}
+ else if(!PICK)add(pk,ST==='ok'&&avail().length?'یکی از زمان‌ها را انتخاب کنید.':'فعلاً زمانی برای انتخاب نیست.');
+ nm.value=norm(nm.value);if(!/^\S{2,}(\s\S+)+$/.test(nm.value))add(nm,'نام و نام خانوادگی را کامل بنویسید.');
+ {const m=DOB.check();if(m)add($('bdi'),m);}
+ jb.value=norm(jb.value);if(jb.value.length<2)add(jb,'شغل را بنویسید.');
+ ph.value=ph.value.trim();if(!/^\+?\d{7,15}$/.test(ph.value))add(ph,ph.value?'شماره باید ۷ تا ۱۵ رقم باشد.':'شماره تماس را بنویسید.');
+ em.value=em.value.trim();if(!/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(em.value))add(em,em.value?'نشانیِ ایمیل درست نیست.':'ایمیل را بنویسید.');
+ if(!ag.checked)add(ag,'برای ثبت، این مورد را تأیید کنید.');
+ return E;}
+function showErr(E){E.forEach(([el,m])=>mark(el,m));const [el]=E[0];
+ if(el===cS&&zP.hidden){zP.hidden=false;zB.setAttribute('aria-expanded','true');zB.textContent='بستن';}
+ if(el===pk){pk.hidden=true;sl.hidden=!sl.children.length;const w=wrap(pk);w.scrollIntoView({behavior:'smooth',block:'center'});(sl.querySelector('[data-iso]')||w).focus({preventScroll:true});}
+ else{el.scrollIntoView({behavior:'smooth',block:'center'});el.focus({preventScroll:true});}
+ const b=$('berr');b.textContent=fa(E.length>1?E.length+' مورد کامل نیست؛ توضیحِ هر کدام کنارش آمده.':'یک مورد کامل نیست؛ توضیحش کنارش آمده.');b.hidden=false;}
+
+/* ── ثبت ── */
+const sb=f.querySelector('button[type=submit]');
+f.addEventListener('submit',e=>{e.preventDefault();if(BUSY)return;f.querySelectorAll('.bk-e').forEach(x=>x.hidden=true);f.querySelectorAll('[aria-invalid]').forEach(x=>x.removeAttribute('aria-invalid'));$('berr').hidden=true;
+ const E=check();if(E.length)return showErr(E);
+ const data={};new FormData(f).forEach((v,k)=>{data[k]=v});const when=$('bsum').textContent,mail=em.value;
+ BUSY=true;sb.disabled=true;
+ fetchT(SCRIPT_URL,{method:'POST',body:JSON.stringify(data)},20000).then(r=>r.json()).then(j=>{
+  if(j&&j.ok){done(when,mail);return;}
+  if(j&&j.reason==='taken'){const gone=PICK;SL=(SL||[]).filter(d=>+d!==+gone);setPick(null);paint();load(true);showErr([[pk,'این زمان همین حالا رزرو شد؛ لطفاً زمانِ دیگری انتخاب کنید.']]);return;}
+  throw 0;})
+ .catch(()=>{const b=$('berr');b.textContent='ثبت انجام نشد. اتصال اینترنت را بررسی کنید و دوباره امتحان کنید، یا از «ثبت سؤال» پیام بدهید.';b.hidden=false;})
+ .finally(()=>{BUSY=false;sb.disabled=false;});});
+function done(when,mail){const ok=$('bok');$('boks').textContent=when;$('boke').textContent=mail;f.hidden=true;ok.hidden=false;ok.focus({preventScroll:true});ok.scrollIntoView({block:'center'});SL=null;ST='idle';}
+function reset(){f.reset();DOB.reset();setPick(null);f.querySelectorAll('.bk-e').forEach(x=>x.hidden=true);f.querySelectorAll('[aria-invalid]').forEach(x=>x.removeAttribute('aria-invalid'));$('berr').hidden=true;
+ zP.hidden=true;zB.hidden=false;zB.textContent='تغییر';zB.setAttribute('aria-expanded','false');detect();$('bok').hidden=true;f.hidden=false;}
+
+/* ── شروع: با باز شدنِ صفحهٔ رزرو، زمان‌ها بارگیری می‌شوند ── */
+detect();
+const route=()=>{if((location.hash||'').slice(1)!=='booking')return;if(f.hidden)reset();load();paint();};
+addEventListener('hashchange',route);route();
+})();
 </script>
 <script>
 (function(){const fa2en=v=>v.replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
